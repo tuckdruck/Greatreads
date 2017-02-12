@@ -70,3 +70,20 @@
   -BookDetails
     -ReviewShow
   -MainHeader
+
+
+  ## Routes
+
+|Path                 | Component           |
+|---------------------|---------------------|
+| "/"                 | "HomePageSignedOut" |
+| "/books"            | "HomePageSignedIn"  |
+| "/books/:bookId"    | "BookShowPage"      |
+| "/mybooks"          | "MyBooksPage"       |
+| "/signin"           | "SignInPage"        |
+| "/signout"          | "SignOutPage"       |
+| "/bookshelves/edit" | "EditShelvesPage"   |
+| "/reviews/:reviewId"| "ReviewShowPage"    |
+
+"/" redirects to "/books" if the user is logged in (implemented through an onEnter hook).
+"/books" redirects to "/" if the user is not logged in (implemented through an onEnter hook).
