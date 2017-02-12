@@ -1,5 +1,6 @@
 # Schema Information
 
+
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -45,6 +46,7 @@ book id         | integer   | not null, indexed
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+
 
 ## read status
 column name     | data type | details
