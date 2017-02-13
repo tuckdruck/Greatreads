@@ -11,7 +11,7 @@
 ***HomePageSignedOut***
   -SignedOutHeader
   -SmallSignIn
-    -SmallSignInForm
+  -SignUpComponent
   -BookIndex
     -BookIndexItem
       -BookHoverDetail
@@ -66,16 +66,18 @@
 
 
 ***EditShelvesPage***
+  -SignedInHeader
   -AddShelfForm
   -EditBookshelvesForm
     -EditableBookshelfIndex
+  -MainFooter
 
 
 ***ReviewShowPage***
   -SignedInHeader
   -BookDetails
     -ReviewShow
-  -MainHeader
+  -MainFooter
 
 
   ## Routes
