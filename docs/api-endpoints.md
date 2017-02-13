@@ -1,6 +1,5 @@
 # API Endpoints
 
-ADD PARAMS
 
 ##HTML API
 
@@ -50,5 +49,3 @@ ADD PARAMS
 -`PATCH /api/reviews/:reviewId`
 -`DELETE /api/reviews/:reviewId`
 -`GET /api/books/:bookId/reviews` - for all of the reviews of a particular book
-
-Need to get a user's review for a specific book
