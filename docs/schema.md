@@ -24,7 +24,7 @@ average rating  | float     |
 page length     | integer   |
 published date  | date      |
 publisher       | string    |
-ISBN            | integer   |
+ISBN            | string    |
 Language        | string    |
 URL to buy      | string    |
 
@@ -43,9 +43,8 @@ column name     | data type | details
 id              | integer   | not null, primary key
 bookshelf id    | integer   | not null, indexed, foreign key, unique in the scope of a book id
 book id         | integer   | not null, indexed
-email           | string    | not null, indexed, unique
-password_digest | string    | not null
-session_token   | string    | not null, indexed, unique
+date read       | date      |
+
 
 
 ## read status
@@ -55,6 +54,7 @@ id              | integer   | not null, primary key
 user id         | integer   | not null, indexed, foreign key referencing users table, unique in the scope of a book id
 book id         | integer   | not null, indexed, foreign key referencing users table
 status          | text      | not null, inclusion in: ["to read", "currently-reading", "read"]
+date read       | date      |
 
 
 ## review

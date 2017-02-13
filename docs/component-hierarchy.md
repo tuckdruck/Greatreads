@@ -49,6 +49,12 @@
   -MainFooter
 
 
+***ReviewFormPage***
+  -MainHeader
+  -UpdateFieldsForm
+  -ReviewBodyForm
+  -MainFooter
+
 ***BookShowPage***
   -SignedInHeader
   -BookDetails
@@ -83,7 +89,9 @@
 | "/signin"           | "SignInPage"        |
 | "/signout"          | "SignOutPage"       |
 | "/bookshelves/edit" | "EditShelvesPage"   |
+| "/reviews"          | "ReviewFormPage"    |
 | "/reviews/:reviewId"| "ReviewShowPage"    |
+
 
 "/" redirects to "/books" if the user is logged in (implemented through an onEnter hook).
 "/books" redirects to "/" if the user is not logged in (implemented through an onEnter hook).
