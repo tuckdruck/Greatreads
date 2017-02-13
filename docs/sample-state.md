@@ -2,7 +2,13 @@
 {
   session:
     {
-      currentUser: null,
+      currentUser:
+        {
+          id: 1,
+          name: "Avital",
+          username: "avitaldrucker",
+          email: "avitaldrucker@gmail.com"
+        }
       errors: []
     },
   books:
