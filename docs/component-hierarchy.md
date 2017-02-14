@@ -109,6 +109,7 @@
   -AddShelfFormContainer
   -EditBookshelvesForm
     -BookshelfIndex
+      -BookshelfIndexItem
   -Footer
 
 
