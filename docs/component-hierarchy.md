@@ -1,10 +1,48 @@
 #Component Hierarchy
 
+
+***List of All Separate Components***
+  -AddShelfFormContainer
+    -Props passed in:
+      -state: state.bookshelves
+      -dispatch: fetchBookshelves, createBookshelf, deleteBookshelf, updateBookshelf
+  -Auth Form
+    -Props passed in:
+      -state: state.session
+      -dispatch: action (signin or signup)
+      -Component will decide based on the action:
+        -whether or not to add name input field (signup will have this, signin will not)
+        -text on the button
+  -BookIndexContainer
+  -BookIndexItemContainer
+    -Props passed in:
+      -state: state.session, state.books
+      -Based on the route, show:
+        1) only book cover as link to book show page ("/"),
+        2) book cover as link to book show page, + Button to change status ("/books"),
+        3) book information as a row: title, author, average rating, etc.
+  -BookshelfIndex
+  -BookshelfIndexItem
+  -EditBookshelvesForm
+  -Errors
+  -FieldsForm
+  -Footer
+  -Header
+  -MyBooks
+  -ReviewBodyForm
+  -ReviewForm
+  -ReviewsIndex
+  -ReviewIndexItem
+  -Sidebar
+  -SignIn
+  -StatusIndex
+  -DateReadForm
+
 ***HomePageSignedIn***
   -Header
-  -BookIndex
-    -BookIndexItem
-      -BookIndexItem
+  -BookIndexContainer
+    -BookIndexItemContainer
+      -BookIndexItemContainer
   -Footer
 
 
@@ -12,9 +50,9 @@
   -Header
   -AuthForm
   -AuthForm
-  -BookIndex
-    -BookIndexItem
-      -BookIndexItem
+  -BookIndexContainer
+    -BookIndexItemContainer
+      -BookIndexItemContainer
   -Footer
 
 
@@ -36,8 +74,9 @@
     -Sidebar
       -StatusIndex
       -BookshelfIndex
-    -BooksIndex
-      -BooksIndexItem
+        -BookshelfIndexItem
+    -BookIndexContainer
+      -BookIndexItemContainer
         -FieldsForm
         -DateReadForm
   -ReviewForm
@@ -55,9 +94,10 @@
 
 ***BookShowPage***
   -Header
-  -BookIndexItem
+  -BookIndexItemContainer
     -FieldsForm
   -BookshelfIndex
+    -BookshelfIndexItem
   -ReviewIndexItem
   -ReviewsIndex
     -ReviewIndexItem
@@ -66,7 +106,7 @@
 
 ***EditShelvesPage***
   -Header
-  -AddShelfForm
+  -AddShelfFormContainer
   -EditBookshelvesForm
     -BookshelfIndex
   -Footer
@@ -74,25 +114,27 @@
 
 ***ReviewShowPage***
   -Header
-  -BookIndexItem
+  -BookIndexItemContainer
     -ReviewIndexItem
   -Footer
 
 
   ## Routes
 
-|Path                 | Component           |
-|---------------------|---------------------|
-| "/"                 | "HomePageSignedOut" |
-| "/books"            | "HomePageSignedIn"  |
-| "/books/:bookId"    | "BookShowPage"      |
-| "/mybooks"          | "MyBooksPage"       |
-| "/signin"           | "SignInPage"        |
-| "/signout"          | "SignOutPage"       |
-| "/bookshelves/edit" | "EditShelvesPage"   |
-| "/reviews"          | "ReviewFormPage"    |
-| "/reviews/:reviewId"| "ReviewShowPage"    |
+|Path                       | Component           |
+|---------------------------|---------------------|
+| "/"                       | "HomePageSignedOut" |
+| "/signin"                 | "SignInPage"        |
+| "/signout"                | "SignOutPage"       |
+
+| "/books"                  | "HomePageSignedIn"  |
+| "/books/:bookId"          | "BookShowPage"      |
+| "/books/mybooks"          | "MyBooksPage"       |
+| "/books/bookshelves/edit" | "EditShelvesPage"   |
+| "/books/reviews"          | "ReviewFormPage"    |
+| "/books/reviews/:reviewId"| "ReviewShowPage"    |
+
 
 
 "/" redirects to "/books" if the user is logged in (implemented through an onEnter hook).
-"/books" redirects to "/" if the user is not logged in (implemented through an onEnter hook).
+Any link starting with "/books" redirects to "/" if the user is not logged in (implemented through an onEnter hook).
