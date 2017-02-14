@@ -135,6 +135,27 @@
 | "/books/reviews"          | "ReviewFormPage"    |
 | "/books/reviews/:reviewId"| "ReviewShowPage"    |
 
+const Root = ({ store }) => (
+
+  <Provider store={ store }>
+    <Router history={ hashHistory }>
+      <IndexRoute component={HomePageSignedOut}/>
+      <Route path="signin" component={SignInPage}/>
+      <Route path="signout" component={SignOutPage}/>
+
+      <Route path="books" component={MainHeader}>
+        <Route path="home" component={HomePageSignedIn}/>
+        <Route path="edit" component={EditShelvesPage}/>
+        <Route path="reviews" component={ReviewFormPage}/>
+        <Route path="reviews/:reviewId" component={ReviewShowPage}/>
+        <Route path=":bookId" component={BookShowPage}/>
+      </Route>
+
+    </Router>
+  </Provider>
+
+);
+
 
 
 "/" redirects to "/books" if the user is logged in (implemented through an onEnter hook).
