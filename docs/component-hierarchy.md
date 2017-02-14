@@ -1,83 +1,82 @@
 #Component Hierarchy
 
 ***HomePageSignedIn***
-  -SignedInHeader
+  -Header
   -BookIndex
     -BookIndexItem
-      -BookHoverDetail
-  -MainFooter
+      -BookIndexItem
+  -Footer
 
 
 ***HomePageSignedOut***
-  -SignedOutHeader
-  -SmallSignIn
-  -SignUpComponent
+  -Header
+  -AuthForm
+  -AuthForm
   -BookIndex
     -BookIndexItem
-      -BookHoverDetail
-  -MainFooter
+      -BookIndexItem
+  -Footer
 
 
 ***SignInPage***
-  -SessionHeader
-  -SignIn
+  -Header
+  -AuthForm
     -Errors
-    -SignInForm
-  -BooksFooter
+  -Footer
 
 
 ***SignOutPage***
-  -SessionHeader
-  -SignOutNotification
-  -BooksFooter
+  -Header
+  -Footer
 
 
 ***MyBooksPage***
-  -SignedInHeader
+  -Header
   -MyBooks
     -Sidebar
       -StatusIndex
       -BookshelfIndex
-    -BooksFiltered
-      -BooksFilteredHeader
-      -BooksFilteredEntry
-        -UpdateFieldsForm
-        -UpdateDateReadForm
+    -BooksIndex
+      -BooksIndexItem
+        -FieldsForm
+        -DateReadForm
   -ReviewForm
-    -UpdateFieldsForm
+    -FieldsForm
     -ReviewBodyForm
-  -MainFooter
+  -Footer
 
 
 ***ReviewFormPage***
-  -MainHeader
-  -UpdateFieldsForm
+  -Header
+  -FieldsForm
   -ReviewBodyForm
-  -MainFooter
+  -Footer
+
 
 ***BookShowPage***
-  -SignedInHeader
-  -BookDetails
-    -BookDropdown
-  -MyActivity
+  -Header
+  -BookIndexItem
+    -FieldsForm
+  -BookshelfIndex
+  -ReviewIndexItem
   -ReviewsIndex
-    -ReviewsIndexItem
-  -MainFooter
+    -ReviewIndexItem
+  -Footer
 
 
 ***EditShelvesPage***
-  -SignedInHeader
+  -Header
   -AddShelfForm
   -EditBookshelvesForm
-    -EditableBookshelfIndex
-  -MainFooter
+    -BookshelfIndex
+  -Footer
 
 
 ***ReviewShowPage***
-  -SignedInHeader
-  -BookDetails
-    -ReviewShow
-  -MainFooter
+  -Header
+  -BookIndexItem
+    -ReviewIndexItem
+  -Footer
 
 
   ## Routes
