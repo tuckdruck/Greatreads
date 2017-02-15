@@ -1,0 +1,66 @@
+
+div, h1, ul, li, form, input {
+  color: inherit;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+}
+
+body {
+  color: black;
+  background: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+h1.logo {
+  font-family: helvetica;
+  font-size: 42px;
+}
+
+header.home-page-signed-out {
+  display: flex;
+  justify-content: space-between;
+  width: 975px;
+  margin: 0 auto;
+}
+
+.overall-header {
+  background: #F4F1EA;
+}
+
+form input {
+  font-family: lato;
+  font-size: 14px;
+  background: white;
+  height: 24px;
+  width: 130px;
+  margin-left: 5px;
+}
+
+.sign-in-button {
+  background-color: #382110;
+  color: white;
+  width: 60px;
+  height: 27px;
+}
+
+.sign-up {
+  display: flex;
+  width: 975px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.big-text {
+  font-size: 65px;
+  color: #845443;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: 18px;
+}
