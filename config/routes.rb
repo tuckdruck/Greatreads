@@ -9,5 +9,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :destroy]
   end
+
+  resources :books
+  resources :bookshelves, except: :index
+
+  resources :users, defaults: { format: :json } do
+    resources :bookshelves
+  end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
