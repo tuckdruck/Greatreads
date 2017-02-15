@@ -5,11 +5,11 @@ import { hashHistory } from 'react-router';
 export default class SignIn extends React.Component {
   constructor(props) {
     super(props);
-    this.default = { username: "Username", password: "Password" };
+    this.default = { username: "", password: "" , errors: []};
     this.state = this.default;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.clearField = this.clearField.bind(this);
+
   }
 
   update(type) {
@@ -27,27 +27,31 @@ export default class SignIn extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => { hashHistory.push("/"); });
+    this.props.clearErrors();
+    this.props.processForm(user).fail(() => { this.setState({ errors: this.props.errors }); });
   }
 
-  clearField(type) {
-    return (e) => {
-      this.setState({ [type]: "" });
-    };
+
+  componentWillReceiveProps() {
+    if (this.props.errors.length < 1) {
+      this.setState({ errors: []});
+    }
   }
+
+
 
   render() {
-
     return(
       <div>
-        <ul>{this.props.errors}</ul>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.username} onFocus={this.clearField("username")} onBlur={() => { this.setState(this.default); }} onChange={this.update("username")}/>
+        <ul>{this.state.errors}</ul>
+        <form className="sign-in" onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.username} placeholder="Username" onChange={this.update("username")} />
 
-          <input type={this.state.passwordView} value={this.state.password} onFocus={this.clearField("password")} onBlur={() => { this.setState(this.default); }} onChange={this.update("password")}/>
+          <input type={this.state.passwordView} placeholder="Password" value={this.state.password} onChange={this.update("password")}/>
 
-          <input className="sign-in-button" type="submit" value="Sign in"/>
+          <button className="sign-in-button">Sign In</button>
         </form>
+
       </div>
     );
   }

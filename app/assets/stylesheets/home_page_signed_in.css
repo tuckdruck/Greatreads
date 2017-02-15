@@ -1,0 +1,44 @@
+
+div.signed-in-subheader {
+  width: 1210px;
+  display: flex;
+  margin-left: 314px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  width: 406px;
+  height: 48px;
+  justify-content: space-between;
+}
+
+header.logo.signed-in {
+  font-family: helvetica;
+  font-size: 31px;
+  background: #F4F1EA;
+}
+
+.logo-signed-in {
+  font-size: 31px;
+}
+
+button {
+  font-size: 16px;
+}
+
+header.signed-in {
+  height: 52px;
+}
+
+nav a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav a:hover {
+  background: black;
+}
