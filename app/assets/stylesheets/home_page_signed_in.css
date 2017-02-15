@@ -4,22 +4,34 @@ div.signed-in-subheader {
   display: flex;
   margin-left: 314px;
   align-items: center;
+  height: 100%;
   justify-content: space-between;
+}
+
+div.signed-in-subheader button {
+  display: block;
+  height: 100%;
+  padding: 0 16px;
+}
+
+div.signed-in-subheader button:hover {
+  background: #382110;
+  color: white;
 }
 
 nav {
   display: flex;
   align-items: center;
   font-size: 16px;
-  width: 406px;
+  width: 500px;
   height: 48px;
-  justify-content: space-between;
 }
 
 header.logo.signed-in {
   font-family: helvetica;
   font-size: 31px;
   background: #F4F1EA;
+  height: 50px;
 }
 
 .logo-signed-in {
@@ -34,11 +46,32 @@ header.signed-in {
   height: 52px;
 }
 
-nav a {
-  padding-top: 20px;
-  padding-bottom: 20px;
+nav a:first-child {
+  padding-right: 16px;
 }
 
-nav a:hover {
-  background: black;
+nav a:not(:first-child) {
+  padding: 15px 16px;
+}
+
+nav a:hover:not(:first-child) {
+  background: #382110;
+  color: white;
+}
+
+ul.sign-in-errors {
+  display: block;
+  position: absolute;
+  background: white;
+  top: 33px;
+  left: 7px;
+  padding: 5px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+}
+
+div.sign-in {
+  position: relative;
 }

@@ -35,10 +35,11 @@ form.signup input {
   width: 281px;
   height: 33px;
   margin-bottom: 6px;
+  padding-left: 5px;
 }
 
 form.signup {
-  padding-left: 70px;
+  margin-top: 60px;
 }
 
 button.big-gold {
@@ -63,7 +64,7 @@ button.big-gold {
 .big-gold.guest {
   display: block;
   position: absolute;
-  top: 147px;
+  top: 164px;
   left: 175px;
 }
 
@@ -93,10 +94,22 @@ h1.logo.signed-out {
 h2 {
   font-size: 18px;
   display: block;
-  padding-left: 70px;
-  padding-top: 28px;
 }
 
 section.sign-up {
   position: relative;
+  margin-top: 35px;
+  padding-left: 70px;
+}
+
+ul.sign-up-errors {
+  display: block;
+  position: absolute;
+  background: white;
+  padding: 5px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  top: 30px;
 }
