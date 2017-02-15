@@ -43,9 +43,14 @@ export default class SignUp extends React.Component {
   }
 
   render() {
-    const errorLis = this.state.errors.map((error, index) => {
-      return (<li>{error}</li>);
-    });
+    let errors = "";
+    if (this.state.errors.length > 0) {
+      const errorLis = this.state.errors.map((error, index) => {
+        return (<li>{error}</li>);
+      });
+      errors = (<ul className="sign-up-errors">{errorLis}</ul>);
+    }
+
     return(
       <div className="sign-up">
 
@@ -56,13 +61,11 @@ export default class SignUp extends React.Component {
         <div>
           <section className="sign-up">
             <h2>New here? Create a free account!</h2>
-            <ul>
-              {errorLis}
-            </ul>
+            {errors}
             <form className="signup" onSubmit={this.handleSubmit}>
-              <input placeholder=" Username" type="text" value={this.state.username} onChange={this.update("username")}/>
+              <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
 
-              <input placeholder=" Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
+              <input placeholder="Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
               <br/>
               <button className="big-gold">Sign up</button>
             </form>

@@ -41,9 +41,13 @@ export default class SignIn extends React.Component {
 
 
   render() {
+    let errors = "";
+    if (this.state.errors.length > 0) {
+      errors = (<ul className="sign-in-errors">{this.state.errors}</ul>);
+    }
     return(
-      <div>
-        <ul>{this.state.errors}</ul>
+      <div className="sign-in">
+        {errors}
         <form className="sign-in" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.username} placeholder="Username" onChange={this.update("username")} />
 
