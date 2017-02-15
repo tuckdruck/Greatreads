@@ -1,123 +1,110 @@
 #Component Hierarchy
 
 
-***List of All Separate Components***
-  -AddShelfFormContainer
-    -Props passed in:
-      -state: state.bookshelves
-      -dispatch: fetchBookshelves, createBookshelf, deleteBookshelf, updateBookshelf
-  -Auth Form
-    -Props passed in:
-      -state: state.session
-      -dispatch: action (signin or signup)
-      -Component will decide based on the action:
-        -whether or not to add name input field (signup will have this, signin will not)
-        -text on the button
-  -BookIndexContainer
-  -BookIndexItemContainer
-    -Props passed in:
-      -state: state.session, state.books
-      -Based on the route, show:
-        1) only book cover as link to book show page ("/"),
-        2) book cover as link to book show page, + Button to change status ("/books"),
-        3) book information as a row: title, author, average rating, etc.
-  -BookshelfIndex
-  -BookshelfIndexItem
-  -EditBookshelvesForm
-  -Errors
-  -FieldsForm
-  -Footer
-  -Header
-  -MyBooks
-  -ReviewBodyForm
-  -ReviewForm
-  -ReviewsIndex
-  -ReviewIndexItem
-  -Sidebar
-  -SignIn
-  -StatusIndex
-  -DateReadForm
-
 ***HomePageSignedIn***
-  -Header
+  -MainHeader
   -BookIndexContainer
     -BookIndexItemContainer
-      -BookIndexItemContainer
+      -BookHoverDetail
   -Footer
 
 
 ***HomePageSignedOut***
-  -Header
-  -AuthForm
-  -AuthForm
+  -SmallSignInContainer
+    -SmallSignInErrors
+  -SignUpContainer
+    -Errors
   -BookIndexContainer
     -BookIndexItemContainer
-      -BookIndexItemContainer
+      -BookHoverDetail
   -Footer
 
 
 ***SignInPage***
-  -Header
-  -AuthForm
+  -MainHeader
+  -BigSignInContainer
     -Errors
   -Footer
 
 
 ***SignOutPage***
-  -Header
   -Footer
 
 
 ***MyBooksPage***
-  -Header
-  -MyBooks
-    -Sidebar
-      -StatusIndex
-      -BookshelfIndex
-        -BookshelfIndexItem
-    -BookIndexContainer
-      -BookIndexItemContainer
-        -FieldsForm
-        -DateReadForm
+  -MainHeader
+  -Sidebar
+    -StatusIndex  
+    -BookshelfIndex
+  -MyBookIndexContainer
+    -MyBookIndexItemContainer
+      -FieldsForm
+      -DateReadForm
   -ReviewForm
     -FieldsForm
-    -ReviewBodyForm
   -Footer
 
 
-***ReviewFormPage***
-  -Header
-  -FieldsForm
-  -ReviewBodyForm
+***EditShelvesPage***
+  -MainHeader
+  -AddShelfFormContainer
+  -EditBookshelvesForm
+    -EditBookshelfIndex
+      -EditBookshelfIndexItem
   -Footer
 
 
 ***BookShowPage***
-  -Header
-  -BookIndexItemContainer
+  -MainHeader
+  -BookDetail
     -FieldsForm
-  -BookshelfIndex
-    -BookshelfIndexItem
-  -ReviewIndexItem
+  -MyActivity
   -ReviewsIndex
     -ReviewIndexItem
   -Footer
 
 
-***EditShelvesPage***
-  -Header
-  -AddShelfFormContainer
-  -EditBookshelvesForm
-    -BookshelfIndex
-      -BookshelfIndexItem
+***ReviewFormPage***
+  -MainHeader
+  -FieldsForm
   -Footer
 
 
 ***ReviewShowPage***
-  -Header
-  -BookIndexItemContainer
-    -ReviewIndexItem
+  -MainHeader
+  -BookReviewed
+  -ReviewIndexItem
   -Footer
+
+
+***List of All Components in Component Web Pages***
+AddShelfFormContainer
+BigSignInContainer
+BookDetail
+BookHoverDetail
+BookIndexItemContainer
+BookIndexContainer
+BookReviewed
+BookshelfIndex
+DateReadForm
+EditBookshelfIndex
+EditBookshelfIndexItem
+EditBookshelvesForm
+Errors
+FieldsForm
+Footer
+MainHeader
+MyActivity
+MyBookIndexItemContainer
+MyBookIndexContainer
+ReviewForm
+ReviewsIndex
+ReviewsIndexItem
+Sidebar
+SignUpContainer
+SmallSignInContainer
+SmallSignInErrors
+StatusIndex
 
 
   ## Routes
@@ -135,26 +122,6 @@
 | "/books/reviews"          | "ReviewFormPage"    |
 | "/books/reviews/:reviewId"| "ReviewShowPage"    |
 
-const Root = ({ store }) => (
-
-  <Provider store={ store }>
-    <Router history={ hashHistory }>
-      <IndexRoute component={HomePageSignedOut}/>
-      <Route path="signin" component={SignInPage}/>
-      <Route path="signout" component={SignOutPage}/>
-
-      <Route path="books" component={MainHeader}>
-        <Route path="home" component={HomePageSignedIn}/>
-        <Route path="edit" component={EditShelvesPage}/>
-        <Route path="reviews" component={ReviewFormPage}/>
-        <Route path="reviews/:reviewId" component={ReviewShowPage}/>
-        <Route path=":bookId" component={BookShowPage}/>
-      </Route>
-
-    </Router>
-  </Provider>
-
-);
 
 
 
