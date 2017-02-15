@@ -1,6 +1,6 @@
 GREATREADS
 
-Heroku link
+Heroku link: https://goodreadsclone.herokuapp.com/
 
 
 **MINIMUM VIABLE PRODUCT**

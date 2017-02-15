@@ -1,21 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import HomePageSignedOut from './home_page_signed_out';
-import MainHeader from './main_header';
-import HomePageSignedIn from './home_page_signed_in'
+import AppContainer from './app_container';
+import LoggedOutPage from './logged_out_page';
+import SignInPage from './sign_in_page';
+
 
 const Root = ({ store }) => (
 
   <Provider store={ store }>
 
     <Router history={ hashHistory }>
-      <Route path="/">
-        <IndexRoute component={HomePageSignedOut}/>
-        <Route path="books" component={MainHeader}>
-          <Route path="home" component={HomePageSignedIn}/>
-        </Route>
-      </Route>
+      <Route path="/" component={AppContainer}/>
+      <Route path="logout" component={LoggedOutPage}/>
+      <Route path="signin" component={SignInPage}/>
     </Router>
 
   </Provider>

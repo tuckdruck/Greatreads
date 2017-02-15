@@ -6,7 +6,7 @@ export const signup = user => {
       user: user
     }
   });
-}
+};
 
 
 export const login = user => {
@@ -17,11 +17,11 @@ export const login = user => {
       user: user
     }
   });
-}
+};
 
 export const logout = () => {
   return $.ajax({
     type: "DELETE",
     url: "api/session"
   });
-}
+};

@@ -1,46 +1,52 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
+
 export default class SignIn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "username", password: "password" };
+    this.default = { username: "Username", password: "Password" };
+    this.state = this.default;
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.redirect = this.redirect.bind(this);
     this.update = this.update.bind(this);
+    this.clearField = this.clearField.bind(this);
   }
 
   update(type) {
     let self = this;
     return function(event) {
-      self.setState({ [type]: event.currentTarget.value });
-    }
+      let value;
+      if (type === "password") {
+        self.setState({ [type]: event.currentTarget.value , passwordView: "password"});
+      } else {
+        self.setState({ [type]: event.currentTarget.value });
+      }
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => { this.redirect() });
+    this.props.processForm(user).then(() => { hashHistory.push("/"); });
   }
 
-  redirect() {
-    hashHistory.push("/books/home");
+  clearField(type) {
+    return (e) => {
+      this.setState({ [type]: "" });
+    };
   }
 
   render() {
-    const errorLis = this.props.errors.map((error, index) => {
-      return (<li>${error}</li>);
-    });
 
     return(
       <div>
-        <ul>{errorLis}</ul>
+        <ul>{this.props.errors}</ul>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.username} onChange={this.update("username")}/>
+          <input type="text" value={this.state.username} onFocus={this.clearField("username")} onBlur={() => { this.setState(this.default); }} onChange={this.update("username")}/>
 
-          <input type="text" value={this.state.password} onChange={this.update("password")}/>
+          <input type={this.state.passwordView} value={this.state.password} onFocus={this.clearField("password")} onBlur={() => { this.setState(this.default); }} onChange={this.update("password")}/>
 
-          <input type="submit" value="Sign in"/>
+          <input className="sign-in-button" type="submit" value="Sign in"/>
         </form>
       </div>
     );
