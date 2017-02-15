@@ -1,5 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import Header from './header';
 
 export default class HomePageSignedIn extends React.Component {
 
@@ -10,14 +11,14 @@ export default class HomePageSignedIn extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.logout().then(() => { hashHistory.push("logout"); });
+    this.props.logout();
   }
 
   render() {
     return (
       <div>
+        <Header logout={this.props.logout}/>
         home page signed in
-        <button onClick={this.handleSubmit}>Log Out</button>
       </div>
     );
   }

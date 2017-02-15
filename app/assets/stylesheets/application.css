@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+button:hover {
+  cursor: pointer;
+}
+
+header {
+  background: inherit;
+}
+
+input {
+  border: 1px solid lightgray;
+}
+
+.logo {
+  color: #382110
+}

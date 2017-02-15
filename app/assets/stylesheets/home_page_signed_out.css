@@ -1,0 +1,102 @@
+.overall-header {
+  background: #E0DDCA;
+  margin: 0;
+  width: 100%;
+}
+
+header.container {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  background: inherit;
+}
+
+header.home-page-signed-out {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 965px;
+  margin-left: 430px;
+  height: 74px;
+}
+
+form.sign-in input {
+  font-size: 14px;
+  background: white;
+  height: 26px;
+  width: 126px;
+  margin-right: 5px;
+  border-radius: 3px;
+  padding-left: 5px;
+}
+
+form.signup input {
+  font-size: 16px;
+  background: white;
+  width: 281px;
+  height: 33px;
+  margin-bottom: 6px;
+}
+
+form.signup {
+  padding-left: 70px;
+}
+
+button.big-gold {
+  font-size: 18px;
+  background: #fdd05f;
+  padding: 9px 12px 9px 12px;
+  width: 84px;
+  border-radius: 3px;
+}
+
+
+.sign-in-button {
+  background-color: #382110;
+  color: white;
+  width: 64px;
+  height: 28px;
+  font-size: 13px;
+  margin-left: 2px;
+  border-radius: 3px;
+}
+
+.big-gold.guest {
+  display: block;
+  position: absolute;
+  top: 147px;
+  left: 175px;
+}
+
+div.sign-up {
+  display: flex;
+  width: 975px;
+  margin: 0 auto;
+  height: 295px;
+  justify-content: space-between;
+}
+
+.big-text {
+  font-size: 65px;
+  color: #845443;
+  font-weight: bold;
+  text-align: center;
+  width: 800px;
+  padding: 60px;
+}
+
+h1.logo.signed-out {
+  font-family: helvetica;
+  font-size: 42px;
+}
+
+
+h2 {
+  font-size: 18px;
+  display: block;
+  padding-left: 70px;
+  padding-top: 28px;
+}
+
+section.sign-up {
+  position: relative;
+}
