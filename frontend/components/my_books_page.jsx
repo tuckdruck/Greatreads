@@ -10,7 +10,7 @@ const MyBooksPage = (props) => {
     <div>
       <Header logout={props.logout}/>
       <Sidebar />
-      <MyBooksIndexContainer />
+      <MyBooksIndexContainer createBookshelf={props.createBookshelf}/>
       <Footer />
     </div>
   );
