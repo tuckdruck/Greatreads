@@ -8,7 +8,7 @@ const Header = (props) => {
         <nav>
           <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
           <Link to="/">Home</Link>
-          <Link to="/">My Books</Link>
+          <Link to="/mybooks">My Books</Link>
           <Link to="/">Browse</Link>
         </nav>
 

@@ -27,4 +27,4 @@ BookTagging.create!(book_id: song_of_ice_and_fire.id, bookshelf_id: my_favorite_
 BookTagging.create!(book_id: great_gatsby.id, bookshelf_id: my_favorite_books.id)
 BookTagging.create!(book_id: i_robot.id, bookshelf_id: classics.id)
 BookTagging.create!(book_id: great_gatsby.id, bookshelf_id: classics.id)
-BookTagging.create!(book_id: animal_farm.id, bookshelf_id: classics_id)
+BookTagging.create!(book_id: animal_farm.id, bookshelf_id: classics.id)

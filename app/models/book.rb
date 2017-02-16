@@ -8,12 +8,12 @@ class Book < ActiveRecord::Base
     source: :bookshelf
 
   def self.find_by_bookshelf(bookshelf_id)
-      Book
-        .joins(:book_taggings)
-        .joins(:bookshelves)
-        .where("bookshelves.id = ?", bookshelf_id)
+    bookshelf = Bookshelf.find_by(id: bookshelf_id)
+    bookshelf.books
   end
 
   def self.find_by_user(user_id)
+    user = User.find_by(id: user_id)
+    user.books
   end
 end
