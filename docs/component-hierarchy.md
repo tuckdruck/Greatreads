@@ -36,6 +36,7 @@
   -Sidebar
     -StatusIndex  
     -BookshelfIndex
+    -Add Shelf Form
   -MyBookIndexContainer
     -MyBookIndexItemContainer
       -FieldsForm
