@@ -64,11 +64,9 @@ export default class BooksFilterPane extends React.Component {
             Bookshelves
             <ul>
               <li><button onClick={this.fetchUserBooks}>all</button></li>
-              <li>read</li>
-              <li>currently-reading</li>
-              <li>to-read</li>
-            </ul>
-            <ul>
+              <li><button>read</button></li>
+              <li><button>currently-reading</button></li>
+              <li><button>to-read</button></li>
               {bookshelfIndexItems}
             </ul>
             <button onClick={this.toggleAddShelfForm}>Add Shelf</button>

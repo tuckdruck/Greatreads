@@ -18,9 +18,9 @@ export default class MyBooksIndex extends React.Component {
       <table>
         <tbody>
         <tr>
-          <th>cover</th>
-          <th>title</th>
-          <th>author</th>
+          <th className="cover-col">cover</th>
+          <th className="book-title-col">title</th>
+          <th className="book-author-col">author</th>
           <th>avg rating</th>
           <th>shelves</th>
           <th>review</th>

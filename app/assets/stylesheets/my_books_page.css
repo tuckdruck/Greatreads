@@ -13,3 +13,23 @@ header.bookshelf-title-header {
   color: #00635d;
   padding: 10px 0px;
 }
+
+section.books-filtered-body nav {
+  width: 192px;
+}
+
+table {
+  width: 772px;
+}
+
+.cover-col {
+  width: 52px;
+}
+
+.book-title-col {
+  width: 130px;
+}
+
+.book-author-col {
+  
+}
