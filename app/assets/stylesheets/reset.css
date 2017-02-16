@@ -1,5 +1,5 @@
 
-div, h1, ul, li, form, input, a, button, header, h2 {
+div, h1, ul, li, form, input, a, button, header, h2, button {
   color: inherit;
   background: transparent;
   margin: 0;
@@ -10,6 +10,7 @@ div, h1, ul, li, form, input, a, button, header, h2 {
   text-decoration: none;
   font-family: inherit;
   webkit-appearance: none;
+  text-align: left;
 }
 
 button {

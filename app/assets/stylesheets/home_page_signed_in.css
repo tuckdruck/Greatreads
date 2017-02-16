@@ -19,7 +19,7 @@ div.signed-in-subheader button:hover {
   color: white;
 }
 
-nav {
+nav.header {
   display: flex;
   align-items: center;
   font-size: 16px;

@@ -1,16 +1,13 @@
 import React from 'react';
 import Header from './header';
-import Sidebar from './sidebar';
-import MyBooksIndexContainer from './my_books_index_container';
+import BooksFilterPaneContainer from './books_filter_pane_container';
 import Footer from './footer';
-
 
 const MyBooksPage = (props) => {
   return(
     <div>
       <Header logout={props.logout}/>
-      <Sidebar createBookshelf={props.createBookshelf} fetchUserBooks={props.fetchUserBooks} currentUser={props.currentUser}/>
-      <MyBooksIndexContainer />
+      <BooksFilterPaneContainer createBookshelf={props.createBookshelf} fetchUserBooks={props.fetchUserBooks} currentUser={props.currentUser}/>
       <Footer />
     </div>
   );
