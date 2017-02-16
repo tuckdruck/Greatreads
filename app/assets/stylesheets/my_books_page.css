@@ -1,0 +1,15 @@
+div.my-books-body {
+  width: 961px;
+  margin: 0 auto;
+}
+
+section.books-filtered-body {
+  display: flex;
+}
+
+header.bookshelf-title-header {
+  height: 32px;
+  font-size: 22px;
+  color: #00635d;
+  padding: 10px 0px;
+}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BookshelfIndex from './bookshelf_index';
+import BooksFilterPane from './books_filter_pane';
 import bookshelvesArray from '../selectors/bookshelves_selector';
 import { fetchBookshelves } from '../actions/bookshelf_actions';
 import { fetchBookshelfBooks } from '../actions/book_actions';
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookshelfIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksFilterPane);
