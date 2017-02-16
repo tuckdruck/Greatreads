@@ -9,8 +9,8 @@ export const receiveBookshelves = bookshelves => {
   };
 };
 
-export const fetchBookshelves = (bookshelfId) => {
+export const fetchBookshelves = () => {
   return function(dispatch) {
-    return BookshelfAPIUtil.fetchBookshelves(bookshelfId).then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
+    return BookshelfAPIUtil.fetchBookshelves().then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
   };
 };

@@ -8,7 +8,7 @@ import Footer from './footer';
 const MyBooksPage = (props) => {
   return(
     <div>
-      <Header />
+      <Header logout={props.logout}/>
       <Sidebar />
       <MyBooksIndexContainer />
       <Footer />

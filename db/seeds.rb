@@ -19,7 +19,7 @@ animal_farm = Book.create!(title: "Animal Farm", author: "George Orwell")
 
 Bookshelf.destroy_all
 my_favorite_books = Bookshelf.create!(title: "my favorite books", user_id: me.id)
-classics = Bookshelf.create!(title: "classics", user_id: guest.id)
+classics = Bookshelf.create!(title: "classics", user_id: me.id)
 
 BookTagging.destroy_all
 BookTagging.create!(book_id: harrypotter1.id, bookshelf_id: my_favorite_books.id)

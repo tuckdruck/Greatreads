@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id              :integer          not null, primary key
+#  title           :string           not null
+#  author          :string           not null
+#  description     :text
+#  cover_image_url :string
+#  average_rating  :float
+#  page_length     :integer
+#  published_date  :date
+#  publisher       :string
+#  isbn            :string
+#  language        :string
+#  url_to_buy      :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Book < ActiveRecord::Base
   validates :title, :author, presence: true
 
