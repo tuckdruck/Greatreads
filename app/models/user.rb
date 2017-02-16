@@ -4,7 +4,6 @@
 #
 #  id              :integer          not null, primary key
 #  username        :string           not null
-#  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -20,6 +19,12 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
+
+  has_many :bookshelves
+
+  has_many :books,
+    through: :bookshelves,
+    source: :books
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

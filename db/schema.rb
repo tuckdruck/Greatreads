@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214231422) do
+ActiveRecord::Schema.define(version: 20170215221043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "book_taggings", force: :cascade do |t|
+    t.integer  "bookshelf_id", null: false
+    t.integer  "book_id",      null: false
+    t.date     "date_read"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["book_id"], name: "index_book_taggings_on_book_id", using: :btree
+    t.index ["bookshelf_id", "book_id"], name: "index_book_taggings_on_bookshelf_id_and_book_id", unique: true, using: :btree
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title",           null: false
+    t.string   "author",          null: false
+    t.text     "description"
+    t.string   "cover_image_url"
+    t.float    "average_rating"
+    t.integer  "page_length"
+    t.date     "published_date"
+    t.string   "publisher"
+    t.string   "isbn"
+    t.string   "language"
+    t.string   "url_to_buy"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["author"], name: "index_books_on_author", using: :btree
+    t.index ["title"], name: "index_books_on_title", using: :btree
+  end
+
+  create_table "bookshelves", force: :cascade do |t|
+    t.string  "title",   null: false
+    t.integer "user_id", null: false
+    t.index ["title", "user_id"], name: "index_bookshelves_on_title_and_user_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_bookshelves_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
