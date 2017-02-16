@@ -40,10 +40,10 @@
   -MyBookIndexContainer
     -MyBookIndexItemContainer
       -FieldsForm
-      -DateReadForm
-  -ReviewForm
-    -FieldsForm
-  -Footer
+      ***DateReadForm***
+    ***ReviewForm***
+    ***FieldsForm***
+  ***Footer***
 
 
 ***EditShelvesPage***

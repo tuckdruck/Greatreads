@@ -36,4 +36,13 @@ class Book < ActiveRecord::Base
     user = User.find_by(id: user_id)
     user.books
   end
+
+  def self.user_books_with_shelves(user_id)
+    result = Book.includes(:bookshelves).where("bookshelves.user_id = ? ", user_id).references(:bookshelves)
+    result
+  end
+
+  def self.bookshelf_books(bookshelf_id, user_id)
+    Book.user_books_with_shelves(user_id).where("bookshelves.id = ?", bookshelf_id)
+  end
 end

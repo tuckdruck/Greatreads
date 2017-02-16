@@ -29,8 +29,8 @@ export const createBookshelf = bookshelf => {
   };
 };
 
-export const fetchBookshelves = (bookId) => {
-  return function(dispatch) {
-    return BookshelfAPIUtil.fetchBookshelvesForBook()
-  }
-}
+// export const fetchBookshelves = (bookId) => {
+//   return function(dispatch) {
+//     return BookshelfAPIUtil.fetchBookshelvesForBook()
+//   }
+// }

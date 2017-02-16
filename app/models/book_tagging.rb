@@ -16,4 +16,8 @@ class BookTagging < ActiveRecord::Base
 
   belongs_to :book
   belongs_to :bookshelf
+
+  def user_book_taggings(user_id)
+    BookTagging.joins(:bookshelf).where("bookshelves.user_id = ?", user_id)
+  end
 end

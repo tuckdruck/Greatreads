@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, defaults: { format: :json } do
-      resources :books, only: [:index]
+      resources :books, only: [:index, :update]
     end
   end
 
@@ -35,6 +35,11 @@ Rails.application.routes.draw do
       resources :bookshelves, only: [:index]
     end
   end
+
+  namespace :api, defaults: { format: :json } do
+    resources :book_taggings, only: [:create, :destroy, :show]
+  end
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

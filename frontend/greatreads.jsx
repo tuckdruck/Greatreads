@@ -6,8 +6,6 @@ import * as BookshelfAPIUtil from './util/bookshelf_api_util';
 import * as BookAPIUtil from './util/book_api_util';
 
 import { signup, login, logout } from './util/session_api_util';
-window.fetchBookshelves = BookshelfAPIUtil.fetchBookshelves;
-window.fetchBookshelfBooks = BookAPIUtil.fetchBookshelfBooks;
 window.fetchUserBooks = BookAPIUtil.fetchUserBooks;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   else {
     store = configureStore();
   }
+  window.store = store;
 
   const root = document.getElementById("root");
 
