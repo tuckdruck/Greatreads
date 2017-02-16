@@ -7,7 +7,8 @@ import booksArray from '../selectors/books_selector';
 const mapStateToProps = state => {
   return {
     books: booksArray(state.books),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    bookshelves: state.bookshelves
   };
 };
 

@@ -1,27 +1,21 @@
 import React from 'react';
 import BookshelfIndexContainer from './bookshelf_index_container';
+import AddShelfFormContainer from './add_shelf_form_container';
 
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showAddShelfForm: false, shelfTitle: ""};
     this.toggleAddShelfForm = this.toggleAddShelfForm.bind(this);
-    this.updateShelfTitle = this.updateShelfTitle.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchUserBooks = this.fetchUserBooks.bind(this);
   }
 
-  togleAddShelfForm() {
+  toggleAddShelfForm() {
     this.setState({ showAddShelfForm: true });
   }
 
-  updateShelfTitle(e) {
-    this.setState({ shelfTitle: e.currentTarget.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const bookshelf = { title: this.state.shelfTitle };
-    this.props.createBookshelf(bookshelf);
+  fetchUserBooks() {
+    return this.props.fetchUserBooks(this.props.currentUser.id);
   }
 
   render() {
@@ -31,10 +25,7 @@ export default class Sidebar extends React.Component {
       form = (
         <div>
           <h3>Add a Shelf:</h3>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
-            <button>Add</button>
-          </form>
+          <AddShelfFormContainer />
         </div>
       );
     } else {
@@ -45,7 +36,7 @@ export default class Sidebar extends React.Component {
       <div>
         <h1>bookshelves</h1>
         <ul>
-          <li>all</li>
+          <li><button onClick={this.fetchUserBooks}>all</button></li>
           <li>read</li>
           <li>currently-reading</li>
           <li>to-read</li>

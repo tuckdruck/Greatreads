@@ -9,8 +9,8 @@ const MyBooksPage = (props) => {
   return(
     <div>
       <Header logout={props.logout}/>
-      <Sidebar />
-      <MyBooksIndexContainer createBookshelf={props.createBookshelf}/>
+      <Sidebar createBookshelf={props.createBookshelf} fetchUserBooks={props.fetchUserBooks} currentUser={props.currentUser}/>
+      <MyBooksIndexContainer />
       <Footer />
     </div>
   );

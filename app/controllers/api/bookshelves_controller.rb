@@ -2,9 +2,9 @@ class Api::BookshelvesController < ApplicationController
 
   def index
     if params[:book_id]
-      @bookshelves = Bookshelf.find_by_user_id(current_user.id)
-    else
       @bookshelves = Bookshelf.find_by_book_id(params[:book_id])
+    else
+      @bookshelves = Bookshelf.find_by_user_id(current_user.id)
     end
 
     render :index
@@ -12,6 +12,7 @@ class Api::BookshelvesController < ApplicationController
 
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
+    @bookshelf.user_id = current_user.id
     if @bookshelf.save
       render :show
     else
