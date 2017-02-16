@@ -14,9 +14,9 @@ header.home-page-signed-out {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 965px;
-  margin-left: 430px;
-  height: 74px;
+  width: 50%;
+  margin-left: 24.6%;
+  height: 100%;
 }
 
 form.sign-in input {
@@ -48,6 +48,7 @@ button.big-gold {
   padding: 9px 12px 9px 12px;
   width: 84px;
   border-radius: 3px;
+  text-align: center;
 }
 
 
@@ -59,6 +60,7 @@ button.big-gold {
   font-size: 13px;
   margin-left: 2px;
   border-radius: 3px;
+  text-align: center;
 }
 
 .big-gold.guest {

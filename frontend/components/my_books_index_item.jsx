@@ -31,9 +31,9 @@ export default class MyBooksIndexItem extends React.Component {
     }
     return(
       <tr>
-        <td>{this.props.book.cover}</td>
-        <td>{this.props.book.title}</td>
-        <td>{this.props.book.author}</td>
+        <td className="cover-col">{this.props.book.cover}</td>
+        <td className="book-title-col">{this.props.book.title}</td>
+        <td className="book-author-col">{this.props.book.author}</td>
         <td>{this.props.book.average_rating}</td>
         <td>{bookshelfTitles}<button onClick={this.toggleEditForm}>[edit]</button>{form}</td>
         <td>book review goes here</td>
