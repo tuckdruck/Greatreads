@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: bookshelves
+#
+#  id      :integer          not null, primary key
+#  title   :string           not null
+#  user_id :integer          not null
+#
+
 class Bookshelf < ActiveRecord::Base
   validates :title, :user, presence: true
   validates :title, uniqueness: { scope: :user}
