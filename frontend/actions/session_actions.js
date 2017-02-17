@@ -25,7 +25,6 @@ export const logout = () => {
   return function(dispatch) {
     return SessionAPIUtil.logout()
       .then((user) => { return dispatch(receiveCurrentUser(null)); })
-      .then(() => { return hashHistory.push("/"); })
       .fail((errors) => { return dispatch(receiveErrors(errors.responseJSON)); });
   };
 };
