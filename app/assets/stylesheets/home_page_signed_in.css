@@ -36,10 +36,6 @@ header.logo.signed-in {
   font-size: 31px;
 }
 
-button {
-  font-size: 16px;
-}
-
 header.signed-in {
   height: 52px;
 }
@@ -72,4 +68,8 @@ ul.sign-in-errors {
 
 div.sign-in {
   position: relative;
+}
+
+button.logout {
+  font-size: 16px;
 }

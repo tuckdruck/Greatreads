@@ -46,7 +46,7 @@ export default class BooksFilterPane extends React.Component {
     const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
       return (
         <li key={bookshelf.id}>
-          <button onClick={this.filterBooks(bookshelf)}>
+          <button className="bookshelf-filter-link" onClick={this.filterBooks(bookshelf)}>
             {bookshelf.title}
           </button>
         </li>
@@ -56,25 +56,28 @@ export default class BooksFilterPane extends React.Component {
     const colon = (this.state.selectedBookshelf === "") ? "" : ":";
 
     return(
-      <div className="my-books-body">
+      <div className="my-books-page">
+        <div className="my-books-content">
 
-        <header className="bookshelf-title-header">My Books{colon} {this.state.selectedBookshelf}</header>
-        <section className="books-filtered-body">
-          <nav>
-            Bookshelves
-            <ul>
-              <li><button onClick={this.fetchUserBooks}>all</button></li>
-              <li><button>read</button></li>
-              <li><button>currently-reading</button></li>
-              <li><button>to-read</button></li>
-              {bookshelfIndexItems}
-            </ul>
-            <button onClick={this.toggleAddShelfForm}>Add Shelf</button>
-            {form}
-          </nav>
-          <MyBooksIndexContainer />
-        </section>
+          <header className="bookshelf-title-header">My Books{colon} {this.state.selectedBookshelf}</header>
+          <section className="books-filtered-body">
+            <nav className="sidebar">
+              <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
+              <button className="edit-bookshelves-button">(edit)</button>
+              <ul>
+                <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
+                <li><button className="bookshelf-filter-link">read</button></li>
+                <li><button className="bookshelf-filter-link">currently-reading</button></li>
+                <li><button className="bookshelf-filter-link">to-read</button></li>
+                {bookshelfIndexItems}
+              </ul>
+              <button onClick={this.toggleAddShelfForm}>Add Shelf</button>
+              {form}
+            </nav>
+            <MyBooksIndexContainer />
+          </section>
 
+        </div>
       </div>
     );
   }

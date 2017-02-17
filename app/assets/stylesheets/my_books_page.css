@@ -1,6 +1,11 @@
-div.my-books-body {
-  width: 961px;
+div.my-books-content {
+  width: 68.5%;
   margin: 0 auto;
+}
+
+div.my-books-page {
+  background: white;
+  height: 600px;
 }
 
 section.books-filtered-body {
@@ -8,28 +13,59 @@ section.books-filtered-body {
 }
 
 header.bookshelf-title-header {
-  height: 32px;
+  height: 7.5%;
   font-size: 22px;
   color: #00635d;
-  padding: 10px 0px;
+  padding: 15px 0px 12px 0px;
+  font-family: Georgia;
+  font-weight: bold;
+  border-bottom: 1px solid #EBE8D5;
 }
 
 section.books-filtered-body nav {
-  width: 192px;
+  width: 20.2%;
 }
 
 table {
-  width: 772px;
+  width: 81.3%;
 }
 
 .cover-col {
-  width: 52px;
+  width: 5.5%;
 }
 
 .book-title-col {
-  width: 130px;
+  width: 13.7%;
 }
 
 .book-author-col {
-  
+  width: 8.6%;
+}
+
+.book-average-rating {
+  width: 3.8%;
+}
+
+nav.sidebar {
+  border-right: 1px solid #EBE8D5;
+  margin-top: 14px;
+}
+
+h3.bookshelves-index-header {
+  color: #aaa;
+  display: inline;
+}
+
+button.bookshelf-filter-link {
+  font-size: 14px;
+  color: #00635d;
+  padding-top: 5px;
+}
+
+button.bookshelf-filter-link:hover {
+  text-decoration: underline;
+}
+
+button.edit-bookshelves-button {
+  display: inline;
 }
