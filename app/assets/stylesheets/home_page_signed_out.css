@@ -18,6 +18,7 @@ header.home-page-signed-out {
 }
 
 form.sign-in input {
+  width: 41%;
   font-size: 14px;
   background: white;
   /*width: 33%;
@@ -30,6 +31,25 @@ form.sign-in input {
   /*padding-left: 2%;
   padding-top: 1%;
   padding-bottom: 1%;*/
+}
+
+form.sign-in {
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-button {
+  background-color: #382110;
+  width: 18%;
+  color: white;
+  /*width: 64px;
+  height: 28px;*/
+  font-size: 13px;
+  /*margin-left: 2px;*/
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px 8px;
+  margin-left: 2%;
 }
 
 form.signup input {
@@ -59,18 +79,7 @@ button.big-gold {
 }
 
 
-.sign-in-button {
-  background-color: #382110;
-  color: white;
-  /*width: 64px;
-  height: 28px;*/
-  font-size: 13px;
-  /*margin-left: 2px;*/
-  border-radius: 3px;
-  text-align: center;
-  padding: 5px 8px;
-  margin-left: 2%;
-}
+
 
 .big-gold.guest {
   display: block;
