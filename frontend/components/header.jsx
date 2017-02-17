@@ -12,7 +12,7 @@ const Header = (props) => {
           <Link to="/">Browse</Link>
         </nav>
 
-        <button onClick={props.logout}>Log Out</button>
+        <button className="logout" onClick={props.logout}>Log Out</button>
       </div>
     </header>
   );

@@ -20,7 +20,7 @@ export default class MyBooksIndexItem extends React.Component {
     const bookshelves = this.props.book.bookshelves;
     const bookshelfTitles = bookshelves.map((bookshelf) => {
       return bookshelf.title;
-    });
+    }).join(", ");
 
     let form;
 
@@ -34,7 +34,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="cover-col">{this.props.book.cover}</td>
         <td className="book-title-col">{this.props.book.title}</td>
         <td className="book-author-col">{this.props.book.author}</td>
-        <td>{this.props.book.average_rating}</td>
+        <td className="book-average-rating">{this.props.book.average_rating}</td>
         <td>{bookshelfTitles}<button onClick={this.toggleEditForm}>[edit]</button>{form}</td>
         <td>book review goes here</td>
         <td>date read goes here</td>
