@@ -1,11 +1,12 @@
 import SignUp from './sign_up';
-import { signup, receiveErrors, login } from '../actions/session_actions';
+import { signup, login } from '../actions/session_actions';
+import { receiveErrors } from '../actions/error_actions';
 import { connect } from 'react-redux';
 import errorsArray from '../selectors/signup_errors_selector';
 
 const mapStateToProps = state => {
   return {
-    errors: errorsArray(state.session.errors)
+    errors: state.errors
   };
 };
 

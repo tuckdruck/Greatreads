@@ -2,7 +2,7 @@ import { updateBookshelf, deleteBookshelf, fetchBookshelves } from '../actions/b
 import { connect } from 'react-redux';
 import bookshelvesArray from '../selectors/bookshelves_selector';
 import React from 'react';
-import EditBookshelvesIndexItem from './edit_bookshelves_index_item';
+import EditBookshelvesIndexItemContainer from './edit_bookshelves_index_item_container';
 
 class EditBookshelvesIndex extends React.Component {
 
@@ -16,7 +16,7 @@ class EditBookshelvesIndex extends React.Component {
 
   render() {
     const bookshelves = this.props.bookshelves.map((bookshelf) => {
-      return(<li key={bookshelf.id}><EditBookshelvesIndexItem key={bookshelf.id} bookshelf={bookshelf}/></li>);
+      return(<li key={bookshelf.id}><EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/></li>);
     });
 
     return(<ul>{bookshelves}</ul>);

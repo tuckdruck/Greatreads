@@ -11,7 +11,6 @@ class EditBookshelvesIndexItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hideForm = this.hideForm.bind(this);
     this.showForm = this.showForm.bind(this);
-    this.setErrors = this.setErrors.bind(this);
   }
 
   deleteBookshelf() {
@@ -28,27 +27,23 @@ class EditBookshelvesIndexItem extends React.Component {
     this.props.updateBookshelf({
       title: this.state.bookshelfTitle,
       id: this.props.bookshelf.id
-    })
-      .then(this.hideForm)
-      .fail((errors) => { this.setErrors(errors) });
-  }
-
-  setErrors(errors) {
-    return () => {
-      errors = errors.responseJSON;
-      const errorsArray = Object.keys(errors).map((prop) => { return `${prop} ${errors[prop]}`; });
-      this.setState({ errors: errorsArray(errors)});
-    };
+    }, this.props.userId)
+      .then(this.hideForm);
   }
 
   hideForm() {
-    this.setState({ showForm: false, bookshelfTitle: this.props.bookshelf.title});
+    this.setState({ showForm: false, bookshelfTitle: this.props.bookshelf.title, errors: []});
+  }
+
+  shouldComponentUpdate() {
+    if (!this.props.session.currentUser) {
+      return false;
+    }
   }
 
   showForm() {
     this.setState({ showForm: true});
   }
-
 
   render() {
     let itemDisplay;
@@ -60,7 +55,7 @@ class EditBookshelvesIndexItem extends React.Component {
             <button>Save</button>
           </form>
           <button onClick={this.hideForm}>Cancel</button>
-          {this.state.errors}
+          {this.props.inputErrors}
         </span>
       );
     }
@@ -81,19 +76,20 @@ class EditBookshelvesIndexItem extends React.Component {
     )
   }
 
-
 }
 
 const mapStateToProps = state => {
   return {
-    userId: state.session.currentUser.id
+    session: state.session,
+    userId: state.session.currentUser.id,
+    inputErrors: state.inputErrors
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateBookshelf: (bookshelf, userId) => { return dispatch(updateBookshelf(bookshelf, userId)); },
-    deleteBookshelf: (bookshelfId, userId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); }
+    updateBookshelf: (bookshelf) => { return dispatch(updateBookshelf(bookshelf, userId)); },
+    deleteBookshelf: (bookshelfId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); }
   };
 };
 
