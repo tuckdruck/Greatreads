@@ -69,3 +69,22 @@ button.bookshelf-filter-link:hover {
 button.edit-bookshelves-button {
   display: inline;
 }
+
+span.bookshelf-header-description {
+}
+
+span.bookshelf-header-description span {
+  background: #F4F4EA;
+  color: black;
+  height: 25px;
+}
+
+button.switch-to-all-books {
+  background: #E9E5D3;
+  color: gray;
+  height: 25px;
+  font-size: 22px;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
