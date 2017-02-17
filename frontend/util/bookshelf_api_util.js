@@ -14,3 +14,20 @@ export const createBookshelf = (bookshelf, userId) => {
     }
   });
 };
+
+export const updateBookshelf = (bookshelf, userId) => {
+  return $.ajax({
+    type: "PATCH",
+    url: `api/users/${userId}/bookshelves/${bookshelf.id}`,
+    data: {
+      bookshelf: bookshelf
+    }
+  });
+};
+
+export const deleteBookshelf = (bookshelfId, userId) => {
+  return $.ajax({
+    type: "DELETE",
+    url: `api/users/${userId}/bookshelves/${bookshelfId}`
+  });
+};

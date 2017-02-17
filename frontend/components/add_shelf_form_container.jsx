@@ -19,7 +19,7 @@ class AddShelfForm extends React.Component {
         return this.props.addBookshelfToBook(action.bookshelf.id, true);
       });
     } else {
-      this.props.createBookshelf(bookshelf, true);
+      this.props.createBookshelf(bookshelf, this.props.currentUser.id);
     }
   }
 
@@ -37,11 +37,16 @@ class AddShelfForm extends React.Component {
   }
 }
 
-
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    createBookshelf: (bookshelf) => { return dispatch(createBookshelf(bookshelf)); },
+    currentUser: state.session.currentUser
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddShelfForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    createBookshelf: (bookshelf, userId) => { return dispatch(createBookshelf(bookshelf, userId)); },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddShelfForm);
