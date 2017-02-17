@@ -11,9 +11,12 @@ const Root = ({ store }) => (
   <Provider store={ store }>
 
     <Router history={ hashHistory }>
+
       <Route path="/" component={AppContainer}/>
       <Route path="signin" component={SignInPage} onEnter={_redirectIfLoggedIn(store)}/>
-      <Route path="/mybooks" component={MyBooksPageContainer} onEnter={_redirectIfLoggedOut(store)}/>
+      <Route path="mybooks/:id" component={MyBooksPageContainer} onEnter={_redirectIfLoggedOut(store)}/>
+      <Route path="shelves/edit" component={EditBookshelvesPage} onEnter={_redirectIfLoggedOut(store)}/>
+
     </Router>
 
   </Provider>

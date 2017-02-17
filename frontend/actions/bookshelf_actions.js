@@ -2,6 +2,7 @@ import * as BookshelfAPIUtil from '../util/bookshelf_api_util';
 
 export const RECEIVE_BOOKSHELVES = "RECEIVE_BOOKSHELVES";
 export const RECEIVE_BOOKSHELF = "RECEIVE_BOOKSHELF";
+export const REMOVE_BOOKSHELF = "REMOVE_BOOKSHELF";
 
 export const receiveBookshelves = bookshelves => {
   return {
@@ -17,20 +18,36 @@ export const receiveBookshelf = bookshelf => {
   };
 };
 
+export const removeBookshelf = bookshelf => {
+  return {
+    type: REMOVE_BOOKSHELF,
+    bookshelf
+  }
+}
+
 export const fetchBookshelves = () => {
   return function(dispatch) {
     return BookshelfAPIUtil.fetchBookshelves().then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
   };
 };
 
-export const createBookshelf = bookshelf => {
+export const createBookshelf = (bookshelf, userId) => {
   return function(dispatch) {
-    return BookshelfAPIUtil.createBookshelf(bookshelf).then((newBookshelf) => { return dispatch(receiveBookshelf(newBookshelf)); });
+    return BookshelfAPIUtil.createBookshelf(bookshelf, userId)
+      .then((newBookshelf) => { return dispatch(receiveBookshelf(newBookshelf)); });
   };
 };
 
-// export const fetchBookshelves = (bookId) => {
-//   return function(dispatch) {
-//     return BookshelfAPIUtil.fetchBookshelvesForBook()
-//   }
-// }
+export const updateBookshelf = (bookshelf, userId) => {
+  return function(dispatch) {
+    return BookshelfAPIUtil.updateBookshelf(bookshelf, userId)
+      .then((updatedBookshelf) => { return dispatch(receiveBookshelf(updatedBookshelf)); })
+  };
+};
+
+export const deleteBookshelf = (bookshelfId, userId) => {
+  return function(dispatch) {
+    return BookshelfAPIUtil.deleteBookshelf(bookshelfId, userId)
+      .then((removedBookshelf) => { return dispatch(removeBookshelf(removedBookshelf)); })
+  }
+}
