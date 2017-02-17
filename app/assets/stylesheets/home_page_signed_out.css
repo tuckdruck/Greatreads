@@ -1,11 +1,10 @@
 .overall-header {
   background: #E0DDCA;
-  margin: 0;
-  width: 100%;
+  /*margin: 0;*/
+  /*width: 100%;*/
 }
 
 header.container {
-  width: 100%;
   border-bottom: 1px solid lightgray;
   background: inherit;
 }
@@ -14,39 +13,41 @@ header.home-page-signed-out {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
-  margin-left: 24.6%;
-  height: 100%;
+  margin-left: 24.3%;
+  width: 51.5%;
+  /*height: 100%;*/
 }
 
 form.sign-in input {
   font-size: 14px;
   background: white;
-  height: 26px;
-  width: 126px;
-  margin-right: 5px;
+  /*width: 33%;
+  margin-right: 1%;*/
   border-radius: 3px;
-  padding-left: 5px;
+  /*padding-left: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;*/
 }
 
 form.signup input {
   font-size: 16px;
   background: white;
-  width: 281px;
+  /*width: 100%;
   height: 33px;
   margin-bottom: 6px;
-  padding-left: 5px;
+  padding-left: 5px;*/
 }
 
 form.signup {
   margin-top: 60px;
+  /*width: 100%;*/
 }
 
 button.big-gold {
   font-size: 18px;
   background: #fdd05f;
-  padding: 9px 12px 9px 12px;
-  width: 84px;
+  /*padding: 9px 12px 9px 12px;
+  width: 84px;*/
   border-radius: 3px;
   text-align: center;
 }
@@ -55,10 +56,10 @@ button.big-gold {
 .sign-in-button {
   background-color: #382110;
   color: white;
-  width: 64px;
-  height: 28px;
+  /*width: 64px;
+  height: 28px;*/
   font-size: 13px;
-  margin-left: 2px;
+  /*margin-left: 2px;*/
   border-radius: 3px;
   text-align: center;
 }
@@ -66,16 +67,15 @@ button.big-gold {
 .big-gold.guest {
   display: block;
   position: absolute;
-  top: 164px;
-  left: 175px;
+  /*top: 164px;
+  left: 175px;*/
 }
 
 div.sign-up {
   display: flex;
-  width: 975px;
+  /*width: 975px;*/
   margin: 0 auto;
-  height: 295px;
-  justify-content: space-between;
+  /*height: 10%;*/
 }
 
 .big-text {
@@ -83,8 +83,8 @@ div.sign-up {
   color: #845443;
   font-weight: bold;
   text-align: center;
-  width: 800px;
-  padding: 60px;
+  margin-left: 28.9%;
+  width: 28.3%;
 }
 
 h1.logo.signed-out {
@@ -100,18 +100,19 @@ h2 {
 
 section.sign-up {
   position: relative;
-  margin-top: 35px;
-  padding-left: 70px;
+  /*margin-top: 35px;
+  padding-left: 70px;*/
+  /*width: 93%;*/
 }
 
 ul.sign-up-errors {
   display: block;
   position: absolute;
   background: white;
-  padding: 5px;
+  /*padding: 5px;*/
   border-radius: 3px;
   border-style: solid;
   border-color: lightgray;
-  border-width: 1px;
-  top: 30px;
+  /*border-width: 1px;
+  top: 30px;*/
 }
