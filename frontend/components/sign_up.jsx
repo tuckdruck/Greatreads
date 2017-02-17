@@ -58,21 +58,18 @@ export default class SignUp extends React.Component {
           Meet your next favorite book.
         </section>
 
-        <div>
-          <section className="sign-up">
-            <h2>New here? Create a free account!</h2>
-            {errors}
-            <form className="signup" onSubmit={this.handleSubmit}>
-              <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
+        <section className="sign-up">
+          <h2>New here? Create a free account!</h2>
+          {errors}
+          <form className="signup" onSubmit={this.handleSubmit}>
+            <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
 
-              <input placeholder="Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
-              <br/>
-              <button className="big-gold">Sign up</button>
-            </form>
-            <button className="big-gold guest" onClick={this.guestSignIn} >Guest</button>
-          </section>
-
-        </div>
+            <input placeholder="Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
+            <br/>
+            <button className="big-gold">Sign up</button>
+          </form>
+          <button className="big-gold guest" onClick={this.guestSignIn} >Guest</button>
+        </section>
 
       </div>
     );
