@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { logout } from '../actions/session_actions';
 
 const Header = (props) => {
   return(
@@ -18,4 +20,10 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => { return dispatch(logout()) }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Header);

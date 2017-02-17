@@ -8,13 +8,11 @@ class AddShelfForm extends React.Component {
     this.state = { shelfTitle: "", errors: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateShelfTitle = this.updateShelfTitle.bind(this);
-    this.setErrors = this.setErrors.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const bookshelf = { title: this.state.shelfTitle };
-
     if (this.props.addBookshelfToBook) {
       return this.props.createBookshelf(bookshelf).then((action) => {
         return this.props.addBookshelfToBook(action.bookshelf.id, true);
@@ -22,18 +20,8 @@ class AddShelfForm extends React.Component {
     }
     else {
       return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
-        .then(() => { this.setState({ shelfTitle: ""}); })
-        .fail((errors) => { this.setErrors(errors) });
+        .then(() => { this.setState({ shelfTitle: ""}); });
     }
-  }
-
-  setErrors(errors) {
-    return () => {
-      // errors = errors.responseJSON;
-      const errorsArray = Object.keys(errors.responseJSON).map((prop) => { return `${prop} ${errors.responseJSON[prop]}`; });
-      console.log(errorsArray);
-      return this.setState({ errors: errorsArray});
-    };
   }
 
   updateShelfTitle(e) {
@@ -44,9 +32,9 @@ class AddShelfForm extends React.Component {
     const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
     return(
       <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
+        <div>{this.props.inputErrors}</div>
         <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
         <button className="add-shelf">add</button>
-        <span>{this.state.errors}</span>
       </form>
 
     );
@@ -55,7 +43,8 @@ class AddShelfForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    inputErrors: state.inputErrors
   };
 };
 

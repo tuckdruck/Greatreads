@@ -75,7 +75,7 @@ export default class BooksFilterPane extends React.Component {
           <section className="books-filtered-body">
             <nav className="sidebar">
               <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
-              <Link to="shelves/edit" className="edit-bookshelves-button">(edit)</Link>
+              <Link to="shelves" className="edit-bookshelves-button">(edit)</Link>
               <ul>
                 <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
                 <li><button className="bookshelf-filter-link">read</button></li>

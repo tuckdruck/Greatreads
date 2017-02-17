@@ -12,8 +12,15 @@ form.rename-bookshelf {
 
 form.for-edit-page {
   width: 81%;
+  height: 50px;
 }
 
 form.for-edit-page input {
   width: 80%;
+  height: 30px;
+}
+
+form.for-edit-page button {
+  height: 35px;
+  margin-left: 12px;
 }

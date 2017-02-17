@@ -1,3 +1,10 @@
 div.edit-bookshelves-body > * {
   margin: 0 auto;
 }
+
+
+
+div.edit-bookshelves-body h1 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

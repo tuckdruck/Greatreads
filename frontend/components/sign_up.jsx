@@ -43,13 +43,9 @@ export default class SignUp extends React.Component {
   }
 
   render() {
-    let errors = "";
-    if (this.state.errors.length > 0) {
-      const errorLis = this.state.errors.map((error, index) => {
-        return (<li>{error}</li>);
-      });
-      errors = (<ul className="sign-up-errors">{errorLis}</ul>);
-    }
+    const errors = this.state.errors.map((error) => {
+      return (<li>{error}</li>);
+    });
 
     return(
       <div className="sign-up">
@@ -60,7 +56,9 @@ export default class SignUp extends React.Component {
 
         <section className="sign-up">
           <h2>New here? Create a free account!</h2>
-          {errors}
+
+          <ul className="sign-up-errors">{errors}</ul>
+
           <form className="signup" onSubmit={this.handleSubmit}>
             <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
 

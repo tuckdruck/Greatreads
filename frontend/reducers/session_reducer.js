@@ -13,12 +13,6 @@ const SessionReducer = (state = initialState, action) => {
     case RECEIVE_CURRENT_USER:
       copy = Object.assign({}, state);
       copy.currentUser = action.currentUser;
-      copy.errors = [];
-      return copy;
-    case RECEIVE_ERRORS:
-      copy = Object.assign({}, state);
-      copy.errors = action.errors;
-      copy.currentUser = null;
       return copy;
     default:
       return state;
