@@ -1,52 +1,39 @@
-import { updateBookshelf, deleteBookshelf } from '../actions/bookshelf_actions';
+import { updateBookshelf, deleteBookshelf, fetchBookshelves } from '../actions/bookshelf_actions';
 import { connect } from 'react-redux';
+import bookshelvesArray from '../selectors/bookshelves_selector';
+import React from 'react';
+import EditBookshelvesIndexItem from './edit_bookshelves_index_item';
 
 class EditBookshelvesIndex extends React.Component {
+
   constructor(props) {
     super(props);
-    this.deleteBookshelf = this.deleteBookshelf.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchBookshelves();
   }
 
   render() {
     const bookshelves = this.props.bookshelves.map((bookshelf) => {
-      let bookshelfEntry;
-      if (this.state.showForm) {
-      } else {
-        bookshelfEntry = (
-          <button>{}</button>
-        )
-      }
-
-
-      return(
-        <li>
-          <EditBookshelvesIndexItem />
-        </li>
-      );
+      return(<li key={bookshelf.id}><EditBookshelvesIndexItem key={bookshelf.id} bookshelf={bookshelf}/></li>);
     });
 
-    return(
-      <ul>
-
-      </ul>
-    );
+    return(<ul>{bookshelves}</ul>);
   }
+
 }
-
-
 
 
 const mapStateToProps = state => {
   return {
-    bookshelves: state.bookshelves,
-    userId: state.session.currentUser.id
+    bookshelves: bookshelvesArray(state.bookshelves)
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateBookshelf: (bookshelf, userId) => { return dispatch(updateBookshelf(bookshelf, userId)); },
-    deleteBookshelf: (bookshelfId, userId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); }
+    fetchBookshelves: () => { return dispatch(fetchBookshelves()); }
   };
 };
 
