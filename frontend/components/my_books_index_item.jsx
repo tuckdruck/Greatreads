@@ -31,11 +31,11 @@ export default class MyBooksIndexItem extends React.Component {
     }
     return(
       <tr>
-        <td className="cover-col">{this.props.book.cover}</td>
+        <td className="cover-col"><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></td>
         <td className="book-title-col">{this.props.book.title}</td>
         <td className="book-author-col">{this.props.book.author}</td>
         <td className="book-average-rating">{this.props.book.average_rating}</td>
-        <td>{bookshelfTitles}<button onClick={this.toggleEditForm}>[edit]</button>{form}</td>
+        <td>{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>[edit]</button>{form}</td>
         <td>book review goes here</td>
         <td>date read goes here</td>
       </tr>
