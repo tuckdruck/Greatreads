@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateBookshelf, deleteBookshelf } from '../actions/bookshelf_actions';
+import { hashHistory } from 'react-router';
 
 class EditBookshelvesIndexItem extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class EditBookshelvesIndexItem extends React.Component {
   }
 
   deleteBookshelf() {
-    this.props.deleteBookshelf(this.props.bookshelf.id, this.props.userId);
+    this.props.deleteBookshelf(this.props.bookshelf.id, this.props.session.currentUser.id);
   }
 
 
@@ -27,7 +28,7 @@ class EditBookshelvesIndexItem extends React.Component {
     this.props.updateBookshelf({
       title: this.state.bookshelfTitle,
       id: this.props.bookshelf.id
-    }, this.props.userId)
+    }, this.props.session.currentUser.id)
       .then(this.hideForm);
   }
 
@@ -35,14 +36,14 @@ class EditBookshelvesIndexItem extends React.Component {
     this.setState({ showForm: false, bookshelfTitle: this.props.bookshelf.title, errors: []});
   }
 
-  shouldComponentUpdate() {
-    if (!this.props.session.currentUser) {
-      return false;
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.session.currentUser) {
+      hashHistory.push("/");
     }
   }
 
   showForm() {
-    this.setState({ showForm: true});
+    this.setState({ showForm: true });
   }
 
   render() {
@@ -81,15 +82,14 @@ class EditBookshelvesIndexItem extends React.Component {
 const mapStateToProps = state => {
   return {
     session: state.session,
-    userId: state.session.currentUser.id,
     inputErrors: state.inputErrors
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateBookshelf: (bookshelf) => { return dispatch(updateBookshelf(bookshelf, userId)); },
-    deleteBookshelf: (bookshelfId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); }
+    updateBookshelf: (bookshelf) => { return dispatch(updateBookshelf(bookshelf, this.props.session.currentUser.id)); },
+    deleteBookshelf: (bookshelfId) => { return dispatch(deleteBookshelf(bookshelfId, this.props.session.currentUser.id)); }
   };
 };
 
