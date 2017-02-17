@@ -21,9 +21,9 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def destroy
-    @bookshelf = Bookshelf.find(params[:bookshelf][:id])
+    @bookshelf = Bookshelf.find(params[:id])
     if @bookshelf
-      bookshelf.destroy
+      @bookshelf.destroy
       render :show
     else
       render json: "no bookshelf to destroy", status: 404
@@ -31,7 +31,7 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def update
-    @bookshelf = Bookshelf.find(params[:bookshelf][:id])
+    @bookshelf = Bookshelf.find(params[:id])
     if @bookshelf.update(bookshelf_params)
       render :show
     else
@@ -40,7 +40,7 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def show
-    @bookshelf = Bookshelf.find(params[:bookshelf][:id])
+    @bookshelf = Bookshelf.find(params[:id])
     if @bookshelf
       render :show
     else

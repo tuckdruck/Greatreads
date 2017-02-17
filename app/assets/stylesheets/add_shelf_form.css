@@ -1,0 +1,19 @@
+form.add-shelf button.add-shelf {
+  background: #F4F1EA;
+  border: 1px solid #D6D0C4;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 3px;
+}
+
+form.rename-bookshelf {
+  display: inline-block;
+}
+
+form.for-edit-page {
+  width: 81%;
+}
+
+form.for-edit-page input {
+  width: 80%;
+}

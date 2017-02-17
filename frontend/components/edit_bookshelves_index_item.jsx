@@ -1,25 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { updateBookshelf, deleteBookshelf } from '../actions/bookshelf_actions';
 
 class EditBookshelvesIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showForm: false, bookshelfTitle: this.props.bookshelf.title};
+    this.state = {showForm: false, bookshelfTitle: this.props.bookshelf.title, errors: []};
     this.deleteBookshelf = this.deleteBookshelf.bind(this);
-    this.updateBookshelf = this.updateBookshelf.bind(this);
     this.updateBookshelfTitle = this.updateBookshelfTitle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hideForm = this.hideForm.bind(this);
     this.showForm = this.showForm.bind(this);
+    this.setErrors = this.setErrors.bind(this);
   }
 
   deleteBookshelf() {
     this.props.deleteBookshelf(this.props.bookshelf.id, this.props.userId);
   }
 
-  updateBookshelf() {
-    this.props.updateBookshelf(this.props.bookshelf.id, this.props.userId)
-  }
 
   updateBookshelfTitle(event) {
     this.setState({ bookshelfTitle: event.currentTarget.value });
@@ -27,36 +25,51 @@ class EditBookshelvesIndexItem extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.updateBookshelf(this.props.bookshelf.id);
+    this.props.updateBookshelf({
+      title: this.state.bookshelfTitle,
+      id: this.props.bookshelf.id
+    })
+      .then(this.hideForm)
+      .fail((errors) => { this.setErrors(errors) });
+  }
+
+  setErrors(errors) {
+    return () => {
+      errors = errors.responseJSON;
+      const errorsArray = Object.keys(errors).map((prop) => { return `${prop} ${errors[prop]}`; });
+      this.setState({ errors: errorsArray(errors)});
+    };
   }
 
   hideForm() {
-    this.setState({ showForm: false});
+    this.setState({ showForm: false, bookshelfTitle: this.props.bookshelf.title});
   }
 
   showForm() {
     this.setState({ showForm: true});
   }
 
+
   render() {
     let itemDisplay;
     if (this.state.showForm) {
       itemDisplay = (
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <span>
+          <form className="rename-bookshelf" onSubmit={this.handleSubmit}>
             <input type="text" value={this.state.bookshelfTitle} onChange={this.updateBookshelfTitle}/>
             <button>Save</button>
           </form>
           <button onClick={this.hideForm}>Cancel</button>
-        </div>
+          {this.state.errors}
+        </span>
       );
     }
     else {
       itemDisplay = (
-        <div>
+        <span>
           <button>{this.props.bookshelf.title}&nbsp;</button>
           <button onClick={this.showForm}>rename</button>
-        </div>
+        </span>
       )
     }
 

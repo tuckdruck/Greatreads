@@ -5,9 +5,10 @@ import { createBookshelf } from '../actions/bookshelf_actions';
 class AddShelfForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { shelfTitle: "" };
+    this.state = { shelfTitle: "", errors: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateShelfTitle = this.updateShelfTitle.bind(this);
+    this.setErrors = this.setErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -18,9 +19,21 @@ class AddShelfForm extends React.Component {
       return this.props.createBookshelf(bookshelf).then((action) => {
         return this.props.addBookshelfToBook(action.bookshelf.id, true);
       });
-    } else {
-      this.props.createBookshelf(bookshelf, this.props.currentUser.id);
     }
+    else {
+      return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
+        .then(() => { this.setState({ shelfTitle: ""}); })
+        .fail((errors) => { this.setErrors(errors) });
+    }
+  }
+
+  setErrors(errors) {
+    return () => {
+      // errors = errors.responseJSON;
+      const errorsArray = Object.keys(errors.responseJSON).map((prop) => { return `${prop} ${errors.responseJSON[prop]}`; });
+      console.log(errorsArray);
+      return this.setState({ errors: errorsArray});
+    };
   }
 
   updateShelfTitle(e) {
@@ -28,11 +41,14 @@ class AddShelfForm extends React.Component {
   }
 
   render() {
+    const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
-        <button>Add</button>
+        <button className="add-shelf">add</button>
+        <span>{this.state.errors}</span>
       </form>
+
     );
   }
 }
