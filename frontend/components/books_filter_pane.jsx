@@ -53,13 +53,24 @@ export default class BooksFilterPane extends React.Component {
       );
     });
 
-    const colon = (this.state.selectedBookshelf === "") ? "" : ":";
+    const colon = (this.state.selectedBookshelf === "") ? "" : ": ";
+    let bookshelfHeaderDescription;
+    if (this.state.selectedBookshelf === "") {
+      bookshelfHeaderDescription = (<span></span>);
+    } else {
+      bookshelfHeaderDescription = (
+        <span className="bookshelf-header-description">:&nbsp;
+          <span>{this.state.selectedBookshelf}</span>
+          <button className="switch-to-all-books" onClick={this.fetchUserBooks}>X</button>
+        </span>
+      );
+    }
 
     return(
       <div className="my-books-page">
         <div className="my-books-content">
 
-          <header className="bookshelf-title-header">My Books{colon} {this.state.selectedBookshelf}</header>
+          <header className="bookshelf-title-header">My Books{bookshelfHeaderDescription}</header>
           <section className="books-filtered-body">
             <nav className="sidebar">
               <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
