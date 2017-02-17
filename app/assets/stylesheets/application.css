@@ -10,7 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require reset
+ *= require add_shelf_form
+ *= require home_page_signed_in
+ *= require home_page_signed_out
+ *= require my_books_page
+ *= require static_pages
+ *= require edit_bookshelves
+ *=
  *= require_self
  */
 

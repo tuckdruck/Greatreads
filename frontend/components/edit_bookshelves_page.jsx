@@ -8,11 +8,15 @@ const EditBookshelvesPage = (props) => {
   return(
     <div>
       <Header />
-      <AddShelfFormContainer />
-      <EditBookshelvesIndexContainer />
+      <div className="my-books-content edit-bookshelves-body">
+        <h1>Edit Bookshelves</h1>
+        <AddShelfFormContainer className="for-edit-page"/>
+        <EditBookshelvesIndexContainer />
+      </div>
       <Footer />
     </div>
   );
 };
+
 
 export default EditBookshelvesPage;
