@@ -29,3 +29,17 @@ input {
 .logo {
   color: #382110;
 }
+
+footer.footer {
+  background: #F4F1EA;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+footer span {
+  display: block;
+  width: 54%;
+  margin: 0 auto;
+  color: #666;
+  font-size: 12px;
+}
