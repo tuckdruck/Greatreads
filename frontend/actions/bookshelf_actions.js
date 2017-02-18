@@ -23,8 +23,8 @@ export const removeBookshelf = bookshelf => {
   return {
     type: REMOVE_BOOKSHELF,
     bookshelf
-  }
-}
+  };
+};
 
 export const receiveErrors = errors => {
   return {
@@ -61,6 +61,6 @@ export const updateBookshelf = (bookshelf, userId) => {
 export const deleteBookshelf = (bookshelfId, userId) => {
   return function(dispatch) {
     return BookshelfAPIUtil.deleteBookshelf(bookshelfId, userId)
-      .then((removedBookshelf) => { return dispatch(removeBookshelf(removedBookshelf)); })
-  }
-}
+      .then((removedBookshelf) => { return dispatch(removeBookshelf(removedBookshelf)); });
+  };
+};
