@@ -45,8 +45,9 @@ export default class BooksFilterPane extends React.Component {
         </div>
       );
     } else {
-      form = "";
+      form = (<button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>);
     }
+
     const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
       return (
         <li key={bookshelf.id}>
@@ -91,7 +92,6 @@ export default class BooksFilterPane extends React.Component {
                 {bookshelfIndexItems}
               </ul>
 
-              <button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>
               {form}
             </nav>
             <MyBooksIndexContainer />

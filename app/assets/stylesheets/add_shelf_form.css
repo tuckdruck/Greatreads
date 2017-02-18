@@ -4,6 +4,7 @@ form.add-shelf button.add-shelf {
   font-size: 12px;
   padding: 3px 12px;
   border-radius: 3px;
+  margin-left: 12px;
 }
 
 form.rename-bookshelf {
@@ -15,6 +16,11 @@ form.for-edit-page {
   height: 50px;
 }
 
+form.add-shelf input {
+  height: 18px;
+  width: 103px;
+}
+
 form.for-edit-page input {
   width: 80%;
   height: 30px;
@@ -22,5 +28,4 @@ form.for-edit-page input {
 
 form.for-edit-page button {
   height: 35px;
-  margin-left: 12px;
 }
