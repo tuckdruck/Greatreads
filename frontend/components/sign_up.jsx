@@ -43,12 +43,12 @@ export default class SignUp extends React.Component {
   }
 
   render() {
-    let errors = "";
+    let errorsList = "";
     if (this.state.errors.length > 0) {
-      const errorLis = this.state.errors.map((error, index) => {
-        return (<li>{error}</li>);
+      let errors = this.state.errors.map((error, index) => {
+        return (<li key={index}>{error}</li>);
       });
-      errors = (<ul className="sign-up-errors">{errorLis}</ul>);
+      errorsList = (<ul className="sign-up-errors">{errors}</ul>);
     }
 
     return(
@@ -58,21 +58,20 @@ export default class SignUp extends React.Component {
           Meet your next favorite book.
         </section>
 
-        <div>
-          <section className="sign-up">
-            <h2>New here? Create a free account!</h2>
-            {errors}
-            <form className="signup" onSubmit={this.handleSubmit}>
-              <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
+        <section className="sign-up">
+          <h2>New here? Create a free account!</h2>
 
-              <input placeholder="Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
-              <br/>
-              <button className="big-gold">Sign up</button>
-            </form>
-            <button className="big-gold guest" onClick={this.guestSignIn} >Guest</button>
-          </section>
+          {errorsList}
 
-        </div>
+          <form className="signup" onSubmit={this.handleSubmit}>
+            <input placeholder="Username" type="text" value={this.state.username} onChange={this.update("username")}/>
+
+            <input placeholder="Password" type={this.state.passwordView} value={this.state.password} onChange={this.update("password")}/>
+            <br/>
+            <button className="big-gold">Sign up</button>
+          </form>
+          <button className="big-gold guest" onClick={this.guestSignIn} >Guest</button>
+        </section>
 
       </div>
     );

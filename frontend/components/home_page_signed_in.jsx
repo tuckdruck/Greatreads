@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
-import Header from './header';
+import HeaderContainer from './header_container';
 
 export default class HomePageSignedIn extends React.Component {
 
@@ -17,7 +17,7 @@ export default class HomePageSignedIn extends React.Component {
   render() {
     return (
       <div>
-        <Header logout={this.props.logout}/>
+        <HeaderContainer/>
         home page signed in
       </div>
     );

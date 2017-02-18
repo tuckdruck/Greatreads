@@ -1,79 +1,92 @@
 .overall-header {
   background: #E0DDCA;
-  margin: 0;
-  width: 100%;
 }
 
 header.container {
-  width: 100%;
   border-bottom: 1px solid lightgray;
   background: inherit;
+  padding-top: 0.75%;
+  padding-bottom: 0.75%;
 }
 
 header.home-page-signed-out {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 965px;
-  margin-left: 430px;
-  height: 74px;
+  margin-left: 24.3%;
+  width: 65%;
+  /*height: 100%;*/
 }
 
 form.sign-in input {
+  width: 36%;
   font-size: 14px;
   background: white;
-  height: 26px;
-  width: 126px;
-  margin-right: 5px;
   border-radius: 3px;
-  padding-left: 5px;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  margin-left: 2%;
+}
+
+form.sign-in {
+  width: 72%;
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-button {
+  background-color: #382110;
+  /*width: 28%;*/
+  width: 65px;
+  color: white;
+  font-size: 13px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px 8px;
+  margin-left: 2%;
 }
 
 form.signup input {
   font-size: 16px;
   background: white;
-  width: 281px;
-  height: 33px;
-  margin-bottom: 6px;
-  padding-left: 5px;
+  width: 275px;
+  margin-bottom: 5px;
+  height: 28px;
+  padding-left: 1%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  border-radius: 3px;
 }
 
 form.signup {
   margin-top: 60px;
+  width: 300px;
 }
 
 button.big-gold {
   font-size: 18px;
   background: #fdd05f;
-  padding: 9px 12px 9px 12px;
-  width: 84px;
   border-radius: 3px;
+  text-align: center;
+  padding: 4px;
+  margin-top: 4px;
 }
 
 
-.sign-in-button {
-  background-color: #382110;
-  color: white;
-  width: 64px;
-  height: 28px;
-  font-size: 13px;
-  margin-left: 2px;
-  border-radius: 3px;
-}
+
 
 .big-gold.guest {
   display: block;
   position: absolute;
-  top: 164px;
-  left: 175px;
+  top: 170px;
+  left: 80px;
 }
 
 div.sign-up {
   display: flex;
-  width: 975px;
   margin: 0 auto;
-  height: 295px;
-  justify-content: space-between;
+  padding-top: 1.2%;
+  padding-bottom: 3.2%;
 }
 
 .big-text {
@@ -81,8 +94,9 @@ div.sign-up {
   color: #845443;
   font-weight: bold;
   text-align: center;
-  width: 800px;
-  padding: 60px;
+  margin-left: 26.3%;
+  width: 28.3%;
+  margin-top: 2%;
 }
 
 h1.logo.signed-out {
@@ -98,18 +112,27 @@ h2 {
 
 section.sign-up {
   position: relative;
-  margin-top: 35px;
-  padding-left: 70px;
+  margin-left: 5.6%;
+  margin-top: 1%;
+  /*margin-top: 35px;
+  padding-left: 70px;*/
+  /*width: 93%;*/
 }
 
 ul.sign-up-errors {
   display: block;
+  margin-top: 7px;
   position: absolute;
   background: white;
-  padding: 5px;
+  padding: 2px;
+  /*padding: 5px;*/
   border-radius: 3px;
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
-  top: 30px;
+}
+
+div.sign-in {
+  margin-left: 34%;
+  width: 100%;
 }
