@@ -18,16 +18,24 @@ export default class MyBooksIndexItem extends React.Component {
     this.setState({ showDeleteBookWarning: !this.state.showDeleteBookWarning });
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   debugger
+  //   if (nextProps.book.bookshelves.length < 1) {
+  //     this.props.removeBook(this.props.book);
+  //   }
+  // }
+
 
   deleteBookFromBookshelves() {
-    this.props.book.bookshelves.forEach((bookshelf) => {
-      return this.props.updateBook({
+    const bookshelves = this.props.book.bookshelves;
+
+    for (let i = 0; i < bookshelves.length; i++) {
+      this.props.updateBook({
         book_id: this.props.book.id,
-        bookshelf_id: bookshelf.id,
+        bookshelf_id: bookshelves[i].id,
         create: false
       });
-    }, this);
-    this.props.removeBook(this.props.book);
+    }
   }
 
   render() {
