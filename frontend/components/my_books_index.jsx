@@ -22,10 +22,10 @@ export default class MyBooksIndex extends React.Component {
             <th className="book-title-col">title</th>
             <th className="book-author-col">author</th>
             <th className="book-average-rating">avg rating</th>
-            <th>shelves</th>
-            <th>review</th>
-            <th>date read</th>
-            <th>&nbsp;</th>
+            <th className="shelves">shelves</th>
+            <th className="review">review</th>
+            <th className="date-read">date read</th>
+            <th className="delete-book">&nbsp;</th>
           </tr>
         </thead>
         <tbody>

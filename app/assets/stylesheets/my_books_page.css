@@ -29,12 +29,25 @@ section.books-filtered-body nav {
 table {
   width: 81.3%;
   border-collapse: collapse;
+  margin-left: 20px;
 }
 
 
 nav.sidebar {
   border-right: 1px solid #EBE8D5;
   margin-top: 14px;
+  height: 1245px;
+}
+
+ul.status-index {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #EBE8D5;
+  margin-right: 12px;
+}
+
+
+ul.bookshelf-index {
+  padding-top: 10px;
 }
 
 h3.bookshelves-index-header {
@@ -46,6 +59,10 @@ button.bookshelf-filter-link {
   font-size: 14px;
   color: #00635d;
   padding-top: 5px;
+}
+
+button.bookshelf-filter-link:last-child {
+  padding-bottom: 5px;
 }
 
 button.bookshelf-filter-link:hover {
@@ -78,28 +95,62 @@ button.switch-to-all-books {
 table th {
   color: #382110;
   font-weight: bold;
-  height: 66px;
-  text-align: center;
   border-bottom: 2px solid #EBE8D5;
+  padding: 45px 0px 10px 0px;
+  font-size: 12px;
 }
 
 
-th.cover-col {
-  width: 5.5%;
+td.cover-col {
+  width: 4.2%;
 }
 
-th.book-title-col {
-  width: 13.7%;
+td.book-title-col {
+  width: 17.4%;
 }
 
-th.book-author-col {
-  width: 8.6%;
+td.book-author-col {
+  width: 10%;
 }
 
-th.book-average-rating {
-  width: 3.8%;
+td.book-average-rating {
+  width: 5%;
+}
+
+td.shelves {
+  width: 19%;
+}
+
+td.review {
+  width: 17%;
+}
+
+td.date-read {
+  width: 15%;
+}
+
+td.delete-book {
+  width: 2%;
+  padding-right: 0px;
+  text-align: center;
+}
+
+td {
+  padding-right: 12px;
+}
+
+tr {
+  height: 102px;
 }
 
 img.cover {
-  height: 100px;
+  height: 74px;
+  width: 52px;
+}
+
+button.add-shelf {
+  background: #ede6d6;
+  color: #333333;
+  padding: 4px 14px;
+  border-radius: 3px;
 }
