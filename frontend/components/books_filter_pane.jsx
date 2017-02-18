@@ -43,12 +43,11 @@ export default class BooksFilterPane extends React.Component {
     } else {
       form = "";
     }
-
     const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
       return (
         <li key={bookshelf.id}>
           <button className="bookshelf-filter-link" onClick={this.filterBooks(bookshelf)}>
-            {bookshelf.title}
+            {bookshelf.title} ({bookshelf.books.length})
           </button>
         </li>
       );

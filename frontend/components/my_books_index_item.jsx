@@ -16,6 +16,10 @@ export default class MyBooksIndexItem extends React.Component {
     this.setState({ showEditForm: !(this.state.showEditForm)});
   }
 
+  deleteBookFromBookshelves() {
+    this.
+  }
+
   render() {
     const bookshelves = this.props.book.bookshelves;
     const bookshelfTitles = bookshelves.map((bookshelf) => {
@@ -38,6 +42,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td>{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>[edit]</button>{form}</td>
         <td>book review goes here</td>
         <td>date read goes here</td>
+        <td><button onClick={this.deleteBookFromBookshelves}>X</button></td>
       </tr>
     );
   }
