@@ -13,7 +13,6 @@ export default class FieldsForm extends React.Component {
   handleInputChange(event) {
     const value = event.currentTarget.checked;
 
-
     this.props.updateBook({
       book_id: this.props.book.id,
       bookshelf_id: event.currentTarget.value,
@@ -37,7 +36,7 @@ export default class FieldsForm extends React.Component {
       checked = (bookshelfTitlesForBook.includes(bookshelf.title));
 
       return (
-        <div key={bookshelf.id} onClick={this.handleInputChange}>
+        <div key={bookshelf.id}>
           <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>{bookshelf.title}
         </div>
       );

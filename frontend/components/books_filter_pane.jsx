@@ -16,9 +16,9 @@ export default class BooksFilterPane extends React.Component {
     this.props.fetchBookshelves();
   }
 
-  componentWillReceiveProps() {
-    this.props.fetchBookshelves();
-  }
+  // componentWillReceiveProps() {
+  //   this.props.fetchBookshelves();
+  // }
 
   toggleAddShelfForm() {
     this.setState({ showAddShelfForm: true });
@@ -51,7 +51,7 @@ export default class BooksFilterPane extends React.Component {
       return (
         <li key={bookshelf.id}>
           <button className="bookshelf-filter-link" onClick={this.filterBooks(bookshelf)}>
-            {bookshelf.title} ({bookshelf.books.length})
+            {bookshelf.title}
           </button>
         </li>
       );

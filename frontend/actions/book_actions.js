@@ -1,4 +1,5 @@
 import * as BookAPIUtil from '../util/book_api_util';
+import { fetchBookshelves } from './bookshelf_actions';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
@@ -45,9 +46,7 @@ export const updateBook = (info) => {
       });
     }
     else {
-      return BookAPIUtil.updateBook(info).then((info) => {
-        return dispatch(removeBook(info));
-      });
+      return BookAPIUtil.updateBook(info).then((book) => { return dispatch(receiveBook(book)); });
     }
   };
 };
