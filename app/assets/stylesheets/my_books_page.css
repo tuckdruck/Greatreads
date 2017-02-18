@@ -1,5 +1,5 @@
 div.my-books-content {
-  width: 55.5%;
+  width: 55%;
   margin: 0 auto;
 }
 
@@ -23,11 +23,11 @@ header.bookshelf-title-header {
 }
 
 section.books-filtered-body nav {
-  width: 20.2%;
+  width: 20%;
 }
 
 table {
-  width: 81.3%;
+  width: 78%;
   border-collapse: collapse;
   margin-left: 20px;
 }
@@ -47,21 +47,18 @@ ul.status-index {
 
 
 ul.bookshelf-index {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 h3.bookshelves-index-header {
   color: #aaa;
   display: inline;
+  padding-bottom: 5px;
 }
 
 button.bookshelf-filter-link {
   font-size: 14px;
   color: #00635d;
-  padding-top: 5px;
-}
-
-button.bookshelf-filter-link:last-child {
   padding-bottom: 5px;
 }
 
@@ -73,8 +70,6 @@ button.edit-bookshelves:hover {
   text-decoration: underline;
 }
 
-span.bookshelf-header-description {
-}
 
 span.bookshelf-header-description span {
   background: #F4F4EA;
@@ -96,8 +91,8 @@ table th {
   color: #382110;
   font-weight: bold;
   border-bottom: 2px solid #EBE8D5;
-  padding: 45px 0px 10px 0px;
   font-size: 12px;
+  height: 82px;
 }
 
 
@@ -106,7 +101,7 @@ td.cover-col {
 }
 
 td.book-title-col {
-  width: 17.4%;
+  width: 17%;
 }
 
 td.book-author-col {
@@ -118,7 +113,7 @@ td.book-average-rating {
 }
 
 td.shelves {
-  width: 19%;
+  width: 17%;
 }
 
 td.review {
@@ -133,14 +128,23 @@ td.delete-book {
   width: 2%;
   padding-right: 0px;
   text-align: center;
+  color: gray;
+}
+
+td.delete-book button {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 td {
   padding-right: 12px;
+  height: 77px;
+  border-bottom: 1px solid #D6D0C4;
 }
 
-tr {
-  height: 102px;
+td.delete-book {
+  padding: 10px;
+  vertical-align: top;
 }
 
 img.cover {
@@ -149,8 +153,16 @@ img.cover {
 }
 
 button.add-shelf {
+  margin-top: 5px;
   background: #ede6d6;
   color: #333333;
   padding: 4px 14px;
   border-radius: 3px;
+  border: 1px solid #D6D0C4;
+}
+
+div h3 {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
 }
