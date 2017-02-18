@@ -145,6 +145,7 @@ td {
 td.delete-book {
   padding: 10px;
   vertical-align: top;
+  position: relative;
 }
 
 img.cover {
@@ -165,4 +166,11 @@ div h3 {
   margin-top: 5px;
   font-size: 14px;
   font-weight: bold;
+}
+
+div.delete-book-warning {
+  position: absolute;
+  width: 200px;
+  left: 35px;
+  top: 10px;
 }

@@ -21,12 +21,13 @@ export default class MyBooksIndexItem extends React.Component {
 
   deleteBookFromBookshelves() {
     this.props.book.bookshelves.forEach((bookshelf) => {
-      this.props.updateBook({
+      return this.props.updateBook({
         book_id: this.props.book.id,
         bookshelf_id: bookshelf.id,
         create: false
       });
     }, this);
+    this.props.removeBook(this.props.book);
   }
 
   render() {
@@ -46,10 +47,12 @@ export default class MyBooksIndexItem extends React.Component {
     let warning = "";
     if (this.state.showDeleteBookWarning) {
       warning = (
-        <div>
-          Are you sure you want to remove {this.props.book.title} from your books? This will permanently remove this book from your shelves.
-          <button onClick={this.deleteBookFromBookshelves}>Delete</button>
-          <button onClick={this.toggleDeleteBookWarning}>Cancel</button>
+        <div className="delete-book-warning">
+          Are you sure you want to remove {this.props.book.title} from your bookshelves?
+          <div>
+            <button onClick={this.deleteBookFromBookshelves}>Delete&nbsp;</button>
+            <button onClick={this.toggleDeleteBookWarning}>Cancel</button>
+          </div>
         </div>
       );
     }
@@ -60,7 +63,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="book-title-col">{this.props.book.title}</td>
         <td className="book-author-col">{this.props.book.author}</td>
         <td className="book-average-rating">{this.props.book.average_rating}</td>
-        <td className="shelves">{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>[edit]</button>{form}</td>
+        <td className="shelves">{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>&nbsp;[edit]</button>{form}</td>
         <td className="review">book review goes here</td>
         <td className="date-read">date read goes here</td>
         <td className="delete-book">

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MyBooksIndex from './my_books_index';
-import { fetchUserBooks, fetchBookshelfBooks, updateBook } from '../actions/book_actions';
+import { fetchUserBooks, fetchBookshelfBooks, updateBook, removeBook } from '../actions/book_actions';
 import { fetchBookshelves } from '../actions/bookshelf_actions';
 import booksArray from '../selectors/books_selector';
 
@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); },
     fetchBookshelfBooks: (bookshelfId) => { return dispatch(fetchBookshelfBooks(bookshelfId)); },
     fetchBookshelves: () => { return dispatch(fetchBookshelves()); },
-    updateBook: (info) => { return dispatch(updateBook(info)); }
+    updateBook: (info) => { return dispatch(updateBook(info)); },
+    removeBook: (book) => { return dispatch(removeBook(book)); }
   };
 };
 

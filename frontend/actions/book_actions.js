@@ -40,13 +40,6 @@ export const fetchBookshelfBooks = bookshelfId => {
 
 export const updateBook = (info) => {
   return function(dispatch) {
-    if (info.create) {
-      return BookAPIUtil.updateBook(info).then((info) => {
-        return dispatch(receiveBook(info));
-      });
-    }
-    else {
-      return BookAPIUtil.updateBook(info).then((book) => { return dispatch(receiveBook(book)); });
-    }
+    return BookAPIUtil.updateBook(info).then((info) => { return dispatch(receiveBook(info)); });
   };
 };

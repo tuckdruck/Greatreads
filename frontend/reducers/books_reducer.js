@@ -2,7 +2,6 @@ import { RECEIVE_BOOKS, RECEIVE_BOOK, REMOVE_BOOK } from '../actions/book_action
 
 const BooksReducer = (state = {}, action) => {
   let copy;
-
   switch (action.type) {
     case RECEIVE_BOOKS:
       return action.books;
