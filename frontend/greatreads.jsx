@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import * as BookshelfAPIUtil from './util/bookshelf_api_util';
+import * as BookAPIUtil from './util/book_api_util';
 
 import { signup, login, logout } from './util/session_api_util';
-window.signup = signup;
-window.login = login;
-window.logout = logout;
+window.fetchUserBooks = BookAPIUtil.fetchUserBooks;
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   else {
     store = configureStore();
   }
+  window.store = store;
 
   const root = document.getElementById("root");
 

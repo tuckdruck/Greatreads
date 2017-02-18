@@ -1,5 +1,4 @@
-
-div, h1, ul, li, form, input, a, button, header, h2 {
+div, h1, ul, li, form, input, a, button, header, h2, h3, button, th, img, footer, table, td {
   color: inherit;
   background: transparent;
   margin: 0;
@@ -10,6 +9,7 @@ div, h1, ul, li, form, input, a, button, header, h2 {
   text-decoration: none;
   font-family: inherit;
   webkit-appearance: none;
+  text-align: left;
 }
 
 button {
@@ -21,6 +21,6 @@ body {
   color: black;
   background: rgba(244,241,234,0.5);
   font-family: 'Lato', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: normal;
 }

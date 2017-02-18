@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { login, receiveErrors } from '../actions/session_actions';
+import { login } from '../actions/session_actions';
+import { receiveErrors } from '../actions/error_actions';
 import SignIn from './sign_in';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     loggedIn: !!state.session.currentUser,
-    errors: state.session.errors
+    errors: state.errors
   };
 };
 
