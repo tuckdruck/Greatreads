@@ -1,1 +1,1 @@
-json.extract! bookshelf, :title, :id
+json.extract! bookshelf, :title, :id, :books

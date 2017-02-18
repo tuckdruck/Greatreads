@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createBookshelf } from '../actions/bookshelf_actions';
+import { receiveErrors } from '../actions/error_actions';
 
 class AddShelfForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class AddShelfForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearErrors();
     const bookshelf = { title: this.state.shelfTitle };
     if (this.props.addBookshelfToBook) {
       return this.props.createBookshelf(bookshelf).then((action) => {
@@ -20,7 +22,14 @@ class AddShelfForm extends React.Component {
     }
     else {
       return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
-        .then(() => { this.setState({ shelfTitle: ""}); });
+        .then(() => { this.setState({ shelfTitle: ""}); })
+        .fail(() => { this.setState({ errors: this.props.errors}); });
+    }
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.errors.length < 1) {
+      this.setState({ errors: []});
     }
   }
 
@@ -32,7 +41,7 @@ class AddShelfForm extends React.Component {
     const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
     return(
       <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
-        <div>{this.props.inputErrors}</div>
+        <div>{this.state.errors}</div>
         <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
         <button className="add-shelf">add</button>
       </form>
@@ -44,13 +53,14 @@ class AddShelfForm extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    inputErrors: state.inputErrors
+    errors: state.errors
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     createBookshelf: (bookshelf, userId) => { return dispatch(createBookshelf(bookshelf, userId)); },
+    clearErrors: () => { return dispatch(receiveErrors([])); }
   };
 };
 

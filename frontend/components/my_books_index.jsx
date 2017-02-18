@@ -25,6 +25,7 @@ export default class MyBooksIndex extends React.Component {
           <th>shelves</th>
           <th>review</th>
           <th>date read</th>
+          <th>remove from books</th>
         </tr>
         {books}
         </tbody>

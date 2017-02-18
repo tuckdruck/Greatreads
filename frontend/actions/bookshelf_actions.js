@@ -29,7 +29,7 @@ export const removeBookshelf = bookshelf => {
 export const receiveErrors = errors => {
   return {
     type: RECEIVE_ERRORS,
-    errors: Object.keys(errors).map((prop) => { return `${prop} ${errors[prop]}`; })
+    errors
   };
 };
 
@@ -42,9 +42,11 @@ export const fetchBookshelves = () => {
 
 export const createBookshelf = (bookshelf, userId) => {
   return function(dispatch) {
+
     return BookshelfAPIUtil.createBookshelf(bookshelf, userId)
       .then((newBookshelf) => { return dispatch(receiveBookshelf(newBookshelf)); })
-      .fail((errors) => { return dispatch(receiveErrors(errors.responseJSON)); });
+      .fail((errors) => {
+        return dispatch(receiveErrors(errors.responseJSON)); });
   };
 };
 

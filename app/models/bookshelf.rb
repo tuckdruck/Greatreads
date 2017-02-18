@@ -19,7 +19,7 @@ class Bookshelf < ActiveRecord::Base
     source: :book
 
   def self.find_by_user_id(user_id)
-    Bookshelf.where(user_id: user_id)
+    Bookshelf.where(user_id: user_id).includes(:books).references(:books)
   end
 
   def self.find_by_bookshelf_id(bookshelf_id)
@@ -28,5 +28,5 @@ class Bookshelf < ActiveRecord::Base
       book_tagging.book
     end
   end
-  
+
 end
