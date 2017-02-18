@@ -2,6 +2,7 @@ import * as BookAPIUtil from '../util/book_api_util';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
+export const REMOVE_BOOK = "REMOVE_BOOK";
 
 export const receiveBooks = books => {
   return {
@@ -13,6 +14,13 @@ export const receiveBooks = books => {
 export const receiveBook = book => {
   return {
     type: RECEIVE_BOOK,
+    book: book
+  };
+};
+
+export const removeBook = book => {
+  return {
+    type: REMOVE_BOOK,
     book: book
   };
 };
@@ -31,8 +39,15 @@ export const fetchBookshelfBooks = bookshelfId => {
 
 export const updateBook = (info) => {
   return function(dispatch) {
-    return BookAPIUtil.updateBook(info).then((info) => {
-      return dispatch(receiveBook(info));
-    });
+    if (info.create) {
+      return BookAPIUtil.updateBook(info).then((info) => {
+        return dispatch(receiveBook(info));
+      });
+    }
+    else {
+      return BookAPIUtil.updateBook(info).then((info) => {
+        return dispatch(removeBook(info));
+      });
+    }
   };
 };
