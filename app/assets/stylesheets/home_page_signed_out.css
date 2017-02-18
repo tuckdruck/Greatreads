@@ -122,9 +122,9 @@ section.sign-up {
 ul.sign-up-errors {
   display: block;
   margin-top: 7px;
-  padding: 2px;
   position: absolute;
   background: white;
+  padding: 2px;
   /*padding: 5px;*/
   border-radius: 3px;
   border-style: solid;

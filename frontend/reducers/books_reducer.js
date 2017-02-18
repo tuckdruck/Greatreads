@@ -1,12 +1,18 @@
-import { RECEIVE_BOOKS, RECEIVE_BOOK } from '../actions/book_actions';
+import { RECEIVE_BOOKS, RECEIVE_BOOK, REMOVE_BOOK } from '../actions/book_actions';
 
 const BooksReducer = (state = {}, action) => {
+  let copy;
+
   switch (action.type) {
     case RECEIVE_BOOKS:
       return action.books;
     case RECEIVE_BOOK:
-      const copy = Object.assign({}, state);
+      copy = Object.assign({}, state);
       copy[action.book.id] = action.book;
+      return copy;
+    case REMOVE_BOOK:
+      copy = Object.assign({}, state);
+      delete copy[action.book.id];
       return copy;
     default:
       return state;

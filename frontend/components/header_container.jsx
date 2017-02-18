@@ -22,7 +22,7 @@ const Header = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => { return dispatch(logout()) }
+    logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); }
   };
 };
 

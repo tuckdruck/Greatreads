@@ -6,6 +6,7 @@ export default class MyBooksIndexItem extends React.Component {
     super(props);
     this.state = { showEditForm: false };
     this.toggleEditForm = this.toggleEditForm.bind(this);
+    this.deleteBookFromBookshelves = this.deleteBookFromBookshelves.bind(this);
   }
 
   componentDidMount() {
@@ -17,7 +18,13 @@ export default class MyBooksIndexItem extends React.Component {
   }
 
   deleteBookFromBookshelves() {
-    this.
+    this.props.book.bookshelves.forEach((bookshelf) => {
+      this.props.updateBook({
+        book_id: this.props.book.id,
+        bookshelf_id: bookshelf.id,
+        create: false
+      });
+    }, this);
   }
 
   render() {
