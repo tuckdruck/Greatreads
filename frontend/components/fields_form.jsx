@@ -37,7 +37,7 @@ export default class FieldsForm extends React.Component {
       checked = (bookshelfTitlesForBook.includes(bookshelf.title));
 
       return (
-        <div key={bookshelf.id}>
+        <div key={bookshelf.id} onClick={this.handleInputChange}>
           <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>{bookshelf.title}
         </div>
       );
