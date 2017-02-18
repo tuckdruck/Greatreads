@@ -16,18 +16,20 @@ export default class MyBooksIndex extends React.Component {
     });
     return(
       <table>
+        <thead>
+          <tr>
+            <th className="cover-col">cover</th>
+            <th className="book-title-col">title</th>
+            <th className="book-author-col">author</th>
+            <th className="book-average-rating">avg rating</th>
+            <th>shelves</th>
+            <th>review</th>
+            <th>date read</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-          <th className="cover-col">cover</th>
-          <th className="book-title-col">title</th>
-          <th className="book-author-col">author</th>
-          <th className="book-average-rating">avg rating</th>
-          <th>shelves</th>
-          <th>review</th>
-          <th>date read</th>
-          <th>&nbsp;</th>
-        </tr>
-        {books}
+          {books}
         </tbody>
       </table>
     );

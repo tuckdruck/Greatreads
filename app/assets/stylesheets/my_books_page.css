@@ -1,11 +1,11 @@
 div.my-books-content {
-  width: 54%;
+  width: 55.5%;
   margin: 0 auto;
 }
 
 div.my-books-page {
   background: white;
-  height: 900px;
+  height: 1363px;
 }
 
 section.books-filtered-body {
@@ -28,8 +28,8 @@ section.books-filtered-body nav {
 
 table {
   width: 81.3%;
+  border-collapse: collapse;
 }
-
 
 
 nav.sidebar {
@@ -78,7 +78,11 @@ button.switch-to-all-books {
 table th {
   color: #382110;
   font-weight: bold;
+  height: 66px;
+  text-align: center;
+  border-bottom: 2px solid #EBE8D5;
 }
+
 
 th.cover-col {
   width: 5.5%;
