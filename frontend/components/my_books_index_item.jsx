@@ -18,13 +18,6 @@ export default class MyBooksIndexItem extends React.Component {
     this.setState({ showDeleteBookWarning: !this.state.showDeleteBookWarning });
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   debugger
-  //   if (nextProps.book.bookshelves.length < 1) {
-  //     this.props.removeBook(this.props.book);
-  //   }
-  // }
-
 
   deleteBookFromBookshelves() {
     const bookshelves = this.props.book.bookshelves;
