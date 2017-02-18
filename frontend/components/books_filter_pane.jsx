@@ -79,14 +79,19 @@ export default class BooksFilterPane extends React.Component {
             <nav className="sidebar">
               <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
               <Link to="shelves" className="edit-bookshelves-button">(edit)</Link>
-              <ul>
+
+              <ul className="status-index">
                 <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
                 <li><button className="bookshelf-filter-link">read</button></li>
                 <li><button className="bookshelf-filter-link">currently-reading</button></li>
                 <li><button className="bookshelf-filter-link">to-read</button></li>
+              </ul>
+
+              <ul className="bookshelf-index">
                 {bookshelfIndexItems}
               </ul>
-              <button onClick={this.toggleAddShelfForm}>Add Shelf</button>
+
+              <button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>
               {form}
             </nav>
             <MyBooksIndexContainer />

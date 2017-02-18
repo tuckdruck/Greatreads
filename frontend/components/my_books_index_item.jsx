@@ -60,10 +60,10 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="book-title-col">{this.props.book.title}</td>
         <td className="book-author-col">{this.props.book.author}</td>
         <td className="book-average-rating">{this.props.book.average_rating}</td>
-        <td>{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>[edit]</button>{form}</td>
-        <td>book review goes here</td>
-        <td>date read goes here</td>
-        <td>
+        <td className="shelves">{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>[edit]</button>{form}</td>
+        <td className="review">book review goes here</td>
+        <td className="date-read">date read goes here</td>
+        <td className="delete-book">
           <button onClick={this.toggleDeleteBookWarning}>X</button>
           {warning}
         </td>
