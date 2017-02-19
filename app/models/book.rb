@@ -45,4 +45,24 @@ class Book < ActiveRecord::Base
   def self.bookshelf_books(bookshelf_id, user_id)
     Book.user_books_with_shelves(user_id).where("bookshelves.id = ?", bookshelf_id)
   end
+
+  def self.books_with_user_bookshelves(user_id)
+    Book.find_by_sql(<<-SQL, user_id)
+      SELECT
+        books.*, user_bookshelves.*
+      FROM
+        books
+      JOIN
+        book_taggings ON book_taggings.book_id = books.id
+      LEFT OUTER JOIN
+        (SELECT
+          bookshelves.*
+        FROM
+          bookshelves
+        WHERE
+          bookshelves.user_id = ?
+        ) AS user_bookshelves ON user_bookshelves.id = book_taggings.bookshelf_id
+    SQL
+  end
+
 end
