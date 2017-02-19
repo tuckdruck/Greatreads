@@ -4,6 +4,7 @@ import BooksReducer from './books_reducer';
 import { combineReducers } from 'redux';
 import ErrorsReducer from './errors_reducer';
 import BookshelfReducer from './bookshelf_reducer';
+import LoadReducer from './load_reducer';
 
 export default combineReducers({
   session: SessionReducer,
