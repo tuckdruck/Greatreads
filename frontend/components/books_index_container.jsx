@@ -17,7 +17,7 @@ class BooksIndex extends React.Component {
     const bookLinks = this.props.books.map((book) => {
 
       return(
-        <Link to={`mybooks/${book.id}`}>
+        <Link key={book.id} to={`books/${book.id}`}>
           <img src={`${book.cover_image_url}`}/>
         </Link>
       );
