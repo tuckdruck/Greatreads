@@ -45,7 +45,6 @@ class BookDetails extends React.Component {
     }
 
     if (this.props.loggedIn) {
-      debugger
       myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
     }
 

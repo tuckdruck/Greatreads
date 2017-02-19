@@ -6,8 +6,16 @@ export default class MyBooksIndex extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.receiveBooks({});
+  }
+
   componentDidMount() {
-    if (!this.props.selectedBookshelf) {
+    if (this.props.selectedBookshelf) {
+      return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
+        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); });
+    }
+    else  {
       return this.props.fetchUserBooks(this.props.currentUser.id);
     }
   }
@@ -17,25 +25,27 @@ export default class MyBooksIndex extends React.Component {
     const books = this.props.books.map((book) => {
       return(<MyBooksIndexItem book={book} updateBook={this.props.updateBook} removeBook={this.props.removeBook} key={book.id}/>);
     });
-    return(
-      <table>
-        <thead>
-          <tr>
-            <th className="cover-col">cover</th>
-            <th className="book-title-col">title</th>
-            <th className="book-author-col">author</th>
-            <th className="book-average-rating">avg rating</th>
-            <th className="shelves">shelves</th>
-            <th className="review">review</th>
-            <th className="date-read">date read</th>
-            <th className="delete-book">&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books}
-        </tbody>
-      </table>
-    );
+
+      return(
+        <table>
+          <thead>
+            <tr>
+              <th className="cover-col">cover</th>
+              <th className="book-title-col">title</th>
+              <th className="book-author-col">author</th>
+              <th className="book-average-rating">avg rating</th>
+              <th className="shelves">shelves</th>
+              <th className="review">review</th>
+              <th className="date-read">date read</th>
+              <th className="delete-book">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            {books}
+          </tbody>
+        </table>
+      );
+
   }
 
 }

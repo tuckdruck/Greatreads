@@ -13,7 +13,6 @@ class BookShowPage extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     if (!this.props.book) {
       this.props.fetchBooks();
     }
@@ -29,7 +28,6 @@ class BookShowPage extends React.Component {
   }
 
   render() {
-
     return(
       <main>
         <HeaderContainer />
