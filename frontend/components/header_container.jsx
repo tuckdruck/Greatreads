@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import { fetchUserBooks } from '../actions/book_actions';
+import { selectBookshelf } from '../actions/bookshelf_actions';
 
 class Header extends React.Component {
 
@@ -47,7 +48,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); },
-    fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); }
+    fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); },
+    selectBookshelf: (bookshelf) => { return dispatch(selectBookshelf(bookshelf)); }
   };
 };
 
