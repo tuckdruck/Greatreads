@@ -4,22 +4,56 @@ import HeaderContainer from './header_container';
 import BookDetails from './book_details_container';
 import Reviews from './reviews';
 import Footer from './footer';
+import { fetchBooks } from '../actions/book_actions';
+import { fetchBookshelves } from '../actions/bookshelf_actions';
 
-const BookShowPage = props => {
-  return(
-    <main>
-      <HeaderContainer />
-      <BookDetails book={props.book} />
-      <Reviews book={props.book}/>
-      <Footer />
-    </main>
-  );
-};
+class BookShowPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    debugger
+    if (!this.props.book) {
+      this.props.fetchBooks();
+    }
+    if (!this.props.bookshelves) {
+      this.props.fetchBookshelves();
+    }
+  }
+
+  componentWillReceiveProps() {
+    if (!this.props.book) {
+      this.props.fetchBooks();
+    }
+  }
+
+  render() {
+
+    return(
+      <main>
+        <HeaderContainer />
+        <BookDetails book={this.props.book} />
+        <Reviews book={this.props.book}/>
+        <Footer />
+      </main>
+    );
+  }
+
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    book: state.books[ownProps.params.bookId]
+    book: state.books[ownProps.params.bookId],
+    loggedIn: !!state.session.currentUser
   };
 };
 
-export default connect(mapStateToProps, null)(BookShowPage);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchBooks: () => { return dispatch(fetchBooks()); },
+    fetchBookshelves: () => { return dispatch(fetchBookshelves()); }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookShowPage);

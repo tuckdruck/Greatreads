@@ -18,7 +18,7 @@ class BooksIndex extends React.Component {
 
       return(
         <Link key={book.id} to={`books/${book.id}`}>
-          <img src={`${book.cover_image_url}`}/>
+          <img className="books-index" src={`${book.cover_image_url}`}/>
         </Link>
       );
 

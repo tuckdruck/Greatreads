@@ -1,6 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 import HeaderContainer from './header_container';
+import BooksIndexContainer from './books_index_container';
 
 export default class HomePageSignedIn extends React.Component {
 
@@ -18,7 +19,7 @@ export default class HomePageSignedIn extends React.Component {
     return (
       <div>
         <HeaderContainer/>
-        home page signed in
+        <BooksIndexContainer />
       </div>
     );
   }
