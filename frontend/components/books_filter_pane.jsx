@@ -26,12 +26,15 @@ export default class BooksFilterPane extends React.Component {
   }
 
   fetchUserBooks() {
-    return this.props.fetchUserBooks(this.props.currentUser.id).then(this.setState({ selectedBookshelf: ""}));
+    return this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
   }
 
   filterBooks(bookshelf) {
     return () => {
-      return this.props.fetchBookshelfBooks(bookshelf.id).then(() => { this.setState({ selectedBookshelf: bookshelf.title}); });
+      return this.props.fetchBookshelfBooks(bookshelf.id).then(() => { this.props.selectBookshelf(bookshelf); });
+      // return this.props.selectBookshelf(bookshelf).then(() => { this.props.fetchBookshelfBooks(bookshelf.id); });
+    //   return this.props.fetchBookshelfBooks(bookshelf.id).then(() => { this.setState({ selectedBookshelf: bookshelf.title}); });
+    // };
     };
   }
 
@@ -59,17 +62,17 @@ export default class BooksFilterPane extends React.Component {
       );
     });
 
-    const colon = (this.state.selectedBookshelf === "") ? "" : ": ";
+    const colon = (this.props.selectedBookshelf) ? ": " : "";
     let bookshelfHeaderDescription;
-    if (this.state.selectedBookshelf === "") {
-      bookshelfHeaderDescription = (<span></span>);
-    } else {
+    if (this.props.selectedBookshelf) {
       bookshelfHeaderDescription = (
         <span className="bookshelf-header-description">:&nbsp;
-          <span>{this.state.selectedBookshelf}</span>
+          <span>{this.props.selectedBookshelf.title}</span>
           <button className="switch-to-all-books" onClick={this.fetchUserBooks}>x</button>
         </span>
       );
+    } else {
+      bookshelfHeaderDescription = (<span></span>);
     }
 
     return(
