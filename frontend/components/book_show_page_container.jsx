@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import HeaderContainer from './header_container';
-import BookDetails from './book_details';
-import MyActivity from './my_activity';
+import BookDetails from './book_details_container';
 import Reviews from './reviews';
 import Footer from './footer';
 
@@ -11,7 +10,6 @@ const BookShowPage = props => {
     <main>
       <HeaderContainer />
       <BookDetails book={props.book} />
-      <MyActivity book={props.book}/>
       <Reviews book={props.book}/>
       <Footer />
     </main>
@@ -24,4 +22,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connecdt(mapStateToProps, null)(BookShowPage);
+export default connect(mapStateToProps, null)(BookShowPage);

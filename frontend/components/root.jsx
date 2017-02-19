@@ -5,6 +5,7 @@ import AppContainer from './app_container';
 import SignInPage from './sign_in_page';
 import MyBooksPageContainer from './my_books_page_container';
 import EditBookshelvesPage from './edit_bookshelves_page';
+import BookShowPageContainer from './book_show_page_container';
 
 
 const Root = ({ store }) => (
@@ -17,7 +18,8 @@ const Root = ({ store }) => (
       <Route path="signin" component={SignInPage} onEnter={_redirectIfLoggedIn(store)}/>
       <Route path="mybooks" component={MyBooksPageContainer} onEnter={_redirectIfLoggedOut(store)}/>
       <Route path="shelves" component={EditBookshelvesPage} onEnter={_redirectIfLoggedOut(store)}/>
-      <Route path="books/:bookId" component={BooksShowPage}/>
+      <Route path="books/:bookId" component={BookShowPageContainer}/>
+
     </Router>
 
   </Provider>
