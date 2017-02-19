@@ -44,11 +44,11 @@ nav.header a:first-child {
   padding-right: 16px;
 }
 
-nav.header a:not(:first-child) {
+nav.header a:not(:first-child), button.looks-like-link {
   padding: 15px 16px;
 }
 
-nav.header a:hover:not(:first-child) {
+nav.header a:hover:not(:first-child), button.looks-like-link:hover {
   background: #382110;
   color: white;
 }
@@ -71,5 +71,9 @@ div.sign-in {
 }
 
 button.logout {
+  font-size: 16px;
+}
+button.looks-like-link {
+  padding: 15px 16px;
   font-size: 16px;
 }
