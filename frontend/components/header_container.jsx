@@ -13,8 +13,7 @@ class Header extends React.Component {
 
   redirectToMyBooks() {
     if (this.props.pathname) {
-      debugger
-      this.props.fetchUserBooks(this.props.currentUser.id);
+      this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
     } else {
       hashHistory.push("mybooks");
     }
@@ -48,7 +47,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); },
-    fetchUserBooks: () => { return dispatch(fetchUserBooks); }
+    fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); }
   };
 };
 
