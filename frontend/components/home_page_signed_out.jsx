@@ -2,6 +2,7 @@ import React from 'react';
 import SignInContainer from './sign_in_container';
 import SignUpContainer from './sign_up_container';
 import { Link } from 'react-router';
+import BooksIndexContainer from './books_index_container';
 
 export default class HomePageSignedOut extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class HomePageSignedOut extends React.Component {
           </header>
         </header>
         <SignUpContainer />
+        <BooksIndexContainer />
       </div>
     );
   }
