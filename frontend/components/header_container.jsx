@@ -2,28 +2,54 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
+import { fetchUserBooks } from '../actions/book_actions';
 
-const Header = (props) => {
-  return(
-    <header className="logo signed-in">
-      <div className="signed-in-subheader">
-        <nav className="header">
-          <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
-          <Link to="/">Home</Link>
-          <Link to="mybooks">My Books</Link>
-          <Link to="/">Browse</Link>
-        </nav>
+class Header extends React.Component {
 
-        <button className="logout" onClick={props.logout}>Log Out</button>
-      </div>
-    </header>
-  );
+  constructor(props) {
+    super(props);
+    this.redirectToMyBooks = this.redirectToMyBooks.bind(this);
+  }
+
+  redirectToMyBooks() {
+    if (this.props.pathname) {
+      debugger
+      this.props.fetchUserBooks(this.props.currentUser.id);
+    } else {
+      hashHistory.push("mybooks");
+    }
+  }
+
+  render() {
+    return(
+      <header className="logo signed-in">
+        <div className="signed-in-subheader">
+          <nav className="header">
+            <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
+            <Link to="/">Home</Link>
+            <button onClick={this.redirectToMyBooks}>My Books</button>
+            <Link to="/">Browse</Link>
+          </nav>
+
+          <button className="logout" onClick={this.props.logout}>Log Out</button>
+        </div>
+      </header>
+    );
+  }
+
+}
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.session.currentUser
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); }
+    logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); },
+    fetchUserBooks: () => { return dispatch(fetchUserBooks); }
   };
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

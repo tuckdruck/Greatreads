@@ -28,6 +28,7 @@ export const removeBook = book => {
 
 export const fetchUserBooks = userId => {
   return function(dispatch) {
+    debugger
     return BookAPIUtil.fetchUserBooks(userId).then((books) => { return dispatch(receiveBooks(books)); });
   };
 };

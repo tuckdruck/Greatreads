@@ -27,10 +27,10 @@ const Root = ({ store }) => (
 const _redirectIfLoggedOut = store => {
   return (nextState, replace) => {
     if (!store.getState().session.currentUser) {
-      replace("/");
+      return replace("/");
     }
   };
-}
+};
 
 
 const _redirectIfLoggedIn = store => {
@@ -39,7 +39,7 @@ const _redirectIfLoggedIn = store => {
       replace("/");
     }
   };
-}
+};
 
 
 export default Root;
