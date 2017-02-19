@@ -5,6 +5,8 @@ class Api::BooksController < ApplicationController
       @books = Book.user_books_with_shelves(params[:user_id])
     elsif params[:bookshelf_id]
       @books = Book.bookshelf_books(params[:bookshelf_id], current_user.id)
+    else
+      @books = Book.includes(:bookshelves).references(:bookshelves)
     end
   end
 

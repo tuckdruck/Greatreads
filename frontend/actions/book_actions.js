@@ -43,3 +43,9 @@ export const updateBook = (info) => {
     return BookAPIUtil.updateBook(info).then((book) => { return dispatch(receiveBook(book)); });
   };
 };
+
+export const fetchBooks = () => {
+  return function(dispatch) {
+    return BookAPIUtil.fetchBooks().then((books) => { return dispatch(receiveBooks(books)); });
+  };
+};

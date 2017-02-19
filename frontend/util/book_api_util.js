@@ -25,3 +25,10 @@ export const updateBook = ({ book_id, bookshelf_id, create, user_id}) => {
     }
   });
 };
+
+export const fetchBooks = () => {
+  return $.ajax({
+    type: "GET",
+    url: `api/books`
+  });
+}

@@ -12,8 +12,23 @@ me = User.create!(username: "avital", password: "magichat12")
 user2 = User.create!(username: "drucker", password: "magichat21")
 
 Book.destroy_all
-harrypotter1 = Book.create!(title: "HP1", author: "JKR", cover_image_url: "https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Sorcerer's_Stone.jpg", average_rating: 4.43)
-song_of_ice_and_fire = Book.create!(title: "A Song of Ice and Fire", author: "GRRM", cover_image_url: "https://upload.wikimedia.org/wikipedia/en/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg", average_rating: 4.44)
+harrypotter1 = Book.create!(
+  title: "HP1",
+  author: "JKR",
+  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Sorcerer's_Stone.jpg",
+  average_rating: 4.43,
+  page_length: 320,
+  published_date: DateTime.new(1997, 6, 26),
+  publisher:  "Arthur A. Levine Books",
+  isbn: "0439554934",
+  url_to_buy: "https://www.amazon.com/gp/product/0439554934/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0439554934&SubscriptionId=1MGPYB6YW3HWK55XCGG2"
+)
+song_of_ice_and_fire = Book.create!(
+  title: "A Song of Ice and Fire",
+  author: "George R.R. Martin",
+  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg",
+  average_rating: 4.44
+)
 great_gatsby = Book.create!(title: "The Great Gatsby", author: "F. Scott Fitzgerald", cover_image_url: "https://upload.wikimedia.org/wikipedia/en/f/f7/TheGreatGatsby_1925jacket.jpeg", average_rating: 3.88)
 i_robot = Book.create!(title: "I, Robot", author: "Isaac Asimov", cover_image_url: "https://upload.wikimedia.org/wikipedia/en/8/8e/I_Robot_-_Runaround.jpg", average_rating: 4.17)
 macbeth = Book.create!(title: "Macbeth", author: "William Shakespeare", cover_image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Voodoo-Macbeth-Poster.jpg", average_rating: 3.88)

@@ -17,7 +17,7 @@ const Root = ({ store }) => (
       <Route path="signin" component={SignInPage} onEnter={_redirectIfLoggedIn(store)}/>
       <Route path="mybooks" component={MyBooksPageContainer} onEnter={_redirectIfLoggedOut(store)}/>
       <Route path="shelves" component={EditBookshelvesPage} onEnter={_redirectIfLoggedOut(store)}/>
-
+      <Route path="books/:bookId" component={BooksShowPage}/>
     </Router>
 
   </Provider>
