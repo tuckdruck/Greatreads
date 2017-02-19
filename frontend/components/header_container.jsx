@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import { fetchUserBooks } from '../actions/book_actions';
 import { selectBookshelf } from '../actions/bookshelf_actions';
+import SignInContainer from './sign_in_container';
 
 class Header extends React.Component {
 
@@ -21,17 +22,29 @@ class Header extends React.Component {
   }
 
   render() {
+    let myBooksLink;
+    let toggleSessionLink;
+
+    if (this.props.loggedIn) {
+      myBooksLink = (<button className="looks-like-link" onClick={this.redirectToMyBooks}>My Books</button>);
+      toggleSessionLink = (<button className="logout" onClick={this.props.logout}>Log Out</button>);
+    } else {
+      myBooksLink = "";
+      toggleSessionLink = <SignInContainer />;
+    }
+
     return(
       <header className="logo signed-in">
         <div className="signed-in-subheader">
           <nav className="header">
             <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
             <Link to="/">Home</Link>
-            <button className="looks-like-link" onClick={this.redirectToMyBooks}>My Books</button>
+            {myBooksLink}
             <Link to="/">Browse</Link>
           </nav>
 
-          <button className="logout" onClick={this.props.logout}>Log Out</button>
+          {toggleSessionLink}
+
         </div>
       </header>
     );
@@ -41,7 +54,8 @@ class Header extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    loggedIn: !!state.session.currentUser
   };
 };
 

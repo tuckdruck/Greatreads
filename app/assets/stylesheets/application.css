@@ -17,6 +17,8 @@
  *= require my_books_page
  *= require static_pages
  *= require edit_bookshelves
+ *= require books_index
+ *= require book_show
  *=
  *= require_self
  */

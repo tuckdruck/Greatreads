@@ -15,6 +15,7 @@ class AddShelfForm extends React.Component {
     e.preventDefault();
     this.props.clearErrors();
     const bookshelf = { title: this.state.shelfTitle };
+    debugger
     if (this.props.addBookshelfToBook) {
       return this.props.createBookshelf(bookshelf).then((action) => {
         return this.props.addBookshelfToBook(action.bookshelf.id, true);
