@@ -16,10 +16,14 @@ class EditBookshelvesIndex extends React.Component {
 
   render() {
     const bookshelves = this.props.bookshelves.map((bookshelf) => {
-      return(<li key={bookshelf.id}><EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/></li>);
+      return(
+        <li key={bookshelf.id}>
+          <EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/>
+        </li>
+      );
     });
 
-    return(<ul>{bookshelves}</ul>);
+    return(<ul className="edit-bookshelves-index">{bookshelves}</ul>);
   }
 
 }

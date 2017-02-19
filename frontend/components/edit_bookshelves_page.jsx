@@ -6,12 +6,14 @@ import Footer from './footer';
 
 const EditBookshelvesPage = (props) => {
   return(
-    <div>
+    <div className="edit-bookshelves-body">
       <HeaderContainer />
-      <div className="my-books-content edit-bookshelves-body">
-        <h1>Edit Bookshelves</h1>
-        <AddShelfFormContainer className="for-edit-page"/>
-        <EditBookshelvesIndexContainer />
+      <div className="my-books-content edit-bookshelves-main">
+        <h1>Edit Shelves</h1>
+        <div className="edit-bookshelves-forms">
+          <AddShelfFormContainer className="for-edit-page"/>
+          <EditBookshelvesIndexContainer />
+        </div>
       </div>
       <Footer />
     </div>

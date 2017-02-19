@@ -18,7 +18,7 @@ class AddShelfForm extends React.Component {
     if (this.props.addBookshelfToBook) {
       return this.props.createBookshelf(bookshelf).then((action) => {
         return this.props.addBookshelfToBook(action.bookshelf.id, true);
-      });
+      }).fail(() => { this.setState({ errors: this.props.errors}); });
     }
     else {
       return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
@@ -39,13 +39,38 @@ class AddShelfForm extends React.Component {
 
   render() {
     const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
-    return(
-      <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
-        <div>{this.state.errors}</div>
-        <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
-        <button className="add-shelf">add</button>
-      </form>
+    let errors;
+    let divErrorsClassName = "";
 
+    if (this.state.errors.length > 0) {
+      errors = (
+        <div className="add-shelf-errors">{this.state.errors}</div>
+      );
+    } else {
+      errors = "";
+    }
+
+    let errorsforEditPage;
+    let errorsforMyBooksPage;
+
+    if (this.props.className) {
+      errorsforEditPage = (<div className="errors-container">{errors}</div>);
+      errorsforMyBooksPage = "";
+    } else {
+      errorsforMyBooksPage = (<div className="errors-container">{errors}</div>);
+      errorsforEditPage = "";
+    }
+
+    return(
+      <div>
+        {errorsforEditPage}
+        <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
+
+            <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
+            <button className="add-shelf">add</button>
+        </form>
+        {errorsforMyBooksPage}
+      </div>
     );
   }
 }
