@@ -36,8 +36,8 @@ export default class FieldsForm extends React.Component {
       checked = (bookshelfTitlesForBook.includes(bookshelf.title));
 
       return (
-        <div key={bookshelf.id}>
-          <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>{bookshelf.title}
+        <div className="bookshelf-checkboxes" key={bookshelf.id}>
+          <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>{`   ${bookshelf.title}`}
         </div>
       );
     });
@@ -46,13 +46,15 @@ export default class FieldsForm extends React.Component {
     if (this.state.addShelfForm) {
       addShelfSection = (<AddShelfFormContainer addBookshelfToBook={this.addBookshelfToBook}/>);
     } else {
-      addShelfSection = (<button onClick={this.toggleAddShelfForm}>Add new shelf</button>);
+      addShelfSection = (<button className="fields-form-add-shelf-toggle" onClick={this.toggleAddShelfForm}>Add new shelf</button>);
     }
 
     return(
-      <div>
-        choose shelves...
-        <button onClick={this.props.toggleEditForm}>close</button>
+      <div className="fields-form">
+        <section>
+          <span>choose shelves...</span>
+          <button className="close" onClick={this.props.toggleEditForm}>close</button>
+        </section>
         {bookshelfCheckboxes}
         {addShelfSection}
       </div>

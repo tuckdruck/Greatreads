@@ -3,7 +3,8 @@ import * as BookshelfAPIUtil from '../util/bookshelf_api_util';
 export const RECEIVE_BOOKSHELVES = "RECEIVE_BOOKSHELVES";
 export const RECEIVE_BOOKSHELF = "RECEIVE_BOOKSHELF";
 export const REMOVE_BOOKSHELF = "REMOVE_BOOKSHELF";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const SELECT_BOOKSHELF = "SELECT_BOOKSHELF";
 
 export const receiveBookshelves = bookshelves => {
   return {
@@ -33,12 +34,20 @@ export const receiveErrors = errors => {
   };
 };
 
+export const selectBookshelf = bookshelf => {
+  return {
+    type: SELECT_BOOKSHELF,
+    bookshelf
+  };
+};
+
 
 export const fetchBookshelves = () => {
   return function(dispatch) {
     return BookshelfAPIUtil.fetchBookshelves().then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
   };
 };
+
 
 export const createBookshelf = (bookshelf, userId) => {
   return function(dispatch) {

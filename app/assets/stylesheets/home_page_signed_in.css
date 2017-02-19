@@ -40,15 +40,15 @@ header.signed-in {
   height: 52px;
 }
 
-nav a:first-child {
+nav.header a:first-child {
   padding-right: 16px;
 }
 
-nav a:not(:first-child) {
+nav.header a:not(:first-child) {
   padding: 15px 16px;
 }
 
-nav a:hover:not(:first-child) {
+nav.header a:hover:not(:first-child) {
   background: #382110;
   color: white;
 }

@@ -51,7 +51,7 @@ export default class MyBooksIndexItem extends React.Component {
         <div className="delete-book-warning">
           Are you sure you want to remove {this.props.book.title} from your bookshelves?
           <div>
-            <button onClick={this.deleteBookFromBookshelves}>Delete&nbsp;</button>
+            <button onClick={this.deleteBookFromBookshelves}>Delete</button>&nbsp;&nbsp;
             <button onClick={this.toggleDeleteBookWarning}>Cancel</button>
           </div>
         </div>
@@ -64,7 +64,10 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="book-title-col">{this.props.book.title}</td>
         <td className="book-author-col">{this.props.book.author}</td>
         <td className="book-average-rating">{this.props.book.average_rating}</td>
-        <td className="shelves">{bookshelfTitles}<button className="edit-bookshelves" onClick={this.toggleEditForm}>&nbsp;[edit]</button>{form}</td>
+        <td className="shelves">{bookshelfTitles}
+          <button className="edit-bookshelves" onClick={this.toggleEditForm}>&nbsp;[edit]</button>
+          {form}
+        </td>
         <td className="review">book review goes here</td>
         <td className="date-read">date read goes here</td>
         <td className="delete-book">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateBookshelf, deleteBookshelf } from '../actions/bookshelf_actions';
+import { updateBookshelf, deleteBookshelf, selectBookshelf } from '../actions/bookshelf_actions';
 import { receiveErrors } from '../actions/error_actions';
 import { hashHistory } from 'react-router';
 
@@ -13,6 +13,7 @@ class EditBookshelvesIndexItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hideForm = this.hideForm.bind(this);
     this.showForm = this.showForm.bind(this);
+    this.showBookshelfBooks = this.showBookshelfBooks.bind(this);
   }
 
   deleteBookshelf() {
@@ -53,35 +54,40 @@ class EditBookshelvesIndexItem extends React.Component {
     this.setState({ showForm: true });
   }
 
+  showBookshelfBooks() {
+    this.props.selectBookshelf(this.props.bookshelf);
+    hashHistory.push("mybooks");
+  }
+
   render() {
     let itemDisplay;
     if (this.state.showForm) {
       itemDisplay = (
-        <span>
+        <span className="editable-bookshelf-index-item">
           <form className="rename-bookshelf" onSubmit={this.handleSubmit}>
             <input type="text" value={this.state.bookshelfTitle} onChange={this.updateBookshelfTitle}/>
             <button>Save</button>
           </form>
           <button onClick={this.hideForm}>Cancel</button>
-          {this.state.errors}
         </span>
       );
     }
     else {
       itemDisplay = (
-        <span>
-          <button>{this.props.bookshelf.title}&nbsp;</button>
+        <span className="editable-bookshelf-index-item">
+          <button onClick={this.showBookshelfBooks}>{this.props.bookshelf.title}&nbsp;</button>
           <button onClick={this.showForm}>rename</button>
         </span>
-      )
+      );
     }
 
     return(
-      <div>
-        <button onClick={this.deleteBookshelf}>X</button>
+      <div className="rename-bookshelf-errors-container">
+        <div className="rename-bookshelf-errors">{this.state.errors}</div>
+        <button className="delete-bookshelf" onClick={this.deleteBookshelf}>X</button>
         {itemDisplay}
       </div>
-    )
+    );
   }
 
 }
@@ -97,7 +103,8 @@ const mapDispatchToProps = dispatch => {
   return {
     clearErrors: () => { return dispatch(receiveErrors([])); },
     updateBookshelf: (bookshelf, userId) => { return dispatch(updateBookshelf(bookshelf, userId)); },
-    deleteBookshelf: (bookshelfId, userId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); }
+    deleteBookshelf: (bookshelfId, userId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); },
+    selectBookshelf: (bookshelf) => { return dispatch(selectBookshelf(bookshelf)); }
   };
 };
 

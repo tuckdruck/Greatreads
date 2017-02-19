@@ -1,10 +1,48 @@
-div.edit-bookshelves-body > * {
+div.edit-bookshelves-main {
   margin: 0 auto;
+  width: 40%;
 }
 
 
 
-div.edit-bookshelves-body h1 {
+div.edit-bookshelves-main h1 {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+
+div.edit-bookshelves-body {
+  background: white;
+}
+
+ul.edit-bookshelves-index {
+  margin-top: 20px;
+}
+
+span.editable-bookshelf-index-item button {
+  margin-left: 5px;
+}
+
+form.rename-bookshelf input {
+  margin-left: 5px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #00635d;
+}
+
+div.add-shelf-errors, div.rename-bookshelf-errors {
+  color: red;
+}
+
+div.edit-bookshelves-forms {
+  position: relative;
+}
+
+div.rename-bookshelf-errors {
+  left: -180px;
+  top: -10px;
+}
+
+div.rename-bookshelf-errors-container {
+  position: relative;
 }

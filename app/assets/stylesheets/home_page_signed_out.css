@@ -119,13 +119,15 @@ section.sign-up {
   /*width: 93%;*/
 }
 
-ul.sign-up-errors {
+ul.sign-up-errors, div.add-shelf-errors, div.rename-bookshelf-errors {
   display: block;
   margin-top: 7px;
   position: absolute;
   background: white;
   padding: 2px;
-  /*padding: 5px;*/
+}
+
+ul.sign-up-errors {
   border-radius: 3px;
   border-style: solid;
   border-color: lightgray;

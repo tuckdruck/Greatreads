@@ -14,11 +14,10 @@ export default class BooksFilterPane extends React.Component {
 
   componentDidMount() {
     this.props.fetchBookshelves();
+    if (this.props.selectedBookshelf) {
+      this.filterBooks(this.props.selectedBookshelf).then(() => { return this.props.selectBookshelf({}); });
+    }
   }
-
-  // componentWillReceiveProps() {
-  //   this.props.fetchBookshelves();
-  // }
 
   toggleAddShelfForm() {
     this.setState({ showAddShelfForm: true });
@@ -66,7 +65,7 @@ export default class BooksFilterPane extends React.Component {
       bookshelfHeaderDescription = (
         <span className="bookshelf-header-description">:&nbsp;
           <span>{this.state.selectedBookshelf}</span>
-          <button className="switch-to-all-books" onClick={this.fetchUserBooks}>X</button>
+          <button className="switch-to-all-books" onClick={this.fetchUserBooks}>x</button>
         </span>
       );
     }
@@ -79,7 +78,7 @@ export default class BooksFilterPane extends React.Component {
           <section className="books-filtered-body">
             <nav className="sidebar">
               <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
-              <Link to="shelves" className="edit-bookshelves-button">(edit)</Link>
+              <Link to="shelves" className="edit-bookshelves">(edit)</Link>
 
               <ul className="status-index">
                 <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>

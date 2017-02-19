@@ -3,7 +3,7 @@ div.my-books-content {
   margin: 0 auto;
 }
 
-div.my-books-page {
+div.my-books-page, div.edit-bookshelves-main {
   background: white;
   height: 1363px;
 }
@@ -12,13 +12,19 @@ section.books-filtered-body {
   display: flex;
 }
 
-header.bookshelf-title-header {
-  height: 7.5%;
+header.bookshelf-title-header, div.edit-bookshelves-main h1  {
   font-size: 22px;
   color: #00635d;
   padding: 17px 0px 8px 0px;
   font-family: Georgia;
   font-weight: bold;
+}
+
+header.bookshelf-title-header {
+  height: 35px;
+}
+
+header.bookshelf-title-header {
   border-bottom: 1px solid #EBE8D5;
 }
 
@@ -56,7 +62,7 @@ h3.bookshelves-index-header {
   padding-bottom: 5px;
 }
 
-button.bookshelf-filter-link {
+button.bookshelf-filter-link, span.editable-bookshelf-index-item button {
   font-size: 14px;
   color: #00635d;
   padding-bottom: 5px;
@@ -69,22 +75,27 @@ button.bookshelf-filter-link:hover {
 button.edit-bookshelves:hover {
   text-decoration: underline;
 }
-
+span.bookshelf-header-description {
+  height: 24px;
+}
 
 span.bookshelf-header-description span {
   background: #F4F4EA;
   color: black;
-  height: 25px;
+  font-size: 17px;
+  padding: 3px 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 button.switch-to-all-books {
   background: #E9E5D3;
   color: gray;
-  height: 25px;
-  font-size: 22px;
+  font-size: 17px;
   text-align: center;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding: 3px 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 table th {
@@ -114,6 +125,7 @@ td.book-average-rating {
 
 td.shelves {
   width: 17%;
+  position: relative;
 }
 
 td.review {
@@ -131,7 +143,7 @@ td.delete-book {
   color: gray;
 }
 
-td.delete-book button {
+td.delete-book button, button.delete-bookshelf {
   font-size: 12px;
   font-weight: bold;
 }
@@ -154,7 +166,6 @@ img.cover {
 }
 
 button.add-shelf {
-  margin-top: 5px;
   background: #ede6d6;
   color: #333333;
   padding: 4px 14px;
@@ -173,4 +184,62 @@ div.delete-book-warning {
   width: 200px;
   left: 35px;
   top: 10px;
+}
+
+div.delete-book-warning button:hover {
+  text-decoration: underline;
+}
+
+a.edit-bookshelves {
+  font-size: 11px;
+  color: #00635d;
+}
+
+a.edit-bookshelves:hover {
+  text-decoration: underline;
+}
+
+div.fields-form {
+  position: absolute;
+  background: white;
+  padding: 5px 5px 15px 5px;
+  border: 1px solid #D6D0C4;
+  width: 198px;
+  border-radius: 3px;
+  z-index: 100;
+}
+
+div.fields-form section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+div.fields-form button.close {
+  color: #aaaaaa;
+}
+
+div.bookshelf-checkboxes {
+  padding: 5px 0px;
+}
+
+div.bookshelf-checkboxes:last-child {
+  padding-bottom: 5px;
+}
+
+div.fields-form > * {
+  font-size: 12px;
+}
+
+div.fields-form span {
+  color: #aaaaaa;
+}
+
+
+div.fields-form button:hover {
+  text-decoration: underline;
+}
+
+.fields-form-add-shelf-toggle {
+  color: #00635d;
 }
