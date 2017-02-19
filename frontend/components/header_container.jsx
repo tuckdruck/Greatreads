@@ -27,7 +27,7 @@ class Header extends React.Component {
           <nav className="header">
             <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
             <Link to="/">Home</Link>
-            <button onClick={this.redirectToMyBooks}>My Books</button>
+            <button className="looks-like-link" onClick={this.redirectToMyBooks}>My Books</button>
             <Link to="/">Browse</Link>
           </nav>
 
