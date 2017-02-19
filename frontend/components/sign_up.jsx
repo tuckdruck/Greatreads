@@ -36,8 +36,8 @@ export default class SignUp extends React.Component {
 
   guestSignIn() {
     const user = {
-      username: "guest",
-      password: "password"
+      username: "avital",
+      password: "magichat12"
     };
     this.props.signin(user);
   }
