@@ -16,8 +16,7 @@ export default class BooksFilterPane extends React.Component {
     this.props.fetchBookshelves();
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
-        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); })
-        .then(() => { this.props.selectBookshelf(null); });
+        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); });
     }
   }
 
