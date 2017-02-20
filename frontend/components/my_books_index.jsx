@@ -23,7 +23,15 @@ export default class MyBooksIndex extends React.Component {
 
 
   render () {
-    const books = this.props.books.map((book, index) => {
+    const userBooks = [];
+
+    this.props.books.forEach((book) => {
+      if (book.bookshelves.length > 0) {
+        userBooks.push(book);
+      }
+    });
+
+    const books = userBooks.map((book, index) => {
       return(<MyBooksIndexItem bookshelves={this.props.bookshelves} book={book} updateBook={this.props.updateBook} currentUser={this.props.currentUser} removeBook={this.props.removeBook} key={index}/>);
     });
 

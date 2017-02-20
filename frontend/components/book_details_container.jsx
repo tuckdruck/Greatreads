@@ -20,6 +20,7 @@ class BookDetails extends React.Component {
 
 
   render() {
+    debugger
     let myActivitySection = "";
     let fieldsForm = "";
 

@@ -108,3 +108,7 @@ table.activity td {
 div.reviews {
   font-family: 'Lato', sans-serif;
 }
+
+div.activity-section-fields-form {
+  position: relative;
+}
