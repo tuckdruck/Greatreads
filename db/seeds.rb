@@ -115,7 +115,7 @@ storm_of_swords = Book.create!(
   url_to_buy: "https://www.amazon.com/gp/product/055357342X/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=055357342X&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
   description: <<-HEREDOC
     A Storm of Swords is the third of seven planned novels in A Song of Ice and Fire, a fantasy series by American author George R. R. Martin.
-    It was first published on August 8, 2000, in the United Kingdom,[1] with a United States edition following in November 2000.
+    It was first published on August 8, 2000, in the United Kingdom, with a United States edition following in November 2000.
     A Storm of Swords picks up the story slightly before the end of its predecessor, A Clash of Kings.
     The Seven Kingdoms of Westeros are still in the grip of the War of the Five Kings, wherein Robb Stark, Balon Greyjoy, Joffrey Baratheon, and Stannis Baratheon compete for the Iron Throne.
     Meanwhile, a large host of wildlings approach the Wall under the leadership of Mance Rayder, the self-proclaimed "King Beyond the Wall", with only the undermanned Night's Watch in opposition.
@@ -328,7 +328,7 @@ pale_blue_dot = Book.create!(
   author: "Carl Sagan",
   cover_image_url: "https://upload.wikimedia.org/wikipedia/en/7/70/SaganPaleBlueDot.jpg",
   average_rating: 4.32,
-  pale_length: 384,
+  page_length: 384,
   published_date: Date.new(1994),
   publisher: "Ballantine Books",
   url_to_buy: "https://www.amazon.com/gp/product/0345376595/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0345376595&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
