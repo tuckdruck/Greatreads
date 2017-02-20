@@ -20,8 +20,6 @@ class BookDetails extends React.Component {
 
 
   render() {
-    debugger
-    let myActivitySection = "";
     let fieldsForm = "";
 
     if (this.props.loggedIn && this.state.showEditForm) {
@@ -45,7 +43,9 @@ class BookDetails extends React.Component {
       fieldsForm = "";
     }
 
-    if (this.props.loggedIn) {
+    let myActivitySection = "";
+
+    if (this.props.loggedIn && this.props.book && this.props.book.bookshelves.length > 0) {
       myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
     }
 
