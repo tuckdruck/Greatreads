@@ -52,12 +52,14 @@ section.main-content li {
 
 div.book-show-fields-form {
   border-radius: 3px;
-  height: 20px;
+  height: 24px;
   width: 141px;
   border: 1px solid #dddddd;
   text-align: center;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  margin-top: 11px;
 }
 
 div.book-show-fields-form figure {
@@ -65,13 +67,20 @@ div.book-show-fields-form figure {
   color: #181818;
   text-align: center;
   width: 100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 div.book-show-fields-form .arrow {
-  background: green;
-  padding: 5px;
+  display: block;
+  background: #409d69;
   height: 100%;
   width: 26px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+  color: white;
+  font-size: 8px;
+  letter-spacing: 10px;
+  margin: 0 auto;
+  padding-left: 9px;
 }

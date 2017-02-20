@@ -12,7 +12,6 @@ export default class FieldsForm extends React.Component {
 
   handleInputChange(event) {
     const value = event.currentTarget.checked;
-
     this.props.updateBook({
       user_id: this.props.currentUser.id,
       book_id: this.props.book.id,
@@ -49,9 +48,13 @@ export default class FieldsForm extends React.Component {
     } else {
       addShelfSection = (<button className="fields-form-add-shelf-toggle" onClick={this.toggleAddShelfForm}>Add new shelf</button>);
     }
+    let additionalClass = "";
+    if (this.props.className) {
+      additionalClass = this.props.className;
+    }
 
     return(
-      <div className="fields-form">
+      <div className={`fields-form ${additionalClass}`}>
         <section>
           <span>choose shelves...</span>
           <button className="close" onClick={this.props.toggleEditForm}>close</button>
