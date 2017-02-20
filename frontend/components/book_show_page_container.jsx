@@ -17,7 +17,7 @@ class BookShowPage extends React.Component {
       this.props.fetchBooks();
     }
     if (!this.props.bookshelves) {
-      this.props.fetchBookshelves();
+      this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }
 
@@ -43,14 +43,15 @@ class BookShowPage extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     book: state.books[ownProps.params.bookId],
-    loggedIn: !!state.session.currentUser
+    loggedIn: !!state.session.currentUser,
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchBooks: () => { return dispatch(fetchBooks()); },
-    fetchBookshelves: () => { return dispatch(fetchBookshelves()); }
+    fetchBookshelves: (userId) => { return dispatch(fetchBookshelves(userId)); }
   };
 };
 

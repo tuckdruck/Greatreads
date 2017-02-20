@@ -21,6 +21,7 @@ export const receiveBookshelf = bookshelf => {
 };
 
 export const removeBookshelf = bookshelf => {
+  debugger
   return {
     type: REMOVE_BOOKSHELF,
     bookshelf
@@ -42,9 +43,11 @@ export const selectBookshelf = bookshelf => {
 };
 
 
-export const fetchBookshelves = () => {
+export const fetchBookshelves = (userId) => {
+  debugger
   return function(dispatch) {
-    return BookshelfAPIUtil.fetchBookshelves().then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
+    debugger
+    return BookshelfAPIUtil.fetchBookshelves(userId).then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
   };
 };
 

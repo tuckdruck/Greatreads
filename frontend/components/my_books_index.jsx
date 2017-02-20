@@ -7,10 +7,13 @@ export default class MyBooksIndex extends React.Component {
   }
 
   componentWillMount() {
+    debugger
     this.props.receiveBooks({});
   }
 
+
   componentDidMount() {
+    debugger
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
         .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); });
@@ -23,7 +26,7 @@ export default class MyBooksIndex extends React.Component {
 
   render () {
     const books = this.props.books.map((book) => {
-      return(<MyBooksIndexItem book={book} updateBook={this.props.updateBook} removeBook={this.props.removeBook} key={book.id}/>);
+      return(<MyBooksIndexItem bookshelves={this.props.bookshelves} book={book} updateBook={this.props.updateBook} currentUser={this.props.currentUser} removeBook={this.props.removeBook} key={book.id}/>);
     });
 
       return(

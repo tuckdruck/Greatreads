@@ -51,4 +51,8 @@ class Book < ActiveRecord::Base
     self.bookshelves.where("bookshelves.user_id = ?", user_id)
   end
 
+  def user_bookshelves(user_id)
+    Book.bookshelves.where("bookshelves.user_id = ?" ,user_id)
+  end
+
 end

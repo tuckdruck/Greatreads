@@ -1,4 +1,5 @@
 export const fetchBookshelves = userId => {
+  debugger
   return $.ajax({
     type: "GET",
     url: `api/users/${userId}/bookshelves`

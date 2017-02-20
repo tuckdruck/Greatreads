@@ -1,5 +1,6 @@
 import React from 'react';
 import FieldsFormContainer from './fields_form_container';
+import { onlyUserBookshelves } from '../selectors/bookshelves_selector';
 
 export default class MyBooksIndexItem extends React.Component {
   constructor(props) {
@@ -20,22 +21,31 @@ export default class MyBooksIndexItem extends React.Component {
 
 
   deleteBookFromBookshelves() {
-    const bookshelves = this.props.book.bookshelves;
+    debugger
+    const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
 
     for (let i = 0; i < bookshelves.length; i++) {
       this.props.updateBook({
         book_id: this.props.book.id,
         bookshelf_id: bookshelves[i].id,
+        user_id: this.props.currentUser.id,
         create: false
       });
     }
   }
 
   render() {
-    const bookshelves = this.props.book.bookshelves;
-    const bookshelfTitles = bookshelves.map((bookshelf) => {
-      return bookshelf.title;
-    }).join(", ");
+    let bookshelfTitles;
+    debugger
+    if (this.props.bookshelves) {
+      const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
+      bookshelfTitles = bookshelves.map((bookshelf) => {
+        return bookshelf.title;
+      }).join(", ");
+    } else {
+      bookshelfTitles = "";
+    }
+
 
     let form;
 
