@@ -17,14 +17,20 @@ class BooksIndex extends React.Component {
     const bookLinks = this.props.books.map((book) => {
 
       return(
-        <Link key={book.id} to={`books/${book.id}`}>
-          <img className="books-index" src={`${book.cover_image_url}`}/>
+        <Link className="book-index-item" key={book.id} to={`books/${book.id}`}>
+          <img src={`${book.cover_image_url}`}/>
         </Link>
       );
 
     });
 
-    return(<div>{bookLinks}</div>);
+    return(
+      <main className="main">
+        <div className="all-books">
+          {bookLinks}
+        </div>
+      </main>
+    );
   }
 
 }

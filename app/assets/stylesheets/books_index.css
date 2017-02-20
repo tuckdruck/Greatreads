@@ -1,4 +1,15 @@
-img.books-index {
-  width: 100px;
-  height: 200px;
+main.main {
+  width: 100%;
+  background: white;
+}
+
+div.all-books {
+  width: 55.3%;
+  margin: 0px auto;
+}
+
+a.book-index-item img {
+  width: 115px;
+  height: 180px;
+  margin: 5%;
 }
