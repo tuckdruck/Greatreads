@@ -3,8 +3,13 @@ img.book-show {
   height: 360px;
 }
 
+main.overall {
+  width: 100%;
+  background: white;
+}
+
 main.body {
-  width: 40%;
+  width: 50%;
   margin: 50px auto;
   font-size: 14px;
   font-family: Georgia;
@@ -16,4 +21,57 @@ main.main-content {
 section.main-content {
   margin-left: 10%;
   vertical-align: top;
+}
+
+section.main-content h1 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 9px;
+}
+
+section.main-content h4 {
+  margin-bottom: 14px;
+}
+
+section.main-content p {
+  font-size: 16px;
+  line-height: 23px;
+}
+
+section.main-content a {
+  font-weight: bold;
+}
+
+section.main-content a:hover {
+  text-decoration: underline;
+}
+
+section.main-content li {
+  margin-top: 10px;
+}
+
+div.book-show-fields-form {
+  border-radius: 3px;
+  height: 20px;
+  width: 141px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.book-show-fields-form figure {
+  font-size: 16px;
+  color: #181818;
+  text-align: center;
+  width: 100%;
+}
+
+div.book-show-fields-form .arrow {
+  background: green;
+  padding: 5px;
+  height: 100%;
+  width: 26px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
