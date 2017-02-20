@@ -36,8 +36,8 @@ export default class ActivitySection extends React.Component {
 
     if (this.state.showEditForm) {
       fieldsForm = (
-        <div>
-          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
+        <div className="activity-section-fields-form">
+          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} />
         </div>
       );
     }
