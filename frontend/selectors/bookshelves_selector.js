@@ -5,7 +5,6 @@ export const bookshelvesArray = bookshelves => {
 };
 
 export const onlyUserBookshelves = (allBookshelves, bookBookshelves) => {
-  debugger
   const userBookshelfIds = allBookshelves.map((bookshelf) => {
       return bookshelf.id;
   });

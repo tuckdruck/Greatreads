@@ -20,14 +20,13 @@ class Api::BooksController < ApplicationController
   end
 
   def update
-    debugger
     if params[:book][:create] == "true"
       BookTagging.create!(book_id: params[:book][:book_id], bookshelf_id: params[:book][:bookshelf_id])
     else
       book_tagging = BookTagging.find_by(book_id: params[:book][:book_id], bookshelf_id: params[:book][:bookshelf_id])
       book_tagging.destroy
     end
-    results = Book.find(params[:book][:book_id])
+    @book = Book.find(params[:book][:book_id])
     render :show
   end
 

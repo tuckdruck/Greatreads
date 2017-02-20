@@ -20,7 +20,6 @@ export const receiveBook = book => {
 };
 
 export const removeBook = book => {
-  debugger
   return {
     type: REMOVE_BOOK,
     book: book

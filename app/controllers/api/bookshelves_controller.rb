@@ -31,7 +31,6 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def update
-    debugger
     @bookshelf = Bookshelf.find(params[:id])
     if @bookshelf.update(bookshelf_params)
       render :show

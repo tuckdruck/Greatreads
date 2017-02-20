@@ -13,7 +13,6 @@ export default class BooksFilterPane extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchBookshelves(this.props.currentUser.id);
   }
 
