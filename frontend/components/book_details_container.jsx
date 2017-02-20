@@ -27,8 +27,8 @@ class BookDetails extends React.Component {
       fieldsForm = (
         <div className="book-show-fields-form">
           <figure>Status</figure>
-          <button className="arrow" onClick={this.toggleEditForm}></button>
-          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm}/>
+          <button className="arrow" onClick={this.toggleEditForm}>▼</button>
+          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
         </div>
       );
     }
@@ -36,7 +36,7 @@ class BookDetails extends React.Component {
       fieldsForm = (
         <div className="book-show-fields-form">
             <figure>Status</figure>
-            <button className="arrow" onClick={this.toggleEditForm}></button>
+            <button className="arrow" onClick={this.toggleEditForm}>▼</button>
         </div>
       );
     }

@@ -1,5 +1,4 @@
 import { RECEIVE_BOOKS, RECEIVE_BOOK, REMOVE_BOOK } from '../actions/book_actions';
-import { onlyUserBookshelves } from '../selectors/bookshelves_selector';
 
 const BooksReducer = (state = {}, action) => {
   let copy;

@@ -1,6 +1,5 @@
 import React from 'react';
 import FieldsFormContainer from './fields_form_container';
-import { onlyUserBookshelves } from '../selectors/bookshelves_selector';
 import { Link } from 'react-router';
 
 export default class MyBooksIndexItem extends React.Component {
@@ -20,14 +19,11 @@ export default class MyBooksIndexItem extends React.Component {
     this.setState({ showDeleteBookWarning: !this.state.showDeleteBookWarning });
   }
 
-
   deleteBookFromBookshelves() {
-    const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
-
-    for (let i = 0; i < bookshelves.length; i++) {
+    for (let i = 0; i < this.props.book.bookshelves.length; i++) {
       this.props.updateBook({
         book_id: this.props.book.id,
-        bookshelf_id: bookshelves[i].id,
+        bookshelf_id: this.props.book.bookshelves[i].id,
         user_id: this.props.currentUser.id,
         create: false
       });
@@ -37,8 +33,7 @@ export default class MyBooksIndexItem extends React.Component {
   render() {
     let bookshelfTitles;
     if (this.props.bookshelves) {
-      const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
-      bookshelfTitles = bookshelves.map((bookshelf) => {
+      bookshelfTitles = this.props.book.bookshelves.map((bookshelf) => {
         return bookshelf.title;
       }).join(", ");
     } else {
@@ -66,7 +61,6 @@ export default class MyBooksIndexItem extends React.Component {
         </div>
       );
     }
-
     return(
       <tr>
         <td className="cover-col"><Link to={`books/${this.props.book.id}`}><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></Link></td>

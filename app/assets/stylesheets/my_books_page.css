@@ -209,6 +209,10 @@ div.fields-form {
   z-index: 100;
 }
 
+div.fields-form.from-book-show {
+  top: 30px;
+}
+
 div.fields-form section {
   display: flex;
   justify-content: space-between;

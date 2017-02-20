@@ -126,7 +126,7 @@ storm_of_swords = Book.create!(
 clash_of_kings = Book.create!(
   title: "A Clash of Kings",
   author: "George R.R. Martin",
-  cover_image_url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiE7b-r-pzSAhXK4SYKHSMPCtwQjBwIBA&url=https%3A%2F%2Fc1.staticflickr.com%2F9%2F8176%2F8035427007_bb2c9c1768.jpg&bvm=bv.147448319,d.amc&psig=AFQjCNFzi35W82yAsxk9lq0s7tU-nIiweQ&ust=1487621030705908",
+  cover_image_url: "https://c2.staticflickr.com/4/3040/2862719214_aff1f18d71_z.jpg?zz=1",
   average_rating: 4.4,
   page_length: 761,
   published_date: DateTime.new(1998, 11, 16),
@@ -179,7 +179,7 @@ dance_with_dragons = Book.create!(
 nineteen84 = Book.create!(
   title: "1984",
   author: "George Orwell",
-  cover_image_url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiqqsOT_JzSAhVCQyYKHdgjC58QjBwIBA&url=https%3A%2F%2Fc1.staticflickr.com%2F3%2F2304%2F5802061841_437bf5beaf_b.jpg&bvm=bv.147448319,d.amc&psig=AFQjCNFIZVuw2UQaOI9_0BSkr-TmGaItaw&ust=1487621513368159",
+  cover_image_url: "https://c2.staticflickr.com/4/3598/3469818507_91cf61591e_z.jpg?zz=1",
   average_rating: 4.13,
   page_length: 328,
   published_date: DateTime.new(1949, 6, 8),

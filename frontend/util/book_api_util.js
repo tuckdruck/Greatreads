@@ -12,10 +12,10 @@ export const fetchUserBooks = userId => {
   });
 };
 
-export const updateBook = ({ book_id, bookshelf_id, create, user_id}) => {
+export const updateBook = ({ book_id, bookshelf_id, create }) => {
   return $.ajax({
     type: "PATCH",
-    url: `api/users/${user_id}/books/${book_id}`,
+    url: `api/books/${book_id}`,
     data: {
       book: {
         book_id: book_id,
