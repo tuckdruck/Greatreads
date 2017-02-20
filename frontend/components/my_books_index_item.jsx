@@ -32,7 +32,7 @@ export default class MyBooksIndexItem extends React.Component {
 
   render() {
     let bookshelfTitles;
-    if (this.props.bookshelves) {
+    if (this.props.book.bookshelves) {
       bookshelfTitles = this.props.book.bookshelves.map((bookshelf) => {
         return bookshelf.title;
       }).join(", ");
@@ -63,18 +63,18 @@ export default class MyBooksIndexItem extends React.Component {
     }
     return(
       <tr>
-        <td className="cover-col"><Link to={`books/${this.props.book.id}`}><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></Link></td>
+        <td className="cover-col my-books"><Link to={`books/${this.props.book.id}`}><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></Link></td>
 
-        <td className="book-title-col"><Link to={`books/${this.props.book.id}`}>{this.props.book.title}</Link></td>
-        <td className="book-author-col">{this.props.book.author}</td>
-        <td className="book-average-rating">{this.props.book.average_rating}</td>
-        <td className="shelves">{bookshelfTitles}
+        <td className="book-title-col my-books"><Link to={`books/${this.props.book.id}`}>{this.props.book.title}</Link></td>
+        <td className="book-author-col my-books">{this.props.book.author}</td>
+        <td className="book-average-rating my-books">{this.props.book.average_rating}</td>
+        <td className="shelves my-books">{bookshelfTitles}
           <button className="edit-bookshelves" onClick={this.toggleEditForm}>&nbsp;[edit]</button>
           {form}
         </td>
-        <td className="review">book review goes here</td>
-        <td className="date-read">date read goes here</td>
-        <td className="delete-book">
+        <td className="review my-books">book review goes here</td>
+        <td className="date-read my-books">date read goes here</td>
+        <td className="delete-book my-books">
           <button onClick={this.toggleDeleteBookWarning}>X</button>
           {warning}
         </td>

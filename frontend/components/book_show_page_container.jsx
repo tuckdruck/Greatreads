@@ -16,7 +16,7 @@ class BookShowPage extends React.Component {
     if (!this.props.book) {
       this.props.fetchBooks();
     }
-    if (!this.props.bookshelves) {
+    if (this.props.loggedIn && !this.props.bookshelves) {
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }

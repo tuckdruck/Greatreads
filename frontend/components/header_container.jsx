@@ -17,6 +17,9 @@ class Header extends React.Component {
     if (this.props.pathname) {
       this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
     } else {
+      this.props.selectBookshelf(null);
+      this.props.fetchUserBooks(this.props.currentUser.id);
+      // this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
       hashHistory.push("mybooks");
     }
   }

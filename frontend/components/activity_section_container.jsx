@@ -7,9 +7,7 @@ const ActivitySection = props => {
   });
 
   let bookshelf;
-
   const userShelvesBookIsOn = [];
-
   for (let i = 0; i < props.book.bookshelves.length; i++) {
     bookshelf = props.book.bookshelves[i];
     if (userBookshelfIds.includes(bookshelf.id)) {
@@ -17,23 +15,23 @@ const ActivitySection = props => {
     }
   }
 
-  let shelvesBookIsOnLis = userShelvesBookIsOn.map((shelf, index) => {
-    return (<li key={index}>{shelf.title}</li>);
-  });
+  let userShelvesBookIsOnFormatted = userShelvesBookIsOn.map((shelf, index) => {
+    return shelf.title;
+  }).join(", ");
 
   return(
-    <section>
-      <h3>MY ACTIVITY</h3>
-      <table>
+    <section className="activity">
+      <h3 className="book-details-subheader">MY ACTIVITY</h3>
+      <table className="activity">
         <tbody>
           <tr>
-            <td>Shelves</td>
+            <td className="table-title">Shelves</td>
             <td>
-              <ul>{shelvesBookIsOnLis}</ul>
+              {userShelvesBookIsOnFormatted}
             </td>
           </tr>
           <tr>
-            <td>Review</td>
+            <td className="table-title">Review</td>
             <td>Review goes here</td>
           </tr>
         </tbody>

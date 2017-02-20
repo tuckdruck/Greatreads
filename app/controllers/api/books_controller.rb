@@ -1,7 +1,6 @@
 class Api::BooksController < ApplicationController
 
   def index
-    debugger
     if params[:user_id]
       @books = Book.user_books_with_shelves(params[:user_id])
     elsif params[:bookshelf_id]

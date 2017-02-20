@@ -6,13 +6,13 @@ div.signed-in-subheader {
   height: 100%;
 }
 
-div.signed-in-subheader button {
+div.signed-in-subheader button.looks-like-link {
   display: block;
   height: 100%;
   padding: 0 16px;
 }
 
-div.signed-in-subheader button:hover {
+div.signed-in-subheader button.looks-like-link:hover {
   background: #382110;
   color: white;
 }
@@ -59,6 +59,7 @@ ul.sign-in-errors {
   background: white;
   top: 33px;
   left: 7px;
+  font-size: 13px;
   padding: 5px;
   border-radius: 3px;
   border-style: solid;
@@ -76,4 +77,8 @@ button.logout {
 button.looks-like-link {
   padding: 15px 16px;
   font-size: 16px;
+}
+
+div.home-page-signed-in {
+  height: 800px;
 }

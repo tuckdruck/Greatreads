@@ -13,7 +13,9 @@ main.body {
   margin: 50px auto;
   font-size: 14px;
   font-family: Georgia;
+  height: 900px;
 }
+
 main.main-content {
   display: flex;
 }
@@ -83,4 +85,26 @@ div.book-show-fields-form .arrow {
   letter-spacing: 10px;
   margin: 0 auto;
   padding-left: 9px;
+}
+
+section.activity {
+  font-family: 'Lato', sans-serif;
+}
+
+h3.book-details-subheader {
+  margin-top: 39px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+td.table-title {
+  padding-right: 100px;
+}
+
+table.activity td {
+  padding-top: 16px;
+}
+
+div.reviews {
+  font-family: 'Lato', sans-serif;
 }
