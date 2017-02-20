@@ -25,16 +25,18 @@ class BookDetails extends React.Component {
 
     if (this.props.loggedIn && this.state.showEditForm) {
       fieldsForm = (
-        <div>
-          <button onClick={this.toggleEditForm}>Status</button>
+        <div className="book-show-fields-form">
+          <figure>Status</figure>
+          <button className="arrow" onClick={this.toggleEditForm}></button>
           <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm}/>
         </div>
       );
     }
     else if (this.props.loggedIn) {
       fieldsForm = (
-        <div>
-            <button onClick={this.toggleEditForm}>Status</button>
+        <div className="book-show-fields-form">
+            <figure>Status</figure>
+            <button className="arrow" onClick={this.toggleEditForm}></button>
         </div>
       );
     }
@@ -59,14 +61,13 @@ class BookDetails extends React.Component {
 
             <section className="main-content">
               <h1>{this.props.book.title}</h1>
-              <h3>{this.props.book.author}</h3>
-              {this.props.book.average_rating}
+              <h4>{this.props.book.author}</h4>
+              Average rating:&nbsp;{this.props.book.average_rating}
 
               <p>{this.props.book.description}</p>
 
               <ul>
-                <li>Page length: {this.props.book.page_length}</li>
-                <li>ISBN:&nbsp;{this.props.book.isbn}</li>
+                <li>{this.props.book.page_length} pages</li>
                 <li><a href={this.props.book.url_to_buy}>Get a Copy</a></li>
               </ul>
             </section>

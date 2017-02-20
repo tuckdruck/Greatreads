@@ -29,7 +29,7 @@ class BookShowPage extends React.Component {
 
   render() {
     return(
-      <main>
+      <main className="overall">
         <HeaderContainer />
         <main className="body">
           <BookDetails book={this.props.book} />
