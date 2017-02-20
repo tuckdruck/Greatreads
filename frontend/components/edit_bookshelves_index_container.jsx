@@ -1,6 +1,6 @@
 import { updateBookshelf, deleteBookshelf, fetchBookshelves } from '../actions/bookshelf_actions';
 import { connect } from 'react-redux';
-import bookshelvesArray from '../selectors/bookshelves_selector';
+import { bookshelvesArray } from '../selectors/bookshelves_selector';
 import React from 'react';
 import EditBookshelvesIndexItemContainer from './edit_bookshelves_index_item_container';
 
@@ -11,7 +11,7 @@ class EditBookshelvesIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBookshelves();
+    this.props.fetchBookshelves(this.props.currentUser.id);
   }
 
   render() {
@@ -31,13 +31,14 @@ class EditBookshelvesIndex extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    bookshelves: bookshelvesArray(state.bookshelves)
+    bookshelves: bookshelvesArray(state.bookshelves),
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBookshelves: () => { return dispatch(fetchBookshelves()); }
+    fetchBookshelves: (userId) => { return dispatch(fetchBookshelves(userId)); }
   };
 };
 

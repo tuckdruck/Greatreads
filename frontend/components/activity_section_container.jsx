@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ActivitySection = props => {
-  debugger
   const userBookshelfIds = props.bookshelves.map((bookshelf) => {
       return bookshelf.id;
   });

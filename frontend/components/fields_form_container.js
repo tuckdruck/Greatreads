@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FieldsForm from './fields_form';
 import { updateBook } from '../actions/book_actions';
-import bookshelvesArray from '../selectors/bookshelves_selector';
+import { bookshelvesArray } from '../selectors/bookshelves_selector';
 
 const mapStateToProps = state => {
   return {
