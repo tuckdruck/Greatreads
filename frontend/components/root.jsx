@@ -12,7 +12,7 @@ const Root = ({ store }) => (
 
   <Provider store={ store }>
 
-    <Router history={ hashHistory }>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={ hashHistory }>
 
       <Route path="/" component={AppContainer}/>
       <Route path="signin" component={SignInPage} onEnter={_redirectIfLoggedIn(store)}/>
