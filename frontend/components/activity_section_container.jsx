@@ -54,7 +54,7 @@ export default class ActivitySection extends React.Component {
               <td className="table-title">Shelves</td>
               <td>
                 {userShelvesBookIsOnFormatted}
-                <button onClick={this.toggleEditForm}>edit</button>
+                <button className="activity-section-edit-fields" onClick={this.toggleEditForm}>edit</button>
                 {fieldsForm}
               </td>
             </tr>

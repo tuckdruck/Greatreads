@@ -11,7 +11,6 @@ export default class FieldsForm extends React.Component {
   }
 
   handleInputChange(event) {
-    debugger
     const value = event.currentTarget.checked;
     this.props.updateBook({
       user_id: this.props.currentUser.id,

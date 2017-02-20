@@ -247,3 +247,9 @@ div.fields-form button:hover {
 .fields-form-add-shelf-toggle {
   color: #00635d;
 }
+
+button.activity-section-edit-fields {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #767676;
+}
