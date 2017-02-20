@@ -9,6 +9,8 @@
   json.url_to_buy book.url_to_buy
   json.description book.description
 
-<% if current_user %>
+if current_user
   json.bookshelves book.bookshelves.where(user_id: current_user.id)
-<% end %>
+else
+  json.bookshelves book.bookshelves
+end

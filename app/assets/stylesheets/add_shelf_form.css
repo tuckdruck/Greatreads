@@ -8,8 +8,9 @@ form.add-shelf button.add-shelf {
   color: black;
 }
 
-form.add-shelf {
-  display: flex;
+
+form.add-shelf input {
+  width: 100px;
 }
 
 form.rename-bookshelf {

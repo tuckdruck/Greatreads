@@ -32,7 +32,7 @@ section.books-filtered-body nav {
   width: 20%;
 }
 
-table {
+table.my-books {
   width: 78%;
   border-collapse: collapse;
   margin-left: 20px;
@@ -148,7 +148,7 @@ td.delete-book button, button.delete-bookshelf {
   font-weight: bold;
 }
 
-td {
+td.my-books {
   padding-right: 12px;
   height: 77px;
   border-bottom: 1px solid #D6D0C4;

@@ -13,8 +13,8 @@ user2 = User.create!(username: "drucker", password: "magichat21")
 
 Book.destroy_all
 harrypotter1 = Book.create!(
-  title: "HP1",
-  author: "JKR",
+  title: "Harry Potter and the Sorcerer's Stone",
+  author: "J.K. Rowling",
   cover_image_url: "https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Sorcerer's_Stone.jpg",
   average_rating: 4.43,
   page_length: 320,
@@ -210,6 +210,132 @@ beowulf = Book.create!(
   HEREDOC
 )
 
+hp2 = Book.create!(
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J.K. Rowling",
+  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/cos-us-jacket-art.jpg",
+  average_rating: 4.36,
+  page_length: 341,
+  published_date: Date.new(1999, 6, 2),
+  publisher: "Scholastic Inc.",
+  url_to_buy: "https://www.amazon.com/gp/product/0439064864/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0439064864&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Chamber of Secrets is the second novel in the Harry Potter series, written by J. K. Rowling. The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the "Chamber of Secrets" has been opened and that the "heir of Slytherin" would kill all pupils who do not come from all-magical families. These threats are found after attacks which leave residents of the school "petrified" (frozen like stone). Throughout the year, Harry and his friends Ron and Hermione investigate the attacks.
+  HEREDOC
+)
+
+
+hp3 = Book.create!(
+  title: "Harry Potter and the Prisoner of Azkaban",
+  author: "J.K. Rowling",
+  cover_image_url: "http://vignette3.wikia.nocookie.net/harrypotter/images/1/11/Prisoner_of_Azkaban_cover.jpg/revision/latest?cb=20070328184627",
+  average_rating: 4.52,
+  page_length: 435,
+  published_date: Date.new(2004, 5, 1),
+  publisher: "Scholastic",
+  url_to_buy: "https://www.amazon.com/gp/product/043965548X/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=043965548X&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Prisoner of Azkaban is the third novel in the Harry Potter series, written by J. K. Rowling. The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ron Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban who they believe is one of Lord Voldemort's old allies.
+  HEREDOC
+)
+
+hp4 = Book.create!(
+  title: "Harry Potter and the Goblet of Fire",
+  author: "J.K. Rowling",
+  cover_image_url: "https://www.teachervision.com/sites/default/files/fe_slideshow/2007_07/HPusa4_TV.jpg",
+  average_rating: 4.52,
+  page_length: 734,
+  published_date: Date.new(2002, 9, 28),
+  publisher: "Scholastic Inc.",
+  url_to_buy: "https://www.amazon.com/gp/product/0439139600/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0439139600&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Goblet of Fire is the fourth novel in the Harry Potter series, written by British author J. K. Rowling. It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete.
+  HEREDOC
+)
+
+hp5 = Book.create!(
+  title: "Harry Potter and the Order of the Phoenix",
+  author: "J.K. Rowling",
+  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/ootp-us-jacket-art.jpg",
+  average_rating: 4.46,
+  page_length: 870,
+  published_date: Date.new(2004, 8, 10),
+  publisher: "Scholastic Inc",
+  url_to_buy: "https://www.amazon.com/gp/product/0439358078/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0439358078&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Order of the Phoenix is the fifth novel in the Harry Potter series, written by J. K. Rowling. It follows Harry Potter's struggles through his fifth year at Hogwarts School of Witchcraft and Wizardry, including the surreptitious return of the antagonist Lord Voldemort, O.W.L. exams, and an obstructive Ministry of Magic. The novel was published on 21 June 2003 by Bloomsbury in the United Kingdom, Scholastic in the United States, and Raincoast in Canada. Five million copies were sold in the first 24 hours of publication. It is the longest book of the series.
+  HEREDOC
+)
+
+hp6 = Book.create!(
+  title: "Harry Potter and the Half-Blood Prince",
+  author: "J.K. Rowling",
+  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/hbp-us-jacket-art.jpg",
+  average_rating: 4.53,
+  page_length: 652,
+  published_date: Date.new(2006, 9, 16),
+  publisher: "Scholastic",
+  url_to_buy: "https://www.amazon.com/gp/product/0439785960/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0439785960&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Half-Blood Prince is the sixth and penultimate novel in the Harry Potter series, written by British author J. K. Rowling. Set during protagonist Harry Potter's sixth year at Hogwarts, the novel explores the past of Harry's nemesis, Lord Voldemort, and Harry's preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.
+  HEREDOC
+)
+
+hp7 = Book.create!(
+  title: "Harry Potter and the Deathly Hallows",
+  author: "J.K. Rowling",
+  cover_image_url: "https://c1.staticflickr.com/1/150/437946745_50f37c798f_z.jpg?zz=1",
+  average_rating: 4.61,
+  page_length: 784,
+  published_date: Date.new(2007, 7, 21),
+  publisher: "Scholastic Inc",
+  url_to_buy: "https://www.amazon.com/gp/product/0545010225/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0545010225&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Harry Potter and the Deathly Hallows is the seventh and final novel of the Harry Potter series, written by British author J. K. Rowling. The book was released on 21 July 2007 by Bloomsbury Publishing in the United Kingdom, in the United States by Scholastic, and in Canada by Raincoast Books, ending the series that began in 1997 with the publication of Harry Potter and the Philosopher's Stone. The novel chronicles the events directly following Harry Potter and the Half-Blood Prince (2005), and the final confrontation between the wizards Harry Potter and Lord Voldemort, as well as revealing the previously concealed back story of several main characters. The title of the book refers to three mythical objects featured in the story, collectively known as the "Deathly Hallows" — an unbeatable wand, a stone to bring the dead to life, and a cloak of invisibility.
+  HEREDOC
+)
+
+brave_new_world = Book.create!(
+  title: "Brave New World",
+  author: "Aldous Huxley",
+  cover_image_url: "https://c1.staticflickr.com/8/7648/16844305819_07bc7ec673.jpg",
+  average_rating: 3.96,
+  page_length: 268,
+  published_date: Date.new(1932),
+  publisher: "Harper Perennial",
+  url_to_buy: "https://www.amazon.com/gp/product/0060929871/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0060929871&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Brave New World is a novel written in 1931 by Aldous Huxley, and published in 1932. Set in London in the year AD 2540 (632 A.F.—"After Ford"—in the book), the novel anticipates developments in reproductive technology, sleep-learning, psychological manipulation, and classical conditioning that combine profoundly to change society.
+  HEREDOC
+)
+
+freakonomics = Book.create!(
+  title: "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
+  author: "Stephen J. Dubner",
+  cover_image_url: "http://img.cinemablend.com/cb/0/9/4/6/d/6/0946d6e3a7f24c710cd1ad79a0b3145c9026823ec1b79293abafe55a2a6f0ce7.jpg",
+  average_rating: 3.93,
+  page_length: 320,
+  published_date: Date.new(2006, 10, 16),
+  publisher: "William Morrow",
+  url_to_buy: "https://www.amazon.com/gp/product/0061234001/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0061234001&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Freakonomics: A Rogue Economist Explores the Hidden Side of Everything is the debut non-fiction book by University of Chicago economist Steven Levitt and New York Times journalist Stephen J. Dubner. It was published on April 12, 2005 by William Morrow. The book has been described as melding pop culture with economics. By late 2009, the book had sold over 4 million copies worldwide.
+  HEREDOC
+)
+
+pale_blue_dot = Book.create!(
+  title: "Pale Blue Dot",
+  author: "Carl Sagan",
+  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/7/70/SaganPaleBlueDot.jpg",
+  average_rating: 4.32,
+  pale_length: 384,
+  published_date: Date.new(1994),
+  publisher: "Ballantine Books",
+  url_to_buy: "https://www.amazon.com/gp/product/0345376595/ref=x_gr_w_glide_bb?ie=UTF8&tag=x_gr_w_glide_bb-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0345376595&SubscriptionId=1MGPYB6YW3HWK55XCGG2",
+  description: <<-HEREDOC
+    Pale Blue Dot: A Vision of the Human Future in Space is a 1994 book by Carl Sagan. It is the sequel to Cosmos and was inspired by the famous Pale Blue Dot photograph, for which Sagan provides a poignant description. In this book, Sagan mixes philosophy about the human place in the universe with a description of the current knowledge about the Solar System. He also details a human vision for the future.
+  HEREDOC
+)
 
 Bookshelf.destroy_all
 my_favorite_books = Bookshelf.create!(title: "my favorite books", user_id: me.id)
