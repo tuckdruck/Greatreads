@@ -14,6 +14,7 @@ export default class FieldsForm extends React.Component {
     const value = event.currentTarget.checked;
 
     this.props.updateBook({
+      user_id: this.props.currentUser.id,
       book_id: this.props.book.id,
       bookshelf_id: event.currentTarget.value,
       create: value
@@ -62,7 +63,7 @@ export default class FieldsForm extends React.Component {
   }
 
   addBookshelfToBook(bookshelfId, create) {
-    this.props.updateBook({
+    return this.props.updateBook({
       book_id: this.props.book.id,
       bookshelf_id: bookshelfId,
       user_id: this.props.currentUser,

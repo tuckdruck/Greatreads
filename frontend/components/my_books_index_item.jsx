@@ -21,7 +21,6 @@ export default class MyBooksIndexItem extends React.Component {
 
 
   deleteBookFromBookshelves() {
-    debugger
     const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
 
     for (let i = 0; i < bookshelves.length; i++) {
@@ -36,7 +35,6 @@ export default class MyBooksIndexItem extends React.Component {
 
   render() {
     let bookshelfTitles;
-    debugger
     if (this.props.bookshelves) {
       const bookshelves = onlyUserBookshelves(this.props.bookshelves, this.props.book.bookshelves);
       bookshelfTitles = bookshelves.map((bookshelf) => {

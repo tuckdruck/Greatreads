@@ -7,13 +7,11 @@ export default class MyBooksIndex extends React.Component {
   }
 
   componentWillMount() {
-    debugger
     this.props.receiveBooks({});
   }
 
 
   componentDidMount() {
-    debugger
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
         .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); });
