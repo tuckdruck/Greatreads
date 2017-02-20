@@ -1,6 +1,7 @@
 import React from 'react';
 import FieldsFormContainer from './fields_form_container';
 import { onlyUserBookshelves } from '../selectors/bookshelves_selector';
+import { Link } from 'react-router';
 
 export default class MyBooksIndexItem extends React.Component {
   constructor(props) {
@@ -68,8 +69,9 @@ export default class MyBooksIndexItem extends React.Component {
 
     return(
       <tr>
-        <td className="cover-col"><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></td>
-        <td className="book-title-col">{this.props.book.title}</td>
+        <td className="cover-col"><Link to={`books/${this.props.book.id}`}><img className="cover" src={this.props.book.cover_image_url} alt={this.props.book.title}/></Link></td>
+
+        <td className="book-title-col"><Link to={`books/${this.props.book.id}`}>{this.props.book.title}</Link></td>
         <td className="book-author-col">{this.props.book.author}</td>
         <td className="book-average-rating">{this.props.book.average_rating}</td>
         <td className="shelves">{bookshelfTitles}

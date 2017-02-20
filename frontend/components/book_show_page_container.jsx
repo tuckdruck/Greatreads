@@ -31,8 +31,10 @@ class BookShowPage extends React.Component {
     return(
       <main>
         <HeaderContainer />
-        <BookDetails book={this.props.book} />
-        <Reviews book={this.props.book}/>
+        <main className="body">
+          <BookDetails book={this.props.book} />
+          <Reviews book={this.props.book}/>
+        </main>
         <Footer />
       </main>
     );

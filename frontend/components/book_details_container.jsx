@@ -19,8 +19,6 @@ class BookDetails extends React.Component {
   }
 
 
-
-
   render() {
     let myActivitySection = "";
     let fieldsForm = "";
@@ -52,26 +50,27 @@ class BookDetails extends React.Component {
       return(
         <main>
 
-          <section className="sidebar">
-            <img className="book-show" src={this.props.book.cover_image_url}/>
+          <main className="main-content">
+            <section className="sidebar">
+              <img className="book-show" src={this.props.book.cover_image_url}/>
 
-            {fieldsForm}
-          </section>
+              {fieldsForm}
+            </section>
 
-          <section className="main-content">
-            <h1>{this.props.book.title}</h1>
-            <h3>{this.props.book.author}</h3>
-            {this.props.book.average_rating}
+            <section className="main-content">
+              <h1>{this.props.book.title}</h1>
+              <h3>{this.props.book.author}</h3>
+              {this.props.book.average_rating}
 
-            <p>{this.props.book.description}</p>
+              <p>{this.props.book.description}</p>
 
-            <ul>
-              <li>{this.props.book.page_length}</li>
-              <li>ISBN:&nbsp;{this.props.book.isbn}</li>
-              <li><Link to={this.props.book.url_to_buy}>Get a Copy</Link></li>
-            </ul>
-          </section>
-
+              <ul>
+                <li>Page length: {this.props.book.page_length}</li>
+                <li>ISBN:&nbsp;{this.props.book.isbn}</li>
+                <li><a href={this.props.book.url_to_buy}>Get a Copy</a></li>
+              </ul>
+            </section>
+          </main>
           {myActivitySection}
 
         </main>

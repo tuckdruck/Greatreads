@@ -36,7 +36,6 @@ form.sign-in {
 
 .sign-in-button {
   background-color: #382110;
-  /*width: 28%;*/
   width: 65px;
   color: white;
   font-size: 13px;
@@ -72,9 +71,6 @@ button.big-gold {
   margin-top: 4px;
 }
 
-
-
-
 .big-gold.guest {
   display: block;
   position: absolute;
@@ -104,7 +100,6 @@ h1.logo.signed-out {
   font-size: 42px;
 }
 
-
 h2 {
   font-size: 18px;
   display: block;
@@ -114,9 +109,6 @@ section.sign-up {
   position: relative;
   margin-left: 5.6%;
   margin-top: 1%;
-  /*margin-top: 35px;
-  padding-left: 70px;*/
-  /*width: 93%;*/
 }
 
 ul.sign-up-errors, div.add-shelf-errors, div.rename-bookshelf-errors {

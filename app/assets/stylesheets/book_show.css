@@ -1,4 +1,19 @@
 img.book-show {
-  width: 200px;
-  height: 400px;
+  width: 230px;
+  height: 360px;
+}
+
+main.body {
+  width: 40%;
+  margin: 50px auto;
+  font-size: 14px;
+  font-family: Georgia;
+}
+main.main-content {
+  display: flex;
+}
+
+section.main-content {
+  margin-left: 10%;
+  vertical-align: top;
 }
