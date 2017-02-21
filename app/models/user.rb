@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
     through: :bookshelves,
     source: :books
 
+  has_many :statuses
+
+  has_many :status_books,
+    through: :statuses,
+    source: :book
+  
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
