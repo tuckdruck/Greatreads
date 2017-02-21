@@ -8,9 +8,6 @@ const BooksReducer = (state = {}, action) => {
     case RECEIVE_BOOK:
       copy = Object.assign({}, state);
       copy[action.book.id] = action.book;
-      // if (action.book.bookshelves.length < 1) {
-      //   delete copy[action.book.id];
-      // }
       return copy;
     case REMOVE_BOOK:
       copy = Object.assign({}, state);
