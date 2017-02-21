@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     bookshelves: bookshelvesArray(state.bookshelves),
     selectedBookshelf: state.bookshelf,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    loading: state.loading
   };
 };
 

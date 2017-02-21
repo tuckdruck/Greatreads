@@ -1,5 +1,6 @@
-import { CHANGE_LOADED_STATUS, START_LOADING_USER_BOOKS, START_LOADING_BOOKSHELF_BOOKS, START_LOADING_ALL_BOOKS , START_LOADING_BOOK} from '../actions/load_actions';
-
+import { CHANGE_LOADED_STATUS, START_LOADING_USER_BOOKS, START_LOADING_BOOKSHELF_BOOKS, START_LOADING_ALL_BOOKS , START_LOADING_BOOK, START_LOADING_USER_BOOKSHELVES} from '../actions/load_actions';
+import { RECEIVE_BOOKS, RECEIVE_BOOK } from '../actions/book_actions';
+import { RECEIVE_BOOKSHELVES, RECEIVE_BOOKSHELF } from '../actions/bookshelf_actions';
 
 const initialState = {
   booksLoading: false,
@@ -21,6 +22,8 @@ const LoadReducer = (state = initialState, action) => {
     case RECEIVE_BOOKSHELVES:
     case RECEIVE_BOOKSHELF:
       return Object.assign({}, state, { bookshelvesLoading: false });
+    default:
+      return state;
   }
 };
 

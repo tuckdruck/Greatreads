@@ -14,30 +14,36 @@ class BooksIndex extends React.Component {
   }
 
   render() {
-    const bookLinks = this.props.books.map((book, index) => {
+    if (this.props.loading.booksLoading) {
+      return(<div></div>);
+    }
+    else {
+      const bookLinks = this.props.books.map((book, index) => {
+
+        return(
+          <Link className="book-index-item" key={index} to={`books/${book.id}`}>
+            <img src={`${book.cover_image_url}`}/>
+          </Link>
+        );
+
+      });
 
       return(
-        <Link className="book-index-item" key={index} to={`books/${book.id}`}>
-          <img src={`${book.cover_image_url}`}/>
-        </Link>
+        <main className="main">
+          <div className="all-books">
+            {bookLinks}
+          </div>
+        </main>
       );
-
-    });
-
-    return(
-      <main className="main">
-        <div className="all-books">
-          {bookLinks}
-        </div>
-      </main>
-    );
+    }
   }
 
 }
 
 const mapStateToProps = state => {
   return {
-    books: booksArray(state.books)
+    books: booksArray(state.books),
+    loading: state.loading
   };
 };
 

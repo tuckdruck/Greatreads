@@ -15,15 +15,21 @@ class EditBookshelvesIndex extends React.Component {
   }
 
   render() {
-    const bookshelves = this.props.bookshelves.map((bookshelf) => {
-      return(
-        <li key={bookshelf.id}>
-          <EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/>
-        </li>
-      );
-    });
+    if (this.props.loading.bookshelvesLoading) {
+      return(<div></div>);
+    }
+    else {
+      const bookshelves = this.props.bookshelves.map((bookshelf) => {
+        return(
+          <li key={bookshelf.id}>
+            <EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/>
+          </li>
+        );
+      });
 
-    return(<ul className="edit-bookshelves-index">{bookshelves}</ul>);
+      return(<ul className="edit-bookshelves-index">{bookshelves}</ul>);
+    }
+
   }
 
 }
@@ -32,7 +38,8 @@ class EditBookshelvesIndex extends React.Component {
 const mapStateToProps = state => {
   return {
     bookshelves: bookshelvesArray(state.bookshelves),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    loading: state.loading
   };
 };
 
