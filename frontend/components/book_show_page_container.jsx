@@ -12,28 +12,34 @@ class BookShowPage extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    if (!this.props.book) {
+  componentWillMount() {
+    if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading) { //refreshing the page while logged in
+      this.props.fetchBooks();
+      this.props.fetchBookshelves();
+    } else if (!this.props.book && !this.props.loggedIn) { //refreshing the page while logged out - works
       this.props.fetchBooks();
     }
-    if (this.props.loggedIn && !this.props.bookshelves) {
+    if (this.props.loggedIn && !this.props.bookshelves) { //logging on the book show page
       this.props.fetchBookshelves();
     }
   }
 
-  // componentWillReceiveProps() {
-    // if (!this.props.book) {
-    //   this.props.fetchBooks();
-    // }
-    // if (this.props.loggedIn && !this.props.bookshelves) {
-    //   this.props.fetchBooks();
-    //   this.props.fetchBookshelves(this.props.currentUser.id);
-    // }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.book && nextProps.loggedIn && !this.props.loading.booksLoading) {
+      this.props.fetchBooks();
+      this.props.fetchBookshelves();
+    } else if (!this.props.book && !this.props.loading.booksLoading) {
+      this.props.fetchBooks();
+    }
+    else if (!this.props.loggedIn && nextProps.loggedIn) {
+      this.props.fetchBooks();
+      this.props.fetchBookshelves();
+    }
+  }
 
   render() {
-    if (this.props.loading.booksLoading && this.props.loading.bookshelvesLoading) {
-      return(<div>Loading...</div>);
+    if (this.props.loading.booksLoading || this.props.loading.bookshelvesLoading) {
+      return(<div></div>);
     }
     else {
       return(
@@ -56,7 +62,8 @@ const mapStateToProps = (state, ownProps) => {
     book: state.books[ownProps.params.bookId],
     loggedIn: !!state.session.currentUser,
     currentUser: state.session.currentUser,
-    bookshelves: state.bookshelves
+    bookshelves: state.bookshelves,
+    loading: state.loading
   };
 };
 

@@ -1,6 +1,6 @@
 import * as BookAPIUtil from '../util/book_api_util';
 import { fetchBookshelves } from './bookshelf_actions';
-import { startLoadingUserBooks } from './load_actions';
+import { startLoadingUserBooks, startLoadingBookshelfBooks, startLoadingAllBooks, startLoadingBook } from './load_actions';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
@@ -44,7 +44,6 @@ export const fetchBookshelfBooks = bookshelfId => {
 
 export const updateBook = (info) => {
   return function(dispatch) {
-    dispatch(startLoadingBook());
     return BookAPIUtil.updateBook(info).then((book) => { return dispatch(receiveBook(book)); });
   };
 };

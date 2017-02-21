@@ -9,7 +9,7 @@ export default class MyBooksIndex extends React.Component {
   componentDidMount() {
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
-        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); }
+        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title }); });
     }
     else  {
       return this.props.fetchUserBooks(this.props.currentUser.id);
@@ -17,8 +17,8 @@ export default class MyBooksIndex extends React.Component {
   }
 
   render () {
-    if (this.props.loading) {
-      return(<div>Loading...</div>);
+    if (this.props.loading.booksLoading) {
+      return(<div></div>);
     }
     else {
       const userBooks = [];

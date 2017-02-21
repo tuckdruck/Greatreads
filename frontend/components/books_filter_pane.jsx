@@ -38,75 +38,81 @@ export default class BooksFilterPane extends React.Component {
   }
 
   render() {
-    let form;
+    if (this.props.loading.bookshelvesLoading) {
+      return(<div></div>);
+    }
+    else {
+      let form;
 
-    if (this.state.showAddShelfForm) {
-      form = (
-        <div>
-          <h3>Add a Shelf:</h3>
-          <AddShelfFormContainer />
+      if (this.state.showAddShelfForm) {
+        form = (
+          <div>
+            <h3>Add a Shelf:</h3>
+            <AddShelfFormContainer />
+          </div>
+        );
+      } else {
+        form = (<button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>);
+      }
+
+      const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
+        return (
+          <li key={bookshelf.id}>
+            <button className="bookshelf-filter-link" onClick={this.filterBooksByBookshelf(bookshelf)}>
+              {bookshelf.title}
+            </button>
+          </li>
+        );
+      });
+
+      const colon = (this.props.selectedBookshelf) ? ": " : "";
+      let bookshelfHeaderDescription;
+      if (this.props.selectedBookshelf) {
+        let title = (this.props.selectedBookshelf.title) ? this.props.selectedBookshelf.title : this.props.selectedBookshelf;
+
+        bookshelfHeaderDescription = (
+          <span className="bookshelf-header-description">:&nbsp;
+            <span>{title}</span>
+            <button className="switch-to-all-books" onClick={this.fetchUserBooks}>x</button>
+          </span>
+        );
+      } else {
+        bookshelfHeaderDescription = (<span></span>);
+      }
+
+      const statusItems = ["read", "currently reading", "to read"].map((statusName) => {
+        return (<li key={statusName}><button className="bookshelf-filter-link" onClick={this.filterBooksByStatus(statusName)}>{statusName}</button></li>);
+      });
+
+      return(
+        <div className="my-books-page">
+          <div className="my-books-content">
+
+            <header className="bookshelf-title-header">My Books{bookshelfHeaderDescription}</header>
+            <section className="books-filtered-body">
+              <nav className="sidebar">
+                <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
+                <Link to="shelves" className="edit-bookshelves">(edit)</Link>
+
+                <ul className="status-index">
+                  <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
+                  {statusItems}
+                </ul>
+
+                <ul className="bookshelf-index">
+                  {bookshelfIndexItems}
+                </ul>
+
+                {form}
+              </nav>
+              <MyBooksIndexContainer />
+            </section>
+
+          </div>
         </div>
       );
-    } else {
-      form = (<button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>);
     }
 
-    const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
-      return (
-        <li key={bookshelf.id}>
-          <button className="bookshelf-filter-link" onClick={this.filterBooksByBookshelf(bookshelf)}>
-            {bookshelf.title}
-          </button>
-        </li>
-      );
-    });
-
-    const colon = (this.props.selectedBookshelf) ? ": " : "";
-    let bookshelfHeaderDescription;
-    if (this.props.selectedBookshelf) {
-      let title = (this.props.selectedBookshelf.title) ? this.props.selectedBookshelf.title : this.props.selectedBookshelf;
-
-      bookshelfHeaderDescription = (
-        <span className="bookshelf-header-description">:&nbsp;
-          <span>{title}</span>
-          <button className="switch-to-all-books" onClick={this.fetchUserBooks}>x</button>
-        </span>
-      );
-    } else {
-      bookshelfHeaderDescription = (<span></span>);
-    }
-
-    const statusItems = ["read", "currently reading", "to read"].map((statusName) => {
-      return (<li key={statusName}><button className="bookshelf-filter-link" onClick={this.filterBooksByStatus(statusName)}>{statusName}</button></li>);
-    });
-
-    return(
-      <div className="my-books-page">
-        <div className="my-books-content">
-
-          <header className="bookshelf-title-header">My Books{bookshelfHeaderDescription}</header>
-          <section className="books-filtered-body">
-            <nav className="sidebar">
-              <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
-              <Link to="shelves" className="edit-bookshelves">(edit)</Link>
-
-              <ul className="status-index">
-                <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
-                {statusItems}
-              </ul>
-
-              <ul className="bookshelf-index">
-                {bookshelfIndexItems}
-              </ul>
-
-              {form}
-            </nav>
-            <MyBooksIndexContainer />
-          </section>
-
-        </div>
-      </div>
-    );
   }
 
 }

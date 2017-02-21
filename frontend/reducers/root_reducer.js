@@ -11,5 +11,6 @@ export default combineReducers({
   bookshelves: BookshelvesReducer,
   books: BooksReducer,
   errors: ErrorsReducer,
-  bookshelf: BookshelfReducer
+  bookshelf: BookshelfReducer,
+  loading: LoadReducer
 });

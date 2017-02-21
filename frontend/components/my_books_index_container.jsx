@@ -4,7 +4,7 @@ import { fetchUserBooks, fetchBookshelfBooks, updateBook, removeBook, receiveBoo
 import { fetchBookshelves } from '../actions/bookshelf_actions';
 import { changeLoadedStatus } from '../actions/load_actions';
 import booksArray from '../selectors/books_selector';
-import { bookshelvesArray } from '../selectors/bookshelves_selector'
+import { bookshelvesArray } from '../selectors/bookshelves_selector';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
     currentUser: state.session.currentUser,
     bookshelves: bookshelvesArray(state.bookshelves),
     selectedBookshelf: state.bookshelf,
-    loaded: state.loaded
+    loading: state.loading
   };
 };
 

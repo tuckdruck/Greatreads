@@ -22,10 +22,21 @@ class BookDetails extends React.Component {
   render() {
     let fieldsForm = "";
 
+    let statusButton;
+
+    if (this.props.book.status) {
+      statusButton = (<figure>{this.props.book.status.status}</figure>);
+    }
+    else {
+      statusButton = (<figure><button>"Want to Read"</button></figure>);
+    }
+
+    let status = this.props.book.status ? this.props.book.status.status : "No Status";
+
     if (this.props.loggedIn && this.state.showEditForm) {
       fieldsForm = (
         <div className="book-show-fields-form">
-          <figure>Status</figure>
+          {statusButton}
           <button className="arrow" onClick={this.toggleEditForm}>▼</button>
           <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
         </div>
@@ -34,7 +45,7 @@ class BookDetails extends React.Component {
     else if (this.props.loggedIn) {
       fieldsForm = (
         <div className="book-show-fields-form">
-            <figure>Status</figure>
+            <figure>{status}</figure>
             <button className="arrow" onClick={this.toggleEditForm}>▼</button>
         </div>
       );
@@ -48,7 +59,10 @@ class BookDetails extends React.Component {
       myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
     }
 
-    if (this.props.book) {
+    if (this.props.loading.booksLoading) {
+        return (<div></div>);
+    }
+    else {
       return(
         <main>
 
@@ -77,16 +91,14 @@ class BookDetails extends React.Component {
         </main>
         );
       }
-      else {
-        return (<div>Loading...</div>);
-      }
     }
 }
 
 const mapStateToProps = state => {
   return {
     loggedIn: !!state.session.currentUser,
-    bookshelves: bookshelvesArray(state.bookshelves)
+    bookshelves: bookshelvesArray(state.bookshelves),
+    loading: state.loading
   };
 };
 
