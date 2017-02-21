@@ -223,11 +223,11 @@ div.fields-form button.close {
   color: #aaaaaa;
 }
 
-div.bookshelf-checkboxes {
+div.bookshelf-items {
   padding: 5px 0px;
 }
 
-div.bookshelf-checkboxes:last-child {
+div.bookshelf-items:last-child {
   padding-bottom: 5px;
 }
 
@@ -252,4 +252,8 @@ button.activity-section-edit-fields {
   margin-left: 5px;
   font-size: 12px;
   color: #767676;
+}
+
+div.radio-buttons {
+  border-bottom: 1px solid #eee;
 }
