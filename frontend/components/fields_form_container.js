@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import FieldsForm from './fields_form';
 import { updateBook } from '../actions/book_actions';
+import { updateStatus, createStatus } from '../actions/status_actions';
 import { bookshelvesArray } from '../selectors/bookshelves_selector';
 
 const mapStateToProps = state => {
@@ -12,9 +13,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateBook: (info) => {
-      return dispatch(updateBook(info));
-    }
+    updateBook: (info) => { return dispatch(updateBook(info)); },
+    updateStatus: (info) => { return dispatch(updateStatus(info)); },
+    createStatus: (info) => { return dispatch(createStatus(info)); }
   };
 };
 
