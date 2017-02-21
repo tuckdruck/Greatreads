@@ -33,7 +33,7 @@ harrypotter1 = Book.create!(
 song_of_ice_and_fire = Book.create!(
   title: "Game of Thrones",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Game_of_Thrones.jpeg'),
+  cover_image_url: ActionController::Base.helpers.image_path('A_Game_of_Thrones.jpg'),
   average_rating: 4.44,
   page_length: 835,
   published_date: DateTime.new(2005, 8),
@@ -50,7 +50,7 @@ song_of_ice_and_fire = Book.create!(
 great_gatsby = Book.create!(
   title: "The Great Gatsby",
   author: "F. Scott Fitzgerald",
-  cover_image_url: ActionController::Base.helpers.image_path('The_Great_Gatsby.jpeg'),
+  cover_image_url: ActionController::Base.helpers.image_path('The_Great_Gatsby.jpg'),
   average_rating: 3.88,
   page_length: 180,
   published_date: DateTime.new(1925, 4),
