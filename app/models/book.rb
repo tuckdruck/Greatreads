@@ -27,6 +27,8 @@ class Book < ActiveRecord::Base
     through: :book_taggings,
     source: :bookshelf
 
+  has_many :statuses
+
   def self.find_by_bookshelf(bookshelf_id)
     bookshelf = Bookshelf.find_by(id: bookshelf_id)
     bookshelf.books
@@ -38,9 +40,20 @@ class Book < ActiveRecord::Base
   end
 
   def self.user_books_with_shelves(user_id)
-    result = Book.includes(:bookshelves).where("bookshelves.user_id = ? ", user_id).references(:bookshelves)
-    result
+    Book.includes(:bookshelves).where("bookshelves.user_id = ? ", user_id).references(:bookshelves)
   end
+
+  def self.user_books_with_shelves_and_statuses(user_id)
+    Book
+      .joins("LEFT OUTER JOIN statuses ON statuses.book_id = books.id")
+      .where("statuses.user_id = ?", user_id)
+      .references(:status)
+      .includes(:bookshelves)
+      .where("bookshelves.user_id = ?", user_id)
+      .references(:bookshelves)
+  end
+
+
 
   def self.bookshelf_books(bookshelf_id, user_id)
     Book.user_books_with_shelves(user_id).where("bookshelves.id = ?", bookshelf_id)
@@ -52,7 +65,7 @@ class Book < ActiveRecord::Base
   end
 
   def user_bookshelves(user_id)
-    Book.bookshelves.where("bookshelves.user_id = ?" ,user_id)
+    Book.bookshelves.where("bookshelves.user_id = ?", user_id)
   end
 
 end
