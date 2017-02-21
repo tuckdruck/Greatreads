@@ -15,7 +15,7 @@ Book.destroy_all
 harrypotter1 = Book.create!(
   title: "Harry Potter and the Sorcerer's Stone",
   author: "J.K. Rowling",
-  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Sorcerer's_Stone.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_1.jpg'),
   average_rating: 4.43,
   page_length: 320,
   published_date: DateTime.new(1997, 6, 26),
@@ -33,7 +33,7 @@ harrypotter1 = Book.create!(
 song_of_ice_and_fire = Book.create!(
   title: "Game of Thrones",
   author: "George R.R. Martin",
-  cover_image_url: "http://vignette1.wikia.nocookie.net/iceandfire/images/b/b6/Game_of_thrones.jpeg/revision/latest?cb=20130302001049",
+  cover_image_url: ActionController::Base.helpers.image_path('A_Game_of_Thrones.jpeg'),
   average_rating: 4.44,
   page_length: 835,
   published_date: DateTime.new(2005, 8),
@@ -50,7 +50,7 @@ song_of_ice_and_fire = Book.create!(
 great_gatsby = Book.create!(
   title: "The Great Gatsby",
   author: "F. Scott Fitzgerald",
-  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/f/f7/TheGreatGatsby_1925jacket.jpeg",
+  cover_image_url: ActionController::Base.helpers.image_path('The_Great_Gatsby.jpeg'),
   average_rating: 3.88,
   page_length: 180,
   published_date: DateTime.new(1925, 4),
@@ -68,7 +68,7 @@ great_gatsby = Book.create!(
 i_robot = Book.create!(
   title: "I, Robot",
   author: "Isaac Asimov",
-  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/8/8e/I_Robot_-_Runaround.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('I_Robot.jpg'),
   average_rating: 4.17,
   page_length: 225,
   published_date: DateTime.new(1950, 12, 2),
@@ -87,7 +87,7 @@ i_robot = Book.create!(
 macbeth = Book.create!(
   title: "Macbeth",
   author: "William Shakespeare",
-  cover_image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Voodoo-Macbeth-Poster.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Macbeth.jpg'),
   average_rating: 3.88,
   page_length: 249,
   published_date: DateTime.new(1606),
@@ -106,7 +106,7 @@ macbeth = Book.create!(
 storm_of_swords = Book.create!(
   title: "A Storm of Swords",
   author: "George R.R. Martin",
-  cover_image_url: "https://c1.staticflickr.com/1/498/19277128806_0e0811a95c_b.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('A_Storm_of_Swords.jpg'),
   average_rating: 4.54,
   page_length: 1177,
   published_date: DateTime.new(2000, 8, 8),
@@ -126,7 +126,7 @@ storm_of_swords = Book.create!(
 clash_of_kings = Book.create!(
   title: "A Clash of Kings",
   author: "George R.R. Martin",
-  cover_image_url: "https://c2.staticflickr.com/4/3040/2862719214_aff1f18d71_z.jpg?zz=1",
+  cover_image_url: ActionController::Base.helpers.image_path('A_Clash_of_Kings.jpg'),
   average_rating: 4.4,
   page_length: 761,
   published_date: DateTime.new(1998, 11, 16),
@@ -144,7 +144,7 @@ clash_of_kings = Book.create!(
 feast_for_crows = Book.create!(
   title: "A Feast for Crows",
   author: "George R.R. Martin",
-  cover_image_url: "https://c1.staticflickr.com/3/2630/3803750979_229e0dd6ec_b.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('A_Feast_for_Crows.jpg'),
   average_rating: 4.09,
   page_length: 1061,
   published_date: DateTime.new(2005, 10, 17),
@@ -163,7 +163,7 @@ feast_for_crows = Book.create!(
 dance_with_dragons = Book.create!(
   title: "A Dance with Dragons",
   author: "George R.R. Martin",
-  cover_image_url: "https://c1.staticflickr.com/8/7103/7152588753_0122e0b4ff_b.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('A_Dance_with_Dragons.jpg'),
   average_rating: 4.3,
   page_length: 1125,
   published_date: DateTime.new(2011, 7, 12),
@@ -179,7 +179,7 @@ dance_with_dragons = Book.create!(
 nineteen84 = Book.create!(
   title: "1984",
   author: "George Orwell",
-  cover_image_url: "https://c2.staticflickr.com/4/3598/3469818507_91cf61591e_z.jpg?zz=1",
+  cover_image_url: ActionController::Base.helpers.image_path('1984.jpg'),
   average_rating: 4.13,
   page_length: 328,
   published_date: DateTime.new(1949, 6, 8),
@@ -196,7 +196,7 @@ nineteen84 = Book.create!(
 beowulf = Book.create!(
   title: "Beowulf",
   author: "Unknown",
-  cover_image_url: "https://c1.staticflickr.com/2/1451/24195563595_0ca2e97bdd_b.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Beowulf.jpg'),
   average_rating: 3.41,
   page_length: 213,
   published_date: DateTime.new(2001, 2, 17),
@@ -213,7 +213,7 @@ beowulf = Book.create!(
 hp2 = Book.create!(
   title: "Harry Potter and the Chamber of Secrets",
   author: "J.K. Rowling",
-  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/cos-us-jacket-art.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_2.jpg'),
   average_rating: 4.36,
   page_length: 341,
   published_date: Date.new(1999, 6, 2),
@@ -228,7 +228,7 @@ hp2 = Book.create!(
 hp3 = Book.create!(
   title: "Harry Potter and the Prisoner of Azkaban",
   author: "J.K. Rowling",
-  cover_image_url: "http://vignette3.wikia.nocookie.net/harrypotter/images/1/11/Prisoner_of_Azkaban_cover.jpg/revision/latest?cb=20070328184627",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_3.jpg'),
   average_rating: 4.52,
   page_length: 435,
   published_date: Date.new(2004, 5, 1),
@@ -242,7 +242,7 @@ hp3 = Book.create!(
 hp4 = Book.create!(
   title: "Harry Potter and the Goblet of Fire",
   author: "J.K. Rowling",
-  cover_image_url: "https://www.teachervision.com/sites/default/files/fe_slideshow/2007_07/HPusa4_TV.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_4.jpg'),
   average_rating: 4.52,
   page_length: 734,
   published_date: Date.new(2002, 9, 28),
@@ -256,7 +256,7 @@ hp4 = Book.create!(
 hp5 = Book.create!(
   title: "Harry Potter and the Order of the Phoenix",
   author: "J.K. Rowling",
-  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/ootp-us-jacket-art.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_5.jpg'),
   average_rating: 4.46,
   page_length: 870,
   published_date: Date.new(2004, 8, 10),
@@ -270,7 +270,7 @@ hp5 = Book.create!(
 hp6 = Book.create!(
   title: "Harry Potter and the Half-Blood Prince",
   author: "J.K. Rowling",
-  cover_image_url: "http://harrypotterfanzone.com/wp-content/2009/06/hbp-us-jacket-art.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_6.jpg'),
   average_rating: 4.53,
   page_length: 652,
   published_date: Date.new(2006, 9, 16),
@@ -284,7 +284,7 @@ hp6 = Book.create!(
 hp7 = Book.create!(
   title: "Harry Potter and the Deathly Hallows",
   author: "J.K. Rowling",
-  cover_image_url: "https://c1.staticflickr.com/1/150/437946745_50f37c798f_z.jpg?zz=1",
+  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_7.jpg'),
   average_rating: 4.61,
   page_length: 784,
   published_date: Date.new(2007, 7, 21),
@@ -298,7 +298,7 @@ hp7 = Book.create!(
 brave_new_world = Book.create!(
   title: "Brave New World",
   author: "Aldous Huxley",
-  cover_image_url: "https://c1.staticflickr.com/8/7648/16844305819_07bc7ec673.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Brave_New_World.jpg'),
   average_rating: 3.96,
   page_length: 268,
   published_date: Date.new(1932),
@@ -312,7 +312,7 @@ brave_new_world = Book.create!(
 freakonomics = Book.create!(
   title: "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
   author: "Stephen J. Dubner",
-  cover_image_url: "http://img.cinemablend.com/cb/0/9/4/6/d/6/0946d6e3a7f24c710cd1ad79a0b3145c9026823ec1b79293abafe55a2a6f0ce7.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Freakonomics.jpg'),
   average_rating: 3.93,
   page_length: 320,
   published_date: Date.new(2006, 10, 16),
@@ -326,7 +326,7 @@ freakonomics = Book.create!(
 pale_blue_dot = Book.create!(
   title: "Pale Blue Dot",
   author: "Carl Sagan",
-  cover_image_url: "https://upload.wikimedia.org/wikipedia/en/7/70/SaganPaleBlueDot.jpg",
+  cover_image_url: ActionController::Base.helpers.image_path('Pale_Blue_Dot.jpg'),
   average_rating: 4.32,
   page_length: 384,
   published_date: Date.new(1994),

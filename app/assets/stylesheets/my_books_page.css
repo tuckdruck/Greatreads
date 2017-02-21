@@ -5,7 +5,7 @@ div.my-books-content {
 
 div.my-books-page, div.edit-bookshelves-main {
   background: white;
-  height: 1363px;
+  min-height: 1363px;
 }
 
 section.books-filtered-body {

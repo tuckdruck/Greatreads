@@ -12,5 +12,5 @@
 if current_user
   json.bookshelves book.bookshelves.where(user_id: current_user.id)
 else
-  json.bookshelves book.bookshelves
+  json.bookshelves []
 end
