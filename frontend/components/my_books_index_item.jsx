@@ -20,6 +20,7 @@ export default class MyBooksIndexItem extends React.Component {
   }
 
   deleteBookFromBookshelves() {
+    this.setState({ showDeleteBookWarning: false });
     for (let i = 0; i < this.props.book.bookshelves.length; i++) {
       this.props.updateBook({
         book_id: this.props.book.id,

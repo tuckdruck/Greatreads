@@ -1,6 +1,7 @@
 import * as SessionAPIUtil from '../util/session_api_util';
 import { receiveErrors } from './error_actions';
 import { hashHistory } from 'react-router';
+import { fetchBookshelves } from './bookshelf_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 
@@ -17,6 +18,7 @@ export const login = user => {
   return function(dispatch) {
     return SessionAPIUtil.login(user)
       .then((user) => { return dispatch(receiveCurrentUser(user)); })
+      .then(() => { return dispatch(fetchBookshelves()); })
       .fail((errors) => { return dispatch(receiveErrors(errors.responseText)); });
   };
 };
