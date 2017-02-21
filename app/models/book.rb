@@ -43,16 +43,16 @@ class Book < ActiveRecord::Base
     Book.includes(:bookshelves).where("bookshelves.user_id = ? ", user_id).references(:bookshelves)
   end
 
-  def self.user_books_with_shelves_and_statuses(user_id)
+  def self.user_books_with_statuses(user_id)
     Book
-      .joins("LEFT OUTER JOIN statuses ON statuses.book_id = books.id")
+      .includes(:statuses)
       .where("statuses.user_id = ?", user_id)
-      .references(:status)
-      .includes(:bookshelves)
-      .where("bookshelves.user_id = ?", user_id)
-      .references(:bookshelves)
+      .references(:statuses)
   end
 
+  def self.status_books(status_name, user_id)
+    Book.user_books_with_statuses(user_id).where("statuses.status = ?", status_name)
+  end
 
 
   def self.bookshelf_books(bookshelf_id, user_id)

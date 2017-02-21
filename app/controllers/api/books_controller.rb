@@ -2,9 +2,11 @@ class Api::BooksController < ApplicationController
 
   def index
     if params[:user_id]
-      @books = Book.user_books_with_shelves(params[:user_id])
+      @books = Book.user_books_with_statuses(params[:user_id])
     elsif params[:bookshelf_id]
       @books = Book.bookshelf_books(params[:bookshelf_id], current_user.id)
+    elsif params[:status_name]
+      @books = Book.status_books(params[:status_name], current_user.id)
     else
       @books = Book.all
     end
