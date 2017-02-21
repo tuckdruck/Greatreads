@@ -28,9 +28,9 @@ export default class ActivitySection extends React.Component {
       }
     }
 
-    let userShelvesBookIsOnFormatted = userShelvesBookIsOn.map((shelf, index) => {
+    let userShelvesBookIsOnFormatted = [this.props.book.status.status].concat(userShelvesBookIsOn.map((shelf, index) => {
       return shelf.title;
-    }).join(", ");
+    })).join(", ");
 
     let fieldsForm = "";
 

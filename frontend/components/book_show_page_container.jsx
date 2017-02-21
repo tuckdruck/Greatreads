@@ -17,15 +17,19 @@ class BookShowPage extends React.Component {
       this.props.fetchBooks();
     }
     if (this.props.loggedIn && !this.props.bookshelves) {
-      this.props.fetchBookshelves(this.props.currentUser.id);
+      this.props.fetchBookshelves();
     }
   }
 
-  componentWillReceiveProps() {
-    if (!this.props.book) {
-      this.props.fetchBooks();
-    }
-  }
+  // componentWillReceiveProps() {
+    // if (!this.props.book) {
+    //   this.props.fetchBooks();
+    // }
+    // if (this.props.loggedIn && !this.props.bookshelves) {
+    //   this.props.fetchBooks();
+    //   this.props.fetchBookshelves(this.props.currentUser.id);
+    // }
+  // }
 
   render() {
     return(
@@ -46,7 +50,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     book: state.books[ownProps.params.bookId],
     loggedIn: !!state.session.currentUser,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    bookshelves: state.bookshelves
   };
 };
 
