@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :bookshelves, only: [:index]
     end
 
-    resources :statuses, only: [:update, :create]
+    resources :statuses, only: [:update, :create, :destroy]
   end
 
 end
