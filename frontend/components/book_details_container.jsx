@@ -5,12 +5,14 @@ import { bookshelvesArray } from '../selectors/bookshelves_selector';
 import { Link } from 'react-router';
 import ActivitySectionContainer from './activity_section_container';
 import { fetchBooks } from '../actions/book_actions';
+import { createStatus } from '../actions/status_actions';
 
 class BookDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showEditForm: false };
     this.toggleEditForm = this.toggleEditForm.bind(this);
+    this.createStatus = this.createStatus.bind(this);
   }
 
 
@@ -18,51 +20,57 @@ class BookDetails extends React.Component {
     this.setState({ showEditForm: !(this.state.showEditForm)});
   }
 
+  createStatus() {
+    return this.props.createStatus({
+      book_id: this.props.book.id,
+      status: "to read"
+    });
+  }
+
 
   render() {
-    let fieldsForm = "";
-
-    let statusButton;
-
-    if (this.props.book.status) {
-      statusButton = (<figure>{this.props.book.status.status}</figure>);
-    }
-    else {
-      statusButton = (<figure><button>"Want to Read"</button></figure>);
-    }
-
-    let status = this.props.book.status ? this.props.book.status.status : "No Status";
-
-    if (this.props.loggedIn && this.state.showEditForm) {
-      fieldsForm = (
-        <div className="book-show-fields-form">
-          {statusButton}
-          <button className="arrow" onClick={this.toggleEditForm}>▼</button>
-          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
-        </div>
-      );
-    }
-    else if (this.props.loggedIn) {
-      fieldsForm = (
-        <div className="book-show-fields-form">
-            <figure>{status}</figure>
-            <button className="arrow" onClick={this.toggleEditForm}>▼</button>
-        </div>
-      );
-    }
-    else {
-      fieldsForm = "";
-    }
-
-    let myActivitySection = "";
-    if (this.props.loggedIn && this.props.book && this.props.book.status) {
-      myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
-    }
 
     if (this.props.loading.booksLoading) {
-        return (<div></div>);
+      return (<div></div>);
     }
+
     else {
+      let fieldsForm = "";
+      let statusButton;
+
+      if (this.props.book.status) {
+        statusButton = (<figure>{this.props.book.status.status}</figure>);
+      }
+      else {
+        statusButton = (<figure><button onClick={this.createStatus}>Want to Read</button></figure>);
+      }
+
+      if (this.props.loggedIn && this.state.showEditForm) {
+        fieldsForm = (
+          <div className="book-show-fields-form">
+            {statusButton}
+            <button className="arrow" onClick={this.toggleEditForm}>▼</button>
+            <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
+          </div>
+        );
+      }
+      else if (this.props.loggedIn) {
+        fieldsForm = (
+          <div className="book-show-fields-form">
+              <figure>{statusButton}</figure>
+              <button className="arrow" onClick={this.toggleEditForm}>▼</button>
+          </div>
+        );
+      }
+      else {
+        fieldsForm = "";
+      }
+
+      let myActivitySection = "";
+      if (this.props.loggedIn && this.props.book && this.props.book.status) {
+        myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
+      }
+
       return(
         <main>
 
@@ -104,7 +112,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBooks: () => { return dispatch(fetchBooks()); }
+    fetchBooks: () => { return dispatch(fetchBooks()); },
+    createStatus: (info) => { return dispatch(createStatus(info)); }
   };
 };
 

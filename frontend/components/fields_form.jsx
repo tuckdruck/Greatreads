@@ -1,5 +1,7 @@
 import React from 'react';
 import AddShelfFormContainer from './add_shelf_form_container';
+import ReactDOM from 'react-dom';
+import OnClickOutside from 'react-onclickoutside-es6';
 
 export default class FieldsForm extends React.Component {
   constructor(props) {
@@ -9,6 +11,21 @@ export default class FieldsForm extends React.Component {
     this.toggleAddShelfForm = this.toggleAddShelfForm.bind(this);
     this.addBookshelfToBook = this.addBookshelfToBook.bind(this);
     this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('click', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick, false);
+  }
+
+  handleClick(e) {
+    if(!ReactDOM.findDOMNode(this).contains(e.target)) {
+      this.props.toggleEditForm();
+    }
   }
 
   handleInputChange(event) {

@@ -5,6 +5,7 @@ import { fetchBookshelves } from '../actions/bookshelf_actions';
 import { changeLoadedStatus } from '../actions/load_actions';
 import booksArray from '../selectors/books_selector';
 import { bookshelvesArray } from '../selectors/bookshelves_selector';
+import { deleteStatus } from '../actions/status_actions';
 
 const mapStateToProps = state => {
   return {
@@ -24,7 +25,8 @@ const mapDispatchToProps = dispatch => {
     updateBook: (info) => { return dispatch(updateBook(info)); },
     removeBook: (book) => { return dispatch(removeBook(book)); },
     changeLoadedStatus: (bool) => { return dispatch(changeLoadedStatus(bool)); },
-    receiveBooks: (books) => { return dispatch(receiveBooks(books)); }
+    receiveBooks: (books) => { return dispatch(receiveBooks(books)); },
+    deleteStatus: (statusId) => { return dispatch(deleteStatus(statusId)); }
   };
 };
 

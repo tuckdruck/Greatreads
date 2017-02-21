@@ -21,6 +21,18 @@ class Api::StatusesController < ApplicationController
     end
   end
 
+  def destroy
+    status = Status.find(params[:id])
+    if status
+      status.destroy
+      current_user.book_taggings.where(book_id: status.book_id).destroy_all
+
+
+      @book = status.book
+      render "api/books/show"
+    end
+  end
+
   def status_params
     params.require(:status).permit(:book_id, :status)
   end

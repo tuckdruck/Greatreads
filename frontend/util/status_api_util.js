@@ -23,3 +23,10 @@ export const createStatus = ({ book_id, status }) => {
     }
   });
 }
+
+export const deleteStatus = (status_id) => {
+  return $.ajax({
+    type: "DELETE",
+    url: `api/statuses/${status_id}`
+  });
+}

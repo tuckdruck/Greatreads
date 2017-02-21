@@ -31,6 +31,7 @@ export default class MyBooksIndex extends React.Component {
             updateBook={this.props.updateBook}
             currentUser={this.props.currentUser}
             removeBook={this.props.removeBook}
+            deleteStatus={this.props.deleteStatus}
             key={index}/>
         );
       });
