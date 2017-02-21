@@ -6,7 +6,8 @@ import * as BookshelfAPIUtil from './util/bookshelf_api_util';
 import * as BookAPIUtil from './util/book_api_util';
 
 import { signup, login, logout } from './util/session_api_util';
-window.fetchUserBooks = BookAPIUtil.fetchUserBooks;
+// window.fetchUserBooks = BookAPIUtil.fetchUserBooks;
+// window.fetchStatusBooks = BookAPIUtil.fetchStatusBooks;
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

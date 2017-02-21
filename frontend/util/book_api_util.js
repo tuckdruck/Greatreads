@@ -29,6 +29,14 @@ export const updateBook = ({ book_id, bookshelf_id, create }) => {
 export const fetchBooks = () => {
   return $.ajax({
     type: "GET",
-    url: `api/books`
+    url: "api/books"
+  });
+}
+
+export const fetchStatusBooks = (statusName) => {
+  return $.ajax({
+    type: "GET",
+    url: "api/books",
+    data: { status_name: statusName }
   });
 }

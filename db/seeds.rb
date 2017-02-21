@@ -344,51 +344,42 @@ game_of_thrones = Bookshelf.create!(title: "game of thrones", user_id: user2.id)
 english_books = Bookshelf.create!(title: "english books", user_id: user2.id)
 
 BookTagging.destroy_all
+
 BookTagging.create!(book_id: harrypotter1.id, bookshelf_id: my_favorite_books.id)
-Status.create!(book_id: harrypotter1.id, user_id: me.id, status: "read")
-
 BookTagging.create!(book_id: a_game_of_thrones.id, bookshelf_id: my_favorite_books.id)
-Status.create!(book_id: a_game_of_thrones.id, user_id: me.id, status: "to read")
-
 BookTagging.create!(book_id: great_gatsby.id, bookshelf_id: my_favorite_books.id)
-Status.create!(book_id: great_gatsby.id, user_id: me.id, status: "read")
-
 BookTagging.create!(book_id: i_robot.id, bookshelf_id: classics.id)
-Status.create!(book_id: i_robot.id, user_id: me.id, status: "read")
-
 BookTagging.create!(book_id: great_gatsby.id, bookshelf_id: classics.id)
-
 BookTagging.create!(book_id: macbeth.id, bookshelf_id: classics.id)
-Status.create!(book_id: macbeth.id, user_id: me.id, status: "read")
-
 
 BookTagging.create!(book_id: storm_of_swords.id, bookshelf_id: game_of_thrones.id)
-Status.create!(book_id: storm_of_swords.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: a_game_of_thrones.id, bookshelf_id: game_of_thrones.id)
-Status.create!(book_id: a_game_of_thrones.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: clash_of_kings.id, bookshelf_id: game_of_thrones.id)
-Status.create!(book_id: clash_of_kings.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: feast_for_crows.id, bookshelf_id: game_of_thrones.id)
-Status.create!(book_id: feast_for_crows.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: dance_with_dragons.id, bookshelf_id: game_of_thrones.id)
-Status.create!(book_id: dance_with_dragons.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: nineteen84.id, bookshelf_id: english_books.id)
-Status.create!(book_id: nineteen84.id, user_id: user2.id, status: "read")
-
 BookTagging.create!(book_id: beowulf.id, bookshelf_id: english_books.id)
-Status.create!(book_id: beowulf.id, user_id: user2.id, status: "read")
 
 
 Status.destroy_all
-Status.create!(book_id: pale_blue_dot.id, status: "to read", user_id: me.id)
-Status.create!(book_id: freakonomics.id, status: "currently reading", user_id: me.id)
+
+Status.create!(book_id: a_game_of_thrones.id, user_id: me.id, status: "to read")
+Status.create!(book_id: a_game_of_thrones.id, status: "to read", user_id: user2.id)
+
+Status.create!(book_id: great_gatsby.id, user_id: me.id, status: "read")
+Status.create!(book_id: great_gatsby.id, status: "currently reading", user_id: user2.id)
+
+Status.create!(book_id: nineteen84.id, user_id: user2.id, status: "read")
 Status.create!(book_id: nineteen84.id, status: "currently reading", user_id: me.id)
 
-Status.create!(book_id: nineteen84.id, status: "read", user_id: user2.id)
-Status.create!(book_id: great_gatsby.id, status: "currently reading", user_id: user2.id)
-Status.create!(book_id: a_game_of_thrones.id, status: "to read", user_id: user2.id)
+Status.create!(book_id: storm_of_swords.id, user_id: user2.id, status: "read")
+Status.create!(book_id: clash_of_kings.id, user_id: user2.id, status: "read")
+Status.create!(book_id: feast_for_crows.id, user_id: user2.id, status: "read")
+Status.create!(book_id: dance_with_dragons.id, user_id: user2.id, status: "read")
+
+Status.create!(book_id: beowulf.id, user_id: user2.id, status: "read")
+Status.create!(book_id: pale_blue_dot.id, status: "to read", user_id: me.id)
+Status.create!(book_id: freakonomics.id, status: "currently reading", user_id: me.id)
+Status.create!(book_id: harrypotter1.id, user_id: me.id, status: "read")
+Status.create!(book_id: i_robot.id, user_id: me.id, status: "read")
+Status.create!(book_id: macbeth.id, user_id: me.id, status: "read")
