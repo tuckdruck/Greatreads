@@ -19,8 +19,6 @@ export const login = user => {
   return function(dispatch) {
     return SessionAPIUtil.login(user)
       .then((user) => { return dispatch(receiveCurrentUser(user)); })
-      .then(() => { return dispatch(fetchBookshelves()); })
-      .then(() => { return dispatch(fetchBooks()); })
       .fail((errors) => { return dispatch(receiveErrors(errors.responseText)); });
   };
 };

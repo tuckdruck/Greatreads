@@ -1,5 +1,6 @@
 import * as BookAPIUtil from '../util/book_api_util';
 import { fetchBookshelves } from './bookshelf_actions';
+import { startLoadingUserBooks } from './load_actions';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
@@ -28,24 +29,29 @@ export const removeBook = book => {
 
 export const fetchUserBooks = userId => {
   return function(dispatch) {
-    return BookAPIUtil.fetchUserBooks(userId).then((books) => { return dispatch(receiveBooks(books)); });
+    dispatch(startLoadingUserBooks());
+    return BookAPIUtil.fetchUserBooks(userId)
+      .then((books) => { return dispatch(receiveBooks(books)); });
   };
 };
 
 export const fetchBookshelfBooks = bookshelfId => {
   return function(dispatch) {
+    dispatch(startLoadingBookshelfBooks());
     return BookAPIUtil.fetchBookshelfBooks(bookshelfId).then((books) => { return dispatch(receiveBooks(books)); });
   };
 };
 
 export const updateBook = (info) => {
   return function(dispatch) {
+    dispatch(startLoadingBook());
     return BookAPIUtil.updateBook(info).then((book) => { return dispatch(receiveBook(book)); });
   };
 };
 
 export const fetchBooks = () => {
   return function(dispatch) {
+    dispatch(startLoadingAllBooks());
     return BookAPIUtil.fetchBooks().then((books) => { return dispatch(receiveBooks(books)); });
   };
 };

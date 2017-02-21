@@ -6,34 +6,34 @@ export default class MyBooksIndex extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.receiveBooks({});
-  }
-
-
   componentDidMount() {
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id)
-        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); });
+        .then(() => { this.setState({ selectedBookshelf: this.props.selectedBookshelf.title}); }
     }
     else  {
       return this.props.fetchUserBooks(this.props.currentUser.id);
     }
   }
 
-
   render () {
-    const userBooks = [];
+    if (this.props.loading) {
+      return(<div>Loading...</div>);
+    }
+    else {
+      const userBooks = [];
 
-    // this.props.books.forEach((book) => {
-    //   if (book.bookshelves.length > 0) {
-    //     userBooks.push(book);
-    //   }
-    // });
-
-    const books = this.props.books.map((book, index) => {
-      return(<MyBooksIndexItem bookshelves={this.props.bookshelves} book={book} updateBook={this.props.updateBook} currentUser={this.props.currentUser} removeBook={this.props.removeBook} key={index}/>);
-    });
+      const books = this.props.books.map((book, index) => {
+        return(
+          <MyBooksIndexItem
+            bookshelves={this.props.bookshelves}
+            book={book}
+            updateBook={this.props.updateBook}
+            currentUser={this.props.currentUser}
+            removeBook={this.props.removeBook}
+            key={index}/>
+        );
+      });
 
       return(
         <table className="my-books">
@@ -54,7 +54,7 @@ export default class MyBooksIndex extends React.Component {
           </tbody>
         </table>
       );
-
+    }
   }
 
 }

@@ -1,4 +1,5 @@
 import * as BookshelfAPIUtil from '../util/bookshelf_api_util';
+import { startLoadingUserBookshelves } from './load_actions';
 
 export const RECEIVE_BOOKSHELVES = "RECEIVE_BOOKSHELVES";
 export const RECEIVE_BOOKSHELF = "RECEIVE_BOOKSHELF";
@@ -44,6 +45,7 @@ export const selectBookshelf = bookshelf => {
 
 export const fetchBookshelves = (userId) => {
   return function(dispatch) {
+    dispatch(startLoadingUserBookshelves());
     return BookshelfAPIUtil.fetchBookshelves(userId).then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
   };
 };

@@ -32,16 +32,21 @@ class BookShowPage extends React.Component {
   // }
 
   render() {
-    return(
-      <main className="overall">
-        <HeaderContainer />
-        <main className="body">
-          <BookDetails book={this.props.book} />
-          <Reviews book={this.props.book}/>
+    if (this.props.loading.booksLoading && this.props.loading.bookshelvesLoading) {
+      return(<div>Loading...</div>);
+    }
+    else {
+      return(
+        <main className="overall">
+          <HeaderContainer />
+          <main className="body">
+            <BookDetails book={this.props.book} />
+            <Reviews book={this.props.book}/>
+          </main>
+          <Footer />
         </main>
-        <Footer />
-      </main>
-    );
+      );
+    }
   }
 
 }
