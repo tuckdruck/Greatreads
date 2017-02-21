@@ -11,8 +11,8 @@
 
 if current_user
   json.bookshelves book.bookshelves.where(user_id: current_user.id)
-  json.statuses book.statuses.find_by(user_id: current_user.id)
+  json.status book.statuses.find_by(user_id: current_user.id)
 else
   json.bookshelves []
-  json.statuses []
+  json.status []
 end
