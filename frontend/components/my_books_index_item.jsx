@@ -32,15 +32,18 @@ export default class MyBooksIndexItem extends React.Component {
   }
 
   render() {
-    let bookshelfTitles;
+    let associationsToUser;
     if (this.props.book.bookshelves) {
-      bookshelfTitles = this.props.book.bookshelves.map((bookshelf) => {
+      associationsToUser = [this.props.book.status.status];
+      let bookshelves = this.props.book.bookshelves.map((bookshelf) => {
         return bookshelf.title;
-      }).join(", ");
-    } else {
-      bookshelfTitles = "";
-    }
+      });
 
+      associationsToUser = associationsToUser.concat(bookshelves);
+      associationsToUser = associationsToUser.join(", ");
+    } else {
+      associationsToUser = "";
+    }
 
     let form;
 
@@ -69,7 +72,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="book-title-col my-books"><Link to={`books/${this.props.book.id}`}>{this.props.book.title}</Link></td>
         <td className="book-author-col my-books">{this.props.book.author}</td>
         <td className="book-average-rating my-books">{this.props.book.average_rating}</td>
-        <td className="shelves my-books">{bookshelfTitles}
+        <td className="shelves my-books">{associationsToUser}
           <button className="edit-bookshelves" onClick={this.toggleEditForm}>&nbsp;[edit]</button>
           {form}
         </td>

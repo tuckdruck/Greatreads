@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :books, only: [:show, :index, :update], defaults: { format: :json } do
       resources :bookshelves, only: [:index]
     end
+
+    resources :statuses, only: [:update]
   end
 
 end
