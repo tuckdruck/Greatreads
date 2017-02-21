@@ -44,7 +44,7 @@ class BookDetails extends React.Component {
     }
 
     let myActivitySection = "";
-    if (this.props.loggedIn && this.props.book && this.props.book.bookshelves.length > 0) {
+    if (this.props.loggedIn && this.props.book && this.props.book.status) {
       myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
     }
 

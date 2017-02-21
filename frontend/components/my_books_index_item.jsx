@@ -34,6 +34,7 @@ export default class MyBooksIndexItem extends React.Component {
   render() {
     let associationsToUser;
     if (this.props.book.bookshelves) {
+      debugger
       associationsToUser = [this.props.book.status.status];
       let bookshelves = this.props.book.bookshelves.map((bookshelf) => {
         return bookshelf.title;
