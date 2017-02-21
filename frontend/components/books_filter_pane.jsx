@@ -9,7 +9,8 @@ export default class BooksFilterPane extends React.Component {
     this.state = { showAddShelfForm: false, shelfTitle: "", selectedBookshelf: ""};
     this.toggleAddShelfForm = this.toggleAddShelfForm.bind(this);
     this.fetchUserBooks = this.fetchUserBooks.bind(this);
-    this.filterBooks = this.filterBooks.bind(this);
+    this.filterBooksByBookshelf = this.filterBooksByBookshelf.bind(this);
+    this.filterBooksByStatus = this.filterBooksByStatus.bind(this);
   }
 
   componentDidMount() {
@@ -24,12 +25,15 @@ export default class BooksFilterPane extends React.Component {
     return this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
   }
 
-  filterBooks(bookshelf) {
+  filterBooksByBookshelf(bookshelf) {
     return () => {
       return this.props.fetchBookshelfBooks(bookshelf.id).then(() => { this.props.selectBookshelf(bookshelf); });
-      // return this.props.selectBookshelf(bookshelf).then(() => { this.props.fetchBookshelfBooks(bookshelf.id); });
-    //   return this.props.fetchBookshelfBooks(bookshelf.id).then(() => { this.setState({ selectedBookshelf: bookshelf.title}); });
-    // };
+    };
+  }
+
+  filterBooksByStatus(statusName) {
+    return () => {
+      return this.props.fetchStatusBooks(statusName).then(() => { this.props.selectBookshelf(statusName); });
     };
   }
 
@@ -50,7 +54,7 @@ export default class BooksFilterPane extends React.Component {
     const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {
       return (
         <li key={bookshelf.id}>
-          <button className="bookshelf-filter-link" onClick={this.filterBooks(bookshelf)}>
+          <button className="bookshelf-filter-link" onClick={this.filterBooksByBookshelf(bookshelf)}>
             {bookshelf.title}
           </button>
         </li>
@@ -70,6 +74,10 @@ export default class BooksFilterPane extends React.Component {
       bookshelfHeaderDescription = (<span></span>);
     }
 
+    const statusItems = ["read", "currently reading", "to read"].map((statusName) => {
+      return (<li key={statusName}><button className="bookshelf-filter-link" onClick={this.filterBooksByStatus(statusName)}>{statusName}</button></li>);
+    });
+
     return(
       <div className="my-books-page">
         <div className="my-books-content">
@@ -82,9 +90,7 @@ export default class BooksFilterPane extends React.Component {
 
               <ul className="status-index">
                 <li><button onClick={this.fetchUserBooks} className="bookshelf-filter-link">all</button></li>
-                <li><button className="bookshelf-filter-link">read</button></li>
-                <li><button className="bookshelf-filter-link">currently-reading</button></li>
-                <li><button className="bookshelf-filter-link">to-read</button></li>
+                {statusItems}
               </ul>
 
               <ul className="bookshelf-index">
