@@ -73,15 +73,15 @@ export default class FieldsForm extends React.Component {
 
     const statusRadioButtons = ["read", "currently reading", "to read"].map((statusName) => {
       return (
-        <li key={statusName}>
+        <div className="bookshelf-items radio-buttons" key={statusName}>
           <input
             type="radio"
             value={statusName}
             name="status"
             onChange={this.handleStatusChange(statusName)}
             checked={!!this.props.book.status && this.props.book.status.status === statusName}/>
-          &nbsp;{statusName}
-        </li>
+          &nbsp;&nbsp;{statusName}
+        </div>
       );
     }, this);
 
@@ -95,8 +95,8 @@ export default class FieldsForm extends React.Component {
       checked = (bookshelfTitlesForBook.includes(bookshelf.title));
 
       return (
-        <div className="bookshelf-checkboxes" key={bookshelf.id}>
-          <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>{`   ${bookshelf.title}`}
+        <div className="bookshelf-items" key={bookshelf.id}>
+          <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>&nbsp;&nbsp;{bookshelf.title}
         </div>
       );
     });
