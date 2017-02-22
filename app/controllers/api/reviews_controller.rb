@@ -1,5 +1,9 @@
 class Api::ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.where(book_id: params[:book_id]).includes(:user)
+  end
+
   def create
     review = Review.new(review_params)
     review.user_id = current_user.id

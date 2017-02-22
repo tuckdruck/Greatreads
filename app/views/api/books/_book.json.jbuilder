@@ -12,7 +12,9 @@ json.description book.description
 if current_user
   json.bookshelves book.bookshelves.where(user_id: current_user.id)
   json.status book.statuses.find_by(user_id: current_user.id)
+  json.user_review book.reviews.find_by(user_id: current_user.id).includes(:user)
 else
   json.bookshelves []
   json.status []
+  json.user_review []
 end

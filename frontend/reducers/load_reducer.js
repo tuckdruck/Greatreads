@@ -1,10 +1,12 @@
-import { CHANGE_LOADED_STATUS, START_LOADING_USER_BOOKS, START_LOADING_BOOKSHELF_BOOKS, START_LOADING_ALL_BOOKS , START_LOADING_BOOK, START_LOADING_USER_BOOKSHELVES} from '../actions/load_actions';
+import { CHANGE_LOADED_STATUS, START_LOADING_USER_BOOKS, START_LOADING_BOOKSHELF_BOOKS, START_LOADING_ALL_BOOKS , START_LOADING_BOOK, START_LOADING_USER_BOOKSHELVES, START_LOADING_REVIEWS } from '../actions/load_actions';
 import { RECEIVE_BOOKS, RECEIVE_BOOK } from '../actions/book_actions';
 import { RECEIVE_BOOKSHELVES, RECEIVE_BOOKSHELF } from '../actions/bookshelf_actions';
+import { RECEIVE_REVIEWS } from '../actions/review_actions';
 
 const initialState = {
   booksLoading: false,
-  bookshelvesLoading: false
+  bookshelvesLoading: false,
+  reviewsLoading: false
 };
 
 const LoadReducer = (state = initialState, action) => {
@@ -16,12 +18,16 @@ const LoadReducer = (state = initialState, action) => {
       return Object.assign({}, state, { booksLoading: true });
     case START_LOADING_USER_BOOKSHELVES:
       return Object.assign({}, state, { bookshelvesLoading: true });
+    case START_LOADING_REVIEWS:
+      return Object.assign({}, state, { reviewsLoading: true });
     case RECEIVE_BOOKS:
     case RECEIVE_BOOK:
       return Object.assign({}, state, { booksLoading: false });
     case RECEIVE_BOOKSHELVES:
     case RECEIVE_BOOKSHELF:
       return Object.assign({}, state, { bookshelvesLoading: false });
+    case RECEIVE_REVIEWS:
+      return Object.assign({}, state, { reviewsLoading: false });
     default:
       return state;
   }

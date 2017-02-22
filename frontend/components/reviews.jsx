@@ -1,12 +1,39 @@
 import React from 'react';
 
-const Reviews = props => {
-  return(
-    <div className="reviews">
-      <h3 className="book-details-subheader">COMMUNITY REVIEWS</h3>
-      <p>reviews go here</p>
-    </div>
-  );
-};
+export default class Reviews extends React.Component {
 
-export default Reviews;
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchReviews(this.props.book.id);
+  }
+
+  render() {
+    if (this.props.loading.reviewLoading) {
+      return(<div></div>);
+    }
+    else {
+
+      const reviews = this.props.reviews.map((review, index) => {
+        return (
+          <li key={index}>
+            <section>{review.author}</section>
+            <p>{review.body}</p>
+          </li>
+        );
+      });
+
+      return(
+        <div className="reviews">
+          <h3 className="book-details-subheader">COMMUNITY REVIEWS</h3>
+          <ul>
+            {reviews}
+          </ul>
+        </div>
+      );
+    }
+  }
+
+}
