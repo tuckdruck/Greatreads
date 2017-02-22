@@ -23,7 +23,7 @@ export default class FieldsForm extends React.Component {
   }
 
   handleClick(e) {
-    if(!ReactDOM.findDOMNode(this).contains(e.target)) {
+    if(!ReactDOM.findDOMNode(this).contains(e.target) && e.target.className !== "fields-form-add-shelf-toggle") {
       this.props.toggleEditForm();
     }
   }

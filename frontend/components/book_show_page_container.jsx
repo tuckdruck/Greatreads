@@ -18,8 +18,7 @@ class BookShowPage extends React.Component {
       this.props.fetchBookshelves();
     } else if (!this.props.book && !this.props.loggedIn) { //refreshing the page while logged out - works
       this.props.fetchBooks();
-    }
-    if (this.props.loggedIn && !this.props.bookshelves) { //logging on the book show page
+    } else if (this.props.loggedIn && !this.props.loading.bookshelvesLoading) { //going to book show page while logged in
       this.props.fetchBookshelves();
     }
   }

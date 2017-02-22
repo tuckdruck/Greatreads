@@ -7,7 +7,7 @@ const logger = createLogger();
 
 
 const configureStore = (preloadedState = {}) => {
-  return createStore(RootReducer, preloadedState, applyMiddleware(thunk));
+  return createStore(RootReducer, preloadedState, applyMiddleware(thunk, logger));
 };
 
 export default configureStore;

@@ -15,7 +15,6 @@ class BookDetails extends React.Component {
     this.createStatus = this.createStatus.bind(this);
   }
 
-
   toggleEditForm() {
     this.setState({ showEditForm: !(this.state.showEditForm)});
   }
@@ -44,13 +43,13 @@ class BookDetails extends React.Component {
 
         switch(this.props.book.status.status) {
           case "read":
-            buttonText = "Read";
+            buttonText = "✓ Read";
             break;
           case "currently reading":
-            buttonText = "Currently Reading";
+            buttonText = "✓ Currently Reading";
             break;
           case "to read":
-            buttonText = "Want to Read";
+            buttonText = "✓ Want to Read";
             break;
         }
 
@@ -73,7 +72,7 @@ class BookDetails extends React.Component {
       else if (this.props.loggedIn) {
         fieldsForm = (
           <div className="book-show-fields-form">
-              <figure>{statusButton}</figure>
+              {statusButton}
               <button className="arrow" onClick={this.toggleEditForm}>▼</button>
           </div>
         );
