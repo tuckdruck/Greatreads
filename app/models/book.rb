@@ -20,6 +20,8 @@
 
 class Book < ActiveRecord::Base
   validates :title, :author, presence: true
+  has_attached_file :image, default_url: "missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :book_taggings
 
@@ -28,6 +30,8 @@ class Book < ActiveRecord::Base
     source: :bookshelf
 
   has_many :statuses
+
+  has_many :reviews
 
   def self.find_by_bookshelf(bookshelf_id)
     bookshelf = Bookshelf.find_by(id: bookshelf_id)

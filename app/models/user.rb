@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
     through: :bookshelves,
     source: :book_taggings
 
+  has_many :reviews
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
