@@ -24,6 +24,10 @@ class Api::BooksController < ApplicationController
   def update
     if params[:book][:create] == "true"
       BookTagging.create!(book_id: params[:book][:book_id], bookshelf_id: params[:book][:bookshelf_id])
+      associated_status = Status.find_by(book_id: params[:book][:book_id], user_id: current_user.id)
+      unless associated_status
+        Status.create!(book_id: params[:book][:book_id], user_id: current_user.id, status: "read")
+      end
     else
       book_tagging = BookTagging.find_by(book_id: params[:book][:book_id], bookshelf_id: params[:book][:bookshelf_id])
       book_tagging.destroy

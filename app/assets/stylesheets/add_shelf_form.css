@@ -1,11 +1,19 @@
-form.add-shelf button.add-shelf {
+form.add-shelf button.add-shelf, button.save-date-read {
   background: #F4F1EA;
   border: 1px solid #D6D0C4;
-  font-size: 12px;
-  padding: 0px 10px;
   border-radius: 3px;
-  margin-left: 6px;
+  padding: 0px 10px;
   color: black;
+}
+
+form.add-shelf button.add-shelf {
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+button.save-date-read {
+  margin-top: 5px;
+  font-size: 11px;
 }
 
 

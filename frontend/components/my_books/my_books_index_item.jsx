@@ -76,14 +76,19 @@ export default class MyBooksIndexItem extends React.Component {
 
     let dateReadText;
     if (this.props.book.status.date_read) {
-      dateReadText = this.props.book.status.date_read;
+      let dateArr = this.props.book.status.date_read.split("-");
+      let months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+      let monthText = months[parseInt(dateArr[1])];
+
+      dateReadText = (<span>{`${monthText} ${parseInt(dateArr[2])}, ${dateArr[0]}`}</span>);
     } else {
-      dateReadText = "not set";
+      dateReadText = (<span className="date-not-set">not set</span>);
     }
 
     let dateReadForm;
     if (this.state.showDateReadForm) {
-      dateReadForm = (<DateReadFormContainer book={this.props.book} />);
+      dateReadForm = (<DateReadFormContainer toggleDateReadForm={this.toggleDateReadForm} book={this.props.book} />);
     } else {
       dateReadForm = "";
     }
@@ -124,7 +129,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="review my-books">book review goes here</td>
 
         <td className="date-read my-books">
-          {dateReadText}
+          {dateReadText}&nbsp;
           <button onClick={this.toggleDateReadForm}>[edit]</button>
           {dateReadForm}
         </td>
