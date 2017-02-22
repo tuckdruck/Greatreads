@@ -2,9 +2,9 @@ import React from 'react';
 import SignInContainer from './sign_in_container';
 import SignUpContainer from './sign_up_container';
 import { Link } from 'react-router';
-import BooksIndexContainer from './books_index_container';
-import Footer from './footer';
-import { receiveBookshelves } from '../actions/bookshelf_actions';
+import BooksIndexContainer from '../books_index_container';
+import Footer from '../footer';
+import { receiveBookshelves } from '../../actions/bookshelf_actions';
 import { connect } from 'react-redux';
 
 class HomePageSignedOut extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateBookshelf, deleteBookshelf, selectBookshelf } from '../actions/bookshelf_actions';
-import { receiveErrors } from '../actions/error_actions';
+import { updateBookshelf, deleteBookshelf, selectBookshelf } from '../../actions/bookshelf_actions';
+import { receiveErrors } from '../../actions/error_actions';
 import { hashHistory } from 'react-router';
 
 class EditBookshelvesIndexItem extends React.Component {

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import BooksFilterPane from './books_filter_pane';
-import { bookshelvesArray } from '../selectors/bookshelves_selector';
-import { fetchBookshelves, selectBookshelf } from '../actions/bookshelf_actions';
-import { fetchBookshelfBooks, fetchStatusBooks } from '../actions/book_actions';
+import { bookshelvesArray } from '../../selectors/bookshelves_selector';
+import { fetchBookshelves, selectBookshelf } from '../../actions/bookshelf_actions';
+import { fetchBookshelfBooks, fetchStatusBooks } from '../../actions/book_actions';
 
 const mapStateToProps = state => {
   return {

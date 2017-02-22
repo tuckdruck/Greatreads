@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePageSignedIn from './home_page_signed_in';
-import HomePageSignedOut from './home_page_signed_out';
+import HomePageSignedOut from './signed_out/home_page_signed_out';
 
 const App = ({ loggedIn, logout }) => {
   let page;

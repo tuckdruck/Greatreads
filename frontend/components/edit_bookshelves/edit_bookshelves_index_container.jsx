@@ -1,6 +1,6 @@
-import { updateBookshelf, deleteBookshelf, fetchBookshelves } from '../actions/bookshelf_actions';
+import { updateBookshelf, deleteBookshelf, fetchBookshelves } from '../../actions/bookshelf_actions';
 import { connect } from 'react-redux';
-import { bookshelvesArray } from '../selectors/bookshelves_selector';
+import { bookshelvesArray } from '../../selectors/bookshelves_selector';
 import React from 'react';
 import EditBookshelvesIndexItemContainer from './edit_bookshelves_index_item_container';
 
