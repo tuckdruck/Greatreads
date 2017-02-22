@@ -1,5 +1,4 @@
 export const updateStatus = ({ book_id, status_id, status, date_read }) => {
-  debugger
   return $.ajax({
     type: "PATCH",
     url: `api/statuses/${status_id}`,
