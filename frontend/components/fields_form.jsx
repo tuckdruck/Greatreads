@@ -1,7 +1,6 @@
 import React from 'react';
 import AddShelfFormContainer from './add_shelf_form_container';
 import ReactDOM from 'react-dom';
-import OnClickOutside from 'react-onclickoutside-es6';
 
 export default class FieldsForm extends React.Component {
   constructor(props) {
@@ -53,7 +52,8 @@ export default class FieldsForm extends React.Component {
         return this.props.updateStatus({
           status_id: this.props.book.status.id,
           book_id: this.props.book.id,
-          status: statusName
+          status: statusName,
+          date_read: this.props.book.status.date_read
         });
       }
       else {

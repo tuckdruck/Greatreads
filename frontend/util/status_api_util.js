@@ -1,15 +1,17 @@
-export const updateStatus = ({ book_id, status_id, status }) => {
+export const updateStatus = ({ book_id, status_id, status, date_read }) => {
+  debugger
   return $.ajax({
     type: "PATCH",
     url: `api/statuses/${status_id}`,
     data: {
       status: {
         book_id: book_id,
-        status: status
+        status: status,
+        date_read: date_read
       }
     }
   });
-}
+};
 
 export const createStatus = ({ book_id, status }) => {
   return $.ajax({

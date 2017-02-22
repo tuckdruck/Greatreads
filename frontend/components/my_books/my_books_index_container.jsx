@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import MyBooksIndex from './my_books_index';
-import { fetchUserBooks, fetchBookshelfBooks, updateBook, removeBook, receiveBooks } from '../actions/book_actions';
-import { fetchBookshelves } from '../actions/bookshelf_actions';
-import { changeLoadedStatus } from '../actions/load_actions';
-import booksArray from '../selectors/books_selector';
-import { bookshelvesArray } from '../selectors/bookshelves_selector';
-import { deleteStatus } from '../actions/status_actions';
+import { fetchUserBooks, fetchBookshelfBooks, updateBook, removeBook, receiveBooks } from '../../actions/book_actions';
+import { fetchBookshelves } from '../../actions/bookshelf_actions';
+import { changeLoadedStatus } from '../../actions/load_actions';
+import booksArray from '../../selectors/books_selector';
+import { bookshelvesArray } from '../../selectors/bookshelves_selector';
+import { deleteStatus } from '../../actions/status_actions';
 
 const mapStateToProps = state => {
   return {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import { fetchUserBooks } from '../actions/book_actions';
 import { selectBookshelf } from '../actions/bookshelf_actions';
-import SignInContainer from './sign_in_container';
+import SignInContainer from './signed_out/sign_in_container';
 
 class Header extends React.Component {
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HeaderContainer from './header_container';
+import HeaderContainer from '../header_container';
 import BookDetails from './book_details_container';
-import Reviews from './reviews';
-import Footer from './footer';
-import { fetchBooks } from '../actions/book_actions';
-import { fetchBookshelves } from '../actions/bookshelf_actions';
+import Reviews from '../reviews';
+import Footer from '../footer';
+import { fetchBooks } from '../../actions/book_actions';
+import { fetchBookshelves } from '../../actions/bookshelf_actions';
 
 class BookShowPage extends React.Component {
   constructor(props) {

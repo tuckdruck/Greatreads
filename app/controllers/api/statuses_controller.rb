@@ -2,6 +2,7 @@ class Api::StatusesController < ApplicationController
 
   def update
     @status = Status.find(params[:id])
+    debugger
     if @status.update(status_params)
       @book = Book.find(params[:status][:book_id])
       render "api/books/show"
@@ -34,6 +35,6 @@ class Api::StatusesController < ApplicationController
   end
 
   def status_params
-    params.require(:status).permit(:book_id, :status)
+    params.require(:status).permit(:book_id, :status, :date_read)
   end
 end

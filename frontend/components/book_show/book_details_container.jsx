@@ -1,11 +1,11 @@
 import React from 'react';
-import FieldsFormContainer from './fields_form_container';
+import FieldsFormContainer from '../fields_form_container';
 import { connect } from 'react-redux';
-import { bookshelvesArray } from '../selectors/bookshelves_selector';
+import { bookshelvesArray } from '../../selectors/bookshelves_selector';
 import { Link } from 'react-router';
 import ActivitySectionContainer from './activity_section_container';
-import { fetchBooks } from '../actions/book_actions';
-import { createStatus } from '../actions/status_actions';
+import { fetchBooks } from '../../actions/book_actions';
+import { createStatus } from '../../actions/status_actions';
 
 class BookDetails extends React.Component {
   constructor(props) {

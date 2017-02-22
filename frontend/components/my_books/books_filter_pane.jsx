@@ -1,5 +1,5 @@
 import React from 'react';
-import AddShelfFormContainer from './add_shelf_form_container';
+import AddShelfFormContainer from '../add_shelf_form_container';
 import MyBooksIndexContainer from './my_books_index_container';
 import { Link } from 'react-router';
 

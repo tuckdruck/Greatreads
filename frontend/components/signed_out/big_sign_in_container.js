@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login } from '../actions/session_actions';
+import { login } from '../../actions/session_actions';
 import BigSignIn from './big_sign_in';
 
 const mapStateToProps = (state, ownProps) => {

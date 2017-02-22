@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FieldsFormContainer from './fields_form_container';
+import FieldsFormContainer from '../fields_form_container';
 
 export default class ActivitySection extends React.Component {
 
