@@ -2,12 +2,6 @@ class Api::StatusesController < ApplicationController
 
   def update
     @status = Status.find(params[:id])
-
-    date_provided = params[:status][:date_read]
-    if date_provided
-      params[:status][:date_read] = Date.new(date_provided.first, date_provided[1], date_provided[2])
-    end
-
     if @status.update(status_params)
       @book = Book.find(params[:status][:book_id])
       render "api/books/show"
@@ -32,7 +26,6 @@ class Api::StatusesController < ApplicationController
     if status
       status.destroy
       current_user.book_taggings.where(book_id: status.book_id).destroy_all
-
 
       @book = status.book
       render "api/books/show"

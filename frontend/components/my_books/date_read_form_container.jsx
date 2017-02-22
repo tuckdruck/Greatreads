@@ -1,26 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateStatus } from '../../actions/status_actions';
+import ReactDOM from 'react-dom';
 
 class DateReadForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { date: "1/22/2017" };
+    this.state = { date: this.props.book.status.date_read };
     this.updateDate = this.updateDate.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('click', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick, false);
+  }
+
+  handleClick(e) {
+    if(!ReactDOM.findDOMNode(this).contains(e.target)) {
+      this.props.toggleDateReadForm();
+    }
   }
 
   handleSubmit(e) {
+    this.props.toggleDateReadForm();
     e.preventDefault();
-
-    let dateString = (new Date(this.state.date)).toDateString();
-    let date_read = dateString.slice(4, dateString.length);
 
     this.props.updateStatus({
       status_id: this.props.book.status.id,
       book_id: this.props.book.id,
       status: this.props.book.status.status,
-      date_read: date_read
+      date_read: this.state.date
     });
   }
 
@@ -30,9 +44,13 @@ class DateReadForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="date-read" onSubmit={this.handleSubmit}>
         <input type="date" name="date_read" value={this.state.date} onChange={this.updateDate}/>
-        <button>Submit</button>
+        <div>
+          <button className="save-date-read">Save</button>&nbsp;&nbsp;
+          <button className="cancel-date-form" onClick={() => { this.props.toggleDateReadForm()}}>cancel</button>
+        </div>
+
       </form>
     );
 

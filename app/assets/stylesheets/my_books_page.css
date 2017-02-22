@@ -56,16 +56,23 @@ ul.bookshelf-index {
   padding-top: 5px;
 }
 
-h3.bookshelves-index-header {
+h3.bookshelves-index-header, span.date-not-set {
   color: #aaa;
   display: inline;
   padding-bottom: 5px;
 }
 
-button.bookshelf-filter-link, span.editable-bookshelf-index-item button {
-  font-size: 14px;
+button.bookshelf-filter-link, span.editable-bookshelf-index-item button, button.cancel-date-form {
   color: #00635d;
   padding-bottom: 5px;
+}
+
+button.bookshelf-filter-link, span.editable-bookshelf-index-item {
+  font-size: 14px;
+}
+
+button.cancel-date-form {
+  font-size: 12px;
 }
 
 button.bookshelf-filter-link:hover {
@@ -195,18 +202,25 @@ a.edit-bookshelves {
   color: #00635d;
 }
 
-a.edit-bookshelves:hover {
+a.edit-bookshelves:hover, td.date-read button:hover {
   text-decoration: underline;
 }
 
-div.fields-form {
+div.fields-form, form.date-read{
   position: absolute;
   background: white;
-  padding: 5px 5px 15px 5px;
   border: 1px solid #D6D0C4;
-  width: 198px;
   border-radius: 3px;
   z-index: 100;
+}
+
+div.fields-form {
+  padding: 5px 5px 15px 5px;
+  width: 198px;
+}
+
+form.date-read {
+  padding: 5px;
 }
 
 div.fields-form.from-book-show {
