@@ -13,9 +13,9 @@ user2 = User.create!(username: "drucker", password: "magichat21")
 
 Book.destroy_all
 harrypotter1 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_1.jpg'),
   title: "Harry Potter and the Sorcerer's Stone",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_1.jpg'),
   average_rating: 4.43,
   page_length: 320,
   published_date: DateTime.new(1997, 6, 26),
@@ -31,9 +31,9 @@ harrypotter1 = Book.create!(
 )
 
 a_game_of_thrones = Book.create!(
+  image: File.open('app/assets/images/A_Game_of_Thrones.jpg'),
   title: "A Game of Thrones",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Game_of_Thrones.jpg'),
   average_rating: 4.44,
   page_length: 835,
   published_date: DateTime.new(2005, 8),
@@ -48,9 +48,9 @@ a_game_of_thrones = Book.create!(
 )
 
 great_gatsby = Book.create!(
+  image: File.open('app/assets/images/The_Great_Gatsby.jpg'),
   title: "The Great Gatsby",
   author: "F. Scott Fitzgerald",
-  cover_image_url: ActionController::Base.helpers.image_path('The_Great_Gatsby.jpg'),
   average_rating: 3.88,
   page_length: 180,
   published_date: DateTime.new(1925, 4),
@@ -66,9 +66,9 @@ great_gatsby = Book.create!(
 )
 
 i_robot = Book.create!(
+  image: File.open('app/assets/images/I_Robot.jpg'),
   title: "I, Robot",
   author: "Isaac Asimov",
-  cover_image_url: ActionController::Base.helpers.image_path('I_Robot.jpg'),
   average_rating: 4.17,
   page_length: 225,
   published_date: DateTime.new(1950, 12, 2),
@@ -85,9 +85,9 @@ i_robot = Book.create!(
 )
 
 macbeth = Book.create!(
+  image: File.open('app/assets/images/Macbeth.jpg'),
   title: "Macbeth",
   author: "William Shakespeare",
-  cover_image_url: ActionController::Base.helpers.image_path('Macbeth.jpg'),
   average_rating: 3.88,
   page_length: 249,
   published_date: DateTime.new(1606),
@@ -104,9 +104,9 @@ macbeth = Book.create!(
 
 
 storm_of_swords = Book.create!(
+  image: File.open('app/assets/images/A_Storm_of_Swords.jpg'),
   title: "A Storm of Swords",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Storm_of_Swords.jpg'),
   average_rating: 4.54,
   page_length: 1177,
   published_date: DateTime.new(2000, 8, 8),
@@ -124,9 +124,9 @@ storm_of_swords = Book.create!(
 )
 
 clash_of_kings = Book.create!(
+  image: File.open('app/assets/images/A_Clash_of_Kings.jpg'),
   title: "A Clash of Kings",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Clash_of_Kings.jpg'),
   average_rating: 4.4,
   page_length: 761,
   published_date: DateTime.new(1998, 11, 16),
@@ -142,9 +142,9 @@ clash_of_kings = Book.create!(
 )
 
 feast_for_crows = Book.create!(
+  image: File.open('app/assets/images/A_Feast_for_Crows.jpg'),
   title: "A Feast for Crows",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Feast_for_Crows.jpg'),
   average_rating: 4.09,
   page_length: 1061,
   published_date: DateTime.new(2005, 10, 17),
@@ -161,9 +161,9 @@ feast_for_crows = Book.create!(
 )
 
 dance_with_dragons = Book.create!(
+  image: File.open('app/assets/images/A_Dance_with_Dragons.jpg'),
   title: "A Dance with Dragons",
   author: "George R.R. Martin",
-  cover_image_url: ActionController::Base.helpers.image_path('A_Dance_with_Dragons.jpg'),
   average_rating: 4.3,
   page_length: 1125,
   published_date: DateTime.new(2011, 7, 12),
@@ -177,9 +177,9 @@ dance_with_dragons = Book.create!(
 )
 
 nineteen84 = Book.create!(
+  image: File.open('app/assets/images/1984.jpg'),
   title: "1984",
   author: "George Orwell",
-  cover_image_url: ActionController::Base.helpers.image_path('1984.jpg'),
   average_rating: 4.13,
   page_length: 328,
   published_date: DateTime.new(1949, 6, 8),
@@ -194,9 +194,9 @@ nineteen84 = Book.create!(
 )
 
 beowulf = Book.create!(
+  image: File.open('app/assets/images/Beowulf.jpg'),
   title: "Beowulf",
   author: "Unknown",
-  cover_image_url: ActionController::Base.helpers.image_path('Beowulf.jpg'),
   average_rating: 3.41,
   page_length: 213,
   published_date: DateTime.new(2001, 2, 17),
@@ -211,9 +211,9 @@ beowulf = Book.create!(
 )
 
 hp2 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_2.jpg'),
   title: "Harry Potter and the Chamber of Secrets",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_2.jpg'),
   average_rating: 4.36,
   page_length: 341,
   published_date: Date.new(1999, 6, 2),
@@ -226,9 +226,9 @@ hp2 = Book.create!(
 
 
 hp3 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_3.jpg'),
   title: "Harry Potter and the Prisoner of Azkaban",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_3.jpg'),
   average_rating: 4.52,
   page_length: 435,
   published_date: Date.new(2004, 5, 1),
@@ -240,9 +240,9 @@ hp3 = Book.create!(
 )
 
 hp4 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_4.jpg'),
   title: "Harry Potter and the Goblet of Fire",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_4.jpg'),
   average_rating: 4.52,
   page_length: 734,
   published_date: Date.new(2002, 9, 28),
@@ -254,9 +254,9 @@ hp4 = Book.create!(
 )
 
 hp5 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_5.jpg'),
   title: "Harry Potter and the Order of the Phoenix",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_5.jpg'),
   average_rating: 4.46,
   page_length: 870,
   published_date: Date.new(2004, 8, 10),
@@ -268,9 +268,9 @@ hp5 = Book.create!(
 )
 
 hp6 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_6.jpg'),
   title: "Harry Potter and the Half-Blood Prince",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_6.jpg'),
   average_rating: 4.53,
   page_length: 652,
   published_date: Date.new(2006, 9, 16),
@@ -282,9 +282,9 @@ hp6 = Book.create!(
 )
 
 hp7 = Book.create!(
+  image: File.open('app/assets/images/Harry_Potter_7.jpg'),
   title: "Harry Potter and the Deathly Hallows",
   author: "J.K. Rowling",
-  cover_image_url: ActionController::Base.helpers.image_path('Harry_Potter_7.jpg'),
   average_rating: 4.61,
   page_length: 784,
   published_date: Date.new(2007, 7, 21),
@@ -296,9 +296,9 @@ hp7 = Book.create!(
 )
 
 brave_new_world = Book.create!(
+  image: File.open('app/assets/images/Brave_New_World.jpg'),
   title: "Brave New World",
   author: "Aldous Huxley",
-  cover_image_url: ActionController::Base.helpers.image_path('Brave_New_World.jpg'),
   average_rating: 3.96,
   page_length: 268,
   published_date: Date.new(1932),
@@ -310,9 +310,9 @@ brave_new_world = Book.create!(
 )
 
 freakonomics = Book.create!(
+  image: File.open('app/assets/images/Freakonomics.jpg'),
   title: "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
   author: "Stephen J. Dubner",
-  cover_image_url: ActionController::Base.helpers.image_path('Freakonomics.jpg'),
   average_rating: 3.93,
   page_length: 320,
   published_date: Date.new(2006, 10, 16),
@@ -324,9 +324,9 @@ freakonomics = Book.create!(
 )
 
 pale_blue_dot = Book.create!(
+  image: File.open('app/assets/images/Pale_Blue_Dot.jpg'),
   title: "Pale Blue Dot",
   author: "Carl Sagan",
-  cover_image_url: ActionController::Base.helpers.image_path('Pale_Blue_Dot.jpg'),
   average_rating: 4.32,
   page_length: 384,
   published_date: Date.new(1994),

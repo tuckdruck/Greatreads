@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :statuses, only: [:update, :create, :destroy]
+    resources :reviews, only: [:update, :create, :destroy]
   end
 
 end

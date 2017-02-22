@@ -2,7 +2,7 @@
 json.title book.title
 json.author book.author
 json.id book.id
-json.cover_image_url book.cover_image_url
+json.cover_image_url asset_path(book.image.url)
 json.average_rating book.average_rating
 json.page_length book.page_length
 json.publisher book.publisher

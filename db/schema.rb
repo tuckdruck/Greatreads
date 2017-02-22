@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222145453) do
+ActiveRecord::Schema.define(version: 20170222194905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170222145453) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",           null: false
-    t.string   "author",          null: false
+    t.string   "title",              null: false
+    t.string   "author",             null: false
     t.text     "description"
     t.string   "cover_image_url"
     t.float    "average_rating"
@@ -37,8 +37,12 @@ ActiveRecord::Schema.define(version: 20170222145453) do
     t.string   "isbn"
     t.string   "language"
     t.string   "url_to_buy"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["author"], name: "index_books_on_author", using: :btree
     t.index ["title"], name: "index_books_on_title", using: :btree
   end
@@ -48,6 +52,14 @@ ActiveRecord::Schema.define(version: 20170222145453) do
     t.integer "user_id", null: false
     t.index ["title", "user_id"], name: "index_bookshelves_on_title_and_user_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_bookshelves_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text    "body",    null: false
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id", using: :btree
+    t.index ["user_id", "book_id"], name: "index_reviews_on_user_id_and_book_id", unique: true, using: :btree
   end
 
   create_table "statuses", force: :cascade do |t|
