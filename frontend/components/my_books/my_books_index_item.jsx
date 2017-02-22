@@ -3,6 +3,7 @@ import FieldsFormContainer from '../fields_form_container';
 import { Link } from 'react-router';
 import ReactDOM from 'react-dom';
 import DateReadFormContainer from './date_read_form_container';
+import Modal from 'react-modal';
 
 
 export default class MyBooksIndexItem extends React.Component {
@@ -138,6 +139,10 @@ export default class MyBooksIndexItem extends React.Component {
           <button onClick={this.toggleDeleteBookWarning}>X</button>
           {warning}
         </td>
+
+        <Modal>
+
+        </Modal>
 
       </tr>
     );

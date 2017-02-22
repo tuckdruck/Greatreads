@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-guest = User.create!(username: "guest", password: "password")
+jeff = User.create!(username: "jeff", password: "password")
 me = User.create!(username: "avital", password: "magichat12")
-user2 = User.create!(username: "drucker", password: "magichat21")
+starwars = User.create!(username: "starwars123", password: "magichat21")
+bobby = User.create!(username: "bobby", password: "bobby123")
 
 Book.destroy_all
 harrypotter1 = Book.create!(
@@ -340,8 +341,8 @@ pale_blue_dot = Book.create!(
 Bookshelf.destroy_all
 my_favorite_books = Bookshelf.create!(title: "my favorite books", user_id: me.id)
 classics = Bookshelf.create!(title: "classics", user_id: me.id)
-game_of_thrones = Bookshelf.create!(title: "game of thrones", user_id: user2.id)
-english_books = Bookshelf.create!(title: "english books", user_id: user2.id)
+game_of_thrones = Bookshelf.create!(title: "game of thrones", user_id: bobby.id)
+english_books = Bookshelf.create!(title: "english books", user_id: bobby.id)
 
 BookTagging.destroy_all
 
@@ -364,22 +365,34 @@ BookTagging.create!(book_id: beowulf.id, bookshelf_id: english_books.id)
 Status.destroy_all
 
 Status.create!(book_id: a_game_of_thrones.id, user_id: me.id, status: "to read")
-Status.create!(book_id: a_game_of_thrones.id, status: "to read", user_id: user2.id)
+Status.create!(book_id: a_game_of_thrones.id, status: "to read", user_id: bobby.id)
 
 Status.create!(book_id: great_gatsby.id, user_id: me.id, status: "read")
-Status.create!(book_id: great_gatsby.id, status: "currently reading", user_id: user2.id)
+Status.create!(book_id: great_gatsby.id, status: "currently reading", user_id: bobby.id)
 
-Status.create!(book_id: nineteen84.id, user_id: user2.id, status: "read")
+Status.create!(book_id: nineteen84.id, user_id: bobby.id, status: "read")
 Status.create!(book_id: nineteen84.id, status: "currently reading", user_id: me.id)
 
-Status.create!(book_id: storm_of_swords.id, user_id: user2.id, status: "read")
-Status.create!(book_id: clash_of_kings.id, user_id: user2.id, status: "read")
-Status.create!(book_id: feast_for_crows.id, user_id: user2.id, status: "read")
-Status.create!(book_id: dance_with_dragons.id, user_id: user2.id, status: "read")
+Status.create!(book_id: storm_of_swords.id, user_id: bobby.id, status: "read")
+Status.create!(book_id: clash_of_kings.id, user_id: bobby.id, status: "read")
+Status.create!(book_id: feast_for_crows.id, user_id: bobby.id, status: "read")
+Status.create!(book_id: dance_with_dragons.id, user_id: bobby.id, status: "read")
 
-Status.create!(book_id: beowulf.id, user_id: user2.id, status: "read")
+Status.create!(book_id: beowulf.id, user_id: bobby.id, status: "read")
 Status.create!(book_id: pale_blue_dot.id, status: "to read", user_id: me.id)
 Status.create!(book_id: freakonomics.id, status: "currently reading", user_id: me.id)
 Status.create!(book_id: harrypotter1.id, user_id: me.id, status: "read")
 Status.create!(book_id: i_robot.id, user_id: me.id, status: "read")
 Status.create!(book_id: macbeth.id, user_id: me.id, status: "read")
+
+Review.destroy_all
+Review.create!(book_id: storm_of_swords.id, user_id: me.id, body: "Storm of Swords is a fantastic book with great plot development.")
+Review.create!(book_id: feast_for_crows.id, user_id: bobby.id, body: "Kind of slow. Not as good as the first three.")
+Review.create!(book_id: storm_of_swords.id, user_id: bobby.id, body: "I really enjoyed this book.")
+Review.create!(book_id: beowulf.id, user_id: jeff.id, body: "I had trouble reading the old English.")
+Review.create!(book_id: macbeth.id, user_id: starwars.id, body: "Not as good as Star Wars")
+Review.create!(book_id: i_robot.id, user_id: starwars.id, body: "I liked the robots")
+Review.create!(book_id: nineteen84.id, user_id: jeff.id, body: "Very creepy book")
+Review.create!(book_id: nineteen84.id, user_id: me.id, body: "Better than Animal Farm")
+Review.create!(book_id: great_gatsby.id, user_id: bobby.id, body: "Daisy is a jerk")
+Review.create!(book_id: hp7.id, user_id: starwars.id, body: "Almost as good as Star Wars")
