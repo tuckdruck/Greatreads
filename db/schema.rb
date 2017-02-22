@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221023153) do
+ActiveRecord::Schema.define(version: 20170222135546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170221023153) do
     t.integer "user_id",   null: false
     t.integer "book_id",   null: false
     t.string  "status",    null: false
-    t.date    "date_read"
+    t.string  "date_read"
     t.index ["book_id"], name: "index_statuses_on_book_id", using: :btree
     t.index ["user_id", "book_id"], name: "index_statuses_on_user_id_and_book_id", unique: true, using: :btree
   end
