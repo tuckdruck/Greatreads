@@ -211,7 +211,9 @@ div.fields-form {
 
 div.fields-form.from-book-show {
   top: 30px;
+  right: 0px;
 }
+
 
 div.fields-form section {
   display: flex;

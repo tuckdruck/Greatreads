@@ -4,10 +4,16 @@ import SignUpContainer from './sign_up_container';
 import { Link } from 'react-router';
 import BooksIndexContainer from './books_index_container';
 import Footer from './footer';
+import { receiveBookshelves } from '../actions/bookshelf_actions';
+import { connect } from 'react-redux';
 
-export default class HomePageSignedOut extends React.Component {
+class HomePageSignedOut extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.receiveBookshelves({});
   }
 
   render() {
@@ -26,3 +32,11 @@ export default class HomePageSignedOut extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    receiveBookshelves: (bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(HomePageSignedOut);
