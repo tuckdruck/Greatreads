@@ -104,7 +104,7 @@ export default class ActivitySection extends React.Component {
               </td>
             </tr>
             <tr>
-              <td className="table-title">Review</td>
+              <td className="table-title review-title">Review</td>
 
               <td className="review-row">
                 {reviewText}
