@@ -1,10 +1,11 @@
 import * as BookAPIUtil from '../util/book_api_util';
 import { fetchBookshelves } from './bookshelf_actions';
-import { startLoadingUserBooks, startLoadingBookshelfBooks, startLoadingAllBooks, startLoadingBook } from './load_actions';
+import { startLoadingUserBooks, startLoadingBookshelfBooks, startLoadingAllBooks, startLoadingBook, startLoadingBooksForSearch } from './load_actions';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
 export const REMOVE_BOOK = "REMOVE_BOOK";
+export const RECEIVE_BOOKS_FOR_SEARCH = "RECEIVE_BOOKS_FOR_SEARCH";
 
 export const receiveBooks = books => {
   return {
@@ -24,6 +25,13 @@ export const removeBook = book => {
   return {
     type: REMOVE_BOOK,
     book: book
+  };
+};
+
+export const receiveBooksForSearch = books => {
+  return {
+    type: RECEIVE_BOOKS_FOR_SEARCH,
+    books: books
   };
 };
 
@@ -58,5 +66,12 @@ export const fetchBooks = () => {
 export const fetchStatusBooks = (statusName) => {
   return function(dispatch) {
     return BookAPIUtil.fetchStatusBooks(statusName).then((books) => { return dispatch(receiveBooks(books)); });
+  };
+};
+
+export const fetchBooksForSearch = () => {
+  return function(dispatch) {
+    dispatch(startLoadingBooksForSearch());
+    return BookAPIUtil.fetchBooks().then((books) => { return dispatch(receiveBooksForSearch(books)); });
   };
 };

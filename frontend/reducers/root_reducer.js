@@ -6,6 +6,7 @@ import ErrorsReducer from './errors_reducer';
 import BookshelfReducer from './bookshelf_reducer';
 import LoadReducer from './load_reducer';
 import ReviewsReducer from './reviews_reducer';
+import BooksForSearchReducer from './books_for_search_reducer';
 
 export default combineReducers({
   session: SessionReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   errors: ErrorsReducer,
   bookshelf: BookshelfReducer,
   loading: LoadReducer,
-  reviews: ReviewsReducer
+  reviews: ReviewsReducer,
+  booksForSearch: BooksForSearchReducer
 });
