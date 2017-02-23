@@ -11,6 +11,7 @@ class Review extends React.Component {
     this.reviewAlreadyExists = this.reviewAlreadyExists.bind(this);
     this.updateBody = this.updateBody.bind(this);
     this.deleteReview = this.deleteReview.bind(this);
+    this.toggleEditForm = this.toggleEditForm.bind(this);
 
     let reviewBody;
     if (this.reviewAlreadyExists()) {
@@ -19,7 +20,7 @@ class Review extends React.Component {
       reviewBody = "";
     }
 
-    this.state = { reviewBody: reviewBody };
+    this.state = { reviewBody: reviewBody, showEditForm: false };
   }
 
   reviewAlreadyExists() {
@@ -49,19 +50,54 @@ class Review extends React.Component {
     this.setState({ reviewBody: e.currentTarget.value });
   }
 
-  render() {
-    return(
-      <div>
-        <img src={this.props.book.cover_image_url}/>
-        <h2>Your review of {this.props.book.title} by {this.props.book.author}</h2>
-        Bookshelves/tags: fields form will go here
-        What did you think?
+  toggleEditForm() {
+    this.setState({ showEditForm: !(this.state.showEditForm )});
+  }
 
-        <form onSubmit={this.handleSubmit}>
-          <input type="textarea" value={this.state.reviewBody} onChange={this.updateBody}/>
-          <button>Save</button>
-        </form>
-        <button onClick={this.deleteReview}>Delete Review</button>
+  render() {
+    let fieldsForm;
+    if (this.state.showEditForm) {
+      fieldsForm = (<FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm}/>);
+    } else {
+      fieldsForm = "";
+    }
+
+    let deleteButton;
+    if (this.reviewAlreadyExists()) {
+      deleteButton = (<button className="delete-review" onClick={this.deleteReview}>Delete Review</button>);
+    } else {
+      deleteButton = "";
+    }
+
+    return(
+      <div className="modal">
+        <button className="close-modal" onClick={this.props.closeModal}>X</button>
+        <div className="main-modal">
+          <img className="cover-thumb"
+             src={this.props.book.cover_image_url}/>
+
+           <section className="main-modal-content">
+            <header>
+              <figure>Your review of</figure>
+              <h2>{this.props.book.title}</h2>
+              <figure>by {this.props.book.author}</figure>
+            </header>
+
+            <div className="fields-form-modal">Bookshelves/tags:&nbsp;
+            <button className="fields-form-modal" onClick={this.toggleEditForm}>Choose Shelves...</button>
+            {fieldsForm}</div>
+
+            <div>What did you think?</div>
+
+            <form onSubmit={this.handleSubmit}>
+              <textarea onChange={this.updateBody}>{this.state.reviewBody}</textarea>
+              <button>Save</button>
+            </form>
+            {deleteButton}
+          </section>
+
+        </div>
+
 
       </div>
 

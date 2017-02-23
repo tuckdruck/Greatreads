@@ -112,3 +112,34 @@ div.reviews {
 div.activity-section-fields-form {
   position: relative;
 }
+
+/*td.review-row button {
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  color: #00635d;
+}*/
+
+td.review-row button:hover {
+  text-decoration: underline;
+}
+
+ul.reviews li section {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+ul.reviews li p {
+  font-weight: normal;
+}
+
+ul.reviews li {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+button.add-review {
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+}

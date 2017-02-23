@@ -110,6 +110,29 @@ export default class MyBooksIndexItem extends React.Component {
       dateReadForm = "";
     }
 
+    let customStyle = {
+      overlay: {
+        backgroundColor: 'rgba(24, 24, 24, 0.75)'
+      },
+      content: {
+        top: '17%',
+        left: '24%',
+        right: '24%',
+        bottom: '17%',
+        paddingLeft: '43px',
+        paddingRight: '43px',
+        paddingTop: '23px',
+        paddingBottom: '23px'
+      }
+    };
+
+    let reviewText;
+    if (this.props.book.user_review.body) {
+      reviewText = (<span >{this.props.book.user_review.body}</span>);
+    } else {
+      reviewText = (<span className="review-not-set">None</span>);
+    }
+
     return(
       <tr>
         <td className="cover-col my-books" id="first-td">
@@ -144,13 +167,15 @@ export default class MyBooksIndexItem extends React.Component {
         </td>
 
         <td className="review my-books">
-          {this.props.book.user_review.body}
+          {reviewText}&nbsp;
           <button onClick={this.toggleModal}>[edit]</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             contentLabel="Review Form"
+            onRequestClose={() => { this.closeModal(); }}
+            shouldCloseOnOverlayClick={true}
+            style={customStyle}
           >
-            <button onClick={this.closeModal}>Close</button>
             <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
           </Modal>
         </td>

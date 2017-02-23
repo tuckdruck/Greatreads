@@ -1,4 +1,4 @@
-form.add-shelf button.add-shelf, button.save-date-read {
+form.add-shelf button.add-shelf, button.save-date-read, section.main-modal-content form button {
   background: #F4F1EA;
   border: 1px solid #D6D0C4;
   border-radius: 3px;
@@ -45,4 +45,8 @@ form.for-edit-page button {
 div.errors-container {
   height: 15px;
   position: relative;
+}
+
+form.add-shelf {
+  display: flex;
 }

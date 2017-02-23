@@ -65,23 +65,27 @@ export default class ActivitySection extends React.Component {
     if (this.props.book.user_review.body) {
       reviewText = (
         <span>
-          {this.props.book.user_review.body}
-          <button onClick={this.toggleModal}>[edit]</button>
+          {this.props.book.user_review.body}&nbsp;
+          <button className="review-row" onClick={this.toggleModal}>edit</button>
         </span>
       );
     } else {
-      reviewText = (<button onClick={this.toggleModal}>Add a Review</button>);
+      reviewText = (<button className="add-review" onClick={this.toggleModal}>Add a Review</button>);
     }
 
     let customStyle = {
       overlay: {
-        backgroundColor: '#181818'
+        backgroundColor: 'rgba(24, 24, 24, 0.75)'
       },
       content: {
         top: '17%',
         left: '24%',
         right: '24%',
-        bottom: '17%'
+        bottom: '17%',
+        paddingLeft: '43px',
+        paddingRight: '43px',
+        paddingTop: '23px',
+        paddingBottom: '23px'
       }
     };
 
@@ -102,15 +106,15 @@ export default class ActivitySection extends React.Component {
             <tr>
               <td className="table-title">Review</td>
 
-              <td>
+              <td className="review-row">
                 {reviewText}
                 <Modal
                   isOpen={this.state.modalIsOpen}
                   contentLabel="Review Form"
+                  onRequestClose={() => { this.closeModal(); }}
                   shouldCloseOnOverlayClick={true}
                   style={customStyle}
                 >
-                  <button onClick={this.closeModal}>Close</button>
                   <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
                 </Modal>
               </td>
