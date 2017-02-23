@@ -28,7 +28,7 @@ export default class Reviews extends React.Component {
       return(
         <div className="reviews">
           <h3 className="book-details-subheader">COMMUNITY REVIEWS</h3>
-          <ul>
+          <ul className="reviews">
             {reviews}
           </ul>
         </div>

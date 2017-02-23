@@ -1,0 +1,81 @@
+img.cover-thumb {
+  width: 98px;
+  height: 150px;
+}
+div.modal {
+  width: 100%;
+}
+
+div.main-modal {
+  display: flex;
+}
+
+section.main-modal-content {
+  margin-left: 20px;
+  width: 100%;
+  position: relative;
+}
+
+button.close-modal {
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+div.main-modal textarea {
+  height: 257px;
+  width: 96%;
+  font-family: Georgia;
+  font-size: 13px;
+  padding: 2%;
+}
+
+div.main-modal form button {
+  display: block;
+}
+
+button.delete-review {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+}
+
+
+section.main-modal-content h2 {
+  margin-top: 7px;
+  margin-bottom: 9px;
+  font-family: Georgia;
+}
+
+section.main-modal-content figure {
+  font-size: 13px;
+}
+
+section.main-modal-content header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+section.main-modal-content div.fields-form-modal {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+button.fields-form-modal {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+section.main-modal-content form {
+  margin-top: 20px;
+}
+
+section.main-modal-content form button {
+  padding: 8px 13px;
+  font-size: 13px;
+  margin-top: 10px;
+}

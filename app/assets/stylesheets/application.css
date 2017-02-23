@@ -19,6 +19,7 @@
  *= require edit_bookshelves
  *= require books_index
  *= require book_show
+ *= require review
  *=
  *= require_self
  */
