@@ -128,7 +128,15 @@ export default class MyBooksIndexItem extends React.Component {
 
     let reviewText;
     if (this.props.book.user_review.body) {
-      reviewText = (<span >{this.props.book.user_review.body}</span>);
+      let blurb;
+      if (this.props.book.user_review.body.length > 64) {
+        blurb = this.props.book.user_review.body.slice(0, 64) + "...";
+      } else {
+        blurb = this.props.book.user_review.body;
+      }
+      reviewText = (
+        <span>{blurb}</span>
+      );
     } else {
       reviewText = (<span className="review-not-set">None</span>);
     }
@@ -153,6 +161,7 @@ export default class MyBooksIndexItem extends React.Component {
         <td className="book-author-col my-books">
           {this.props.book.author}
         </td>
+
 
         <td className="book-average-rating my-books">
           {this.props.book.average_rating}

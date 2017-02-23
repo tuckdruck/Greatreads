@@ -113,14 +113,12 @@ div.activity-section-fields-form {
   position: relative;
 }
 
-/*td.review-row button {
-  font-size: 14px;
-  font-family: 'Lato', sans-serif;
-  color: #00635d;
-}*/
-
 td.review-row button:hover {
   text-decoration: underline;
+}
+
+td.table-title.review-title {
+  vertical-align: top;
 }
 
 ul.reviews li section {
