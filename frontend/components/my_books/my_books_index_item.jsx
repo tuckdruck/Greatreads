@@ -4,16 +4,24 @@ import { Link } from 'react-router';
 import ReactDOM from 'react-dom';
 import DateReadFormContainer from './date_read_form_container';
 import Modal from 'react-modal';
+import ReviewContainer from '../review_container';
+
 
 
 export default class MyBooksIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showEditForm: false, showDeleteBookWarning: false, showDateReadForm: false };
+    this.state = { showEditForm: false, showDeleteBookWarning: false, showDateReadForm: false, modalIsOpen: false };
     this.toggleEditForm = this.toggleEditForm.bind(this);
     this.deleteBookFromBookshelves = this.deleteBookFromBookshelves.bind(this);
     this.toggleDeleteBookWarning = this.toggleDeleteBookWarning.bind(this);
     this.toggleDateReadForm = this.toggleDateReadForm.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
   }
 
   toggleEditForm() {
@@ -37,6 +45,14 @@ export default class MyBooksIndexItem extends React.Component {
     return !!this.props.book.status;
   }
 
+  toggleModal() {
+    this.setState({ modalIsOpen: !(this.state.modalIsOpen )});
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
   render() {
     let associationsToUser;
 
@@ -57,7 +73,7 @@ export default class MyBooksIndexItem extends React.Component {
     let form;
 
     if (this.state.showEditForm) {
-      form = (<FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} onBlur={() => { console.log("it works"); }}/>);
+      form = (<FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} />);
     } else {
       form = "";
     }
@@ -96,7 +112,7 @@ export default class MyBooksIndexItem extends React.Component {
 
     return(
       <tr>
-        <td className="cover-col my-books">
+        <td className="cover-col my-books" id="first-td">
           <Link to={`books/${this.props.book.id}`}>
             <img
               className="cover"
@@ -127,7 +143,17 @@ export default class MyBooksIndexItem extends React.Component {
           {form}
         </td>
 
-        <td className="review my-books">book review goes here</td>
+        <td className="review my-books">
+          {this.props.book.user_review.body}
+          <button onClick={this.toggleModal}>[edit]</button>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            contentLabel="Review Form"
+          >
+            <button onClick={this.closeModal}>Close</button>
+            <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
+          </Modal>
+        </td>
 
         <td className="date-read my-books">
           {dateReadText}&nbsp;
@@ -139,10 +165,6 @@ export default class MyBooksIndexItem extends React.Component {
           <button onClick={this.toggleDeleteBookWarning}>X</button>
           {warning}
         </td>
-
-        <Modal>
-
-        </Modal>
 
       </tr>
     );

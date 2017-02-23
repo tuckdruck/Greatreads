@@ -1,5 +1,6 @@
 import React from 'react';
 import MyBooksIndexItem from './my_books_index_item';
+import Modal from 'react-modal';
 
 export default class MyBooksIndex extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class MyBooksIndex extends React.Component {
     else {
       const userBooks = [];
 
+
       const books = this.props.books.map((book, index) => {
         return(
           <MyBooksIndexItem
@@ -37,7 +39,7 @@ export default class MyBooksIndex extends React.Component {
       });
 
       return(
-        <table className="my-books">
+        <table className="my-books" id="table">
           <thead>
             <tr>
               <th className="cover-col my-books">cover</th>
