@@ -40,14 +40,18 @@ class Search extends React.Component {
 
   selectBook(bookId) {
     return (e) => {
-      hashHistory.push(`books/${bookId}`);
+      console.log(this.props);
+      if (!this.props.bookId || (this.props.bookId && this.props.bookId !== bookId)) {
+        hashHistory.push(`books/${bookId}`);
+      }
+
     };
   }
 
   render() {
     let bookResults = this.matches().map((book, index) => {
-      return (<li key={index} onClick={this.selectBook(book.id)}>{book.title}</li>);
-    });
+      return (<li key={index} onClick={this.selectBook(book.id).bind(this)}>{book.title}</li>);
+    }, this);
 
     return(
       <div className="search">

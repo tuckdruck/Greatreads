@@ -45,7 +45,7 @@ class BookShowPage extends React.Component {
     else {
       return(
         <main className="overall">
-          <HeaderContainer />
+          <HeaderContainer bookId={this.props.book.id}/>
           <main className="body">
             <BookDetails book={this.props.book} />
             <Reviews
