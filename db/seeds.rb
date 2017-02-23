@@ -8,7 +8,7 @@
 
 User.destroy_all
 jeff = User.create!(username: "jeff", password: "password")
-me = User.create!(username: "avital", password: "magichat12")
+me = User.create!(username: "guest", password: "magichat12")
 starwars = User.create!(username: "starwars123", password: "magichat21")
 bobby = User.create!(username: "bobby", password: "bobby123")
 

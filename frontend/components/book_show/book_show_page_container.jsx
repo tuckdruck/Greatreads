@@ -15,7 +15,6 @@ class BookShowPage extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading) { //refreshing the page while logged in
       this.props.fetchBooks();
       this.props.fetchBookshelves();
@@ -27,7 +26,6 @@ class BookShowPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (!this.props.book && nextProps.loggedIn && !this.props.loading.booksLoading) {
       this.props.fetchBooks();
       this.props.fetchBookshelves();

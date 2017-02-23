@@ -14,7 +14,6 @@ export const receiveReviews = (reviews) => {
 export const fetchReviews = (bookId) => {
   return (dispatch) => {
     dispatch(startLoadingReviews());
-    debugger
     return ReviewAPIUtil.fetchBookReviews(bookId)
       .then((reviews) => { return dispatch(receiveReviews(reviews)); });
   };
