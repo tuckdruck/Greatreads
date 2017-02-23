@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { createReview, updateReview, deleteReview } from '../actions/review_actions';
+import { createReview, updateReview, deleteReview, fetchReviews } from '../actions/review_actions';
 import { connect } from 'react-redux';
 import FieldsFormContainer from './fields_form_container';
 
@@ -36,13 +36,17 @@ class Review extends React.Component {
       this.props.updateReview({
         id: this.props.book.user_review.id,
         body: this.state.reviewBody
-      }).then(() => { this.props.closeModal(); });
+      })
+        .then(() => { this.props.fetchReviews(); })
+        .then(() => { this.props.closeModal(); });
     }
     else {
       this.props.createReview({
         book_id: this.props.book.id,
         body: this.state.reviewBody
-      }).then(() => { this.props.closeModal(); });
+      })
+        .then(() => { this.props.fetchReviews(); })
+        .then(() => { this.props.closeModal(); });
     }
   }
 
@@ -110,7 +114,8 @@ const mapDispatchToProps = dispatch => {
   return {
     createReview: (review) => { return dispatch(createReview(review)); },
     updateReview: (review) => { return dispatch(updateReview(review)); },
-    deleteReview: (reviewId) => { return dispatch(deleteReview(reviewId)); }
+    deleteReview: (reviewId) => { return dispatch(deleteReview(reviewId)); },
+    fetchReviews: () => { return dispatch(fetchReviews()); }
   };
 };
 
