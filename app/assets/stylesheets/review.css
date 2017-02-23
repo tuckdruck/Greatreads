@@ -79,3 +79,9 @@ section.main-modal-content form button {
   font-size: 13px;
   margin-top: 10px;
 }
+ul.errors {
+  margin-top: 20px;
+  height: 5px;
+  vertical-align: bottom;
+  color: red;
+}
