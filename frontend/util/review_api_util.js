@@ -1,6 +1,6 @@
 export const createReview = review => {
   return $.ajax({
-    type: "DELETE",
+    type: "POST",
     url: "api/reviews",
     data: {
       review: review
@@ -23,7 +23,7 @@ export const updateReview = review => {
 export const deleteReview = reviewId => {
   return $.ajax({
     type: "DELETE",
-    url: `api/review/${reviewId}`
+    url: `api/reviews/${reviewId}`
   });
 };
 

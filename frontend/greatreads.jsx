@@ -9,11 +9,6 @@ import { updateStatus } from './actions/status_actions';
 import * as ReviewAPIUtil from './util/review_api_util';
 
 import { signup, login, logout } from './util/session_api_util';
-// window.fetchUserBooks = BookAPIUtil.fetchUserBooks;
-// window.fetchStatusBooks = BookAPIUtil.fetchStatusBooks;
-// window.updateStatus = updateStatus;
-
-window.fetchBookReviews = ReviewAPIUtil.fetchBookReviews;
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

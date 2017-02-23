@@ -14,14 +14,14 @@ export const receiveReviews = (reviews) => {
 export const fetchReviews = (bookId) => {
   return (dispatch) => {
     dispatch(startLoadingReviews());
-    ReviewAPIUtil.fetchBookReviews(bookId)
+    return ReviewAPIUtil.fetchBookReviews(bookId)
       .then((reviews) => { return dispatch(receiveReviews(reviews)); });
   };
 };
 
 export const createReview = review => {
   return (dispatch) => {
-    ReviewAPIUtil.createReview(review)
+    return ReviewAPIUtil.createReview(review)
       .then((book) => { return dispatch(receiveBook(book)); });
   };
 };
@@ -35,7 +35,7 @@ export const updateReview = review => {
 
 export const deleteReview = reviewId => {
   return dispatch => {
-    return ReviewAPIUtil.deleteReview(review)
+    return ReviewAPIUtil.deleteReview(reviewId)
       .then((book) => { return dispatch(receiveBook(book)); });
   };
 };

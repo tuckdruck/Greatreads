@@ -13,7 +13,7 @@ class BookShowPage extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   componentDidMount() {
     if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading) { //refreshing the page while logged in
       this.props.fetchBooks();
