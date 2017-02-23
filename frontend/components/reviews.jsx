@@ -15,15 +15,23 @@ export default class Reviews extends React.Component {
       return(<div></div>);
     }
     else {
+      let reviews;
+      if (this.props.reviews.length > 0) {
+        reviews = this.props.reviews.map((review, index) => {
+          return (
+            <li key={index}>
+              <section>{review.author}</section>
+              <p>{review.body}</p>
+            </li>
+          );
+        });
+      }
+      else {
+        reviews = (<li className="no-reviews">None so far.</li>);
+      }
 
-      const reviews = this.props.reviews.map((review, index) => {
-        return (
-          <li key={index}>
-            <section>{review.author}</section>
-            <p>{review.body}</p>
-          </li>
-        );
-      });
+
+
 
       return(
         <div className="reviews">

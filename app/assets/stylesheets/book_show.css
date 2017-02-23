@@ -139,6 +139,10 @@ ul.reviews li {
   padding-top: 10px;
 }
 
+ul.reviews li.no-reviews {
+  border: none;
+}
+
 button.add-review {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
