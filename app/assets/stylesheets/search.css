@@ -1,0 +1,8 @@
+ul.search-results {
+  font-size: 10px;
+  position: absolute;
+}
+
+div.search {
+  position: relative;
+}
