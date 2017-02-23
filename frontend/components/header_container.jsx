@@ -50,7 +50,6 @@ class Header extends React.Component {
           </nav>
           {welcomeText}
           {toggleSessionLink}
-
         </div>
       </header>
     );
