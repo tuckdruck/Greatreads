@@ -5,6 +5,7 @@ import { logout } from '../actions/session_actions';
 import { fetchUserBooks } from '../actions/book_actions';
 import { selectBookshelf } from '../actions/bookshelf_actions';
 import SignInContainer from './signed_out/sign_in_container';
+import SearchContainer from './search_container';
 
 class Header extends React.Component {
 
@@ -48,6 +49,7 @@ class Header extends React.Component {
             {myBooksLink}
             <Link to="/">Browse</Link>
           </nav>
+          <SearchContainer />
           {welcomeText}
           {toggleSessionLink}
         </div>

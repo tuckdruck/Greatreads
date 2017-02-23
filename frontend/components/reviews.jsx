@@ -7,7 +7,15 @@ export default class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchReviews(this.props.book.id);
+    if (!this.props.reviewsLoading) {
+      this.props.fetchReviews(this.props.book.id);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.book.id !== nextProps.book.id && !this.props.reviewsLoading) {
+      this.props.fetchReviews(nextProps.book.id);
+    }
   }
 
   render() {

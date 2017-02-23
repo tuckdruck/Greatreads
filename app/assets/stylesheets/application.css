@@ -20,6 +20,7 @@
  *= require books_index
  *= require book_show
  *= require review
+ *= require search
  *=
  *= require_self
  */

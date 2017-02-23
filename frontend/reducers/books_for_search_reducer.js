@@ -1,4 +1,4 @@
-export const { RECEIVE_BOOKS_FOR_SEARCH } from './book_actions';
+import { RECEIVE_BOOKS_FOR_SEARCH } from '../actions/book_actions';
 
 const BooksForSearchReducer = (state = {}, action) => {
   switch (action.type){
