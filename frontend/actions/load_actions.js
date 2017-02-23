@@ -5,6 +5,7 @@ export const START_LOADING_ALL_BOOKS = "START_LOADING_ALL_BOOKS";
 export const START_LOADING_USER_BOOKSHELVES = "START_LOADING_USER_BOOKSHELVES";
 export const START_LOADING_BOOK = "START_LOADING_BOOK";
 export const START_LOADING_REVIEWS = "START_LOADING_REVIEWS";
+export const START_LOADING_BOOKS_FOR_SEARCH = "START_LOADING_BOOKS_FOR_SEARCH";
 
 export const changeLoadedStatus = bool => {
   return {
@@ -46,5 +47,11 @@ export const startLoadingBook = () => {
 export const startLoadingReviews = () => {
   return {
     type: START_LOADING_REVIEWS
+  };
+};
+
+export const startLoadingBooksForSearch = () => {
+  return {
+    type: START_LOADING_BOOKS_FOR_SEARCH
   };
 };

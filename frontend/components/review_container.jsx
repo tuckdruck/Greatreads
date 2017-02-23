@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { createReview, updateReview, deleteReview, fetchReviews } from '../actions/review_actions';
 import { connect } from 'react-redux';
 import FieldsFormContainer from './fields_form_container';
+import { receiveErrors } from '../actions/error_actions';
 
 class Review extends React.Component {
   constructor(props) {
@@ -30,10 +31,11 @@ class Review extends React.Component {
   deleteReview() {
     this.props.deleteReview(this.props.book.user_review.id)
       .then(() => { return this.props.fetchReviews(this.props.book.id); })
-      .then(() => { return  this.props.closeModal(); });
+      .then(() => { return this.props.closeModal(); });
   }
 
   handleSubmit() {
+    this.props.clearErrors();
     if (this.reviewAlreadyExists()) {
       this.props.updateReview({
         id: this.props.book.user_review.id,
@@ -133,7 +135,8 @@ const mapDispatchToProps = dispatch => {
     createReview: (review) => { return dispatch(createReview(review)); },
     updateReview: (review) => { return dispatch(updateReview(review)); },
     deleteReview: (reviewId) => { return dispatch(deleteReview(reviewId)); },
-    fetchReviews: (bookId) => { return dispatch(fetchReviews(bookId)); }
+    fetchReviews: (bookId) => { return dispatch(fetchReviews(bookId)); },
+    clearErrors: () => { return dispatch(receiveErrors([])); }
   };
 };
 
