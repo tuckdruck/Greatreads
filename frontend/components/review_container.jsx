@@ -37,7 +37,7 @@ class Review extends React.Component {
         id: this.props.book.user_review.id,
         body: this.state.reviewBody
       })
-        .then(() => { this.props.fetchReviews(); })
+        .then(() => { this.props.fetchReviews(this.props.book.id); })
         .then(() => { this.props.closeModal(); });
     }
     else {
@@ -45,7 +45,7 @@ class Review extends React.Component {
         book_id: this.props.book.id,
         body: this.state.reviewBody
       })
-        .then(() => { this.props.fetchReviews(); })
+        .then((book) => { this.props.fetchReviews(this.props.book.id); })
         .then(() => { this.props.closeModal(); });
     }
   }
@@ -115,7 +115,7 @@ const mapDispatchToProps = dispatch => {
     createReview: (review) => { return dispatch(createReview(review)); },
     updateReview: (review) => { return dispatch(updateReview(review)); },
     deleteReview: (reviewId) => { return dispatch(deleteReview(reviewId)); },
-    fetchReviews: () => { return dispatch(fetchReviews()); }
+    fetchReviews: (bookId) => { return dispatch(fetchReviews(bookId)); }
   };
 };
 
