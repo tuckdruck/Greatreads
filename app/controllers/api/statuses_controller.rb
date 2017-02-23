@@ -26,6 +26,7 @@ class Api::StatusesController < ApplicationController
     if status
       status.destroy
       current_user.book_taggings.where(book_id: status.book_id).destroy_all
+      current_user.reviews.where(book_id: status.book_id).destroy_all
 
       @book = status.book
       render "api/books/show"

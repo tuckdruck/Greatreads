@@ -1,7 +1,6 @@
 class Api::ReviewsController < ApplicationController
 
   def index
-    debugger
     @reviews = Review.where(book_id: params[:book_id]).includes(:user)
   end
 

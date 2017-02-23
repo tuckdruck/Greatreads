@@ -28,7 +28,9 @@ class Review extends React.Component {
   }
 
   deleteReview() {
-    this.props.deleteReview(this.props.book.user_review.id).then(() => { return  this.props.closeModal(); });
+    this.props.deleteReview(this.props.book.user_review.id)
+      .then(() => { return this.props.fetchReviews(this.props.book.id); })
+      .then(() => { return  this.props.closeModal(); });
   }
 
   handleSubmit() {
@@ -87,14 +89,14 @@ class Review extends React.Component {
               <figure>by {this.props.book.author}</figure>
             </header>
 
-            <div className="fields-form-modal">Bookshelves/tags:&nbsp;
+            <div className="fields-form-modal">Bookshelves/tags:&nbsp;&nbsp;&nbsp;
             <button className="fields-form-modal" onClick={this.toggleEditForm}>Choose Shelves...</button>
             {fieldsForm}</div>
 
             <div>What did you think?</div>
 
             <form onSubmit={this.handleSubmit}>
-              <textarea onChange={this.updateBody}>{this.state.reviewBody}</textarea>
+              <textarea onChange={this.updateBody} value={this.state.reviewBody} />
               <button>Save</button>
             </form>
             {deleteButton}

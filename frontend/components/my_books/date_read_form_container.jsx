@@ -7,7 +7,15 @@ class DateReadForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { date: this.props.book.status.date_read };
+
+    let dateRead;
+    if (this.props.book.status.date_read) {
+      dateRead = this.props.book.status.date_read;
+    } else {
+      dateRead = "";
+    }
+    
+    this.state = { date: dateRead };
     this.updateDate = this.updateDate.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }

@@ -27,13 +27,16 @@ class Header extends React.Component {
   render() {
     let myBooksLink;
     let toggleSessionLink;
+    let welcomeText;
 
     if (this.props.loggedIn) {
       myBooksLink = (<button className="looks-like-link" onClick={this.redirectToMyBooks}>My Books</button>);
       toggleSessionLink = (<button className="logout" onClick={this.props.logout}>Log Out</button>);
+      welcomeText = (<span className="logout">{this.props.currentUser.username}</span>);
     } else {
       myBooksLink = "";
       toggleSessionLink = <SignInContainer />;
+      welcomeText = "";
     }
 
     return(
@@ -45,7 +48,7 @@ class Header extends React.Component {
             {myBooksLink}
             <Link to="/">Browse</Link>
           </nav>
-
+          {welcomeText}
           {toggleSessionLink}
 
         </div>

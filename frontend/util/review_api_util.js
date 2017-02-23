@@ -28,7 +28,6 @@ export const deleteReview = reviewId => {
 };
 
 export const fetchBookReviews = (bookId) => {
-  debugger
   return $.ajax({
     type: "GET",
     url: `api/books/${bookId}/reviews`

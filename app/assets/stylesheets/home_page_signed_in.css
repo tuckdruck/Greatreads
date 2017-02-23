@@ -21,7 +21,7 @@ nav.header {
   display: flex;
   align-items: center;
   font-size: 16px;
-  width: 70%;
+  width: 68%;
   height: 48px;
 }
 
@@ -71,9 +71,14 @@ div.sign-in {
   position: relative;
 }
 
-button.logout {
+.logout {
   font-size: 16px;
 }
+
+span.logout {
+  margin-right: 5%;
+}
+
 button.looks-like-link {
   padding: 15px 16px;
   font-size: 16px;

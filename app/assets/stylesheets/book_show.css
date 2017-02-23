@@ -13,7 +13,7 @@ main.body {
   margin: 50px auto;
   font-size: 14px;
   font-family: Georgia;
-  height: 900px;
+  min-height: 900px;
 }
 
 main.main-content {
