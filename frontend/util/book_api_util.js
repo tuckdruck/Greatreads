@@ -31,7 +31,7 @@ export const fetchBooks = () => {
     type: "GET",
     url: "api/books"
   });
-}
+};
 
 export const fetchStatusBooks = (statusName) => {
   return $.ajax({
@@ -39,4 +39,12 @@ export const fetchStatusBooks = (statusName) => {
     url: "api/books",
     data: { status_name: statusName }
   });
-}
+};
+
+export const fetchBooksForSearch = (searchString) => {
+  return $.ajax({
+    type: "GET",
+    url: "api/books",
+    data: { search_string: searchString }
+  });
+};

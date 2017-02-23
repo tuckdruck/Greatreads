@@ -72,4 +72,9 @@ class Book < ActiveRecord::Base
     Book.bookshelves.where("bookshelves.user_id = ?", user_id)
   end
 
+  def self.find_by_search(search_string)
+    search_string = search_string.downcase + "%";
+    Book.where("lower(books.title) LIKE ?", search_string)
+  end
+
 end

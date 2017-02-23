@@ -48,8 +48,8 @@ class Header extends React.Component {
             <Link to="/">Home</Link>
             {myBooksLink}
             <Link to="/">Browse</Link>
+            <SearchContainer bookId={this.props.bookId}/>
           </nav>
-          <SearchContainer bookId={this.props.bookId}/>
           {welcomeText}
           {toggleSessionLink}
         </div>

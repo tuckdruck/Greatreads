@@ -13,29 +13,11 @@ class Search extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchBooksForSearch();
-  }
-
   handleInput(event) {
     this.setState({ inputVal: event.currentTarget.value });
-  }
-
-  matches() {
-    const matches = [];
-
-    if (this.state.inputVal.length > 0) {
-      this.props.books.forEach((book, index) => {
-        let sub = book.title.slice(0, this.state.inputVal.length);
-
-        if (sub.toLowerCase() === this.state.inputVal.toLowerCase()) {
-          matches.push(book);
-        }
-      });
-
+    if (event.currentTarget.value.length > 0) {
+      this.props.fetchBooksForSearch(event.currentTarget.value);
     }
-
-    return matches;
   }
 
   selectBook(bookId) {
@@ -49,13 +31,23 @@ class Search extends React.Component {
   }
 
   render() {
-    let bookResults = this.matches().map((book, index) => {
-      return (<li key={index} onClick={this.selectBook(book.id).bind(this)}>{book.title}</li>);
-    }, this);
+    let bookResults;
+    if (this.state.inputVal.length > 0) {
+      bookResults = this.props.books.map((book, index) => {
+        return (
+          <li className="results" key={index} onClick={this.selectBook(book.id).bind(this)}>
+            <h3>{book.title}</h3>
+            <span>by {book.author}</span>
+          </li>);
+      }, this);
+    } else {
+      bookResults = (<li></li>);
+    }
+
 
     return(
       <div className="search">
-        <input onChange={this.handleInput} value={this.state.inputVal} placeholder="Search" />
+        <input onChange={this.handleInput} value={this.state.inputVal} placeholder="Search books" />
         <ul className="search-results">
           {bookResults}
         </ul>
@@ -73,7 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBooksForSearch: () => { return dispatch(fetchBooksForSearch()); }
+    fetchBooksForSearch: (searchString) => { return dispatch(fetchBooksForSearch(searchString)); }
   };
 };
 

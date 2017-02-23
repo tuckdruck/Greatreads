@@ -7,6 +7,8 @@ class Api::BooksController < ApplicationController
       @books = Book.bookshelf_books(params[:bookshelf_id], current_user.id)
     elsif params[:status_name]
       @books = Book.status_books(params[:status_name], current_user.id)
+    elsif params[:search_string]
+      @books = Book.find_by_search(params[:search_string])
     else
       @books = Book.all
     end

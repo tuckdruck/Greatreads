@@ -69,9 +69,9 @@ export const fetchStatusBooks = (statusName) => {
   };
 };
 
-export const fetchBooksForSearch = () => {
+export const fetchBooksForSearch = (searchString) => {
   return function(dispatch) {
     dispatch(startLoadingBooksForSearch());
-    return BookAPIUtil.fetchBooks().then((books) => { return dispatch(receiveBooksForSearch(books)); });
+    return BookAPIUtil.fetchBooksForSearch(searchString).then((books) => { return dispatch(receiveBooksForSearch(books)); });
   };
 };
