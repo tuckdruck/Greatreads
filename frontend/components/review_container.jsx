@@ -20,7 +20,7 @@ class Review extends React.Component {
       reviewBody = "";
     }
 
-    this.state = { reviewBody: reviewBody, showEditForm: false };
+    this.state = { reviewBody: reviewBody, showEditForm: false, errors: [] };
   }
 
   reviewAlreadyExists() {
@@ -40,7 +40,8 @@ class Review extends React.Component {
         body: this.state.reviewBody
       })
         .then(() => { this.props.fetchReviews(this.props.book.id); })
-        .then(() => { this.props.closeModal(); });
+        .then(() => { this.props.closeModal(); })
+        .fail(() => { this.setState({ errors: this.props.errors }); });
     }
     else {
       this.props.createReview({
@@ -48,7 +49,8 @@ class Review extends React.Component {
         body: this.state.reviewBody
       })
         .then((book) => { this.props.fetchReviews(this.props.book.id); })
-        .then(() => { this.props.closeModal(); });
+        .then(() => { this.props.closeModal(); })
+        .fail(() => { this.setState({ errors: this.props.errors }); });
     }
   }
 
@@ -75,6 +77,10 @@ class Review extends React.Component {
       deleteButton = "";
     }
 
+    let errorLis = this.state.errors.map((error, index) => {
+      return (<li key={index}>{error}</li>);
+    });
+
     return(
       <div className="modal">
         <button className="close-modal" onClick={this.props.closeModal}>X</button>
@@ -95,6 +101,10 @@ class Review extends React.Component {
 
             <div>What did you think?</div>
 
+            <ul className="errors">
+              {errorLis}
+            </ul>
+
             <form onSubmit={this.handleSubmit}>
               <textarea onChange={this.updateBody} value={this.state.reviewBody} />
               <button>Save</button>
@@ -112,6 +122,12 @@ class Review extends React.Component {
 
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     createReview: (review) => { return dispatch(createReview(review)); },
@@ -121,6 +137,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Review);
+export default connect(mapStateToProps, mapDispatchToProps)(Review);
 
 //may need to add toggleEditForm to fields form container's props
