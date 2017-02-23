@@ -21,7 +21,7 @@ class HomePageSignedOut extends React.Component {
       <div className="overall-header">
         <header className="container">
           <header className="home-page-signed-out">
-            <Link to="/"><h1 className="logo signed-out">great<strong>reads</strong></h1></Link>
+            <Link className="logo-link" to="/"><h1 className="logo signed-out">great<strong>reads</strong></h1></Link>
             <SignInContainer />
           </header>
         </header>

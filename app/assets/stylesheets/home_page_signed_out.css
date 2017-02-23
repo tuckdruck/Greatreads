@@ -98,6 +98,11 @@ div.sign-up {
 h1.logo.signed-out {
   font-family: helvetica;
   font-size: 42px;
+  width: 100%;
+}
+
+a.logo-link {
+  margin-right: 34%;
 }
 
 h2 {
@@ -127,6 +132,7 @@ ul.sign-up-errors {
 }
 
 div.sign-in {
-  margin-left: 34%;
+  /*margin-left: 34%;*/
   width: 100%;
+  position: relative;
 }
