@@ -9,7 +9,7 @@ class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { inputVal: "" };
+    this.state = { inputVal: "", showResults: true };
     this.selectBook = this.selectBook.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.redirectToResults = this.redirectToResults.bind(this);
@@ -26,12 +26,12 @@ class Search extends React.Component {
 
   handleClick(e) {
     if (!ReactDOM.findDOMNode(this).contains(e.target)) {
-      this.props.receiveBooksForSearch({});
+      this.setState({ showResults: false });
     }
   }
 
   handleInput(event) {
-    this.setState({ inputVal: event.currentTarget.value });
+    this.setState({ inputVal: event.currentTarget.value, showResults: true });
     if (event.currentTarget.value.length > 0) {
       this.props.fetchBooksForSearch(event.currentTarget.value);
     } else {
@@ -54,7 +54,7 @@ class Search extends React.Component {
 
   render() {
     let bookResults;
-    if (this.state.inputVal.length > 0) {
+    if (this.state.inputVal.length > 0 && this.state.showResults) {
       bookResults = this.props.books.slice(0, 5).map((book, index) => {
         return (
           <li className="results searchbar" key={index} onClick={this.selectBook(book.id).bind(this)}>
@@ -65,6 +65,7 @@ class Search extends React.Component {
     } else {
       bookResults = (<li></li>);
     }
+
 
 
     return(

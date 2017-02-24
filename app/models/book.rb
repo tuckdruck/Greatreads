@@ -73,8 +73,10 @@ class Book < ActiveRecord::Base
   end
 
   def self.find_by_search(search_string)
-    search_string = search_string.downcase + "%";
-    Book.where("lower(books.title) LIKE ?", search_string)
+    string1 = "% " + search_string.downcase + "%"
+    string2 = search_string.downcase + "%"
+    Book.where("lower(books.title) LIKE ? OR lower(books.title) LIKE ?", string1, string2)
+
   end
 
 end
