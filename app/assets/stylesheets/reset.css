@@ -24,3 +24,11 @@ body {
   font-size: 13px;
   font-weight: normal;
 }
+
+input:focus {
+  outline-width: 0;
+}
+
+textarea:focus {
+  outline-width: 0;
+}
