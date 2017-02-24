@@ -107,11 +107,11 @@ class Review extends React.Component {
               {errorLis}
             </ul>
 
-            <form onSubmit={this.handleSubmit}>
               <textarea onChange={this.updateBody} value={this.state.reviewBody} />
-              <button>Save</button>
-            </form>
-            {deleteButton}
+              <div className="review-buttons">
+              <button onClick={this.handleSubmit} className="save">Save</button>
+              {deleteButton}
+              </div>
           </section>
 
         </div>

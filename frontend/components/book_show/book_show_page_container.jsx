@@ -15,26 +15,20 @@ class BookShowPage extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading) { //refreshing the page while logged in
+    if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading && !this.props.loading.bookshelvesLoading) { //refreshing page when logged in
       this.props.fetchBooks();
-      this.props.fetchBookshelves();
-    } else if (!this.props.book && !this.props.loggedIn) { //refreshing the page while logged out - works
+      this.props.fetchBookshelves(this.props.currentUser.id); //refreshing page when logged out
+    } else if (!this.props.book && !this.props.loggedIn && !this.props.loading.booksLoading) {
       this.props.fetchBooks();
-    } else if (this.props.loggedIn && !this.props.loading.bookshelvesLoading) { //going to book show page while logged in
-      this.props.fetchBookshelves();
+    } else if (this.props.book && this.props.loggedIn && !this.props.loading.bookshelvesLoading) { //redirecting to book show page when logged in
+      this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.book && nextProps.loggedIn && !this.props.loading.booksLoading) {
+    if (!this.props.loggedIn && nextProps.loggedIn && !this.props.loading.booksLoading && !this.props.loading.bookshelvesLoading) { //logging on the book show page
       this.props.fetchBooks();
-      this.props.fetchBookshelves();
-    } else if (!this.props.book && !this.props.loading.booksLoading) {
-      this.props.fetchBooks();
-    }
-    else if (!this.props.loggedIn && nextProps.loggedIn) { //logging in
-      this.props.fetchBooks();
-      this.props.fetchBookshelves();
+      this.props.fetchBookshelves(nextProps.currentUser.id);
     }
   }
 

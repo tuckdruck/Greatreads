@@ -4,14 +4,17 @@ img.cover-thumb {
 }
 div.modal {
   width: 100%;
+  height: 100%;
 }
 
 div.main-modal {
   display: flex;
+  height: 100%;
 }
 
 section.main-modal-content {
   margin-left: 20px;
+  height: 100%;
   width: 100%;
   position: relative;
 }
@@ -25,7 +28,7 @@ button.close-modal {
 }
 
 div.main-modal textarea {
-  height: 257px;
+  height: 35%;
   width: 96%;
   font-family: Georgia;
   font-size: 13px;
@@ -37,9 +40,9 @@ div.main-modal form button {
 }
 
 button.delete-review {
-  position: absolute;
+  /*position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 0;*/
   font-family: 'Lato', sans-serif;
   font-size: 12px;
 }
@@ -74,14 +77,20 @@ section.main-modal-content form {
   margin-top: 20px;
 }
 
-section.main-modal-content form button {
-  padding: 8px 13px;
+button.save {
+  padding: 10px 13px;
   font-size: 13px;
   margin-top: 10px;
 }
+
 ul.errors {
   margin-top: 20px;
   height: 5px;
   vertical-align: bottom;
   color: red;
+}
+
+div.review-buttons {
+  display: flex;
+  justify-content: space-between;
 }
