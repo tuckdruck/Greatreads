@@ -1,0 +1,42 @@
+/*main.body.searchpage h1 {
+  text-align: center;
+}*/
+
+main.body.searchpage ul {
+  text-align: center;
+}
+
+main.overall-search {
+  background: white;
+}
+
+img.search-thumb {
+  height: 75px;
+  width: 50px;
+  margin-right: 12px;
+}
+
+img.search-thumb:hover {
+  cursor: pointer;
+}
+
+li.results.searchpage {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+li.results.searchpage:first-child {
+  border-top: 2px solid #d7d7d7;
+}
+
+li.results.searchpage span {
+  display: block;
+}
+
+li.results.searchpage span:last-child {
+  margin-top: 2px;
+  color: #767676;
+  font-size: 12px;
+}

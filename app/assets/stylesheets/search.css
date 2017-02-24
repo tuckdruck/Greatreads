@@ -8,16 +8,19 @@ ul.search-results {
 }
 
 div.search {
+  width: 40%;
   position: relative;
   margin-left: 20%;
 }
 
 div.search input {
-  width: 270px;
+  /*width: 270px;*/
+  width: 61%;
   height: 32px;
   background: white;
   font-size: 14px;
   padding-left: 2%;
+  border-right: none;
 }
 
 ul.search-results li.results {
@@ -29,9 +32,16 @@ ul.search-results li.results {
   border-bottom: 1px solid #eee;
 }
 
-li.results:hover {
+li.results.searchbar:hover {
+  background: #F4F1EA;
   cursor: pointer;
 }
+
+li.results.searchpage h3:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 li.results:last-child {
   border-bottom: none;
@@ -41,8 +51,22 @@ li.results h3 {
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 3px;
+  color: #333333;
 }
 
 li.results span {
   font-size: 12px;
+}
+
+button.magnifying-glass {
+  background: white;
+  display: inline-block;
+  height: 32px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 10px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
