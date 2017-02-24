@@ -40,3 +40,8 @@ li.results.searchpage span:last-child {
   color: #767676;
   font-size: 12px;
 }
+
+main.body.searchpage h1 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

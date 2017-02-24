@@ -60,12 +60,14 @@ li.results span {
 
 button.magnifying-glass {
   background: white;
+  font-size: 14px;
   display: inline-block;
-  height: 32px;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  /*height: 34px;*/
+  height: 100%;
+  padding-top: 3px;
   padding-left: 3px;
-  padding-right: 10px;
+  padding-right: 15px;
+  padding-bottom: 6px;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   border-right: 1px solid lightgray;

@@ -20,17 +20,24 @@ class SearchResultsPage extends React.Component {
   }
 
   render() {
-    const searchResultLis = this.props.books.map((book, index) => {
-      return (
-        <li className="results searchpage" key={index}>
-          <img src={book.cover_image_url} className="search-thumb" onClick={this.selectBook(book.id).bind(this)}/>
-          <div>
-            <h3 onClick={this.selectBook(book.id).bind(this)}>{book.title}</h3>
-            <span>by {book.author}</span>
-            <span>{book.average_rating} avg rating</span>
-          </div>
-        </li>);
-    });
+    let searchResults;
+    if (this.props.books.length > 0) {
+      searchResults = this.props.books.map((book, index) => {
+        return (
+          <li className="results searchpage" key={index}>
+            <img src={book.cover_image_url} className="search-thumb" onClick={this.selectBook(book.id).bind(this)}/>
+            <div>
+              <h3 onClick={this.selectBook(book.id).bind(this)}>{book.title}</h3>
+              <span>by {book.author}</span>
+              <span>{book.average_rating} avg rating</span>
+            </div>
+          </li>);
+      });
+    }
+    else {
+      searchResults = (<li>No results found.</li>);
+    }
+
 
     return(
       <main className="overall-search">
@@ -38,7 +45,7 @@ class SearchResultsPage extends React.Component {
         <main className="body searchpage">
           <h1>Search Results</h1>
           <ul>
-            {searchResultLis}
+            {searchResults}
           </ul>
         </main>
         <Footer />
