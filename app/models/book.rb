@@ -2,20 +2,24 @@
 #
 # Table name: books
 #
-#  id              :integer          not null, primary key
-#  title           :string           not null
-#  author          :string           not null
-#  description     :text
-#  cover_image_url :string
-#  average_rating  :float
-#  page_length     :integer
-#  published_date  :date
-#  publisher       :string
-#  isbn            :string
-#  language        :string
-#  url_to_buy      :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                 :integer          not null, primary key
+#  title              :string           not null
+#  author             :string           not null
+#  description        :text
+#  cover_image_url    :string
+#  average_rating     :float
+#  page_length        :integer
+#  published_date     :date
+#  publisher          :string
+#  isbn               :string
+#  language           :string
+#  url_to_buy         :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 class Book < ActiveRecord::Base
