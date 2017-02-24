@@ -27,6 +27,7 @@ class Search extends React.Component {
   handleClick(e) {
     if (!ReactDOM.findDOMNode(this).contains(e.target)) {
       this.setState({ showResults: false });
+      this.props.receiveBooksForSearch({});
     }
   }
 
