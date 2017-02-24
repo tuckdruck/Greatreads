@@ -8,14 +8,14 @@ ul.search-results {
 }
 
 div.search {
-  width: 40%;
+  width: 33%;
   position: relative;
-  margin-left: 20%;
+  margin-left: 11%;
 }
 
 div.search input {
   /*width: 270px;*/
-  width: 61%;
+  width: 76%;
   height: 32px;
   background: white;
   font-size: 14px;

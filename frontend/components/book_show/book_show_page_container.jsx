@@ -10,27 +10,51 @@ import { fetchReviews } from '../../actions/review_actions';
 import { reviewsArray } from '../../selectors/reviews_selector';
 
 class BookShowPage extends React.Component {
+
+
   constructor(props) {
     super(props);
   }
 
+
   componentDidMount() {
-    if (!this.props.book && this.props.loggedIn && !this.props.loading.booksLoading && !this.props.loading.bookshelvesLoading) { //refreshing page when logged in
+
+    if (!this.props.book &&
+      this.props.loggedIn &&
+      !this.props.loading.booksLoading &&
+      !this.props.loading.bookshelvesLoading
+    ) { //refreshing page when logged in
       this.props.fetchBooks();
-      this.props.fetchBookshelves(this.props.currentUser.id); //refreshing page when logged out
-    } else if (!this.props.book && !this.props.loggedIn && !this.props.loading.booksLoading) {
+      this.props.fetchBookshelves(this.props.currentUser.id);
+    }
+
+    else if (!this.props.book &&
+      !this.props.loggedIn &&
+      !this.props.loading.booksLoading
+    ) { //refreshing page when logged out
       this.props.fetchBooks();
-    } else if (this.props.book && this.props.loggedIn && !this.props.loading.bookshelvesLoading) { //redirecting to book show page when logged in
+    }
+
+    else if (this.props.book &&
+      this.props.loggedIn &&
+      !this.props.loading.bookshelvesLoading
+    ) { //redirecting to book show page when logged in
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }
 
+
   componentWillReceiveProps(nextProps) {
-    if (!this.props.loggedIn && nextProps.loggedIn && !this.props.loading.booksLoading && !this.props.loading.bookshelvesLoading) { //logging on the book show page
+    if (!this.props.loggedIn &&
+      nextProps.loggedIn &&
+      !this.props.loading.booksLoading &&
+      !this.props.loading.bookshelvesLoading
+    ) { //logging on the book show page
       this.props.fetchBooks();
       this.props.fetchBookshelves(nextProps.currentUser.id);
     }
   }
+
 
   render() {
     if (this.props.loading.booksLoading || this.props.loading.bookshelvesLoading || !this.props.book) {
@@ -50,6 +74,7 @@ class BookShowPage extends React.Component {
       );
     }
   }
+
 
 }
 
