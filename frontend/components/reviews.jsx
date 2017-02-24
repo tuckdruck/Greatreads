@@ -19,7 +19,7 @@ export default class Reviews extends React.Component {
   }
 
   render() {
-    if (this.props.loading.reviewLoading) {
+    if (this.props.loading.reviewsLoading) {
       return(<div></div>);
     }
     else {

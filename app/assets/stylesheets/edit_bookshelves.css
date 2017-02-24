@@ -1,17 +1,17 @@
-div.edit-bookshelves-main {
+div.edit-bookshelves-main, main.body.searchpage {
   margin: 0 auto;
   width: 40%;
   min-height: 840px;
 }
 
-div.edit-bookshelves-main h1 {
+div.edit-bookshelves-main h1, main.body.searchpage h1  {
   margin-top: 20px;
   margin-bottom: 20px;
 
 }
 
 
-div.edit-bookshelves-body {
+div.edit-bookshelves-body, {
   background: white;
 }
 

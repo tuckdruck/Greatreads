@@ -132,7 +132,6 @@ ul.sign-up-errors {
 }
 
 div.sign-in {
-  /*margin-left: 34%;*/
-  width: 100%;
+  width: 500px;
   position: relative;
 }

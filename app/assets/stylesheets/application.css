@@ -21,6 +21,7 @@
  *= require book_show
  *= require review
  *= require search
+ *= require search_results
  *=
  *= require_self
  */

@@ -6,6 +6,7 @@ import SignInPage from './signed_out/sign_in_page';
 import MyBooksPageContainer from './my_books/my_books_page_container';
 import EditBookshelvesPage from './edit_bookshelves/edit_bookshelves_page';
 import BookShowPageContainer from './book_show/book_show_page_container';
+import SearchResultsPage from './search_results_page';
 
 
 const Root = ({ store }) => (
@@ -19,6 +20,7 @@ const Root = ({ store }) => (
       <Route path="mybooks" component={MyBooksPageContainer} onEnter={_redirectIfLoggedOut(store)}/>
       <Route path="shelves" component={EditBookshelvesPage} onEnter={_redirectIfLoggedOut(store)}/>
       <Route path="books/:bookId" component={BookShowPageContainer}/>
+      <Route path="search" component={SearchResultsPage} />
 
     </Router>
 

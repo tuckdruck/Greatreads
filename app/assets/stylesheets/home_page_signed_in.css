@@ -21,7 +21,7 @@ nav.header {
   display: flex;
   align-items: center;
   font-size: 16px;
-  width: 57%;
+  width: 67%;
   height: 48px;
 }
 
@@ -74,12 +74,13 @@ ul.sign-in-errors {
 
 span.logout {
   margin-right: 5%;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 button.looks-like-link {
   padding: 15px 16px;
   font-size: 16px;
+  width: 110px;
 }
 
 div.home-page-signed-in {
