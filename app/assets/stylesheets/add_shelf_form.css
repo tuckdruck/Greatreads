@@ -1,14 +1,14 @@
-form.add-shelf button.add-shelf, button.save-date-read, section.main-modal-content form button {
+form.add-shelf button.add-shelf, button.save-date-read, section.main-modal-content button.save {
   background: #F4F1EA;
   border: 1px solid #D6D0C4;
   border-radius: 3px;
-  padding: 0px 10px;
   color: black;
 }
 
 form.add-shelf button.add-shelf {
   margin-left: 6px;
   font-size: 12px;
+  padding: 0px 10px;
 }
 
 button.save-date-read {
