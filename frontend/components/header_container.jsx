@@ -6,12 +6,19 @@ import { fetchUserBooks } from '../actions/book_actions';
 import { selectBookshelf } from '../actions/bookshelf_actions';
 import SignInContainer from './signed_out/sign_in_container';
 import SearchContainer from './search_container';
+import About from './about';
 
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
     this.redirectToMyBooks = this.redirectToMyBooks.bind(this);
+    this.state = { showAbout: false };
+    this.toggleAbout = this.toggleAbout.bind(this);
+  }
+
+  toggleAbout() {
+    this.setState({ showAbout: !this.state.showAbout });
   }
 
   redirectToMyBooks() {
@@ -20,7 +27,6 @@ class Header extends React.Component {
     } else {
       this.props.selectBookshelf(null);
       this.props.fetchUserBooks(this.props.currentUser.id);
-      // this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
       hashHistory.push("mybooks");
     }
   }
@@ -30,14 +36,24 @@ class Header extends React.Component {
     let toggleSessionLink;
     let welcomeText;
 
+    let aboutLink;
     if (this.props.loggedIn) {
-      myBooksLink = (<button className="looks-like-link" onClick={this.redirectToMyBooks}>My Books</button>);
-      toggleSessionLink = (<button className="logout" onClick={this.props.logout}>Log Out</button>);
+      myBooksLink = (<button className="looks-like-link mybooks" onClick={this.redirectToMyBooks}>My Books</button>);
+      toggleSessionLink = (<button className="logout looks-like-link" onClick={this.props.logout}>Log Out</button>);
       welcomeText = (<span className="logout">{this.props.currentUser.username}</span>);
+      aboutLink = (<button className="looks-like-link about" onClick={this.toggleAbout}>About</button>);
     } else {
       myBooksLink = "";
       toggleSessionLink = <SignInContainer />;
       welcomeText = "";
+      aboutLink = "";
+    }
+
+    let aboutText;
+    if (this.state.showAbout) {
+      aboutText = <About toggleAbout={this.toggleAbout} />;
+    } else {
+      aboutText = "";
     }
 
     return(
@@ -51,6 +67,8 @@ class Header extends React.Component {
             <SearchContainer bookId={this.props.bookId}/>
           </nav>
           {welcomeText}
+          {aboutLink}
+          {aboutText}
           {toggleSessionLink}
         </div>
       </header>

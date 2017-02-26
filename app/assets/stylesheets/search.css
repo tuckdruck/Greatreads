@@ -14,7 +14,6 @@ div.search {
 }
 
 div.search input {
-  /*width: 270px;*/
   width: 76%;
   height: 32px;
   background: white;
@@ -25,9 +24,6 @@ div.search input {
 
 ul.search-results li.results {
   width: 222px;
-  /*height: 32px;*/
-  /*padding-top: 9px;
-  padding-bottom: 9px;*/
   padding: 4px 9px 7px 9px;
   border-bottom: 1px solid #eee;
 }

@@ -10,6 +10,7 @@ div.signed-in-subheader button.looks-like-link {
   display: block;
   height: 100%;
   padding: 0 16px;
+  position: relative;
 }
 
 div.signed-in-subheader button.looks-like-link:hover {
@@ -73,16 +74,66 @@ ul.sign-in-errors {
 }
 
 span.logout {
-  margin-right: 5%;
+  margin-right: 1%;
   margin-left: 5%;
 }
 
 button.looks-like-link {
   padding: 15px 16px;
   font-size: 16px;
+
+}
+
+button.looks-like-link.mybooks {
   width: 110px;
 }
 
 div.home-page-signed-in {
   height: 800px;
+}
+
+button.about {
+  text-align: center;
+}
+
+div.about {
+  position: absolute;
+  right: 8%;
+  top: 9%;
+  font-size: 13px;
+  width: 9.5%;
+  background: white;
+  padding: 10px;
+  border: 1px solid #eee;
+}
+
+div.about p {
+  text-align: center;
+}
+
+i.fa {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+i.fa:first-child {
+  margin-right: 10px;
+}
+
+i.fa:last-child {
+  margin-left: 10px;
+}
+
+figure.icon-container {
+  display: flex;
+  justify-content: center;
+}
+
+button.close-about {
+  text-align: right;
+  width: 100%;
+  padding-bottom: 10px;
+  color: gray;
+  font-size: 12px;
+  font-weight: normal;
 }
