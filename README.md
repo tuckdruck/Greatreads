@@ -25,7 +25,7 @@ The My Books page is the centerpiece of a user's interaction with books. A user 
 
 ![My Books page](/my_books_page.png)
 
-Form for updating bookshelves and read status:
+Form for updating a book's bookshelves and read status:
 
 ![Fields form](/fields_form.png)
 
