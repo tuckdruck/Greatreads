@@ -24,7 +24,7 @@ The home page displays sign-in and sign-up forms. Passwords are not stored in th
 The My Books page is the centerpiece of a user's interaction with books. A user can collect books through attributing a book with a read status, adding a book to a bookshelf, and reviewing a book. The MyBooks page loads by fetching a user's bookshelves and books pertaining to a specific user. Users can filter books on page by bookshelf and by read status; change read statuses of books; add and toggle bookshelves for books; add, edit, and delete reviews for books; and add or change the date in which they read a book. Users can also remove books from their collection - this deletes the read status and any bookshelves or review a user has attributed to that book.
 
 ![My Books page](/my_books_page.png)
-
+![Fields form](/fields_form.png)
 
 
 ###Editing Bookshelves###
