@@ -46,12 +46,34 @@ footer.footer {
   background: #F4F1EA;
   padding-top: 5px;
   padding-bottom: 5px;
+  color: #666;
+  font-size: 12px;
+  height: 20px;
 }
 
-footer span {
+/*footer span {
   display: block;
   width: 54%;
   margin: 0 auto;
-  color: #666;
-  font-size: 12px;
+
+
+}*/
+
+footer.footer ul {
+  display: flex;
+  height: 100%;
+    vertical-align: middle;
+    margin: 0 auto;
+    width: 54%;
+}
+
+footer.footer ul li {
+
+  height: 20px;
+  margin-left: 3%;
+}
+
+footer .small-footer {
+  padding: 3px 0px;
+
 }
