@@ -25,7 +25,6 @@ The My Books page is the centerpiece of a user's interaction with books. A user 
 
 ![My Books page](/my_books_page.png)
 
-![Fields form](/fields_form.png)
 
 
 ###Editing Bookshelves###
