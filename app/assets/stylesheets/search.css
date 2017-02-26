@@ -11,6 +11,7 @@ div.search {
   width: 33%;
   position: relative;
   margin-left: 11%;
+  display: flex;
 }
 
 div.search input {
@@ -58,12 +59,9 @@ button.magnifying-glass {
   background: white;
   font-size: 14px;
   display: inline-block;
-  /*height: 34px;*/
-  height: 100%;
-  padding-top: 3px;
+  height: 34px;
   padding-left: 3px;
   padding-right: 15px;
-  padding-bottom: 6px;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   border-right: 1px solid lightgray;
