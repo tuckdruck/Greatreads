@@ -40,9 +40,6 @@ div.main-modal form button {
 }
 
 button.delete-review {
-  /*position: absolute;
-  right: 0;
-  bottom: 0;*/
   font-family: 'Lato', sans-serif;
   font-size: 12px;
 }

@@ -141,5 +141,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Review);
-
-//may need to add toggleEditForm to fields form container's props

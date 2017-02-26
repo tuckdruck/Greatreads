@@ -14,7 +14,7 @@ class DateReadForm extends React.Component {
     } else {
       dateRead = "";
     }
-    
+
     this.state = { date: dateRead };
     this.updateDate = this.updateDate.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -73,4 +73,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(null, mapDispatchToProps)(DateReadForm);
-//get props for updateStatus, and the book

@@ -5,6 +5,7 @@ ul.search-results {
   z-index: 50;
   font-family: 'Lato', sans-serif;
   border: 1px solid #eee;
+  top: 35px;
 }
 
 div.search {

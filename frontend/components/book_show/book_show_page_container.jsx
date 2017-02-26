@@ -23,7 +23,7 @@ class BookShowPage extends React.Component {
       this.props.loggedIn &&
       !this.props.loading.booksLoading &&
       !this.props.loading.bookshelvesLoading
-    ) { //refreshing page when logged in
+    ) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
@@ -31,14 +31,14 @@ class BookShowPage extends React.Component {
     else if (!this.props.book &&
       !this.props.loggedIn &&
       !this.props.loading.booksLoading
-    ) { //refreshing page when logged out
+    ) {
       this.props.fetchBooks();
     }
 
     else if (this.props.book &&
       this.props.loggedIn &&
       !this.props.loading.bookshelvesLoading
-    ) { //redirecting to book show page when logged in
+    ) {
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }
@@ -49,7 +49,7 @@ class BookShowPage extends React.Component {
       nextProps.loggedIn &&
       !this.props.loading.booksLoading &&
       !this.props.loading.bookshelvesLoading
-    ) { //logging on the book show page
+    ) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(nextProps.currentUser.id);
     }

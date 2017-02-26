@@ -7,10 +7,3 @@ export const createBookTagging = (bookTagging) => {
     }
   });
 };
-
-// export const deleteBookTagging = (bookTagging) => {
-//   return $.ajax({
-//     type: "DELETE",
-//     url: "api/"
-//   });
-// }

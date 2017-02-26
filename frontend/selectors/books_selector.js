@@ -8,10 +8,6 @@ const booksArray = books => {
   });
 };
 
-// const bookArray = book => {
-//   Object.keys(book).map((prop) => {
-//     return [prop, book[prop]];
-//   });
-// };
+
 
 export default booksArray;
