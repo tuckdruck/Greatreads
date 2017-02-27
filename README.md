@@ -45,6 +45,24 @@ The books controller implements a searching method through SQL. This will match 
 
 #Implementation#
 
+Below is my root reducer, displaying my state structure:
+
+```javascript
+export default combineReducers({
+  session: SessionReducer,
+  bookshelves: BookshelvesReducer,
+  books: BooksReducer,
+  errors: ErrorsReducer,
+  bookshelf: BookshelfReducer,
+  loading: LoadReducer,
+  reviews: ReviewsReducer,
+  booksForSearch: BooksForSearchReducer
+});
+```
+
+User authentication is handled by the session slice of state, whereas the BooksReducer manages books that are fetched and updated. Any errors are handled by the ErrorsReducer. The LoadingReducer manages whether certain resources have been requested but not yet received from the backend.
+
+
 ##Books##
 I implemented the app’s books feature through a books table, which includes title, author, and description columns. When a user is logged out, all books are fetched. When a user is logged in, books will be fetched with the logged-in user's review, the user's bookshelves attached to that book, and the user's review for that book (if any). I used conditional logic in the books controller to fetch with books information needed for a certain component, and to filter books by a certain criteria, such as a user, bookshelf, read status, or search query.
 
