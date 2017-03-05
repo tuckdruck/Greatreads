@@ -174,7 +174,7 @@ great_gatsby = Book.create!(
 )
 
 great_expectations = Book.create!(
-  image: File.open('app/assets/images/Great_Expectations.gif'),
+  image: File.open('app/assets/images/Great_Expectations.jpg'),
   title: "Great Expectations",
   author: "Charles Dickens",
   average_rating: 3.74,
