@@ -1,6 +1,6 @@
 [Greatreads][heroku] is a web application for viewing, reviewing, and collecting books. It is inspired by Goodreads and uses Ruby on Rails on the backend, a PostgreSQL database, and React and Redux on the frontend.
 
-[heroku]: http://goodreadsclone.herokuapp.com/
+[heroku]: http://www.greatreadsapp.com/
 
 #Technologies Used#
 * Ruby on Rails
