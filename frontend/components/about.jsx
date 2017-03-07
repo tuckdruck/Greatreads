@@ -27,7 +27,7 @@ export default class About extends React.Component {
       <div className="about">
         <button onClick={this.props.toggleAbout} className="close-about">X</button>
         <p>Greatreads is a clone of Goodreads cloned by Avital Drucker, graduate of App Academy in New York.</p>
-        <p>avitaldrucker@gmail.com</p>
+        <p className="email">avitaldrucker@gmail.com</p>
         <figure className="icon-container">
           <a href="https://www.linkedin.com/in/avitaldrucker"><i className="fa fa-linkedin-square" aria-hidden="true"></i></a>
           <a href="https://www.github.com/avitaldrucker"><i className="fa fa-github" aria-hidden="true"></i></a>

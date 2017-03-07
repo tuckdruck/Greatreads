@@ -98,10 +98,10 @@ button.about {
 
 div.about {
   position: absolute;
-  right: 8%;
+  right: 7%;
   top: 9%;
   font-size: 13px;
-  width: 9.5%;
+  width: 14.5%;
   background: white;
   padding: 10px;
   border: 1px solid #eee;
@@ -110,6 +110,10 @@ div.about {
 div.about p {
   text-align: center;
   margin-bottom: 10px;
+}
+
+div.about p.email {
+  word-wrap: break-word;
 }
 
 i.fa {
@@ -136,4 +140,9 @@ button.close-about {
   color: gray;
   font-size: 12px;
   font-weight: normal;
+}
+
+span.break {
+  content: "\A";
+  white-space:pre;
 }
