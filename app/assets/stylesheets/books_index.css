@@ -5,6 +5,7 @@ main.main {
 
 div.all-books {
   width: 45%;
+  min-width: 600px;
   margin: 0px auto;
 }
 
@@ -12,4 +13,14 @@ a.book-index-item img {
   width: 115px;
   height: 180px;
   margin: 5%;
+}
+
+div.book-row-index {
+  display: flex;
+  padding-top: 100px;
+  justify-content: space-between;
+}
+
+div.book-row-index:last-child {
+  padding-bottom: 100px;
 }

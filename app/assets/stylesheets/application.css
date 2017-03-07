@@ -55,14 +55,19 @@ footer.footer {
 footer.footer ul {
   display: flex;
   height: 100%;
-    vertical-align: middle;
-    margin: 0 auto;
-    width: 54%;
+  justify-content: space-between;
+  width: 31%;
+  min-width: 495px;
+  vertical-align: middle;
+  margin: 0 auto;
 }
 
 footer.footer ul li {
   height: 20px;
-  margin-left: 3%;
+}
+
+footer.footer ul li:first-child {
+  margin-left: 0;
 }
 
 footer .small-footer {
