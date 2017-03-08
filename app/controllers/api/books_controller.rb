@@ -11,6 +11,7 @@ class Api::BooksController < ApplicationController
       @books = Book.find_by_search(params[:search_string])
     else
       @books = Book.all
+      # debugger
     end
   end
 

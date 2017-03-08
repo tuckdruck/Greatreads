@@ -23,11 +23,11 @@ The home page displays sign-in and sign-up forms. Passwords are not stored in th
 ##My Books Page##
 The My Books page is the centerpiece of a user's interaction with books. A user can collect books through attributing a book with a read status, adding a book to a bookshelf, and reviewing a book. The MyBooks page loads by fetching a user's bookshelves and books pertaining to a specific user. Users can filter books on page by bookshelf and by read status; change read statuses of books; add and toggle bookshelves for books; add, edit, and delete reviews for books; and add or change the date in which they read a book. Users can also remove books from their collection - this deletes the read status and any bookshelves or review a user has attributed to that book.
 
-![My Books page](/my_books_page.png)
+![My Books page](/docs/my_books_page.png)
 
 Form for updating a book's bookshelves and read status:
 
-![Fields form](/fields_form.png)
+![Fields form](/docs/fields_form.png)
 
 
 ###Editing Bookshelves###
@@ -41,7 +41,7 @@ The search bar searches books by title. A change in input in the search bar will
 
 The books controller implements a searching method through SQL. This will match any string that appears at the beginning of any word in a book title. For example, if a user inputs "Feast" or "Fea" in the search bar, _A Feast for Crows_ will appear as a search result. The search is nuanced: if a user inputs "east", _A Feast for Crows_ will not appear. The results that dynamically appear upon search are limited to five, in order to not clog up the screen. Clicking the magnifying glass in the search bar links to a page that shows all the search results.
 
-![Search bar](/search_bar.png)
+![Search bar](/docs/search_bar.png)
 
 #Implementation#
 

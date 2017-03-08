@@ -20,7 +20,8 @@
 
 class Book < ActiveRecord::Base
   validates :title, :author, presence: true
-  has_attached_file :image, default_url: "missing.png"
+  has_attached_file :image, styles: { normal: "230x360>" }, default_url: "missing.png", default_style: :normal
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :book_taggings

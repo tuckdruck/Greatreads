@@ -22,6 +22,7 @@ class BooksIndex extends React.Component {
   }
 
   render() {
+    // debugger
     if (this.props.loading.booksLoading) {
       return(<div></div>);
     }
