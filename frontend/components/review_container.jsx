@@ -83,6 +83,12 @@ class Review extends React.Component {
       return (<li key={index}>{error}</li>);
     });
 
+    let bookshelves = this.props.book.bookshelves.map((bookshelf) => {
+      return bookshelf.title;
+    });
+
+    const bookshelvesString = [this.props.book.status.status].concat(bookshelves).join(", ");
+
     return(
       <div className="modal">
         <button className="close-modal" onClick={this.props.closeModal}>X</button>
@@ -98,8 +104,10 @@ class Review extends React.Component {
             </header>
 
             <div className="fields-form-modal">Bookshelves/tags:&nbsp;&nbsp;&nbsp;
-            <button className="fields-form-modal" onClick={this.toggleEditForm}>Choose Shelves...</button>
+            <button className="fields-form-modal" onClick={this.toggleEditForm}>Choose shelves...</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;{bookshelvesString}
             {fieldsForm}</div>
+
 
             <div>What did you think?</div>
 
