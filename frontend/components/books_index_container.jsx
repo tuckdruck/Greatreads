@@ -22,7 +22,6 @@ class BooksIndex extends React.Component {
   }
 
   render() {
-    // debugger
     if (this.props.loading.booksLoading) {
       return(<div></div>);
     }
@@ -35,15 +34,6 @@ class BooksIndex extends React.Component {
         </div>);
         index += 4;
       }
-      // const bookLinks = this.props.books.map((book, index) => {
-      //
-      //   return(
-      //     <Link className="book-index-item" key={index} to={`books/${book.id}`}>
-      //       <img src={`${book.cover_image_url}`}/>
-      //     </Link>
-      //   );
-      //
-      // });
 
       return(
         <main className="main">
