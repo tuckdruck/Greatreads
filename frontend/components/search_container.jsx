@@ -27,14 +27,15 @@ class Search extends React.Component {
   handleClick(e) {
     if (!ReactDOM.findDOMNode(this).contains(e.target)) {
       this.setState({ showResults: false });
+      this.props.receiveBooksForSearch({});
     }
   }
 
   handleInput(event) {
-    this.setState({ inputVal: event.currentTarget.value, showResults: true });
+    this.setState({ inputVal: event.currentTarget.value });
     if (event.currentTarget.value.length > 0) {
-      this.props.receiveBooksForSearch({});
       this.props.fetchBooksForSearch(event.currentTarget.value);
+      this.setState({ showResults: true });
     } else {
       this.props.receiveBooksForSearch({});
     }

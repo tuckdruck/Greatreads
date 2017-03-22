@@ -19,7 +19,8 @@ button {
 body {
   margin: 0;
   color: black;
-  background: rgba(244,241,234,0.5);
+  background: white;
+  /*background: rgba(244,241,234,0.5);*/
   font-family: 'Lato', sans-serif;
   font-size: 13px;
   font-weight: normal;

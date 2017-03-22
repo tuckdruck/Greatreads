@@ -111,7 +111,7 @@ export default class ActivitySection extends React.Component {
   }
 
   review() {
-    this.props.book.user_review.body
+    return this.props.book.user_review.body;
   }
 
   reviewButton() {

@@ -39,7 +39,7 @@ export default class BooksFilterPane extends React.Component {
 
   render() {
     if (this.props.loading.bookshelvesLoading) {
-      return(<div></div>);
+      return(<div className="loading-books"></div>);
     }
     else {
       let form;

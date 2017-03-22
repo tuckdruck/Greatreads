@@ -145,3 +145,7 @@ button.add-review {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
 }
+
+p.description {
+  padding-top: 10px;
+}

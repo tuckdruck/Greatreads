@@ -279,3 +279,8 @@ button.activity-section-edit-fields:hover {
 div.radio-buttons {
   border-bottom: 1px solid #eee;
 }
+
+div.loading-books {
+  background: white;
+  min-height: 100vh;
+}

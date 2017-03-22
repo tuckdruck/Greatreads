@@ -102,7 +102,7 @@ class BookDetails extends React.Component {
               <h4>{this.props.book.author}</h4>
               Average rating:&nbsp;{this.props.book.average_rating}
 
-              <p>{this.props.book.description}</p>
+              <p className="description">{this.props.book.description}</p>
 
               <ul>
                 <li>{this.props.book.page_length} pages</li>

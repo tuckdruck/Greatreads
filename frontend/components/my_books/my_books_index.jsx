@@ -5,9 +5,11 @@ import Modal from 'react-modal';
 export default class MyBooksIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.booksRequested = false;
   }
 
   componentDidMount() {
+    this.booksRequested = true;
     if (this.props.selectedBookshelf) {
       return this.props.fetchBookshelfBooks(this.props.selectedBookshelf.id);
     }
@@ -16,8 +18,9 @@ export default class MyBooksIndex extends React.Component {
     }
   }
 
+
   render () {
-    if (this.props.loading.booksLoading) {
+    if (this.props.loading.booksLoading || !this.booksRequested) {
       return(<div></div>);
     }
     else {
