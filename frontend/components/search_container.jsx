@@ -14,6 +14,7 @@ class Search extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.redirectToResults = this.redirectToResults.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   componentWillMount() {
@@ -27,8 +28,12 @@ class Search extends React.Component {
   handleClick(e) {
     if (!ReactDOM.findDOMNode(this).contains(e.target)) {
       this.setState({ showResults: false });
-      this.props.receiveBooksForSearch({});
+      // this.props.receiveBooksForSearch({});
     }
+  }
+
+  handleFocus(e) {
+    this.setState({ showResults: true });
   }
 
   handleInput(event) {
@@ -72,7 +77,7 @@ class Search extends React.Component {
 
     return(
       <div className="search">
-        <input onChange={this.handleInput} value={this.state.inputVal} placeholder="Search books" />
+        <input onFocus={this.handleFocus} onChange={this.handleInput} value={this.state.inputVal} placeholder="Search books" />
         <button className="magnifying-glass" onClick={this.redirectToResults}>🔍</button>
         <ul className="search-results">
           {bookResults}
