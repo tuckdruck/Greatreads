@@ -93,7 +93,6 @@ export default class FieldsForm extends React.Component {
 
     const bookshelfCheckboxes = this.props.bookshelves.map((bookshelf) => {
       checked = (bookshelfTitlesForBook.includes(bookshelf.title));
-
       return (
         <div className="bookshelf-items" key={bookshelf.id}>
           <input key={bookshelf.id} type="checkbox" value={bookshelf.id} onChange={this.handleInputChange} checked={checked}/>&nbsp;&nbsp;{bookshelf.title}

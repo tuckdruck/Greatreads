@@ -44,34 +44,56 @@ export const selectBookshelf = bookshelf => {
 
 
 export const fetchBookshelves = (userId) => {
+
   return function(dispatch) {
     dispatch(startLoadingUserBookshelves());
-    return BookshelfAPIUtil.fetchBookshelves(userId).then((bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); });
+    return BookshelfAPIUtil
+      .fetchBookshelves(userId)
+      .then((bookshelves) => {
+        return dispatch(receiveBookshelves(bookshelves));
+      });
   };
+  
 };
 
 
 export const createBookshelf = (bookshelf, userId) => {
+
   return function(dispatch) {
 
     return BookshelfAPIUtil.createBookshelf(bookshelf, userId)
-      .then((newBookshelf) => { return dispatch(receiveBookshelf(newBookshelf)); })
+      .then((newBookshelf) => {
+        return dispatch(receiveBookshelf(newBookshelf));
+      })
       .fail((errors) => {
-        return dispatch(receiveErrors(errors.responseJSON)); });
+        return dispatch(receiveErrors(errors.responseJSON));
+      });
   };
+
 };
 
 export const updateBookshelf = (bookshelf, userId) => {
+
   return function(dispatch) {
     return BookshelfAPIUtil.updateBookshelf(bookshelf, userId)
-      .then((updatedBookshelf) => { return dispatch(receiveBookshelf(updatedBookshelf)); })
-      .fail((errors) => { return dispatch(receiveErrors(errors.responseJSON)); });
+      .then((updatedBookshelf) => {
+        return dispatch(receiveBookshelf(updatedBookshelf));
+      })
+      .fail((errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
+      });
   };
+
 };
 
 export const deleteBookshelf = (bookshelfId, userId) => {
+
   return function(dispatch) {
-    return BookshelfAPIUtil.deleteBookshelf(bookshelfId, userId)
-      .then((removedBookshelf) => { return dispatch(removeBookshelf(removedBookshelf)); });
+    return BookshelfAPIUtil
+      .deleteBookshelf(bookshelfId, userId)
+      .then((removedBookshelf) => {
+        return dispatch(removeBookshelf(removedBookshelf));
+      });
   };
+
 };

@@ -91,3 +91,8 @@ div.review-buttons {
   display: flex;
   justify-content: space-between;
 }
+
+div.fields-form.from-review-modal {
+  max-height: 100%;
+  overflow-y: scroll;
+}

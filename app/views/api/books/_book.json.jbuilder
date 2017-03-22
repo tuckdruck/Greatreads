@@ -1,4 +1,3 @@
-
 json.title book.title
 json.author book.author
 json.id book.id

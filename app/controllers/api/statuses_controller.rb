@@ -23,12 +23,13 @@ class Api::StatusesController < ApplicationController
 
   def destroy
     status = Status.find(params[:id])
+
     if status
       status.destroy
-      current_user.book_taggings.where(book_id: status.book_id).destroy_all
-      current_user.reviews.where(book_id: status.book_id).destroy_all
-
       @book = status.book
+      current_user.book_taggings.where(book_id: @book.id).destroy_all
+      current_user.reviews.where(book_id: @book.id).destroy_all
+
       render "api/books/show"
     end
   end

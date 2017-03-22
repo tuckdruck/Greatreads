@@ -67,7 +67,7 @@ class Review extends React.Component {
   render() {
     let fieldsForm;
     if (this.state.showEditForm) {
-      fieldsForm = (<FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm}/>);
+      fieldsForm = (<FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-review-modal"/>);
     } else {
       fieldsForm = "";
     }

@@ -19,8 +19,13 @@
 #
 
 class Book < ActiveRecord::Base
+
   validates :title, :author, presence: true
-  has_attached_file :image, styles: { normal: "230x360>" }, default_url: "missing.png", default_style: :normal
+
+  has_attached_file :image,
+    styles: { normal: "230x360>" },
+    default_url: "missing.png",
+    default_style: :normal
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
@@ -45,23 +50,28 @@ class Book < ActiveRecord::Base
   end
 
   def self.user_books_with_shelves(user_id)
-    Book.includes(:bookshelves).where("bookshelves.user_id = ? ", user_id).references(:bookshelves)
+    Book
+      .includes(:bookshelves)
+      .where("bookshelves.user_id = ? ", user_id)
+      .references(:bookshelves)
   end
 
-  def self.user_books_with_statuses(user_id)
+  def self.by_user(user_id)
     Book
       .includes(:statuses)
       .where("statuses.user_id = ?", user_id)
       .references(:statuses)
   end
 
-  def self.status_books(status_name, user_id)
-    Book.user_books_with_statuses(user_id).where("statuses.status = ?", status_name)
+  def self.by_status(status_name, user_id)
+    Book.by_user(user_id).where("statuses.status = ?", status_name)
   end
 
 
-  def self.bookshelf_books(bookshelf_id, user_id)
-    Book.user_books_with_shelves(user_id).where("bookshelves.id = ?", bookshelf_id)
+  def self.by_bookshelf(bookshelf_id, user_id)
+    Book
+      .user_books_with_shelves(user_id)
+      .where("bookshelves.id = ?", bookshelf_id)
   end
 
 
@@ -73,11 +83,12 @@ class Book < ActiveRecord::Base
     Book.bookshelves.where("bookshelves.user_id = ?", user_id)
   end
 
-  def self.find_by_search(search_string)
+  def self.by_search(search_string)
     first_word_segment = search_string.downcase + "%"
     other_word_segment = "% " + search_string.downcase + "%"
+    sql_query = "lower(books.title) LIKE ? OR lower(books.title) LIKE ?"
 
-    Book.where("lower(books.title) LIKE ? OR lower(books.title) LIKE ?", first_word_segment, other_word_segment)
+    Book.where(sql_query, first_word_segment, other_word_segment)
   end
 
 end

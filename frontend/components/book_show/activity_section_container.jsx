@@ -22,58 +22,53 @@ export default class ActivitySection extends React.Component {
     this.setState({ showEditForm: !(this.state.showEditForm)  });
   }
 
-  toggleModal() {
-    this.setState({ modalIsOpen: !(this.state.modalIsOpen )});
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  render() {
-    const userBookshelfIds = this.props.bookshelves.map((bookshelf) => {
-        return bookshelf.id;
-    });
-
-    let bookshelf;
+  userAssociationsWithBook() {
     const userShelvesBookIsOn = [];
+    let bookshelf;
     for (let i = 0; i < this.props.book.bookshelves.length; i++) {
       bookshelf = this.props.book.bookshelves[i];
-      if (userBookshelfIds.includes(bookshelf.id)) {
-        userShelvesBookIsOn.push(bookshelf);
-      }
+      userShelvesBookIsOn.push(bookshelf.title);
     }
 
-    let userShelvesBookIsOnFormatted = [this.props.book.status.status].concat(userShelvesBookIsOn.map((shelf, index) => {
-      return shelf.title;
-    })).join(", ");
+    return [this.props.book.status.status]
+      .concat(userShelvesBookIsOn)
+      .join(", ");
+  }
 
-    let fieldsForm = "";
+  shelvesRow() {
+    return (<tr>
+      <td className="table-title">Shelves</td>
+      <td>
+        {this.userAssociationsWithBook()}
+        {this.editShelvesButton()}
+        {this.fieldsForm()}
+      </td>
+    </tr>
+    );
+  }
 
-    if (this.state.showEditForm) {
-      fieldsForm = (
-        <div className="activity-section-fields-form">
-          <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show-activity-section" />
-        </div>
-      );
-    }
-    else {
-      fieldsForm = "";
-    }
+  editShelvesButton() {
+    return(
+      <button
+        className="activity-section-edit-fields"
+        onClick={this.toggleEditForm}>
+        edit
+      </button>
+    );
+  }
 
-    let reviewText;
-    if (this.props.book.user_review.body) {
-      reviewText = (
-        <span>
-          {this.props.book.user_review.body}&nbsp;
-          <button className="review-row" onClick={this.toggleModal}>edit</button>
-        </span>
-      );
-    } else {
-      reviewText = (<button className="add-review" onClick={this.toggleModal}>Add a Review</button>);
-    }
-
-    let customStyle = {
+  openFieldsForm() {
+    return(
+      <div className="activity-section-fields-form">
+        <FieldsFormContainer
+          book={this.props.book}
+          toggleEditForm={this.toggleEditForm}
+          className="from-book-show-activity-section" />
+      </div>
+    );
+  }
+  reviewModalStyles() {
+    return {
       overlay: {
         backgroundColor: 'rgba(24, 24, 24, 0.75)'
       },
@@ -88,43 +83,78 @@ export default class ActivitySection extends React.Component {
         paddingBottom: '23px'
       }
     };
+  }
 
+  toggleModal() {
+    this.setState({ modalIsOpen: !(this.state.modalIsOpen )});
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
+  reviewModal() {
     return(
-      <section className="activity">
-
-        <h3 className="book-details-subheader">MY ACTIVITY</h3>
-        <table className="activity">
-          <tbody>
-            <tr>
-              <td className="table-title">Shelves</td>
-              <td>
-                {userShelvesBookIsOnFormatted}
-                <button className="activity-section-edit-fields" onClick={this.toggleEditForm}>edit</button>
-                {fieldsForm}
-              </td>
-            </tr>
-            <tr>
-              <td className="table-title review-title">Review</td>
-
-              <td className="review-row">
-                {reviewText}
-                <Modal
-                  isOpen={this.state.modalIsOpen}
-                  contentLabel="Review Form"
-                  onRequestClose={() => { this.closeModal(); }}
-                  shouldCloseOnOverlayClick={true}
-                  style={customStyle}
-                >
-                  <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
-                </Modal>
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-
-      </section>
+      <Modal
+        isOpen={this.state.modalIsOpen} contentLabel="Review Form"
+        onRequestClose={() => { this.closeModal(); }}
+        shouldCloseOnOverlayClick={true}
+        style={this.reviewModalStyles()}
+      >
+        <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
+      </Modal>
     );
+  }
+
+  fieldsForm() {
+    return this.state.showEditForm ? this.openFieldsForm() : "";
+  }
+
+  review() {
+    this.props.book.user_review.body
+  }
+
+  reviewButton() {
+    const className = this.review() ? "review-row" : "add-review";
+    const buttonText = this.review() ? "edit" : "Add a Review";
+
+    return (
+      <button className={className} onClick={this.toggleModal}>
+        {buttonText}
+      </button>
+    );
+  }
+
+  reviewText() {
+    if (this.review()) {
+      return (<span>{this.review()}&nbsp;{this.reviewButton()}</span>);
+    }
+    else {
+      return this.reviewButton();
+    }
+  }
+
+  reviewRow() {
+    return (
+      <tr>
+        <td className="table-title review-title">Review</td>
+        <td className="review-row">
+          {this.reviewText()}
+          {this.reviewModal()}
+        </td>
+      </tr>
+    );
+  }
+
+  render() {
+    return(
+        <section className="activity">
+          <h3 className="book-details-subheader">MY ACTIVITY</h3>
+          <table className="activity">
+            <tbody>{this.shelvesRow()}{this.reviewRow()}</tbody>
+          </table>
+        </section>
+      );
   }
 
 }

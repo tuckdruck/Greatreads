@@ -13,32 +13,47 @@ export const receiveReviews = (reviews) => {
 };
 
 export const fetchReviews = (bookId) => {
+
   return (dispatch) => {
     dispatch(startLoadingReviews());
-    return ReviewAPIUtil.fetchBookReviews(bookId)
-      .then((reviews) => { return dispatch(receiveReviews(reviews)); });
+    return ReviewAPIUtil
+      .fetchBookReviews(bookId)
+      .then((reviews) => {
+        return dispatch(receiveReviews(reviews));
+      });
   };
+
 };
 
 export const createReview = review => {
+
   return (dispatch) => {
     return ReviewAPIUtil.createReview(review)
       .then((book) => { return dispatch(receiveBook(book)); })
-      .fail((errors) => { return dispatch(receiveErrors(errors.responseJSON)); });
+      .fail((errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
+      });
   };
+
 };
 
 export const updateReview = review => {
+
   return dispatch => {
     return ReviewAPIUtil.updateReview(review)
       .then((book) => { return dispatch(receiveBook(book)); })
-      .fail((errors) => { return dispatch(receiveErrors(errors.responseJSON)); });
+      .fail((errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
+      });
   };
+
 };
 
 export const deleteReview = reviewId => {
+
   return dispatch => {
     return ReviewAPIUtil.deleteReview(reviewId)
       .then((book) => { return dispatch(receiveBook(book)); });
   };
+
 };

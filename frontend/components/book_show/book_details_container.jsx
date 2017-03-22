@@ -8,6 +8,7 @@ import { fetchBooks } from '../../actions/book_actions';
 import { createStatus } from '../../actions/status_actions';
 
 class BookDetails extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { showEditForm: false };
@@ -26,6 +27,54 @@ class BookDetails extends React.Component {
     });
   }
 
+  fieldsFormContainer() {
+    if (this.state.showEditForm) {
+      return(
+        <FieldsFormContainer
+          book={this.props.book} toggleEditForm={this.toggleEditForm}
+          className="from-book-show"/>
+      );
+    } else {
+      return "";
+    }
+  }
+
+  statusButton() {
+    if (this.props.book.status) {
+      return (<figure>{this.buttonText()}</figure>);
+    } else {
+      return(
+        <figure>
+          <button onClick={this.createStatus}>Want to Read</button>
+        </figure>
+      );
+    }
+  }
+
+  buttonText() {
+    switch(this.props.book.status.status) {
+      case "read":
+        return "✓ Read";
+      case "currently reading":
+        return "✓ Currently Reading";
+      case "to read":
+        return "✓ Want to Read";
+    }
+  }
+
+  statusSection() {
+    if (this.props.loggedIn) {
+      return (
+        <div className="book-show-fields-form">
+          {this.statusButton()}
+          <button className="arrow" onClick={this.toggleEditForm}>▼
+          </button>
+          {this.fieldsFormContainer()}
+        </div>
+      );
+    } else { return ""; }
+  }
+
 
   render() {
 
@@ -34,53 +83,6 @@ class BookDetails extends React.Component {
     }
 
     else {
-      let fieldsForm = "";
-      let statusButton;
-
-
-      if (this.props.book.status) {
-        let buttonText;
-
-        switch(this.props.book.status.status) {
-          case "read":
-            buttonText = "✓ Read";
-            break;
-          case "currently reading":
-            buttonText = "✓ Currently Reading";
-            break;
-          case "to read":
-            buttonText = "✓ Want to Read";
-            break;
-        }
-
-        statusButton = (<figure>{buttonText}</figure>);
-      }
-      else {
-        statusButton = (<figure><button onClick={this.createStatus}>Want to Read</button></figure>);
-      }
-
-      if (this.props.loggedIn && this.state.showEditForm) {
-        fieldsForm = (
-          <div className="book-show-fields-form">
-              {statusButton}
-              <button className="arrow" onClick={this.toggleEditForm}>▼</button>
-              <FieldsFormContainer book={this.props.book} toggleEditForm={this.toggleEditForm} className="from-book-show"/>
-          </div>
-
-        );
-      }
-      else if (this.props.loggedIn) {
-        fieldsForm = (
-          <div className="book-show-fields-form">
-              {statusButton}
-              <button className="arrow" onClick={this.toggleEditForm}>▼</button>
-          </div>
-        );
-      }
-      else {
-        fieldsForm = "";
-      }
-
       let myActivitySection = "";
       if (this.props.loggedIn && this.props.book && this.props.book.status) {
         myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
@@ -92,8 +94,7 @@ class BookDetails extends React.Component {
           <main className="main-content">
             <section className="sidebar">
               <img className="book-show" src={this.props.book.cover_image_url}/>
-
-              {fieldsForm}
+              {this.statusSection()}
             </section>
 
             <section className="main-content">

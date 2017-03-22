@@ -11,7 +11,13 @@
 
 class Status < ActiveRecord::Base
   validates :status, :user, :book, presence: true
-  validates :status, inclusion: { in: ["read", "currently reading", "to read"], message: "%{value} is not a valid status"}
+
+  validates :status, inclusion:
+    {
+      in: ["read", "currently reading", "to read"],
+      message: "%{value} is not a valid status"
+    }
+
   validates :user, uniqueness: { scope: :book }
 
   belongs_to :book
@@ -20,4 +26,5 @@ class Status < ActiveRecord::Base
   def date_read=(date)
     super(date.to_date)
   end
+
 end
