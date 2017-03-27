@@ -19,6 +19,7 @@ export default class BooksFilterPane extends React.Component {
 
   toggleAddShelfForm() {
     this.setState({ showAddShelfForm: true });
+    this.props.clearErrors();
   }
 
   fetchUserBooks() {

@@ -41,7 +41,6 @@ class SearchResultsPage extends React.Component {
 
     return(
       <main className="overall-search">
-        <HeaderContainer />
         <main className="searchpage-main">
           <section className="main-content-search-results">
             <h1>Search Results</h1>
@@ -50,7 +49,6 @@ class SearchResultsPage extends React.Component {
             </ul>
           </section>
         </main>
-        <Footer />
       </main>
     );
   }

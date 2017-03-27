@@ -42,9 +42,9 @@ class AddShelfForm extends React.Component {
     let errors;
     let divErrorsClassName = "";
 
-    if (this.props.errors.length > 0) {
+    if (this.state.errors.length > 0) {
       errors = (
-        <div className="add-shelf-errors">{this.props.errors}</div>
+        <div className="add-shelf-errors">{this.state.errors}</div>
       );
     } else {
       errors = "";

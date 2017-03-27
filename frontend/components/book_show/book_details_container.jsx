@@ -75,47 +75,81 @@ class BookDetails extends React.Component {
     } else { return ""; }
   }
 
+  activitySection() {
+    if (this.props.loggedIn && this.props.book.status) {
+      return(
+        <ActivitySectionContainer
+          book={this.props.book}
+          bookshelves={this.props.bookshelves}
+        />
+      );
+    }
+    else { return ""; }
+  }
+
+  sidebar() {
+    return(
+      <section className="sidebar">
+        <img
+          className="book-show"
+          src={this.props.book.cover_image_url}
+        />
+        {this.statusSection()}
+      </section>
+    );
+  }
+
+  linkToBuy() {
+    return (
+      <li><a href={this.props.book.url_to_buy}>Get a Copy</a></li>
+    );
+  }
+
+  pageLength() {
+    return(<li>{this.props.book.page_length} pages</li>);
+  }
+
+  title() {
+    return(<h1>{this.props.book.title}</h1>);
+  }
+
+  author() {
+    return(<h4>{this.props.book.author}</h4>);
+  }
+
+  description() {
+    return(<p
+      className="description">{this.props.book.description}</p>
+    );
+  }
+
+  rating() {
+    return(
+      <span>Average rating:&nbsp;{this.props.book.average_rating}</span>
+    );
+  }
+
+  mainSection() {
+    return(
+      <section className="main-content">
+        {this.title()}{this.author()}{this.rating()}
+        {this.description()}
+        <ul>{this.pageLength()}{this.linkToBuy()}</ul>
+      </section>
+    );
+  }
 
   render() {
-
-    if (this.props.loading.booksLoading) {
-      return (<div></div>);
-    }
-
-    else {
-      let myActivitySection = "";
-      if (this.props.loggedIn && this.props.book && this.props.book.status) {
-        myActivitySection = (<ActivitySectionContainer book={this.props.book} bookshelves={this.props.bookshelves} />);
-      }
-
-      return(
-        <main>
-
-          <main className="main-content">
-            <section className="sidebar">
-              <img className="book-show" src={this.props.book.cover_image_url}/>
-              {this.statusSection()}
-            </section>
-
-            <section className="main-content">
-              <h1>{this.props.book.title}</h1>
-              <h4>{this.props.book.author}</h4>
-              Average rating:&nbsp;{this.props.book.average_rating}
-
-              <p className="description">{this.props.book.description}</p>
-
-              <ul>
-                <li>{this.props.book.page_length} pages</li>
-                <li><a href={this.props.book.url_to_buy}>Get a Copy</a></li>
-              </ul>
-            </section>
-          </main>
-          {myActivitySection}
-
+    if (this.props.loading.booksLoading) { return (<div></div>); }
+    return(
+      <main>
+        <main className="main-content">
+          {this.sidebar()}{this.mainSection()}
         </main>
-        );
-      }
-    }
+        {this.activitySection()}
+      </main>
+    );
+  }
 }
 
 const mapStateToProps = state => {

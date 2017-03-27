@@ -22,7 +22,8 @@ class Header extends React.Component {
   }
 
   redirectToMyBooks() {
-    if (this.props.pathname) {
+    // debugger
+    if (this.props.pathname && this.props.pathname == "/mybooks") {
       this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
     } else {
       this.props.selectBookshelf(null);
@@ -64,7 +65,7 @@ class Header extends React.Component {
             <Link to="/">Home</Link>
             {myBooksLink}
             <Link to="/">Browse</Link>
-            <SearchContainer bookId={this.props.bookId}/>
+            <SearchContainer pathname={this.props.pathname}/>
           </nav>
           {welcomeText}
           {aboutLink}

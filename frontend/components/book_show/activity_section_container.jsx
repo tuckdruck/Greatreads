@@ -25,10 +25,10 @@ export default class ActivitySection extends React.Component {
   userAssociationsWithBook() {
     const userShelvesBookIsOn = [];
     let bookshelf;
-    for (let i = 0; i < this.props.book.bookshelves.length; i++) {
-      bookshelf = this.props.book.bookshelves[i];
+
+    this.props.book.bookshelves.forEach((bookshelf) => {
       userShelvesBookIsOn.push(bookshelf.title);
-    }
+    });
 
     return [this.props.book.status.status]
       .concat(userShelvesBookIsOn)
@@ -67,19 +67,13 @@ export default class ActivitySection extends React.Component {
       </div>
     );
   }
+
   reviewModalStyles() {
     return {
-      overlay: {
-        backgroundColor: 'rgba(24, 24, 24, 0.75)'
-      },
+      overlay: { backgroundColor: 'rgba(24, 24, 24, 0.75)' },
       content: {
-        top: '17%',
-        left: '24%',
-        right: '24%',
-        bottom: '17%',
-        paddingLeft: '43px',
-        paddingRight: '43px',
-        paddingTop: '23px',
+        top: '17%', left: '24%', right: '24%', bottom: '17%',
+        paddingLeft: '43px', paddingRight: '43px', paddingTop: '23px',
         paddingBottom: '23px'
       }
     };
@@ -90,20 +84,26 @@ export default class ActivitySection extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    return () => { this.setState({ modalIsOpen: false }); };
   }
 
   reviewModal() {
     return(
-      <Modal
-        isOpen={this.state.modalIsOpen} contentLabel="Review Form"
-        onRequestClose={() => { this.closeModal(); }}
+      <Modal isOpen={this.state.modalIsOpen} contentLabel="Review Form"
+        onRequestClose={this.closeModal}
         shouldCloseOnOverlayClick={true}
         style={this.reviewModalStyles()}
       >
-        <ReviewContainer book={this.props.book} closeModal={this.closeModal}/>
+        {this.reviewContainer()}
       </Modal>
     );
+  }
+
+  reviewContainer() {
+    return(<ReviewContainer
+      book={this.props.book}
+      closeModal={this.closeModal()}
+    />);
   }
 
   fieldsForm() {

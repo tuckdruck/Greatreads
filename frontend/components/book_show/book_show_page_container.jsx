@@ -16,60 +16,83 @@ class BookShowPage extends React.Component {
     super(props);
   }
 
-
-  componentDidMount() {
-
-    if (!this.props.book &&
+  loggedInRefresh() {
+    return !this.props.book &&
       this.props.loggedIn &&
       !this.props.loading.booksLoading &&
-      !this.props.loading.bookshelvesLoading
-    ) {
+      !this.props.loading.bookshelvesLoading;
+  }
+
+  loggedOutRefresh() {
+    return !this.props.book &&
+      !this.props.loggedIn &&
+      !this.props.loading.booksLoading;
+  }
+
+  bookshelvesNotFetched() {
+    return this.props.book &&
+      this.props.loggedIn &&
+      !this.props.loading.bookshelvesLoading;
+  }
+
+  logIn(nextProps) {
+    return !this.props.loggedIn &&
+      nextProps.loggedIn &&
+      !this.props.loading.booksLoading &&
+      !this.props.loading.bookshelvesLoading;
+  }
+
+  componentDidMount() {
+    if (this.loggedInRefresh()) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
-
-    else if (!this.props.book &&
-      !this.props.loggedIn &&
-      !this.props.loading.booksLoading
-    ) {
-      this.props.fetchBooks();
-    }
-
-    else if (this.props.book &&
-      this.props.loggedIn &&
-      !this.props.loading.bookshelvesLoading
-    ) {
+    else if (this.loggedOutRefresh()) { this.props.fetchBooks(); }
+    else if (this.bookshelvesNotFetched()) {
       this.props.fetchBookshelves(this.props.currentUser.id);
     }
   }
 
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.loggedIn &&
-      nextProps.loggedIn &&
-      !this.props.loading.booksLoading &&
-      !this.props.loading.bookshelvesLoading
-    ) {
+    if (this.logIn(nextProps)) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(nextProps.currentUser.id);
     }
   }
 
+  loading() {
+    return this.props.loading.booksLoading ||
+    this.props.loading.bookshelvesLoading ||
+    !this.props.book;
+  }
+
+  reviews() {
+    return(
+      <Reviews
+        book={this.props.book}
+        loading={this.props.loading}
+        reviews={this.props.reviews}
+        fetchReviews={this.props.fetchReviews}
+      />
+    );
+  }
+
+  mainContent() {
+    return(
+      <main className="body">
+        <BookDetails book={this.props.book} />{this.reviews()}
+      </main>
+    );
+  }
+
 
   render() {
-    if (this.props.loading.booksLoading || this.props.loading.bookshelvesLoading || !this.props.book) {
-      return(<div></div>);
-    }
+    if (this.loading()) { return(<div className="loading-books"></div>); }
     else {
       return(
         <main className="overall">
-          <HeaderContainer bookId={this.props.book.id}/>
-          <main className="body">
-            <BookDetails book={this.props.book} />
-            <Reviews
-              book={this.props.book} loading={this.props.loading} reviews={this.props.reviews} fetchReviews={this.props.fetchReviews}/>
-          </main>
-          <Footer />
+          {this.mainContent()}
         </main>
       );
     }
@@ -92,9 +115,15 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchBooks: () => { return dispatch(fetchBooks()); },
-    fetchBookshelves: (userId) => { return dispatch(fetchBookshelves(userId)); },
-    fetchReviews: (bookId) => { return dispatch(fetchReviews(bookId)); }
+    fetchBookshelves: (userId) => {
+      return dispatch(fetchBookshelves(userId));
+    },
+    fetchReviews: (bookId) => {
+      return dispatch(fetchReviews(bookId));
+    }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookShowPage);
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(BookShowPage);

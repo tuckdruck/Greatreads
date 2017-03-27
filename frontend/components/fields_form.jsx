@@ -67,6 +67,7 @@ export default class FieldsForm extends React.Component {
 
   toggleAddShelfForm() {
     this.setState({ addShelfForm: !(this.state.addShelfForm )});
+    this.props.clearErrors();
   }
 
   render() {

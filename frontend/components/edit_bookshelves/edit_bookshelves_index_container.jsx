@@ -14,22 +14,30 @@ class EditBookshelvesIndex extends React.Component {
     this.props.fetchBookshelves(this.props.currentUser.id);
   }
 
+  bookshelves() {
+    return this.props.bookshelves.map((bookshelf) => {
+      return(
+        <li key={bookshelf.id}>{this.editBookshelfContainer(bookshelf)}</li>
+      );
+    });
+  }
+
+  editBookshelfContainer(bookshelf) {
+    return(
+      <EditBookshelvesIndexItemContainer
+        key={bookshelf.id}
+        bookshelf={bookshelf}
+      />
+    );
+  }
+
   render() {
-    if (this.props.loading.bookshelvesLoading) {
-      return(<div></div>);
-    }
+    if (this.props.loading.bookshelvesLoading) { return(<div></div>); }
     else {
-      const bookshelves = this.props.bookshelves.map((bookshelf) => {
-        return(
-          <li key={bookshelf.id}>
-            <EditBookshelvesIndexItemContainer key={bookshelf.id} bookshelf={bookshelf}/>
-          </li>
-        );
-      });
-
-      return(<ul className="edit-bookshelves-index">{bookshelves}</ul>);
+      return(
+        <ul className="edit-bookshelves-index">{this.bookshelves()}</ul>
+      );
     }
-
   }
 
 }
@@ -45,8 +53,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBookshelves: (userId) => { return dispatch(fetchBookshelves(userId)); }
+    fetchBookshelves: (userId) => {
+      return dispatch(fetchBookshelves(userId));
+    }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBookshelvesIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditBookshelvesIndex);
