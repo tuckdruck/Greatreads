@@ -86,7 +86,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => { return dispatch(logout()).then(() => { hashHistory.push("/"); }); },
+    logout: () => {
+      return dispatch(logout()).then(() => { hashHistory.push("/"); });
+    },
     fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); },
     selectBookshelf: (bookshelf) => { return dispatch(selectBookshelf(bookshelf)); }
   };

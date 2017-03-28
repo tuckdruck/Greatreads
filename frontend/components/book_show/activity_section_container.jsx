@@ -90,7 +90,7 @@ export default class ActivitySection extends React.Component {
   reviewModal() {
     return(
       <Modal isOpen={this.state.modalIsOpen} contentLabel="Review Form"
-        onRequestClose={this.closeModal}
+        onRequestClose={this.closeModal()}
         shouldCloseOnOverlayClick={true}
         style={this.reviewModalStyles()}
       >

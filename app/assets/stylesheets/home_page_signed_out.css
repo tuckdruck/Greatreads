@@ -126,6 +126,10 @@ div.add-shelf-errors {
   padding: 0px;
 }
 
+div.add-shelf-errors.from-fields-form {
+  top: -16px;
+}
+
 ul.sign-up-errors {
   border-radius: 3px;
   border-style: solid;

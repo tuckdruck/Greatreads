@@ -27,7 +27,7 @@ class EditBookshelvesIndexItem extends React.Component {
 
   deleteBookshelf() {
     const bookshelfId = this.props.bookshelf.id;
-    this.props.deleteBookshelf(bookshelfId, this.props.userId);
+    this.props.deleteBookshelf(bookshelfId, this.props.currentUser.id);
   }
 
   updateBookshelfTitle(event) {
@@ -40,7 +40,7 @@ class EditBookshelvesIndexItem extends React.Component {
     this.props.updateBookshelf({
       title: this.state.bookshelfTitle,
       id: this.props.bookshelf.id
-    }, this.props.session.currentUser.id)
+    }, this.props.currentUser.id)
       .then(this.hideForm)
       .fail(() => { this.setState({errors: this.props.errors}); });
   }
@@ -145,7 +145,7 @@ class EditBookshelvesIndexItem extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userId: state.session.currentUser.id,
+    currentUser: state.session.currentUser,
     session: state.session,
     errors: state.errors
   };

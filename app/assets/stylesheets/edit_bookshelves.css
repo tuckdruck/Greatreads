@@ -37,8 +37,9 @@ div.edit-bookshelves-forms {
 }
 
 div.rename-bookshelf-errors {
-  left: -180px;
-  top: -10px;
+  left: -165px;
+  top: -2px;
+  text-align: right;
 }
 
 div.rename-bookshelf-errors-container {

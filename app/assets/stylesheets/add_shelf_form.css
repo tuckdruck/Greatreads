@@ -9,6 +9,11 @@ form.add-shelf {
   font-size: 12px;
 }
 
+form.add-shelf.from-fields-form {
+  display: flex;
+  margin-top: 13px;
+}
+
 button.add-shelf {
   font-size: 12px;
   padding: 0px 10px;
@@ -31,6 +36,7 @@ button.add-shelf-toggle {
 
 form.add-shelf input {
   width: 100px;
+  padding: 2px 4px;
   margin-right: 6px;
   margin-bottom: 10px;
 }
@@ -55,7 +61,7 @@ form.for-edit-page input {
 }
 
 form.for-edit-page button {
-  height: 32px;
+  height: 36px;
   padding-left: 20px;
   padding-right: 20px;
 }
