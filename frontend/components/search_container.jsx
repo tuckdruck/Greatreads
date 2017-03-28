@@ -8,7 +8,6 @@ import ReactDOM from 'react-dom';
 class Search extends React.Component {
 
   constructor(props) {
-    // debugger
     super(props);
     this.state = { inputVal: "", showResults: true };
     this.selectBook = this.selectBook.bind(this);
@@ -23,21 +22,16 @@ class Search extends React.Component {
   }
 
   componentWillUnmount() {
-    // this.setState({ showResults: false, inputVal: "" });
-    // this.props.receiveBooksForSearch({});
     document.removeEventListener('click', this.handleClick, false);
   }
 
   handleClick(e) {
-    // debugger
     if (!ReactDOM.findDOMNode(this).contains(e.target) && ReactDOM.findDOMNode(this).className !== "magnifying-glass") {
       this.setState({ showResults: false, inputVal: "" });
-      // this.props.receiveBooksForSearch({});
     }
   }
 
   handleFocus(e) {
-    // debugger
     if (this.props.pathname !== "/search") { this.props.receiveBooksForSearch({}); }
     this.setState({ showResults: true });
   }
@@ -54,10 +48,7 @@ class Search extends React.Component {
 
   selectBook(bookId) {
     return (e) => {
-      // if (!this.props.bookId || (this.props.bookId && this.props.bookId !== bookId)) {
         hashHistory.push(`books/${bookId}`);
-      // }
-
     };
   }
 
@@ -95,9 +86,7 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
-    // bookId: ownProps.params.bookId,
     books: booksArray(state.booksForSearch),
     booksLoading: state.loading.booksLoading
   };

@@ -7,7 +7,6 @@ form.add-shelf button.add-shelf, button.save-date-read, section.main-modal-conte
 
 form.add-shelf {
   font-size: 12px;
-  /*padding: 0px 10px;*/
 }
 
 button.add-shelf {
@@ -62,7 +61,6 @@ form.for-edit-page button {
 }
 
 div.errors-container {
-  /*height: 15px;*/
   position: relative;
 }
 

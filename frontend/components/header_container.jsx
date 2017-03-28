@@ -22,7 +22,6 @@ class Header extends React.Component {
   }
 
   redirectToMyBooks() {
-    // debugger
     if (this.props.pathname && this.props.pathname == "/mybooks") {
       this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
     } else {

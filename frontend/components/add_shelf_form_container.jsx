@@ -14,6 +14,7 @@ class AddShelfForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearErrors();
+    this.setState({errors: []});
     const bookshelf = { title: this.state.shelfTitle };
     if (this.props.addBookshelfToBook) {
       return this.props.createBookshelf(bookshelf).then((action) => {
@@ -56,16 +57,13 @@ class AddShelfForm extends React.Component {
     if (this.props.className || this.props.fromFieldsForm) {
       errorsforEditPage = (<div className="errors-container edit">{errors}</div>);
       errorsforMyBooksSidebar = "";
-      // errorsforFieldsForm = "";
     }
     else if (this.props.fromFieldsForm) {
       errorsforEditPage = "";
       errorsforMyBooksSidebar = "";
-      // errorsforFieldsForm = (<div className="errors-container">{errors}</div>);
     } else {
       errorsforEditPage = "";
       errorsforMyBooksSidebar = (<div className="errors-container">{errors}</div>);
-      // errorsforFieldsForm = "";
     }
 
     let inputClassName;
