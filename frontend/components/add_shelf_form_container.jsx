@@ -40,7 +40,6 @@ class AddShelfForm extends React.Component {
   render() {
     const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
     let errors;
-    let divErrorsClassName = "";
 
     if (this.state.errors.length > 0) {
       errors = (
@@ -51,25 +50,38 @@ class AddShelfForm extends React.Component {
     }
 
     let errorsforEditPage;
-    let errorsforMyBooksPage;
+    let errorsforMyBooksSidebar;
+    let errorsforFieldsForm;
 
-    if (this.props.className) {
-      errorsforEditPage = (<div className="errors-container">{errors}</div>);
-      errorsforMyBooksPage = "";
-    } else {
-      errorsforMyBooksPage = (<div className="errors-container">{errors}</div>);
+    if (this.props.className || this.props.fromFieldsForm) {
+      errorsforEditPage = (<div className="errors-container edit">{errors}</div>);
+      errorsforMyBooksSidebar = "";
+      // errorsforFieldsForm = "";
+    }
+    else if (this.props.fromFieldsForm) {
       errorsforEditPage = "";
+      errorsforMyBooksSidebar = "";
+      // errorsforFieldsForm = (<div className="errors-container">{errors}</div>);
+    } else {
+      errorsforEditPage = "";
+      errorsforMyBooksSidebar = (<div className="errors-container">{errors}</div>);
+      // errorsforFieldsForm = "";
     }
 
+    let inputClassName;
+    if (this.props.fromFieldsForm) {
+      inputClassName = "from-fields-form";
+    } else {
+      inputClassName = "";
+    }
     return(
       <div>
         {errorsforEditPage}
         <form className={`add-shelf${additionalClassName}`} onSubmit={this.handleSubmit}>
-
-            <input type="text" value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
+            <input type="text" className={inputClassName} value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
             <button className="add-shelf">add</button>
         </form>
-        {errorsforMyBooksPage}
+        {errorsforMyBooksSidebar}
       </div>
     );
   }

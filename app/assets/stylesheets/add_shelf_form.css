@@ -5,8 +5,12 @@ form.add-shelf button.add-shelf, button.save-date-read, section.main-modal-conte
   color: black;
 }
 
-form.add-shelf button.add-shelf {
-  margin-left: 6px;
+form.add-shelf {
+  font-size: 12px;
+  /*padding: 0px 10px;*/
+}
+
+button.add-shelf {
   font-size: 12px;
   padding: 0px 10px;
 }
@@ -17,9 +21,23 @@ button.save-date-read {
   padding: 2px 6px;
 }
 
+button.add-shelf-toggle {
+  background: #ede6d6;
+  color: #333333;
+  padding: 4px 14px;
+  border-radius: 3px;
+  border: 1px solid #D6D0C4;
+}
+
 
 form.add-shelf input {
   width: 100px;
+  margin-right: 6px;
+  margin-bottom: 10px;
+}
+
+form.add-shelf input.from-fields-form {
+  margin-bottom: 0px;
 }
 
 form.rename-bookshelf {
@@ -44,10 +62,10 @@ form.for-edit-page button {
 }
 
 div.errors-container {
-  height: 15px;
+  /*height: 15px;*/
   position: relative;
 }
 
-form.add-shelf {
-  display: flex;
+div.errors-container.edit {
+  height: 15px;
 }

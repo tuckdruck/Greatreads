@@ -43,6 +43,7 @@ nav.sidebar {
   border-right: 1px solid #EBE8D5;
   margin-top: 14px;
   height: 1245px;
+  min-width: 120px;
 }
 
 ul.status-index {
@@ -172,14 +173,6 @@ img.cover {
   width: 52px;
 }
 
-button.add-shelf {
-  background: #ede6d6;
-  color: #333333;
-  padding: 4px 14px;
-  border-radius: 3px;
-  border: 1px solid #D6D0C4;
-}
-
 div h3 {
   margin-top: 5px;
   font-size: 14px;
@@ -217,7 +210,7 @@ div.fields-form, form.date-read{
 div.fields-form {
   padding: 5px 5px 15px 5px;
   width: 198px;
-  height: 242px;
+  max-height: 242px;
   overflow-y: scroll;
 }
 
@@ -264,6 +257,7 @@ div.fields-form button:hover {
 
 .fields-form-add-shelf-toggle {
   color: #00635d;
+  margin-top: 10px;
 }
 
 button.activity-section-edit-fields, button.review-row {

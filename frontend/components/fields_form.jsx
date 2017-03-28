@@ -103,7 +103,7 @@ export default class FieldsForm extends React.Component {
 
     let addShelfSection;
     if (this.state.addShelfForm) {
-      addShelfSection = (<AddShelfFormContainer addBookshelfToBook={this.addBookshelfToBook}/>);
+      addShelfSection = (<AddShelfFormContainer fromFieldsForm={true} addBookshelfToBook={this.addBookshelfToBook}/>);
     } else {
       addShelfSection = (<button className="fields-form-add-shelf-toggle" onClick={this.toggleAddShelfForm}>Add new shelf</button>);
     }

@@ -9,7 +9,6 @@ div.edit-bookshelves-main h1, main.searchpage-main h1  {
   margin-bottom: 20px;
 }
 
-
 div.edit-bookshelves-body, {
   background: white;
 }
@@ -44,4 +43,8 @@ div.rename-bookshelf-errors {
 
 div.rename-bookshelf-errors-container {
   position: relative;
+}
+
+div.add-shelf-errors.edit {
+  margin-bottom: 10px;
 }

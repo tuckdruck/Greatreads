@@ -53,7 +53,7 @@ export default class BooksFilterPane extends React.Component {
           </div>
         );
       } else {
-        form = (<button className="add-shelf" onClick={this.toggleAddShelfForm}>add shelf</button>);
+        form = (<button className="add-shelf-toggle" onClick={this.toggleAddShelfForm}>add shelf</button>);
       }
 
       const bookshelfIndexItems = this.props.bookshelves.map((bookshelf) => {

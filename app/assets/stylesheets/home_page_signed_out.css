@@ -117,10 +117,14 @@ section.sign-up {
 
 ul.sign-up-errors, div.add-shelf-errors, div.rename-bookshelf-errors {
   display: block;
-  margin-top: 7px;
+  /*margin-top: 7px;*/
   position: absolute;
   background: white;
   padding: 2px;
+}
+
+div.add-shelf-errors {
+  padding: 0px;
 }
 
 ul.sign-up-errors {
