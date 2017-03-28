@@ -23,6 +23,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 13px;
   font-weight: normal;
+  height: 100vh;
 }
 
 input:focus, button:focus {

@@ -25,21 +25,6 @@ class Review extends React.Component {
     this.state = { reviewBody: reviewBody, showEditForm: false, errors: [] };
   }
 
-  // componentWillMount() {
-  //   document.addEventListener('click', this.handleClick.bind(this), false);
-  // }
-  //
-  // componentWillUnmount() {
-  //   document.removeEventListener('click', this.handleClick.bind(this), false);
-  // }
-  //
-  // handleClick(e) {
-  //   const clickedOnEl = ReactDOM.findDOMNode(this);
-  //   if (!clickedOnEl.contains(e.target)) {
-  //     this.props.closeModal();
-  //   }
-  // }
-
   reviewAlreadyExists() {
     return this.props.book.user_review.body;
   }
