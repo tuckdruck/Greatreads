@@ -53,7 +53,7 @@ class Search extends React.Component {
   }
 
   redirectToResults() {
-    this.setState({ showResults: false });
+    this.setState({ showResults: false, inputVal: "" });
     hashHistory.push("search");
   }
 

@@ -89,7 +89,8 @@ class Review extends React.Component {
     });
 
     const bookshelvesString = [this.props.book.status.status].concat(bookshelves).join(", ");
-
+    let shortenedBookshelves = bookshelvesString.slice(0, 48);
+    if (bookshelvesString.length > shortenedBookshelves.length) { shortenedBookshelves += "..."}
     return(
       <div className="modal">
         <button className="close-modal" onClick={this.props.closeModal}>X</button>
@@ -106,7 +107,7 @@ class Review extends React.Component {
 
             <div className="fields-form-modal">Bookshelves/tags:&nbsp;&nbsp;&nbsp;
             <button className="fields-form-modal" onClick={this.toggleEditForm}>Choose shelves...</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;{bookshelvesString}
+            &nbsp;&nbsp;&nbsp;&nbsp;{shortenedBookshelves}
             {fieldsForm}</div>
 
 
