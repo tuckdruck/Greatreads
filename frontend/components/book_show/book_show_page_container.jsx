@@ -11,7 +11,6 @@ import { reviewsArray } from '../../selectors/reviews_selector';
 
 class BookShowPage extends React.Component {
 
-
   constructor(props) {
     super(props);
   }
@@ -88,7 +87,7 @@ class BookShowPage extends React.Component {
 
 
   render() {
-    if (this.loading()) { return(<div className="loading-books"></div>); }
+    if (this.loading()) { return(<div className="loading"></div>); }
     else {
       return(
         <main className="overall">

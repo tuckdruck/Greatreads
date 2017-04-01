@@ -63,16 +63,14 @@ class BookDetails extends React.Component {
   }
 
   statusSection() {
-    if (this.props.loggedIn) {
-      return (
-        <div className="book-show-fields-form">
-          {this.statusButton()}
-          <button className="arrow" onClick={this.toggleEditForm}>▼
-          </button>
-          {this.fieldsFormContainer()}
-        </div>
-      );
-    } else { return ""; }
+    return (
+      <div className="book-show-fields-form">
+        {this.statusButton()}
+        <button className="arrow" onClick={this.toggleEditForm}>▼
+        </button>
+        {this.fieldsFormContainer()}
+      </div>
+    );
   }
 
   activitySection() {
@@ -94,7 +92,7 @@ class BookDetails extends React.Component {
           className="book-show"
           src={this.props.book.cover_image_url}
         />
-        {this.statusSection()}
+        {this.props.loggedIn ? this.statusSection() : ""}
       </section>
     );
   }

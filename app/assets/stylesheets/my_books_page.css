@@ -83,11 +83,11 @@ button.bookshelf-filter-link:hover {
 button.edit-bookshelves:hover {
   text-decoration: underline;
 }
-span.bookshelf-header-description {
+span.bookshelf-header {
   height: 24px;
 }
 
-span.bookshelf-header-description span {
+span.bookshelf-header span {
   background: #F4F4EA;
   color: black;
   font-size: 17px;
@@ -274,7 +274,7 @@ div.radio-buttons {
   border-bottom: 1px solid #eee;
 }
 
-div.loading-books {
+div.loading {
   background: white;
   min-height: 100vh;
 }

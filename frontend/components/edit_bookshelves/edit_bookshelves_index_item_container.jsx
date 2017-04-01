@@ -153,11 +153,17 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    clearErrors: () => { return dispatch(receiveErrors([])); },
-    updateBookshelf: (bookshelf, userId) => { return dispatch(updateBookshelf(bookshelf, userId)); },
-    deleteBookshelf: (bookshelfId, userId) => { return dispatch(deleteBookshelf(bookshelfId, userId)); },
-    selectBookshelf: (bookshelf) => { return dispatch(selectBookshelf(bookshelf)); }
+    clearErrors: () => (dispatch(receiveErrors([]))),
+    updateBookshelf: (bookshelf, userId) =>
+      (dispatch(updateBookshelf(bookshelf, userId))),
+    deleteBookshelf: (bookshelfId, userId) =>
+      (dispatch(deleteBookshelf(bookshelfId, userId))),
+    selectBookshelf: (bookshelf) =>
+      (dispatch(selectBookshelf(bookshelf)))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBookshelvesIndexItem);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(EditBookshelvesIndexItem);

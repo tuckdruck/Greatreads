@@ -4,6 +4,11 @@ div.edit-bookshelves-main, section.main-content-search-results {
   min-height: 840px;
 }
 
+div.edit-bookshelves-main {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
 div.edit-bookshelves-main h1, main.searchpage-main h1  {
   margin-top: 20px;
   margin-bottom: 20px;

@@ -17,7 +17,9 @@ class EditBookshelvesIndex extends React.Component {
   bookshelves() {
     return this.props.bookshelves.map((bookshelf) => {
       return(
-        <li key={bookshelf.id}>{this.editBookshelfContainer(bookshelf)}</li>
+        <li key={bookshelf.id}>
+          {this.editBookshelfContainer(bookshelf)}
+        </li>
       );
     });
   }

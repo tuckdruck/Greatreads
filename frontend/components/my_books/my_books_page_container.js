@@ -1,25 +1,33 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import { createBookshelf } from '../../actions/bookshelf_actions';
-import MyBooksPage from './my_books_page';
-import { hashHistory } from 'react-router';
-import { fetchUserBooks } from '../../actions/book_actions';
+import BooksFilterPane from './books_filter_pane';
+import { bookshelvesArray } from '../../selectors/bookshelves_selector';
+import { fetchBookshelves, selectBookshelf } from '../../actions/bookshelf_actions';
+import { fetchBookshelfBooks, fetchStatusBooks } from '../../actions/book_actions';
+import { receiveErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.session.currentUser
+    bookshelves: bookshelvesArray(state.bookshelves),
+    selectedBookshelf: state.bookshelf,
+    currentUser: state.session.currentUser,
+    loading: state.loading
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => { return dispatch(logout()).then(redirectToRoot); },
-    fetchUserBooks: (userId) => { return dispatch(fetchUserBooks(userId)); },
+    fetchBookshelves: (userId) => (dispatch(fetchBookshelves(userId))),
+    fetchBookshelfBooks: (bookshelfId) => (
+      dispatch(fetchBookshelfBooks(bookshelfId))),
+    selectBookshelf: (bookshelf) =>
+      (dispatch(selectBookshelf(bookshelf))),
+    fetchStatusBooks: (status) => (dispatch(fetchStatusBooks(status))),
+    clearErrors: () => (return dispatch(receiveErrors([]))),
+    fetchUserBooks: (userId) => (dispatch(fetchUserBooks(userId)))
   };
 };
 
-const redirectToRoot = () => {
-  return hashHistory.push("/");
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(MyBooksPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BooksFilterPane);

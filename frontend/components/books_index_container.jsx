@@ -23,7 +23,7 @@ class BooksIndex extends React.Component {
 
   render() {
     if (this.props.loading.booksLoading) {
-      return(<div className="loading-books"></div>);
+      return(<div className="loading"></div>);
     }
     else {
       let index = 0;
