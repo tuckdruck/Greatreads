@@ -3,7 +3,7 @@ import AddShelfFormContainer from '../add_shelf_form_container';
 import MyBooksIndexContainer from './my_books_index_container';
 import { Link } from 'react-router';
 
-export default class BooksFilterPane extends React.Component {
+export default class MyBooksPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -95,22 +95,27 @@ export default class BooksFilterPane extends React.Component {
 
   filterButton(shelf, readStatus) {
     let filterMethod;
+    let title;
     if (readStatus) {
       filterMethod = this.filterBooksByStatus;
+      title = shelf;
     } else {
       filterMethod = this.filterBooksByShelf;
+      title = shelf.title;
     }
-    <button className="bookshelf-filter-link"
-      onClick={filterMethod(shelf)}>
-      {shelf}
-    </button>
+    return(
+      <button className="bookshelf-filter-link"
+        onClick={filterMethod(shelf)}>
+        {title}
+      </button>
+    );
   }
 
   bookshelves() {
     return this.props.bookshelves.map((bookshelf) => {
       return (
         <li key={bookshelf.id}>
-          {this.filterButton(bookshelf.title, false); }
+          {this.filterButton(bookshelf, false)}
         </li>
       );
     });
@@ -135,18 +140,20 @@ export default class BooksFilterPane extends React.Component {
   }
 
   sidebar() {
-    <nav className="sidebar">
-      <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
-      <Link to="shelves" className="edit-bookshelves">(edit)</Link>
+    return(
+      <nav className="sidebar">
+        <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
+        <Link to="shelves" className="edit-bookshelves">(edit)</Link>
 
-      <ul className="status-index">
-        {this.allBooksLi()}{this.statusItems()}
-      </ul>
+        <ul className="status-index">
+          {this.allBooksLi()}{this.statusItems()}
+        </ul>
 
-      <ul className="bookshelf-index">{this.bookshelves()}</ul>
+        <ul className="bookshelf-index">{this.bookshelves()}</ul>
 
-      {this.addShelfForm()}
-    </nav>
+        {this.addShelfForm()}
+      </nav>
+    );
   }
 
   header() {

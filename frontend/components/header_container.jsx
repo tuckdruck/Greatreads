@@ -40,7 +40,15 @@ class Header extends React.Component {
     if (this.props.loggedIn) {
       myBooksLink = (<button className="looks-like-link mybooks" onClick={this.redirectToMyBooks}>My Books</button>);
       toggleSessionLink = (<button className="logout looks-like-link" onClick={this.props.logout}>Log Out</button>);
-      welcomeText = (<span className="logout">{this.props.currentUser.username}</span>);
+      let username = this.props.currentUser.username;
+      let shortenedUsername = username.slice(0, 10);
+      if (username.length > shortenedUsername.length) {
+        shortenedUsername += "..."
+      } else {
+        shortenedUsername = username;
+      }
+
+      welcomeText = (<span className="logout">{shortenedUsername}</span>);
       aboutLink = (<button className="looks-like-link about" onClick={this.toggleAbout}>About</button>);
     } else {
       myBooksLink = "";

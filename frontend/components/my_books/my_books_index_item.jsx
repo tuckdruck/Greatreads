@@ -65,6 +65,9 @@ export default class MyBooksIndexItem extends React.Component {
 
       associationsToUser = associationsToUser.concat(bookshelves);
       associationsToUser = associationsToUser.join(", ");
+      if (associationsToUser.length > associationsToUser.slice(0, 50).length) {
+        associationsToUser = associationsToUser.slice(0, 50) + "...";
+      }
     }
     else {
       associationsToUser = "";
@@ -129,8 +132,8 @@ export default class MyBooksIndexItem extends React.Component {
     let reviewText;
     if (this.props.book.user_review.body) {
       let blurb;
-      if (this.props.book.user_review.body.length > 64) {
-        blurb = this.props.book.user_review.body.slice(0, 64) + "...";
+      if (this.props.book.user_review.body.length > 50) {
+        blurb = this.props.book.user_review.body.slice(0, 50) + "...";
       } else {
         blurb = this.props.book.user_review.body;
       }

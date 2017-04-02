@@ -135,6 +135,7 @@ ul.sign-up-errors {
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
+  top: 30px;
 }
 
 div.sign-in {

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import BooksFilterPane from './books_filter_pane';
+import MyBooksPage from './my_books_page';
 import { bookshelvesArray } from '../../selectors/bookshelves_selector';
 import { fetchBookshelves, selectBookshelf } from '../../actions/bookshelf_actions';
-import { fetchBookshelfBooks, fetchStatusBooks } from '../../actions/book_actions';
+import { fetchBookshelfBooks, fetchStatusBooks, fetchUserBooks } from '../../actions/book_actions';
 import { receiveErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => {
@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
     selectBookshelf: (bookshelf) =>
       (dispatch(selectBookshelf(bookshelf))),
     fetchStatusBooks: (status) => (dispatch(fetchStatusBooks(status))),
-    clearErrors: () => (return dispatch(receiveErrors([]))),
+    clearErrors: () => (dispatch(receiveErrors([]))),
     fetchUserBooks: (userId) => (dispatch(fetchUserBooks(userId)))
   };
 };
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BooksFilterPane);
+)(MyBooksPage);
