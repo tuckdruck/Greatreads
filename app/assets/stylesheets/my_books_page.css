@@ -115,19 +115,19 @@ table th {
 }
 
 
-td.cover-col {
+td.cover {
   width: 4.2%;
 }
 
-td.book-title-col {
+td.title {
   width: 17%;
 }
 
-td.book-author-col {
+td.author {
   width: 10%;
 }
 
-td.book-average-rating {
+td.avg-rating {
   width: 5%;
 }
 

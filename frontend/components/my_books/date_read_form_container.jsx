@@ -4,18 +4,14 @@ import { updateStatus } from '../../actions/status_actions';
 import ReactDOM from 'react-dom';
 
 class DateReadForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    const dateRead = this.props.book.status.date_read;
+    const dateReadText = dateRead ? dateRead : "";
 
-    let dateRead;
-    if (this.props.book.status.date_read) {
-      dateRead = this.props.book.status.date_read;
-    } else {
-      dateRead = "";
-    }
-
-    this.state = { date: dateRead };
+    this.state = { date: dateReadText };
     this.updateDate = this.updateDate.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -50,18 +46,43 @@ class DateReadForm extends React.Component {
     this.setState({ date: e.target.value });
   }
 
+  dateReadInputForm() {
+    return(
+      <input
+        type="date"
+        name="date_read"
+        value={this.state.date}
+        onChange={this.updateDate}
+      />
+    );
+  }
+
+  cancelButton() {
+    return(
+      <button
+        className="cancel-date-form"
+        onClick={this.props.toggleDateReadForm}>
+        cancel
+      </button>
+    );
+  }
+
+  formButtons() {
+    return(
+      <div>
+        <button className="save-date-read">Save</button>&nbsp;&nbsp;
+        {this.cancelButton()}
+      </div>
+    );
+  }
+
   render() {
     return(
       <form className="date-read" onSubmit={this.handleSubmit}>
-        <input type="date" name="date_read" value={this.state.date} onChange={this.updateDate}/>
-        <div>
-          <button className="save-date-read">Save</button>&nbsp;&nbsp;
-          <button className="cancel-date-form" onClick={() => { this.props.toggleDateReadForm()}}>cancel</button>
-        </div>
-
+        {this.dateReadInputForm()}
+        {this.formButtons()}
       </form>
     );
-
   }
 
 }

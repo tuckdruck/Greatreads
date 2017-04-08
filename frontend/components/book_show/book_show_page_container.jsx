@@ -52,7 +52,6 @@ class BookShowPage extends React.Component {
     }
   }
 
-
   componentWillReceiveProps(nextProps) {
     if (this.logIn(nextProps)) {
       this.props.fetchBooks();
@@ -85,7 +84,6 @@ class BookShowPage extends React.Component {
     );
   }
 
-
   render() {
     if (this.loading()) { return(<div className="loading"></div>); }
     else {
@@ -96,7 +94,6 @@ class BookShowPage extends React.Component {
       );
     }
   }
-
 
 }
 
@@ -114,12 +111,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchBooks: () => { return dispatch(fetchBooks()); },
-    fetchBookshelves: (userId) => {
-      return dispatch(fetchBookshelves(userId));
-    },
-    fetchReviews: (bookId) => {
-      return dispatch(fetchReviews(bookId));
-    }
+    fetchBookshelves: (userId) => (dispatch(fetchBookshelves(userId))),
+    fetchReviews: (bookId) => (dispatch(fetchReviews(bookId)))
   };
 };
 

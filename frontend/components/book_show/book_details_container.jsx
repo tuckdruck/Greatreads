@@ -165,4 +165,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookDetails);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BookDetails);
