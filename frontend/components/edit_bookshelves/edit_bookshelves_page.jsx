@@ -7,7 +7,7 @@ import Footer from '../footer';
 
 const EditBookshelvesPage = (props) => {
   return(
-      <div className="my-books-content edit-bookshelves-main">
+      <div className="my-books-pg edit-bookshelves-main">
         <h1>Edit Shelves</h1>
         <div className="edit-bookshelves-forms">
           <AddShelfFormContainer className="for-edit-page"/>

@@ -14,7 +14,6 @@ export default class MyBooksIndex extends React.Component {
       selectedBookshelf, fetchBookshelfBooks,
       fetchUserBooks, currentUser
     } = this.props;
-    debugger
 
     this.booksRequested = true;
     if (selectedBookshelf) {
@@ -24,13 +23,14 @@ export default class MyBooksIndex extends React.Component {
   }
 
   bookIndexItems() {
-    return this.props.books.map((book, index) => {
+    const result = this.props.books.map((book, index) => {
       return(
         <MyBooksIndexItem book={book}
           currentUser={this.props.currentUser} key={index}
         />
       );
     });
+    return result;
   }
 
   columnTitles() {

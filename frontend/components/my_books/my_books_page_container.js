@@ -14,18 +14,25 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const functionProps = () => {
   return {
-    fetchBookshelves: (userId) => (dispatch(fetchBookshelves(userId))),
-    fetchBookshelfBooks: (bookshelfId) => (
-      dispatch(fetchBookshelfBooks(bookshelfId))),
-    selectBookshelf: (bookshelf) =>
-      (dispatch(selectBookshelf(bookshelf))),
-    fetchStatusBooks: (status) => (dispatch(fetchStatusBooks(status))),
-    clearErrors: () => (dispatch(receiveErrors([]))),
-    fetchUserBooks: (userId) => (dispatch(fetchUserBooks(userId)))
+    fetchBookshelves, fetchBookshelfBooks, selectBookshelf,
+    fetchStatusBooks, fetchUserBooks, receiveErrors
   };
 };
+
+const mapDispatchToProps = dispatch => {
+  const dispatchedPropFunctions = {};
+
+  Object.keys(functionProps()).forEach((key) => {
+    dispatchedPropFunctions[key] = (input) => {
+      return dispatch(functionProps()[key](input));
+    };
+  });
+
+  return dispatchedPropFunctions;
+};
+
 
 export default connect(
   mapStateToProps,

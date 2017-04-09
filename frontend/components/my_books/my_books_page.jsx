@@ -24,7 +24,7 @@ export default class MyBooksPage extends React.Component {
 
   toggleAddShelfForm() {
     this.setState({ showAddShelfForm: true });
-    this.props.clearErrors();
+    this.props.receiveErrors([]);
   }
 
   fetchUserBooks() {
@@ -35,14 +35,14 @@ export default class MyBooksPage extends React.Component {
   filterBooksByShelf(bookshelf) {
     return () => {
       return this.props.fetchBookshelfBooks(bookshelf.id)
-        .then(() => { this.props.selectBookshelf(bookshelf); });
+        .then(() => { return this.props.selectBookshelf(bookshelf); });
     };
   }
 
   filterBooksByStatus(statusName) {
     return () => {
       return this.props.fetchStatusBooks(statusName)
-        .then(() => { this.props.selectBookshelf(statusName); });
+        .then(() => { return this.props.selectBookshelf(statusName); });
     };
   }
 
@@ -94,18 +94,14 @@ export default class MyBooksPage extends React.Component {
   }
 
   filterButton(shelf, readStatus) {
-    let filterMethod;
-    let title;
-    if (readStatus) {
-      filterMethod = this.filterBooksByStatus;
-      title = shelf;
-    } else {
-      filterMethod = this.filterBooksByShelf;
-      title = shelf.title;
-    }
+    let filter;
+    let title = readStatus ? shelf : shelf.title;
+
+    if (readStatus) { filter = this.filterBooksByStatus; }
+    else { filter = this.filterBooksByShelf; }
+
     return(
-      <button className="bookshelf-filter-link"
-        onClick={filterMethod(shelf)}>
+      <button className="bookshelf-filter-link" onClick={filter(shelf)}>
         {title}
       </button>
     );
@@ -121,7 +117,7 @@ export default class MyBooksPage extends React.Component {
     });
   }
 
-  statusItems() {
+  statuses() {
     return ["read", "currently reading", "to read"].map((status) => {
       return(<li key={status}>{this.filterButton(status, true)}</li>);
     });
@@ -139,18 +135,24 @@ export default class MyBooksPage extends React.Component {
     );
   }
 
-  sidebar() {
+  filterButtons() {
     return(
-      <nav className="sidebar">
-        <h3 className="bookshelves-index-header">bookshelves&nbsp;</h3>
-        <Link to="shelves" className="edit-bookshelves">(edit)</Link>
-
+      <div>
         <ul className="status-index">
-          {this.allBooksLi()}{this.statusItems()}
+          {this.allBooksLi()}{this.statuses()}
         </ul>
 
         <ul className="bookshelf-index">{this.bookshelves()}</ul>
+      </div>
+    );
+  }
 
+  sidebar() {
+    return(
+      <nav className="sidebar">
+        <h3 className="bookshelves-header">bookshelves&nbsp;</h3>
+        <Link to="shelves" className="edit-bookshelves">(edit)</Link>
+        {this.filterButtons()}
         {this.addShelfForm()}
       </nav>
     );
@@ -164,19 +166,24 @@ export default class MyBooksPage extends React.Component {
     );
   }
 
+  loading() {
+    return this.props.loading.bookshelvesLoading;
+  }
+
+  content() {
+    return(
+      <section className="books-filtered-body">
+        {this.sidebar()}<MyBooksIndexContainer />
+      </section>
+    );
+  }
+
   render() {
-    if (this.props.loading.bookshelvesLoading) {
-      return(<div className="loading"></div>);
-    }
+    if (this.loading()) { return(<div className="loading"></div>); }
     else {
       return(
-        <div className="my-books-page">
-          <div className="my-books-content">
-            {this.header()}
-            <section className="books-filtered-body">
-              {this.sidebar()}
-              <MyBooksIndexContainer />
-            </section>
+        <div>
+          <div className="my-books-pg">{this.header()}{this.content()}
           </div>
         </div>
       );

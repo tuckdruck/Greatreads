@@ -1,10 +1,10 @@
-div.my-books-content {
+div.my-books-pg {
   width: 55%;
   margin: 0 auto;
+  min-height: 1363px;
 }
 
-div.my-books-page, div.edit-bookshelves-main {
-  background: white;
+div.edit-bookshelves-main {
   min-height: 1363px;
 }
 
@@ -57,7 +57,7 @@ ul.bookshelf-index {
   padding-top: 5px;
 }
 
-h3.bookshelves-index-header, span.date-not-set, span.review-not-set {
+h3.bookshelves-header, span.date-not-set, span.review-not-set {
   color: #aaa;
   display: inline;
   padding-bottom: 5px;

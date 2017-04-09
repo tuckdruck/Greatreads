@@ -8,6 +8,7 @@ import { receiveBookshelves } from '../../actions/bookshelf_actions';
 import { connect } from 'react-redux';
 
 class HomePageSignedOut extends React.Component {
+
   constructor(props) {
     super(props);
   }
@@ -16,26 +17,42 @@ class HomePageSignedOut extends React.Component {
     this.props.receiveBookshelves({});
   }
 
+  logo() {
+    return(
+      <Link className="logo-link" to="/">
+        <h1 className="logo signed-out">great<strong>reads</strong></h1>
+      </Link>
+    );
+  }
+
+  header() {
+    return(
+      <header className="container">
+        <header className="home-signed-out">
+          {this.logo()}<SignInContainer />
+        </header>
+      </header>
+    );
+  }
+
   render() {
     return(
       <div className="overall-header">
-        <header className="container">
-          <header className="home-page-signed-out">
-            <Link className="logo-link" to="/"><h1 className="logo signed-out">great<strong>reads</strong></h1></Link>
-            <SignInContainer />
-          </header>
-        </header>
+        {this.header()}
         <SignUpContainer />
         <BooksIndexContainer />
         <Footer />
       </div>
     );
   }
+  
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    receiveBookshelves: (bookshelves) => { return dispatch(receiveBookshelves(bookshelves)); }
+    receiveBookshelves: (bookshelves) => {
+      return dispatch(receiveBookshelves(bookshelves));
+    }
   };
 };
 

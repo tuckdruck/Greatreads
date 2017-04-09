@@ -4,11 +4,28 @@ import { createBookshelf } from '../actions/bookshelf_actions';
 import { receiveErrors } from '../actions/error_actions';
 
 class AddShelfForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { shelfTitle: "", errors: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateShelfTitle = this.updateShelfTitle.bind(this);
+  }
+
+  setErrors(errors) {
+    this.setState({ errors: this.props.errors});
+  }
+
+  addBookshelfToBook(bookshelf) {
+    return this.props.createBookshelf(bookshelf)
+      .then((action) => (this.props.addBookshelfToBook(action.bookshelf.id, true)))
+      .fail(() => (this.setErrors()));
+  }
+
+  createBookshelf(bookshelf) {
+    return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
+      .then(() => { this.setState({ shelfTitle: ""}); })
+      .fail(() => (this.setErrors()));
   }
 
   handleSubmit(e) {
@@ -17,14 +34,10 @@ class AddShelfForm extends React.Component {
     this.setState({errors: []});
     const bookshelf = { title: this.state.shelfTitle };
     if (this.props.addBookshelfToBook) {
-      return this.props.createBookshelf(bookshelf).then((action) => {
-        return this.props.addBookshelfToBook(action.bookshelf.id, true);
-      }).fail(() => { this.setState({ errors: this.props.errors}); });
+      this.addBookshelfToBook(bookshelf);
     }
     else {
-      return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
-        .then(() => { this.setState({ shelfTitle: ""}); })
-        .fail(() => { this.setState({ errors: this.props.errors}); });
+      this.createBookshelf(bookshelf);
     }
   }
 

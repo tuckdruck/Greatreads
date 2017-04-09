@@ -9,7 +9,7 @@ header.container {
   padding-bottom: 0.75%;
 }
 
-header.home-page-signed-out {
+header.home-signed-out {
   display: flex;
   align-items: center;
   margin-left: 24.3%;

@@ -18,7 +18,7 @@ class MyBooksIndexItem extends React.Component {
     super(props);
     this.state = {
       showEditForm: false, showDeleteBookWarning: false,
-      showDateReadForm: false, modalIsOpen: false
+      showDateReadForm: false, modalOpen: false
     };
     this.bindFunctions();
   }
@@ -60,14 +60,14 @@ class MyBooksIndexItem extends React.Component {
   }
 
   toggleModal() {
-    this.setState({ modalIsOpen: !(this.state.modalIsOpen )});
+    this.setState({ modalOpen: !(this.state.modalOpen )});
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalOpen: false });
   }
 
-  associationsToUser() {
+  associations() {
     let associations = this.props.book.bookshelves.map((shelf) => {
       return shelf.title;
     });
@@ -149,9 +149,8 @@ class MyBooksIndexItem extends React.Component {
 
   reviewModal() {
     return(
-      <Modal
-        isOpen={this.state.modalIsOpen} contentLabel="Review Form"
-        onRequestClose={this.closeModal}
+      <Modal isOpen={this.state.modalOpen}
+        onRequestClose={this.closeModal} contentLabel="Review"
         shouldCloseOnOverlayClick={true} style={this.reviewModalStyle()}
       >
         <ReviewContainer book={this.props.book}
@@ -172,13 +171,12 @@ class MyBooksIndexItem extends React.Component {
   }
 
   bookCoverCell() {
+    const { book } = this.props;
     return(
       <td className="cover my-books" id="first-td">
-        <Link to={`books/${this.props.book.id}`}>
-          <img
-            className="cover"
-            src={this.props.book.cover_image_url}
-            alt={this.props.book.title}/>
+        <Link to={`books/${book.id}`}>
+          <img  className="cover" src={book.cover_image_url}
+            alt={book.title}/>
         </Link>
       </td>
     );
@@ -213,12 +211,9 @@ class MyBooksIndexItem extends React.Component {
   bookAssociationsCell() {
     return(
       <td className="shelves my-books">
-        {this.associationsToUser()}
+        {this.associations()}
         <button className="edit-bookshelves"
-          onClick={this.toggleEditForm}
-        >
-          &nbsp;[edit]
-        </button>
+          onClick={this.toggleEditForm}>&nbsp;[edit]</button>
         {this.fieldsForm()}
       </td>
     );
@@ -274,9 +269,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateBook: (book) => { return dispatch(updateBook(book)); },
-    removeBook: (book) => { return dispatch(removeBook(book)); },
-    deleteStatus: (status) => { return dispatch(deleteStatus(status)); }
+    updateBook: (book) => (dispatch(updateBook(book))),
+    removeBook: (book) => (dispatch(removeBook(book))),
+    deleteStatus: (status) => (dispatch(deleteStatus(status)))
   };
 };
 

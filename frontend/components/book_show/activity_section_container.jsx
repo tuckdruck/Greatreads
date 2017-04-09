@@ -8,7 +8,7 @@ export default class ActivitySection extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { showEditForm: false, modalIsOpen: false };
+    this.state = { showEditForm: false, modalOpen: false };
     this.toggleEditForm = this.toggleEditForm.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -80,16 +80,16 @@ export default class ActivitySection extends React.Component {
   }
 
   toggleModal() {
-    this.setState({ modalIsOpen: !(this.state.modalIsOpen )});
+    this.setState({ modalOpen: !(this.state.modalOpen )});
   }
 
   closeModal() {
-    return () => { this.setState({ modalIsOpen: false }); };
+    return () => { this.setState({ modalOpen: false }); };
   }
 
   reviewModal() {
     return(
-      <Modal isOpen={this.state.modalIsOpen} contentLabel="Review Form"
+      <Modal isOpen={this.state.modalOpen} contentLabel="Review"
         onRequestClose={this.closeModal()}
         shouldCloseOnOverlayClick={true}
         style={this.reviewModalStyles()}
