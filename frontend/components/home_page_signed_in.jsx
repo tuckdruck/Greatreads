@@ -8,12 +8,6 @@ export default class HomePageSignedIn extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.logout();
   }
 
   render() {

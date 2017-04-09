@@ -17,13 +17,17 @@ class AddShelfForm extends React.Component {
   }
 
   addBookshelfToBook(bookshelf) {
-    return this.props.createBookshelf(bookshelf)
-      .then((action) => (this.props.addBookshelfToBook(action.bookshelf.id, true)))
+    const { createBookshelf, addBookshelfToBook } = this.props;
+
+    return createBookshelf(bookshelf)
+      .then((action) => (addBookshelfToBook(action.bookshelf.id, true)))
       .fail(() => (this.setErrors()));
   }
 
   createBookshelf(bookshelf) {
-    return this.props.createBookshelf(bookshelf, this.props.currentUser.id)
+    const { createBookshelf, currentUser } = this.props;
+
+    return createBookshelf(bookshelf, currentUser.id)
       .then(() => { this.setState({ shelfTitle: ""}); })
       .fail(() => (this.setErrors()));
   }
@@ -33,12 +37,11 @@ class AddShelfForm extends React.Component {
     this.props.clearErrors();
     this.setState({errors: []});
     const bookshelf = { title: this.state.shelfTitle };
+
     if (this.props.addBookshelfToBook) {
       this.addBookshelfToBook(bookshelf);
     }
-    else {
-      this.createBookshelf(bookshelf);
-    }
+    else { this.createBookshelf(bookshelf); }
   }
 
   componentWillReceiveProps() {
@@ -51,51 +54,53 @@ class AddShelfForm extends React.Component {
     this.setState({ shelfTitle: e.currentTarget.value });
   }
 
-  render() {
-    const additionalClassName = (this.props.className) ? ` ${this.props.className}` : "";
-    let errors;
-
-    if (this.state.errors.length > 0) {
-      errors = (
-        <div className={`add-shelf-errors ${this.props.fromFieldsForm ? "from-fields-form" : ""}`}>{this.state.errors}</div>
-      );
-    } else {
-      errors = "";
-    }
-
-    let errorsforEditPage;
-    let errorsforMyBooksSidebar;
-    let errorsforFieldsForm;
-
-    if (this.props.className) {
-      errorsforEditPage = (<div className="errors-container edit">{errors}</div>);
-      errorsforMyBooksSidebar = "";
-    }
-    else if (this.props.fromFieldsForm) {
-      errorsforEditPage = (<div className="errors-container">{errors}</div>)
-      errorsforMyBooksSidebar = "";
-    } else {
-      errorsforEditPage = "";
-      errorsforMyBooksSidebar = (<div className="errors-container">{errors}</div>);
-    }
-
-    let inputClassName;
-    if (this.props.fromFieldsForm) {
-      inputClassName = "from-fields-form";
-    } else {
-      inputClassName = "";
-    }
+  formInput(className) {
     return(
-      <div>
-        {errorsforEditPage}
-        <form className={`add-shelf ${additionalClassName} ${inputClassName}`} onSubmit={this.handleSubmit}>
-            <input type="text" className={inputClassName} value={this.state.shelfTitle} onChange={this.updateShelfTitle}/>
-            <button className="add-shelf">add</button>
-        </form>
-        {errorsforMyBooksSidebar}
+      <input
+        type="text"
+        className={className}
+        value={this.state.shelfTitle}
+        onChange={this.updateShelfTitle}/>
+    );
+  }
+
+  form() {
+    const { className } = this.props;
+    const additionalClassName = className ? className : "";
+    const fullClassName = `add-shelf ${additionalClassName}`;
+
+    return(
+      <form className={fullClassName} onSubmit={this.handleSubmit}>
+          {this.formInput(fullClassName)}
+          <button className="add-shelf">add</button>
+      </form>
+    );
+  }
+
+  errors() {
+    if (this.state.errors.length > 0) {
+      return(
+        <div className={`add-shelf-errors ${this.props.className}`}>
+          {this.state.errors}
+        </div>
+      );
+    } else { return ""; }
+  }
+
+  formattedErrors() {
+    const { className } = this.props;
+
+    return(
+      <div className={`errors-container ${className}`}>{this.errors()}
       </div>
     );
   }
+
+
+  render() {
+    return(<div>{this.formattedErrors()}{this.form()}</div>);
+  }
+
 }
 
 const mapStateToProps = state => {
@@ -107,9 +112,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createBookshelf: (bookshelf, userId) => { return dispatch(createBookshelf(bookshelf, userId)); },
+    createBookshelf: (bookshelf, userId) => {
+      return dispatch(createBookshelf(bookshelf, userId));
+    },
     clearErrors: () => { return dispatch(receiveErrors([])); }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddShelfForm);
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(AddShelfForm);

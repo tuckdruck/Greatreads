@@ -124,6 +124,7 @@ ul.sign-up-errors, div.add-shelf-errors, div.rename-bookshelf-errors {
 
 div.add-shelf-errors {
   padding: 0px;
+  top: -16px;
 }
 
 div.add-shelf-errors.from-fields-form {
