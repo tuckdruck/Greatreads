@@ -234,11 +234,11 @@ div.fields-form button.close {
   color: #aaaaaa;
 }
 
-div.bookshelf-items {
+div.shelf-items {
   padding: 5px 0px;
 }
 
-div.bookshelf-items:last-child {
+div.shelf-items:last-child {
   padding-bottom: 5px;
 }
 

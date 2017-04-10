@@ -15,6 +15,7 @@ class Api::BooksController < ApplicationController
   end
 
   def update
+    debugger
     if params[:book][:create] == "true"
       add_book_to_bookshelf
     else
@@ -53,7 +54,7 @@ class Api::BooksController < ApplicationController
     book_status = Status.find_by(book_id: book_id, user_id: user_id)
 
     unless book_status
-      Status.create!(book_id: book, user_id: user_id, status: "read")
+      Status.create!(book_id: book_id, user_id: user_id, status: "read")
     end
   end
 

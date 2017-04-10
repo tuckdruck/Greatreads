@@ -15,12 +15,12 @@ a.book-item img {
   margin: 5%;
 }
 
-div.book-row-index {
+div.book-row {
   display: flex;
   padding-top: 100px;
   justify-content: space-between;
 }
 
-div.book-row-index:last-child {
+div.book-row:last-child {
   padding-bottom: 100px;
 }

@@ -46,7 +46,7 @@ export default class About extends React.Component {
         {this.closeAboutButton()}
         {this.appDescription()}
         <p className="email">avitaldrucker@gmail.com</p>
-        <Icons />
+        <figure className="icon-container">{Icons()}</figure>
       </div>
     );
   }

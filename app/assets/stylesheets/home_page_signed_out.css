@@ -1,5 +1,5 @@
 .overall-header {
-  background: #E0DDCA;
+  /*background: #E0DDCA;*/
 }
 
 header.container {
@@ -7,6 +7,7 @@ header.container {
   background: inherit;
   padding-top: 0.75%;
   padding-bottom: 0.75%;
+  background: #E0DDCA;
 }
 
 header.home-signed-out {
@@ -82,6 +83,7 @@ div.sign-up {
   margin: 0 auto;
   padding-top: 1.2%;
   padding-bottom: 3.2%;
+  background: #E0DDCA;
 }
 
 .big-text {

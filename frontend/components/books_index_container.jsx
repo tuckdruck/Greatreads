@@ -28,23 +28,24 @@ class BooksIndex extends React.Component {
     return this.props.loading.booksLoading;
   }
 
-  render() {
+  bookRows() {
     const divs = [];
 
-    if (this.loading()) { return(<div className="loading"></div>); }
-    else {
-      for (let i = 0; i < this.props.books.length; i += 4) {
+    for (let i = 0; i < this.props.books.length; i++) {
+      if (i % 4 === 0) {
         divs.push(
-          <div key={i} className="book-row-index">{this.bookRow(i)}
-          </div>
+          <div key={i} className="book-row">{this.bookRow(i)}</div>
         );
       }
+    }
 
-      return(
-        <main className="main">
-          <div className="all-books">{divs}</div>
-        </main>
-      );
+    return divs;
+  }
+
+  render() {
+    if (this.loading()) { return(<div className="loading"></div>); }
+    else {
+      return(<div className="all-books">{this.bookRows()}</div>);
     }
   }
 
