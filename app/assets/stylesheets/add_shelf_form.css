@@ -15,6 +15,10 @@ form.add-shelf.from-fields-form {
   margin-top: 13px;
 }
 
+div.errors-container.from-sidebar {
+  font-size: 12px;
+}
+
 button.add-shelf {
   font-size: 12px;
   padding: 0px 10px;

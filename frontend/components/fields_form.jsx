@@ -34,7 +34,6 @@ export default class FieldsForm extends React.Component {
   }
 
   toggleShelfTagging(event) {
-    debugger
     const value = event.currentTarget.checked;
     this.props.updateBook({
       user_id: this.props.currentUser.id,
@@ -65,9 +64,9 @@ export default class FieldsForm extends React.Component {
     const { book, createStatus, updateStatus } = this.props;
 
     return (() => {
-      if (book.status) { return updateStatus(this.updatedStatus(statusName)); }
+      if (book.status) { updateStatus(this.updatedStatus(statusName)); }
       else {
-        return createStatus({ book_id: book.id, status: statusName });
+        createStatus({ book_id: book.id, status: statusName });
       }
     }).bind(this);
   }

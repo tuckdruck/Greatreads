@@ -76,7 +76,7 @@ export default class MyBooksPage extends React.Component {
   }
 
   openAddShelfForm() {
-    return(<div><h3>Add a Shelf:</h3><AddShelfFormContainer /></div>);
+    return(<div><h3>Add a Shelf:</h3><AddShelfFormContainer className="from-sidebar"/></div>);
   }
 
   closedAddShelfForm() {

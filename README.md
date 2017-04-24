@@ -65,7 +65,7 @@ User authentication is handled by the session slice of state, whereas the BooksR
 
 
 ### Books ###
-I implemented the app’s books feature through a books table, which includes title, author, and description columns. When a user is logged out, all books are fetched. When a user is logged in, books will be fetched with the logged-in user's review, the user's bookshelves attached to that book, and the user's review for that book (if any). I used conditional logic in the books controller to fetch with books information needed for a certain component, and to filter books by a certain criteria, such as a user, bookshelf, read status, or search query.
+I implemented the app’s books feature through a books table, which includes title, author, and description columns. When a user is logged out, all books are fetched. When a user is logged in, books will be fetched with the logged-in user's review (if any) and the user's bookshelves attached to that book. I used conditional logic in the books controller to fetch with books information needed for a certain component, and to filter books by a certain criteria, such as a user, bookshelf, read status, or search query.
 
 ### Read Statuses ###
 Users must provide a read status for a book in order to associate that book with bookshelves and reviews. I implemented the read status feature through a statuses table with columns for book id, user id, read status (one of “read”, “currently reading”, or “to read”), and date read. When logged in, a user’s associated books are retrieved by joining the statuses table on the users and books tables.

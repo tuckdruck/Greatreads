@@ -65,9 +65,7 @@ class AddShelfForm extends React.Component {
   }
 
   form() {
-    const { className } = this.props;
-    const additionalClassName = className ? className : "";
-    const fullClassName = `add-shelf ${additionalClassName}`;
+    const fullClassName = `add-shelf ${this.props.className}`;
 
     return(
       <form className={fullClassName} onSubmit={this.handleSubmit}>

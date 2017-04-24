@@ -9,9 +9,9 @@ ul.search-results {
 }
 
 div.search {
-  width: 33%;
+  width: 25%;
   position: relative;
-  margin-left: 11%;
+  margin-left: 2%;
   display: flex;
 }
 

@@ -21,9 +21,11 @@ div.signed-in-subheader button.looks-like-link:hover {
 nav.header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 16px;
-  width: 72%;
+  width: 76%;
   height: 48px;
+  margin: 0 auto;
 }
 
 header.logo.signed-in {
@@ -48,6 +50,7 @@ nav.header a:first-child {
 nav.header a:not(:first-child), button.looks-like-link {
   padding: 15px 16px;
 }
+
 
 nav.header a:hover:not(:first-child), button.looks-like-link:hover {
   background: #382110;
@@ -130,6 +133,15 @@ i.fa:last-child {
 figure.icon-container {
   display: flex;
   justify-content: center;
+}
+
+figure.icon-container a:first-child {
+  padding: 15px 16px;
+}
+
+figure.icon-container a:hover {
+  background: #382110;
+  color: white;
 }
 
 button.close-about {

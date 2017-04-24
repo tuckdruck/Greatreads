@@ -23,7 +23,8 @@ class Header extends React.Component {
 
   redirectToMyBooks() {
     if (this.props.pathname && this.props.pathname == "/mybooks") {
-      this.props.fetchUserBooks(this.props.currentUser.id).then(() => { this.props.selectBookshelf(null); });
+      this.props.fetchUserBooks(this.props.currentUser.id)
+        .then(() => { this.props.selectBookshelf(null); });
     } else {
       this.props.selectBookshelf(null);
       this.props.fetchUserBooks(this.props.currentUser.id);
@@ -31,54 +32,86 @@ class Header extends React.Component {
     }
   }
 
-  render() {
-    let myBooksLink;
-    let toggleSessionLink;
-    let welcomeText;
-
-    let aboutLink;
+  myBooksLink() {
     if (this.props.loggedIn) {
-      myBooksLink = (<button className="looks-like-link mybooks" onClick={this.redirectToMyBooks}>My Books</button>);
-      toggleSessionLink = (<button className="logout looks-like-link" onClick={this.props.logout}>Log Out</button>);
-      let username = this.props.currentUser.username;
-      let shortenedUsername = username.slice(0, 10);
-      if (username.length > shortenedUsername.length) {
-        shortenedUsername += "..."
-      } else {
-        shortenedUsername = username;
-      }
+      return(
+        <button className="looks-like-link mybooks"
+          onClick={this.redirectToMyBooks}
+        >
+          My Books
+        </button>
+      );
+    } else { return ""; }
+  }
 
-      welcomeText = (<span className="logout">{shortenedUsername}</span>);
-      aboutLink = (<button className="looks-like-link about" onClick={this.toggleAbout}>About</button>);
-    } else {
-      myBooksLink = "";
-      toggleSessionLink = <SignInContainer />;
-      welcomeText = "";
-      aboutLink = "";
+  toggleSessionLink() {
+    if (this.props.loggedIn) {
+      return(
+        <button className="logout looks-like-link"
+                onClick={this.props.logout}>
+          Log Out
+        </button>
+      );
     }
+    else { return(<SignInContainer />); }
+  }
 
+  welcomeText() {
+    if (this.props.loggedIn) {
+      let username = this.props.currentUser.username;
+      if (username.length > 10) {
+        username = username.slice(0, 10) + "...";
+      }
+      return(<span className="logout">{username}</span>);
+    }
+    else { return ""; }
+  }
+
+  aboutLink() {
+    if (this.props.loggedIn) {
+      return(
+        <button className="looks-like-link about"
+                onClick={this.toggleAbout}
+        >
+          About
+        </button>
+      );
+    } else {
+      return "";
+    }
+  }
+
+  aboutText() {
     let aboutText;
     if (this.state.showAbout) {
-      aboutText = <About toggleAbout={this.toggleAbout} />;
-    } else {
-      aboutText = "";
-    }
+      return(<About toggleAbout={this.toggleAbout} />);
+    } else { return ""; }
+  }
 
+  logo() {
+    return(
+      <Link to="/">
+        <h1 className="logo-signed-in">great<strong>reads</strong></h1>
+      </Link>
+    );
+  }
+
+  render() {
     return(
       <header className="logo signed-in">
-        <div className="signed-in-subheader">
+
           <nav className="header">
-            <Link to="/"><h1 className="logo-signed-in">great<strong>reads</strong></h1></Link>
+            {this.logo()}
             <Link to="/">Home</Link>
-            {myBooksLink}
+            {this.myBooksLink()}
             <Link to="/">Browse</Link>
             <SearchContainer pathname={this.props.pathname}/>
+            {this.welcomeText()}
+            {this.aboutLink()}{this.aboutText()}
+            {this.toggleSessionLink()}
           </nav>
-          {welcomeText}
-          {aboutLink}
-          {aboutText}
-          {toggleSessionLink}
-        </div>
+
+
       </header>
     );
   }

@@ -42,6 +42,7 @@ class BookShowPage extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     if (this.loggedInRefresh()) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(this.props.currentUser.id);
@@ -98,6 +99,7 @@ class BookShowPage extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     book: state.books[ownProps.params.bookId],
     loggedIn: !!state.session.currentUser,

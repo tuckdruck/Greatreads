@@ -15,7 +15,6 @@ class Api::BooksController < ApplicationController
   end
 
   def update
-    debugger
     if params[:book][:create] == "true"
       add_book_to_bookshelf
     else
