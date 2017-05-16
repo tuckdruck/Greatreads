@@ -48,7 +48,7 @@ class Search extends React.Component {
 
   selectBook(bookId) {
     return (e) => {
-        hashHistory.push(`books/${bookId}`);
+      hashHistory.push(`books/${bookId}`);
     };
   }
 

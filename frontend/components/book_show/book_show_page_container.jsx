@@ -57,6 +57,8 @@ class BookShowPage extends React.Component {
     if (this.logIn(nextProps)) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(nextProps.currentUser.id);
+    } else if (!this.props.book && !this.props.loading.booksLoading) {
+      this.props.fetchBooks();
     }
   }
 
@@ -99,7 +101,6 @@ class BookShowPage extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     book: state.books[ownProps.params.bookId],
     loggedIn: !!state.session.currentUser,
