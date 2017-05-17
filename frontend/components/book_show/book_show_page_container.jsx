@@ -42,7 +42,6 @@ class BookShowPage extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     if (this.loggedInRefresh()) {
       this.props.fetchBooks();
       this.props.fetchBookshelves(this.props.currentUser.id);
